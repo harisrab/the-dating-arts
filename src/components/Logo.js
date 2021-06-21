@@ -30,7 +30,7 @@ const LogoWrapper = styled.div`
 		font-family: "Spectral", serif;
 		font-size: 13px;
 		letter-spacing: 5.1px;
-		color: #e6e6e6;
+		color: #0a0a0a;
 		line-height: 1.2em;
 
 		span {

@@ -44,7 +44,7 @@ const PageWrapper = styled.div`
 	height: 100%;
 	width: 100%;
 
-	background-color: #0a0a0a;
+	background-color: #e6e6e6;
 
 	position: relative;
 
@@ -56,7 +56,7 @@ const PageWrapper = styled.div`
 		height: 100%;
 		width: 100%;
 
-		background-color: #0a0a0a;
+		background-color: #e6e6e6;
 
 		position: relative;
 
@@ -70,14 +70,14 @@ const MainContainer = styled.div`
 	height: 100%;
 	width: 100%;
 	border-bottom: solid 1px;
-	border-color: #ffffff11;
+	border-color: #13131367;
 
 	@media (max-device-width: 480px) {
 		height: 100%;
 
 		width: 100%;
 		border-bottom: solid 1px;
-		border-color: #ffffff11;
+		border-color: #13131367;
 		padding-bottom: 20px;
 	}
 `;
@@ -87,14 +87,14 @@ const RightContainer = styled.div`
 	flex: 1;
 
 	border-top: solid 1px;
-	border-color: #ffffff11;
+	border-color: #13131367;
 
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 
 	h1 {
-		color: #e6e6e6;
+		color: #0a0a0a;
 		font-family: "Spectral", serif;
 		font-weight: 600;
 	}
@@ -105,13 +105,13 @@ const RightContainer = styled.div`
 		flex: 1;
 
 		border-top: solid 1px;
-		border-color: #ffffff11;
+		border-color: #13131367;
 
 		display: flex;
 		flex-direction: column;
 
 		h1 {
-			color: #e6e6e6;
+			color: #0a0a0a;
 			font-family: "Spectral", serif;
 			font-weight: 600;
 			margin-top: 30px;
