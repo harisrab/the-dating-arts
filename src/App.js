@@ -1,11 +1,18 @@
-import "./App.css";
+import styled from "styled-components";
+import UnderConstructionPage from "./pages/UnderConstructionPage";
 
 function App() {
 	return (
-		<div className="App">
-			<div>This is the dating arts</div>
-		</div>
+		<AppWrapper>
+			<UnderConstructionPage />
+		</AppWrapper>
 	);
 }
 
 export default App;
+
+const AppWrapper = styled.div`
+	height: 100vh;
+	width: 100vw;
+
+`;
