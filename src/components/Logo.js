@@ -37,4 +37,31 @@ const LogoWrapper = styled.div`
 			color: #cc1414;
 		}
 	}
+
+	@media (max-device-width: 480px) {
+		width: 100vw;
+		height: 34px;
+
+		position: absolute;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		top: 50px;
+		left: 0px;
+
+		p {
+			font-family: "Spectral", serif;
+			font-size: 13px;
+			letter-spacing: 5.1px;
+			color: #e6e6e6;
+			line-height: 1.2em;
+			padding: 0px;
+
+			span {
+				color: #cc1414;
+			}
+		}
+	}
 `;

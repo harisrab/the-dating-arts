@@ -31,4 +31,25 @@ const ChecksWrapper = styled.div`
 		font-size: 20px;
 		margin-left: 25px;
 	}
+
+	@media (max-device-width: 480px) {
+		height: 50px;
+		width: 100%;
+
+		display: flex;
+		align-items: center;
+
+		.check {
+			color: ${(props) => props.color};
+			font-size: 15px;
+		}
+
+		p {
+			color: #e6e6e6;
+			font-family: "Spectral", serif;
+			font-weight: 300;
+			font-size: 15px;
+			margin-left: 25px;
+		}
+	}
 `;
