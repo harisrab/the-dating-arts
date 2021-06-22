@@ -14,27 +14,25 @@ function Logo() {
 export default Logo;
 
 const LogoWrapper = styled.div`
-	width: 236px;
+	max-width: fit-content;
 	height: 34px;
 
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 
-	position: absolute;
-
 	top: 63px;
 	left: 97px;
 
 	p {
 		font-family: "Spectral", serif;
-		font-size: 13px;
-		letter-spacing: 5.1px;
-		color: #e6e6e6;
+		font-size: 0.8125em;
+		letter-spacing: 0.31875em;
+		color: var(--logo-first-color);
 		line-height: 1.2em;
 
 		span {
-			color: #cc1414;
+			color: var(--logo-second-color);
 		}
 	}
 
@@ -55,12 +53,12 @@ const LogoWrapper = styled.div`
 			font-family: "Spectral", serif;
 			font-size: 13px;
 			letter-spacing: 5.1px;
-			color: #0a0a0a;
+			color: var(--logo-first-color);
 			line-height: 1.2em;
 			padding: 0px;
 
 			span {
-				color: #cc1414;
+				color: var(--logo-second-color);
 			}
 		}
 	}

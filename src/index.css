@@ -9,6 +9,9 @@
   --main-color-dark-black: rgb(10, 10, 10);
   --main-color-transparent-red: rgba(204, 20, 20, 0.09);
   --main-color-light-black: rgb(19, 19, 19);
+
+  --logo-first-color: var(--main-color-white);
+  --logo-second-color: #CC1414;
 }
 
 
@@ -25,6 +28,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: var(--main-color-dark-black);
+
 }
 
 code {

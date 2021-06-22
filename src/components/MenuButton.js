@@ -1,8 +1,8 @@
 import React from "react";
 import { Frame, AnimatePresence } from "framer";
 
-import styled from "styled-components";
 import CloseIcon from "@material-ui/icons/Close";
+import { useStateValue } from "../Store/StateProvider";
 
 const variants = {
 	initial: {
@@ -96,7 +96,18 @@ const lineThreeVariants = {
 	},
 };
 
-function MenuButton({ active, setActive }) {
+function MenuButton() {
+	const [{ menu }, dispatch] = useStateValue();
+
+	let active = menu.buttonStates.hamburger;
+
+	const setActive = (m) => {
+		dispatch({
+			type: "SET_HAMBURGER_STATE",
+			payload: m,
+		});
+	};
+
 	return (
 		<Frame
 			className="buttonBox"
