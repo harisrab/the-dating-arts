@@ -4,7 +4,7 @@ import CheckIcon from "@material-ui/icons/Check";
 
 function CheckSection({ text, color }) {
 	return (
-		<ChecksWrapper color={color ? "#cc1414" : "#a7a7a778"}>
+		<ChecksWrapper color={color ? "#cc1414" : "#e6e6e6"}>
 			<CheckIcon className="check" />
 			<p>{text}</p>
 		</ChecksWrapper>
@@ -25,7 +25,7 @@ const ChecksWrapper = styled.div`
 	}
 
 	p {
-		color: #0a0a0a;
+		color: #e6e6e6;
 		font-family: "Spectral", serif;
 		font-weight: 300;
 		font-size: 20px;
@@ -45,7 +45,7 @@ const ChecksWrapper = styled.div`
 		}
 
 		p {
-			color: #0a0a0a;
+			color: #e6e6e6;
 			font-family: "Spectral", serif;
 			font-weight: 300;
 			font-size: 15px;

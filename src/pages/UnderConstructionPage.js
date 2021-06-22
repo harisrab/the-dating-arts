@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Logo from "../components/Logo";
 import CheckSection from "../components/CheckSection";
+import MenuButton from "../components/MenuButton";
 
 function UnderConstructionPage() {
+	const [active, setActive] = useState(false);
+
+
+
 	return (
 		<PageWrapper>
 			<Logo />
+			<MenuButton active={active} setActive={setActive} />
 			<MainContainer>
 				<RightContainer>
 					<h1>Under Construction</h1>
@@ -44,7 +50,7 @@ const PageWrapper = styled.div`
 	height: 100%;
 	width: 100%;
 
-	background-color: #e6e6e6;
+	background-color: #0a0a0a;
 
 	position: relative;
 
@@ -56,7 +62,7 @@ const PageWrapper = styled.div`
 		height: 100%;
 		width: 100%;
 
-		background-color: #e6e6e6;
+		background-color: #0a0a0a;
 
 		position: relative;
 
@@ -77,7 +83,7 @@ const MainContainer = styled.div`
 
 		width: 100%;
 		border-bottom: solid 1px;
-		border-color: #13131367;
+		border-color: #e6e6e667;
 		padding-bottom: 20px;
 	}
 `;
@@ -86,15 +92,15 @@ const RightContainer = styled.div`
 	height: 100%;
 	flex: 1;
 
-	border-top: solid 1px;
-	border-color: #13131367;
+	/* border-top: solid 1px;
+	border-color: #e6e6e667; */
 
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 
 	h1 {
-		color: #0a0a0a;
+		color: #e6e6e6;
 		font-family: "Spectral", serif;
 		font-weight: 600;
 	}
@@ -105,13 +111,13 @@ const RightContainer = styled.div`
 		flex: 1;
 
 		border-top: solid 1px;
-		border-color: #13131367;
+		border-color: #e6e6e667;
 
 		display: flex;
 		flex-direction: column;
 
 		h1 {
-			color: #0a0a0a;
+			color: #e6e6e6;
 			font-family: "Spectral", serif;
 			font-weight: 600;
 			margin-top: 30px;
