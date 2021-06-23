@@ -4,6 +4,7 @@ import { useStateValue } from "./Store/StateProvider";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ComponentsTestScreen from "./components/ComponentsTestScreen";
 import LoadingPage from "./pages/LoadingPage";
+import Logo from "./components/Logo";
 
 function App() {
 	const [{ loader }, dispatch] = useStateValue();

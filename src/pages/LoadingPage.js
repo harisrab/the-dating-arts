@@ -13,7 +13,7 @@ const parentVariants = {
 		opacity: 1,
 		transition: {
 			when: "beforeChildren",
-			duration: 3,
+			duration: 2,
 			type: "spring",
 			ease: "easeOut",
 			delay: 1,
@@ -46,7 +46,7 @@ function LoadingPage() {
 	return (
 		<AnimatePresence>
 			{loader.isLoading === true && (
-				<Frame
+				<LoaderWrapper
 					variants={parentVariants}
 					initial={"initial"}
 					animate={"final"}
@@ -63,14 +63,14 @@ function LoadingPage() {
 							transition={{
 								duration: 2,
 								ease: "easeOut",
-								delay: 3,
+								delay: 2,
 								type: "tween",
 							}}
 							style={loadingBarStyle}
 						/>
 						<Frame style={loadingBarBackStyle} />
 					</Frame>
-				</Frame>
+				</LoaderWrapper>
 			)}
 		</AnimatePresence>
 	);
@@ -78,10 +78,23 @@ function LoadingPage() {
 
 export default LoadingPage;
 
+const LoaderWrapper = styled(Frame)`
+	height: 100vh;
+	width: 100vw;
+	background-color: var(--main-color-black);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	filter: "blur(30px)";
+`;
+
 const wrapper = {
 	height: "100vh",
 	width: "100vw",
-	backgroundColor: "none",
+	backgroundColor: "var(--main-color-black-heavy)",
 
 	display: "flex",
 	flexDirection: "column",

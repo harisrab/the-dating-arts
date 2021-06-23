@@ -21,7 +21,7 @@ const LogoWrapper = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
-	position: relative;
+	position: static;
 	z-index: 10000;
 
 	user-select: text;
@@ -43,33 +43,6 @@ const LogoWrapper = styled.div`
 
 		span {
 			color: var(--logo-second-color);
-		}
-	}
-
-	@media (max-device-width: 480px) {
-		width: 100vw;
-		height: 34px;
-
-		position: absolute;
-
-		display: flex;
-		align-items: center;
-		justify-content: center;
-
-		top: 50px;
-		left: 0px;
-
-		p {
-			font-family: "Spectral", serif;
-			font-size: 13px;
-			letter-spacing: 5.1px;
-			color: var(--logo-first-color);
-			line-height: 1.2em;
-			padding: 0px;
-
-			span {
-				color: var(--logo-second-color);
-			}
 		}
 	}
 `;
