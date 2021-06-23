@@ -15,7 +15,7 @@ function App() {
 					type: "SET_PRELOADER",
 					payload: false,
 				}),
-			2000
+			6000
 		);
 	}, [dispatch]);
 
@@ -25,15 +25,11 @@ function App() {
 		return (
 			<>
 				{loader.isLoading === false ? (
-					<Router>
-						{/* <ComponentsTestScreen /> */}
-
-						<AppWrapper>
-							<Switch>
-								<h1>From Scratch</h1>
-							</Switch>
-						</AppWrapper>
-					</Router>
+					<AppWrapper>
+						<h1 style={{ color: "var(--main-color-white)" }}>
+							Homepage
+						</h1>
+					</AppWrapper>
 				) : (
 					<LoadingPage />
 				)}

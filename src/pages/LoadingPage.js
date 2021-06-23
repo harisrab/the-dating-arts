@@ -1,53 +1,78 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "../components/Logo";
-import { Frame } from "framer";
+import { Frame, AnimatePresence } from "framer";
+import { useStateValue } from "../Store/StateProvider";
 
 const parentVariants = {
 	initial: {
 		opacity: 0,
+		filter: "blur(20px)",
 	},
 	final: {
 		opacity: 1,
+		transition: {
+			when: "beforeChildren",
+			duration: 3,
+			type: "spring",
+			ease: "easeOut",
+			delay: 1,
+		},
+		filter: "blur(0px)",
+	},
+	exit: {
+		opacity: 0,
+		scale: 0.95,
+		filter: "blur(20px)",
+		transitionEnd: {
+			display: "none",
+		},
 	},
 };
 
 const childVariants = {
 	initial: {
-		width: 0,
+		width: "0%",
 	},
 	final: {
-		width: 200,
+		width: "100%",
 	},
+	exit: {},
 };
 
 function LoadingPage() {
+	const [{ loader }, dispatch] = useStateValue();
+
 	return (
-		<Frame
-			variants={parentVariants}
-			initial={"initial"}
-			animate={"final"}
-			transition={{
-				duration: 3,
-				type: "tween",
-				ease: "easeOut",
-				delayChildren: 10,
-				when: "beforeChildren",
-			}}
-			style={wrapper}
-		>
-			<Logo />
-			<Frame style={loadingBarWrapper}>
+		<AnimatePresence>
+			{loader.isLoading === true && (
 				<Frame
-					variants={childVariants}
-					iniital={"initial"}
+					variants={parentVariants}
+					initial={"initial"}
 					animate={"final"}
-					transition={{ duration: 3, ease: "easeOut" }}
-					style={loadingBarStyle}
-				/>
-				<Frame style={loadingBarBackStyle} />
-			</Frame>
-		</Frame>
+					style={wrapper}
+					exit={"exit"}
+					transition={{ duration: 1 }}
+				>
+					<Logo />
+					<Frame style={loadingBarWrapper}>
+						<Frame
+							variants={childVariants}
+							iniital={"initial"}
+							animate={"final"}
+							transition={{
+								duration: 2,
+								ease: "easeOut",
+								delay: 3,
+								type: "tween",
+							}}
+							style={loadingBarStyle}
+						/>
+						<Frame style={loadingBarBackStyle} />
+					</Frame>
+				</Frame>
+			)}
+		</AnimatePresence>
 	);
 }
 
@@ -62,6 +87,8 @@ const wrapper = {
 	flexDirection: "column",
 	alignItems: "center",
 	justifyContent: "center",
+
+	filter: "blur(30px)",
 };
 
 const loadingBarWrapper = {
