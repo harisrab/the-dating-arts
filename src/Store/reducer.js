@@ -10,9 +10,15 @@ export const initialState = {
 			hamburger: false,
 		},
 	},
+	basket: {
+		items: 20,
+	},
 };
 
 // Selectors
+export const getNumberOfBasketItems = (basket) => {
+	return basket.items;
+};
 
 // Action Handler
 const reducer = (state, action) => {
@@ -33,8 +39,8 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				loader: {
-					isLoading: action.payload
-				}
+					isLoading: action.payload,
+				},
 			};
 
 		case "SET_USER":

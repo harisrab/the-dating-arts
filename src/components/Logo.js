@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-function Logo() {
+function Logo({ mode }) {
 	return (
-		<LogoWrapper>
-			<p>
+		<LogoWrapper mode={mode}>
+			<p mode={mode}>
 				THE DATING <span>ARTS</span>
 			</p>
 		</LogoWrapper>
@@ -28,7 +28,10 @@ const LogoWrapper = styled.div`
 		font-family: "Spectral", serif;
 		font-size: 0.8125em;
 		letter-spacing: 0.31875em;
-		color: var(--logo-first-color);
+		color: ${(props) =>
+			props.mode === "white"
+				? "var(--main-color-dark-black)"
+				: "var(--main-color-white)"};
 		line-height: 1.2em;
 
 		span {

@@ -2,7 +2,7 @@ import React from "react";
 import { Frame, AnimatePresence } from "framer";
 
 import CloseIcon from "@material-ui/icons/Close";
-import { useStateValue } from "../Store/StateProvider";
+import { useStateValue } from "../../Store/StateProvider";
 
 const variants = {
 	initial: {
@@ -12,9 +12,6 @@ const variants = {
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
 		shadow: "0px 0px 5px 0px #e6e6e6",
-		position: "absolute",
-		top: 57,
-		right: 107,
 	},
 	hover: {
 		transition: { duration: 0.2, type: "tween" },

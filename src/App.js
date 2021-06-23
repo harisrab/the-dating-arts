@@ -1,38 +1,48 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import MenuButton from "./components/MenuButton";
+
+import ShoppingCartButton from "./components/Buttons/ShoppingCartButton";
+
 import { useStateValue } from "./Store/StateProvider";
 
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
-	const [store, dispatch] = useStateValue();
+	const [{ loader }, dispatch] = useStateValue();
 
 	useEffect(() => {
 		setTimeout(
 			() =>
 				dispatch({
 					type: "SET_PRELOADER",
-					payload: !store.loader.isLoading,
+					payload: false,
 				}),
-			6000
+			2000
 		);
-	}, []);
+	}, [dispatch]);
 
 	return (
-		<ComponentCheck>
-			{/* <Logo />   */}
-			<MenuButton />
+		<Router>
+			<Switch>
+				<ComponentCheck>
+					<ShoppingCartButton />
+				</ComponentCheck>
 
-			{/* {loading === false ? (
+				<Route path="/">
+					<ComponentCheck>
+						<ShoppingCartButton />
+					</ComponentCheck>
+				</Route>
+			</Switch>
+		</Router>
+
+		/* {loader.isLoading === false ? (
 				<AppWrapper>
 					<h1>From Scratch</h1>
 				</AppWrapper>
 			) : (
 				<>
-					<h2>Loading Screen</h2>
-					<Logo />
 				</>
-			)} */}
-		</ComponentCheck>
+			)} */
 	);
 }
 
