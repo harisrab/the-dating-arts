@@ -6,8 +6,8 @@ import { useStateValue } from "../../Store/StateProvider";
 
 const variants = {
 	initial: {
-		width: 45,
-		height: 45,
+		width: "4.2vh",
+		height: "4.2vh",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -26,20 +26,20 @@ const variants = {
 
 const lineOneVariants = {
 	initial: {
-		width: 13,
-		height: 1,
+		width: "28.8%",
+		height: "2.2%",
 		backgroundColor: "#e6e6e6",
 		overflow: "visible",
 		position: "absolute",
-		top: 17,
-		right: 10,
+		top: "37.77%",
+		right: "22.22%",
 		originX: 0,
 		opacity: 0,
 	},
 
 	hover: {
-		width: 24,
-		right: 10,
+		width: "53.33%",
+		right: "22.22%",
 	},
 
 	tap: {
@@ -49,20 +49,20 @@ const lineOneVariants = {
 
 const lineTwoVariants = {
 	initial: {
-		height: 1,
-		width: 20,
+		height: "2.2%",
+		width: "44.4%",
 		backgroundColor: "#e6e6e6",
 		overflow: "visible",
 		position: "absolute",
-		top: 21,
-		right: 14,
+		top: "48.88%",
+		right: "31.11%",
 		originX: 0.5,
 		opacity: 0,
 	},
 
 	hover: {
-		width: 24,
-		right: 10,
+		width: "53.33%",
+		right: "22.22%",
 	},
 
 	tap: {
@@ -72,20 +72,20 @@ const lineTwoVariants = {
 
 const lineThreeVariants = {
 	initial: {
-		width: 13,
-		height: 1,
+		width: "28.8%",
+		height: "2.2%",
 		backgroundColor: "#e6e6e6",
 		overflow: "visible",
 		position: "absolute",
-		bottom: 17,
-		right: 10,
+		bottom: "37.77%",
+		right: "22.22%",
 		originX: 0,
 		opacity: 0,
 	},
 
 	hover: {
-		width: 24,
-		right: 10,
+		width: "53.33%",
+		right: "22.22%",
 	},
 
 	tap: {
@@ -113,25 +113,33 @@ function MenuButton() {
 			whileHover={"hover"}
 			whileTap={"tap"}
 			onClick={() => setActive(!active)}
+			style={{ position: "relative" }}
 		>
 			<AnimatePresence>
 				{active === true ? (
 					<Frame
 						key={active}
-						height={24}
-						width={24}
+						height={"100%"}
+						width={"100%"}
 						position="absolute"
-						top={10}
-						left={10}
+						top={0}
+						left={0}
 						backgroundColor="none"
 						transition={{ type: "tween", duration: 0.2 }}
 						initial={{ opacity: 0 }}
 						animate={{ opacity: 1 }}
 						exit={{ opacity: 0 }}
+						style={{
+							display: "flex",
+							alignItems: "center",
+							justifyContent: "center",
+						}}
 					>
 						<CloseIcon
 							style={{
 								color: "white",
+								height: "60%",
+								width: "60%",
 							}}
 						/>
 					</Frame>
@@ -140,20 +148,26 @@ function MenuButton() {
 						<Frame
 							variants={lineOneVariants}
 							animate={{ opacity: 1 }}
-							width={13}
+							width={"28.8%"}
+							height={"2.2%"}
 							transition={{ type: "tween" }}
+							style={{ position: "absolute" }}
 						/>
 						<Frame
 							variants={lineTwoVariants}
 							animate={{ opacity: 1 }}
-							width={20}
+							width={"44.4%"}
+							height={"2.2%"}
 							transition={{ type: "tween" }}
+							style={{ position: "absolute" }}
 						/>
 						<Frame
 							variants={lineThreeVariants}
 							animate={{ opacity: 1 }}
-							width={13}
+							width={"28.8%"}
+							height={"2.2%"}
 							transition={{ type: "tween" }}
+							style={{ position: "absolute" }}
 						/>
 					</>
 				)}

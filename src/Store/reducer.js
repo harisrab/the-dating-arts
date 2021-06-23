@@ -13,6 +13,7 @@ export const initialState = {
 	basket: {
 		items: 20,
 	},
+	user: null,
 };
 
 // Selectors

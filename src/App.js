@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-
-import ShoppingCartButton from "./components/Buttons/ShoppingCartButton";
-
 import { useStateValue } from "./Store/StateProvider";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ComponentsTestScreen from "./components/ComponentsTestScreen";
+import LoadingPage from "./pages/LoadingPage";
+
 function App() {
 	const [{ loader }, dispatch] = useStateValue();
 
@@ -20,30 +19,27 @@ function App() {
 		);
 	}, [dispatch]);
 
-	return (
-		<Router>
-			<Switch>
-				<ComponentCheck>
-					<ShoppingCartButton />
-				</ComponentCheck>
+	if (5 === 5) {
+		return <LoadingPage />;
+	} else {
+		return (
+			<>
+				{loader.isLoading === false ? (
+					<Router>
+						{/* <ComponentsTestScreen /> */}
 
-				<Route path="/">
-					<ComponentCheck>
-						<ShoppingCartButton />
-					</ComponentCheck>
-				</Route>
-			</Switch>
-		</Router>
-
-		/* {loader.isLoading === false ? (
-				<AppWrapper>
-					<h1>From Scratch</h1>
-				</AppWrapper>
-			) : (
-				<>
-				</>
-			)} */
-	);
+						<AppWrapper>
+							<Switch>
+								<h1>From Scratch</h1>
+							</Switch>
+						</AppWrapper>
+					</Router>
+				) : (
+					<LoadingPage />
+				)}
+			</>
+		);
+	}
 }
 
 export default App;
@@ -60,4 +56,15 @@ const ComponentCheck = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	.items {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		gap: 20px;
+		align-items: center;
+		width: 100%;
+		height: 80px;
+		background-color: var(--main-color-transparent-red);
+	}
 `;

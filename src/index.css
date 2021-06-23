@@ -9,9 +9,15 @@
   --main-color-dark-black: rgb(10, 10, 10);
   --main-color-transparent-red: rgba(204, 20, 20, 0.09);
   --main-color-light-black: rgb(19, 19, 19);
-
+  
   --logo-first-color: var(--main-color-white);
   --logo-second-color: #CC1414;
+  
+  
+  
+  
+  --progressbar-top-color-white: rgb(230, 230, 230); 
+  --progressbar-back-color-white: rgba(230, 230, 230, 0.301); 
 }
 
 
@@ -33,12 +39,15 @@ body {
 
 }
 
+body :not(input):not(textarea):not([contenteditable="true"]).logo {
+  user-select: text;
+  -webkit-user-select: text;
+}S
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
 
 
 
