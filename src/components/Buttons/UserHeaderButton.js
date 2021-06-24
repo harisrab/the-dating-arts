@@ -8,8 +8,8 @@ import "./UserHeaderButton.css";
 
 const variants = {
 	initial: {
-		width: "4.2vh",
-		height: "4.2vh",
+		width: "5.5vh",
+		height: "5.5vh",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -66,10 +66,12 @@ function UserHeaderButton() {
 			whileTap={"tap"}
 			onClick={moveToLogin}
 			style={{
-				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
+				// display: "flex",
+				// justifyContent: "center",
+				// alignItems: "center",
 				position: "relative",
+				overflow: "hidden",
+				pointerEvents: "auto",
 			}}
 		>
 			<AnimatePresence>
@@ -80,7 +82,7 @@ function UserHeaderButton() {
 						position={"absolute"}
 						inital={"initial"}
 						animate={"final"}
-						transition={{ type: "tween", duration: 0.4 }}
+						transition={{ type: "tween", duration: 0.8 }}
 						ease={"easeIn"}
 						height={0}
 						width={"100%"}
@@ -95,7 +97,12 @@ function UserHeaderButton() {
 							opacity: 0,
 						}}
 					>
-						<Avatar alt="Remy Sharp" src="" variant="square" />
+						<Avatar
+							style={{ position: "absolute", top: 0, left: 0 }}
+							alt="Remy Sharp"
+							src=""
+							variant="square"
+						/>
 					</Frame>
 				)}
 

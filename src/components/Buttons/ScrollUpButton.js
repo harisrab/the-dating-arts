@@ -1,14 +1,13 @@
 import React from "react";
 import { Frame, AnimatePresence } from "framer";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
-import { Avatar } from "@material-ui/core";
 import { useStateValue } from "../../Store/StateProvider";
 import { useHistory } from "react-router-dom";
 
 const variants = {
 	initial: {
-		width: "4.2vh",
-		height: "4.2vh",
+		width: "5.5vh",
+		height: "5.5vh",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -69,6 +68,7 @@ function ScrollUpButton() {
 				justifyContent: "center",
 				alignItems: "center",
 				position: "relative",
+				pointerEvents: "auto",
 			}}
 		>
 			<AnimatePresence>

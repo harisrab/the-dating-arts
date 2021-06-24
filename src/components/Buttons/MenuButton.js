@@ -6,8 +6,8 @@ import { useStateValue } from "../../Store/StateProvider";
 
 const variants = {
 	initial: {
-		width: "4.2vh",
-		height: "4.2vh",
+		width: "5.5vh",
+		height: "5.5vh",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -113,7 +113,7 @@ function MenuButton() {
 			whileHover={"hover"}
 			whileTap={"tap"}
 			onClick={() => setActive(!active)}
-			style={{ position: "relative" }}
+			style={{ position: "relative", pointerEvents: "auto" }}
 		>
 			<AnimatePresence>
 				{active === true ? (

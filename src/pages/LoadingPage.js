@@ -1,10 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "../components/Logo";
-import { Frame, AnimatePresence } from "framer";
+import { Frame, AnimatePresence, FramerTreeLayoutContext } from "framer";
 import { useStateValue } from "../Store/StateProvider";
 
 const parentVariants = {
+	initial: {},
+	final: {},
+	exit: {
+		opacity: 0,
+		scale: 0.95,
+		filter: "blur(20px)",
+		transitionEnd: {
+			display: "none",
+		},
+	},
+};
+
+const logoHolderVariants = {
 	initial: {
 		opacity: 0,
 		filter: "blur(20px)",
@@ -20,7 +33,7 @@ const parentVariants = {
 		},
 		filter: "blur(0px)",
 	},
-	exit: {
+	exits: {
 		opacity: 0,
 		scale: 0.95,
 		filter: "blur(20px)",
@@ -29,7 +42,6 @@ const parentVariants = {
 		},
 	},
 };
-
 const childVariants = {
 	initial: {
 		width: "0%",
@@ -44,63 +56,71 @@ function LoadingPage() {
 	const [{ loader }, dispatch] = useStateValue();
 
 	return (
-		<AnimatePresence>
-			{loader.isLoading === true && (
-				<LoaderWrapper
-					variants={parentVariants}
-					initial={"initial"}
-					animate={"final"}
-					style={wrapper}
-					exit={"exit"}
-					transition={{ duration: 1 }}
-				>
-					<Logo />
-					<Frame style={loadingBarWrapper}>
+		<>
+			<AnimatePresence>
+				{loader.isLoading === true && (
+					<Frame
+						variants={parentVariants}
+						initial={"initial"}
+						animate={"final"}
+						style={wrapper}
+						exit={"exit"}
+						transition={{ duration: 1 }}
+					>
 						<Frame
-							variants={childVariants}
-							iniital={"initial"}
+							style={logoHolderWrapper}
+							variants={logoHolderVariants}
+							initial={"initial"}
 							animate={"final"}
-							transition={{
-								duration: 2,
-								ease: "easeOut",
-								delay: 2,
-								type: "tween",
-							}}
-							style={loadingBarStyle}
-						/>
-						<Frame style={loadingBarBackStyle} />
+							exit={"exit"}
+						>
+							<Logo />
+							<Frame style={loadingBarWrapper}>
+								<Frame
+									variants={childVariants}
+									iniital={"initial"}
+									animate={"final"}
+									transition={{
+										duration: 2,
+										ease: "easeOut",
+										delay: 2,
+										type: "tween",
+									}}
+									style={loadingBarStyle}
+								/>
+								<Frame style={loadingBarBackStyle} />
+							</Frame>
+						</Frame>
 					</Frame>
-				</LoaderWrapper>
-			)}
-		</AnimatePresence>
+				)}
+			</AnimatePresence>
+		</>
 	);
 }
 
 export default LoadingPage;
 
-const LoaderWrapper = styled(Frame)`
-	height: 100vh;
-	width: 100vw;
-	background-color: var(--main-color-black);
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	filter: "blur(30px)";
-`;
-
 const wrapper = {
 	height: "100vh",
-	width: "100vw",
-	backgroundColor: "var(--main-color-black-heavy)",
+	width: "100%",
+	backgroundColor: "black",
 
 	display: "flex",
 	flexDirection: "column",
 	alignItems: "center",
 	justifyContent: "center",
 
+	zIndex: 51,
+};
+
+const logoHolderWrapper = {
+	height: "50%",
+	width: "50%",
+	backgroundColor: "var(--main-color-black)",
+	display: "flex",
+	alignItems: "center",
+	justifyContent: "center",
+	flexDirection: "column",
 	filter: "blur(30px)",
 };
 

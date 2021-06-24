@@ -3,7 +3,9 @@ import SocialIconsHeader from "./Buttons/SocialIconsHeader";
 import MenuButton from "./Buttons/MenuButton";
 import UserHeaderButton from "./Buttons/UserHeaderButton";
 import ScrollUpButton from "./Buttons/ScrollUpButton";
+import ShoppingCartButton from "./Buttons/ShoppingCartButton";
 import Logo from "./Logo";
+
 import styled from "styled-components";
 
 function ComponentsTestScreen() {
@@ -18,6 +20,7 @@ function ComponentsTestScreen() {
 				<MenuButton />
 				<UserHeaderButton />
 				<ScrollUpButton />
+				<ShoppingCartButton />
 			</div>
 		</ComponentCheck>
 	);

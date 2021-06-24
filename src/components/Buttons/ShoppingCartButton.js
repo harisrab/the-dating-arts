@@ -8,8 +8,8 @@ import { useLocation, useHistory } from "react-router-dom";
 
 const variants = {
 	initial: {
-		width: 45,
-		height: 45,
+		width: "5.5vh",
+		height: "5.5vh",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -31,9 +31,7 @@ const overlayVariants = {
 		opacity: 0,
 		height: "0%",
 		width: "100%",
-		positon: "absolute",
-		top: 0,
-		left: 0,
+		position: "absolute",
 		backgroundColor: "blue",
 		zIndex: 100,
 	},
@@ -44,7 +42,7 @@ const overlayVariants = {
 };
 
 function ShoppingCartButton({ value = 0 }) {
-	const [{ basket }, dispatch] = useStateValue();
+	const [{ user, basket }, dispatch] = useStateValue();
 	const location = useLocation();
 	const history = useHistory();
 
@@ -52,7 +50,11 @@ function ShoppingCartButton({ value = 0 }) {
 
 	const moveToCheckout = () => {
 		// do some fancy page switching
-		history.push("/checkout");
+		if (user) {
+			history.push("/checkout");
+		} else {
+			history.push("/login");
+		}
 	};
 
 	return (
@@ -62,11 +64,12 @@ function ShoppingCartButton({ value = 0 }) {
 			whileHover={"hover"}
 			whileTap={"tap"}
 			onClick={moveToCheckout}
+			style={{ position: "relative", pointerEvents: "auto" }}
 		>
 			<AnimatePresence>
 				{/* render this only when at the checkout page or payment page */}
 				{(location.pathname === "/checkout" ||
-					location.pathname === "/payment") && (
+					location.pathname === "/payment") & user && (
 					<Frame
 						variants={overlayVariants}
 						position={"absolute"}
@@ -85,6 +88,7 @@ function ShoppingCartButton({ value = 0 }) {
 							paddingBottom: 2,
 							color: "var(--main-color-white)",
 							overflow: "hidden",
+							
 						}}
 					>
 						<p
@@ -99,20 +103,30 @@ function ShoppingCartButton({ value = 0 }) {
 
 				<Frame
 					key={55}
-					height={24}
-					width={24}
+					height={"100%"}
+					width={"100%"}
 					position="absolute"
-					top={10}
-					left={10}
+					top={0}
+					left={0}
 					backgroundColor="none"
 					transition={{ type: "tween", duration: 0.2 }}
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
+					style={{
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+						overflow: "hidden",
+					}}
 				>
-					<ShoppingCartOutlinedIcon style={{ color: "white" }} />
-					<ItemsIndicator>
-						<p>{basketValue}</p>
-					</ItemsIndicator>
+					<ShoppingCartOutlinedIcon
+						style={{ height: "50%", color: "white" }}
+					/>
+					{basketValue > 0 && (
+						<ItemsIndicator>
+							<p>{basketValue}</p>
+						</ItemsIndicator>
+					)}
 				</Frame>
 			</AnimatePresence>
 		</Frame>
@@ -123,12 +137,12 @@ export default ShoppingCartButton;
 
 const ItemsIndicator = styled.div`
 	position: absolute;
-	height: 19px;
-	width: 19px;
+	height: 2.8vh;
+	width: 2.8vh;
 	background-color: var(--main-color-red);
 	border-radius: 50%;
-	top: -3px;
-	right: -3px;
+	top: 1px;
+	right: 1px;
 	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 
 	display: flex;
@@ -137,7 +151,7 @@ const ItemsIndicator = styled.div`
 
 	p {
 		color: var(--main-color-white);
-		font-size: 10px;
+		font-size: 55%;
 		padding: 0px;
 		margin-bottom: 1px;
 	}

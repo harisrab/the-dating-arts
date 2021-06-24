@@ -4,6 +4,7 @@ import _ from "lodash";
 export const initialState = {
 	loader: {
 		isLoading: true,
+		switchToHome: false,
 	},
 	menu: {
 		buttonStates: {
@@ -11,7 +12,7 @@ export const initialState = {
 		},
 	},
 	basket: {
-		items: 20,
+		items: 0,
 	},
 	user: null,
 };
@@ -37,10 +38,21 @@ const reducer = (state, action) => {
 			};
 
 		case "SET_PRELOADER":
+			console.log("Animation Completed");
 			return {
 				...state,
 				loader: {
 					isLoading: action.payload,
+				},
+			};
+
+		case "SET_SWITCH_TO_HOME":
+			console.log("Switched to Homepage");
+			return {
+				...state,
+				loader: {
+					...state.loader,
+					switchToHome: action.payload,
 				},
 			};
 

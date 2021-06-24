@@ -1,14 +1,11 @@
 import React from "react";
 import { Frame, AnimatePresence } from "framer";
-import styled from "styled-components";
-import PersonIcon from "@material-ui/icons/Person";
-import { useStateValue } from "../../Store/StateProvider";
 import { useHistory } from "react-router-dom";
 
 const variants = {
 	initial: {
-		width: "4.2vh",
-		height: "4.2vh",
+		width: "5.5vh",
+		height: "5.5vh",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -26,7 +23,6 @@ const variants = {
 };
 
 function SocialIconsHeader({ type = "instagram" }) {
-	const [{ user }, dispatch] = useStateValue();
 	const history = useHistory();
 
 	const moveToLogin = () => {
@@ -48,7 +44,7 @@ function SocialIconsHeader({ type = "instagram" }) {
 			whileHover={"hover"}
 			whileTap={"tap"}
 			onClick={moveToLogin}
-			style={{ position: "relative" }}
+			style={{ position: "relative", pointerEvents: "auto" }}
 		>
 			<AnimatePresence>
 				{/* render this only when at the checkout page or payment page */}
