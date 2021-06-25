@@ -4,6 +4,7 @@ import MenuButton from "./Buttons/MenuButton";
 import UserHeaderButton from "./Buttons/UserHeaderButton";
 import ScrollUpButton from "./Buttons/ScrollUpButton";
 import ShoppingCartButton from "./Buttons/ShoppingCartButton";
+import ApplyNowButton from "./Buttons/ApplyNowButton";
 import Logo from "./Logo";
 
 import styled from "styled-components";
@@ -21,6 +22,7 @@ function ComponentsTestScreen() {
 				<UserHeaderButton />
 				<ScrollUpButton />
 				<ShoppingCartButton />
+				<ApplyNowButton />
 			</div>
 		</ComponentCheck>
 	);
@@ -43,7 +45,12 @@ const ComponentCheck = styled.div`
 		gap: 20px;
 		align-items: center;
 		width: 100%;
-		height: 80px;
+		height: auto;
+		padding: 30px;
+
 		background-color: var(--main-color-transparent-red);
+
+		-webkit-flex-wrap: wrap;
+		flex-wrap: wrap;
 	}
 `;

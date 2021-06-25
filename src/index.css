@@ -12,13 +12,14 @@
   --main-color-light-black: rgb(19, 19, 19);
   
   --logo-first-color: var(--main-color-white);
-  --logo-second-color: #CC1414;
-  
-  
-  
+  --logo-second-color: #CC1414;  
   
   --progressbar-top-color-white: rgb(230, 230, 230); 
   --progressbar-back-color-white: rgba(230, 230, 230, 0.301); 
+
+  --scrollbar-handle-color: rgba(247, 247, 247, 0.171);
+  --scrollbar-handle-hover-color: rgba(247, 247, 247, 0.199);
+  --scrollbar-background-color: #85858514;
 }
 
 
@@ -49,10 +50,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-
-
-
-
-

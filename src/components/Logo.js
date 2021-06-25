@@ -21,19 +21,18 @@ const LogoWrapper = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
-	position: static;
-	z-index: 10000;
-
 	user-select: text;
 	-webkit-user-select: text;
 	pointer-events: "auto";
+
+	z-index: 1000000000;
 
 	p {
 		font-family: "Spectral", serif;
 		/* font-size: 0.8125em; */
 
-		font-size: 2vh;
-		/* font-size: 0.7rem; */
+		/* font-size: 2vh; */
+		font-size: 0.7rem;
 		letter-spacing: 0.31875em;
 		color: ${(props) =>
 			props.mode === "white"

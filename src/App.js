@@ -25,11 +25,19 @@ function App() {
 
 	return (
 		<Router>
-			<AppWrapper>
-				<LoadingPage />
-				<Header />
-				
-				<Homepage />
+			<LoadingPage />
+
+			<AppWrapper id="main-wrapper">
+				<Switch>
+					<Route path="/components-test">
+						<ComponentsTestScreen />
+					</Route>
+
+					<Route path="/">
+						<Header />
+						<Homepage />
+					</Route>
+				</Switch>
 			</AppWrapper>
 		</Router>
 	);
@@ -40,5 +48,7 @@ export default App;
 const AppWrapper = styled.div`
 	height: auto;
 	width: 100vw;
-	position: relative;
+
+	display: flex;
+	flex-direction: column;
 `;

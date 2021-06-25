@@ -113,7 +113,11 @@ function MenuButton() {
 			whileHover={"hover"}
 			whileTap={"tap"}
 			onClick={() => setActive(!active)}
-			style={{ position: "relative", pointerEvents: "auto" }}
+			style={{
+				position: "relative",
+				pointerEvents: "auto",
+				zIndex: 1000000000,
+			}}
 		>
 			<AnimatePresence>
 				{active === true ? (

@@ -1,67 +1,85 @@
-import React from "react";
-import { Frame } from "framer";
+import React, { useState } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
-const wrapperVariants = {
+const btnVariants = {
 	initial: {
-		cursor: "pointer",
+		color: "var(--main-color-white)",
+		scale: 1,
 	},
-	hover: {
-		cursor: "pointer",
+	final: {
+		color: "var(--main-color-black)",
 	},
 };
 
+const bgVariants = {
+	initial: {
+		height: "0%",
+	},
+	final: {
+		height: "103%",
+	},
+};
 function ApplyNowButton() {
+	const [didHover, setDidHover] = useState(false);
+
 	return (
-		<Frame
-			style={buttonWrapper}
-			variants={wrapperVariants}
+		<ButtonWrapper
+			variants={btnVariants}
+			onMouseEnter={() => setDidHover(true)}
+			onMouseLeave={() => setDidHover(false)}
 			initial="initial"
-			whileHover="hover"
-			transition={{ type: "tween", when: "afterChildren" }}
+			whileHover={"final"}
+			transition={{ duration: 5 }}
 		>
 			<p>Apply Now</p>
-			<Frame
-				variants={{
-					initial: {
-						height: "0%",
-					},
-					hover: {
-						height: "100%",
-					},
-				}}
-				initial={"initial"}
-				whileHover={"hover"}
-				style={slider}
-			/>
-		</Frame>
+			<AnimatedBG
+				variants={bgVariants}
+				initial="initial"
+				animate={didHover ? "final" : {}}
+				transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}
+			></AnimatedBG>
+		</ButtonWrapper>
 	);
 }
 
 export default ApplyNowButton;
 
-const buttonWrapper = {
-	height: "40px",
-	width: "130px",
-	marginTop: "30px",
-	backgroundColor: "none",
-	border: "1.5px solid var(--main-color-white)",
-	display: "flex",
-	alignItems: "center",
-	justifyContent: "center",
-	color: "var(--main-color-white)",
-	fontSize: "13px",
-	fontFamily: "Spectral",
-	position: "relative",
-	PointerEvent: "auto",
-	overflow: "hidden",
-};
+const ButtonWrapper = styled(motion.button)`
+	width: 10vw;
+	height: 3.2vw;
+	border: 1px var(--main-color-white) solid;
 
-const slider = {
-	height: "50%",
-	width: "100%",
-	position: "absolute",
-	display: "block",
-	bottom: 0,
-	backgroundColor: "white",
-	zIndex: 1,
-};
+	display: flex;
+	align-items: flex-end;
+	box-sizing: border-box;
+
+	background-color: transparent;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	position: relative;
+	color: var(--main-color-white);
+
+	p {
+		position: absolute;
+
+		z-index: 1;
+
+		width: 100%;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+`;
+
+const AnimatedBG = styled(motion.div)`
+	width: 101%;
+	height: 0%;
+	background-color: white;
+	margin-left: -1px;
+	margin-bottom: -1px;
+	position: relative;
+`;
