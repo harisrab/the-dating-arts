@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useStateValue } from "../Store/StateProvider";
 
 // Animation Variants
@@ -12,6 +12,7 @@ const wrapperVariants = {
 			duration: 2.2,
 			type: "tween",
 			ease: "easeOut",
+			delay: 0.2,
 		},
 	},
 	final: {
@@ -34,6 +35,7 @@ const backgroundVariants = {
 			duration: 0.7,
 			type: "tween",
 			ease: "easeOut",
+			delay: 0.2,
 		},
 	},
 	final: {
@@ -45,6 +47,7 @@ const backgroundVariants = {
 			ease: "easeOut",
 		},
 	},
+	exit: {},
 };
 
 const mainVariants = {
@@ -55,6 +58,8 @@ const mainVariants = {
 			duration: 0.5,
 			type: "tween",
 			ease: "easeOut",
+			when: "afterChildren",
+			delay: 0.2,
 		},
 	},
 	final: {
@@ -64,8 +69,39 @@ const mainVariants = {
 			duration: 0.7,
 			type: "tween",
 			ease: "easeOut",
+			when: "beforeChildren",
 		},
 	},
+	hover: {},
+	exit: {},
+};
+
+const listVariants = {
+	initial: {},
+	hover: {},
+	final: {},
+	exit: {
+		opacity: 0,
+		when: "afterChildren",
+		transition: { staggerChildren: 0.5, staggerDirection: -1 },
+	},
+};
+
+const listItemVariants = {
+	initial: {
+		skewX: 0,
+		scale: 1,
+	},
+	hover: {
+		skewX: 2,
+		scale: 1.05,
+		color: "var(--main-color-red)",
+		transition: {
+			duration: 0.2,
+		},
+	},
+	final: {},
+	exit: { opacity: 0, x: -20 },
 };
 
 function MainMenu() {
@@ -84,28 +120,120 @@ function MainMenu() {
 	}, [active, controls]);
 
 	return (
-		<Wrapper
-			variants={wrapperVariants}
-			initial="initial"
-			animate={controls}
-		>
-			<Background
+		<>
+			<Wrapper
+				variants={wrapperVariants}
+				initial="initial"
 				animate={controls}
-				variants={backgroundVariants}
-			></Background>
-			<Main variants={mainVariants}>
-				<List>
-					<ListItem>HOME</ListItem>
-					<ListItem>ABOUT</ListItem>
-					<ListItem>STORE</ListItem>
-					<ListItem>LIVE EXPERIENCES</ListItem>
-					<ListItem>COACHING</ListItem>
-					<ListItem>BLOG</ListItem>
-					<ListItem>CONTACT</ListItem>
-					<ListItem>ADMISSION APPLICATION</ListItem>
-				</List>
-			</Main>
-		</Wrapper>
+			>
+				<Background
+					animate={controls}
+					variants={backgroundVariants}
+				></Background>
+				<Main variants={mainVariants}>
+					<div className="top-line"></div>
+					<div className="bottom-line"></div>
+					<AnimatePresence>
+						{active && (
+							<List
+								variants={listVariants}
+								initial="initial"
+								exit={"exit"}
+							>
+								<ListItem
+									variants={listItemVariants}
+									key={1}
+									// initial="initial"
+									whileHover="hover"
+									exit="exit"
+									// exit={{ opacity: 0, x: -20 }}
+									// transition={{ duration: 0.2 }}
+								>
+									HOME
+								</ListItem>
+								<ListItem
+									key={2}
+									variants={listItemVariants}
+									// initial="initial"
+									whileHover="hover"
+									exit="exit"
+									// exit={{ opacity: 0, x: -20 }}
+									// transition={{ duration: 0.2 }}
+								>
+									ABOUT
+								</ListItem>
+								<ListItem
+									key={3}
+									variants={listItemVariants}
+									// initial="initial"
+									whileHover="hover"
+									exit="exit"
+									// exit={{ opacity: 0, x: -20 }}
+									// transition={{ duration: 0.2 }}
+								>
+									STORE
+								</ListItem>
+								<ListItem
+									key={4}
+									variants={listItemVariants}
+									// initial="initial"
+									whileHover="hover"
+									exit="exit"
+									// exit={{ opacity: 0, x: -20 }}
+									// transition={{ duration: 0.2 }}
+								>
+									LIVE EXPERIENCES
+								</ListItem>
+								<ListItem
+									key={5}
+									variants={listItemVariants}
+									// initial="initial"
+									whileHover="hover"
+									exit="exit"
+									// exit={{ opacity: 0, x: -20 }}
+									// transition={{ duration: 0.2 }}
+								>
+									COACHING
+								</ListItem>
+								<ListItem
+									key={6}
+									variants={listItemVariants}
+									// initial="initial"
+									whileHover="hover"
+									exit="exit"
+									// exit={{ opacity: 0, x: -20 }}
+									// transition={{ duration: 0.2 }}
+								>
+									BLOG
+								</ListItem>
+								<ListItem
+									key={7}
+									variants={listItemVariants}
+									// initial="initial"
+									whileHover="hover"
+									exit="exit"
+									// exit={{ opacity: 0, x: -20 }}
+									// transition={{ duration: 0.2 }}
+								>
+									CONTACT
+								</ListItem>
+								<ListItem
+									key={8}
+									variants={listItemVariants}
+									// initial="initial"
+									whileHover="hover"
+									exit="exit"
+									// exit={{ opacity: 0, x: -20 }}
+									// transition={{ duration: 0.1 }}
+								>
+									ADMISSION APPLICATION
+								</ListItem>
+							</List>
+						)}
+					</AnimatePresence>
+				</Main>
+			</Wrapper>
+		</>
 	);
 }
 
@@ -134,7 +262,7 @@ const Background = styled(motion.div)`
 	top: 0;
 	left: 0;
 
-	background-color: var(--main-color-red);
+	background-color: #800000;
 `;
 
 const Main = styled(motion.div)`
@@ -152,6 +280,28 @@ const Main = styled(motion.div)`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	.top-line {
+		height: 0.2px;
+		width: 33%;
+		background-color: #ffffff2d;
+
+		position: absolute;
+		top: 10%;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+
+	.bottom-line {
+		height: 0.5px;
+		width: 89%;
+		background-color: #ffffff2d;
+
+		position: absolute;
+		bottom: 10%;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
 `;
 
 const List = styled(motion.ul)`
@@ -169,4 +319,8 @@ const ListItem = styled(motion.li)`
 	list-style: none;
 	margin: 12px;
 	user-select: text !important;
+
+	&:hover {
+		cursor: pointer;
+	}
 `;

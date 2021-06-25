@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ApplyNowButton from "../../components/Buttons/ApplyNowButton";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import { motion } from "framer-motion";
 
 function HeroSection() {
@@ -17,17 +17,7 @@ function HeroSection() {
 				<ApplyNowButton />
 			</div>
 
-			<DownArrow
-				// initial={{ y: 0 }}
-				animate={{ y: 10 }}
-				transition={{
-					repeat: Infinity,
-					duration: 1,
-					repeatType: "reverse",
-				}}
-			>
-				<KeyboardArrowDownIcon className="downarrow" />
-			</DownArrow>
+			<AnimatedDownArrow />
 		</HeroSectionWrapper>
 	);
 }
@@ -71,22 +61,5 @@ const HeroSectionWrapper = styled.div`
 		position: absolute;
 		top: 55%;
 		left: 13%;
-	}
-`;
-
-const DownArrow = styled(motion.div)`
-	position: absolute;
-
-	left: 50%;
-	transform: translate(-50%, 0);
-
-	bottom: 8%;
-
-	width: auto;
-	height: auto;
-
-	.downarrow {
-		color: white;
-		height: 30px;
 	}
 `;

@@ -3,12 +3,13 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 
 import HeroSection from "./homepageSections/HeroSection";
+import BrandSection from "./homepageSections/BrandSection";
 
 function Homepage() {
 	return (
 		<HomePageWrapper>
 			<HeroSection />
-			<HeroSection></HeroSection>
+			<BrandSection />
 			<HeroSection></HeroSection>
 			<HeroSection></HeroSection>
 		</HomePageWrapper>
