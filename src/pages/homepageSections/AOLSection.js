@@ -147,7 +147,9 @@ const Wrapper = styled.div`
 			margin-left: 0;
 			padding: 0;
 			margin-right: 5px;
-			opacity: ${(props) => props.opacityVal};
+			&:hover {
+				cursor: pointer;
+			}
 		}
 
 		.forward {
@@ -155,7 +157,9 @@ const Wrapper = styled.div`
 			margin-left: 0;
 			padding: 0;
 			margin-left: 5px;
-			opacity: ${(props) => props.opacityVal};
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 `;

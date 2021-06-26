@@ -134,7 +134,7 @@ function MainMenu() {
 				<Main variants={mainVariants}>
 					<div className="top-line"></div>
 					<div className="bottom-line"></div>
-					<AnimatePresence>
+					<AnimatePresence exitBeforeEnter>
 						{active && (
 							<List
 								variants={listVariants}
@@ -276,7 +276,7 @@ const Background = styled(motion.div)`
 	top: 0;
 	left: 0;
 
-	background-color: #800000;
+	background-color: #380000;
 `;
 
 const Main = styled(motion.div)`
