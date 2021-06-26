@@ -1,17 +1,28 @@
 import React from "react";
-import { motion } from "framer-motion";
 import styled from "styled-components";
 
 import HeroSection from "./homepageSections/HeroSection";
 import BrandSection from "./homepageSections/BrandSection";
+import AOLSection from "./homepageSections/AOLSection.js";
+import UpcomingEvents from "./homepageSections/UpcomingEvents";
+import LiveExperiences from "./homepageSections/LiveExperiences";
+import AtHomeTraining from "./homepageSections/AtHomeTraining";
+import Testimonials from "./homepageSections/Testimonials";
+import Newsletter from "./homepageSections/Newsletter";
+import Footer from "./homepageSections/Footer";
 
 function Homepage() {
 	return (
 		<HomePageWrapper>
 			<HeroSection />
 			<BrandSection />
-			<HeroSection></HeroSection>
-			<HeroSection></HeroSection>
+			<AOLSection />
+			<UpcomingEvents />
+			<LiveExperiences />
+			<AtHomeTraining />
+			<Testimonials />
+			<Newsletter />
+			<Footer />
 		</HomePageWrapper>
 	);
 }

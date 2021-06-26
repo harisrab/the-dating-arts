@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 
 function BrandSection() {
@@ -31,7 +30,7 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
-	background-color: var(--main-color-light-black);
+	background-color: var(--main-color-dark-black);
 
 	position: relative;
 

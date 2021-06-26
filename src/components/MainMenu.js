@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useStateValue } from "../Store/StateProvider";
+import { Link } from "react-router-dom";
 
 // Animation Variants
 const wrapperVariants = {
@@ -140,94 +141,107 @@ function MainMenu() {
 								initial="initial"
 								exit={"exit"}
 							>
-								<ListItem
-									variants={listItemVariants}
-									key={1}
-									// initial="initial"
-									whileHover="hover"
-									exit="exit"
-									// exit={{ opacity: 0, x: -20 }}
-									// transition={{ duration: 0.2 }}
+								<Link to="/" style={{ textDecoration: "none" }}>
+									<ListItem
+										variants={listItemVariants}
+										key={1}
+										whileHover="hover"
+										exit="exit"
+									>
+										HOME
+									</ListItem>
+								</Link>
+								<Link
+									to="/about"
+									style={{ textDecoration: "none" }}
 								>
-									HOME
-								</ListItem>
-								<ListItem
-									key={2}
-									variants={listItemVariants}
-									// initial="initial"
-									whileHover="hover"
-									exit="exit"
-									// exit={{ opacity: 0, x: -20 }}
-									// transition={{ duration: 0.2 }}
+									<ListItem
+										key={2}
+										variants={listItemVariants}
+										whileHover="hover"
+										exit="exit"
+									>
+										ABOUT
+									</ListItem>
+								</Link>
+								<Link
+									to="/store"
+									style={{ textDecoration: "none" }}
 								>
-									ABOUT
-								</ListItem>
-								<ListItem
-									key={3}
-									variants={listItemVariants}
-									// initial="initial"
-									whileHover="hover"
-									exit="exit"
-									// exit={{ opacity: 0, x: -20 }}
-									// transition={{ duration: 0.2 }}
+									<ListItem
+										key={3}
+										variants={listItemVariants}
+										whileHover="hover"
+										exit="exit"
+									>
+										STORE
+									</ListItem>
+								</Link>
+								<Link
+									to="/experiences"
+									style={{ textDecoration: "none" }}
 								>
-									STORE
-								</ListItem>
-								<ListItem
-									key={4}
-									variants={listItemVariants}
-									// initial="initial"
-									whileHover="hover"
-									exit="exit"
-									// exit={{ opacity: 0, x: -20 }}
-									// transition={{ duration: 0.2 }}
+									<ListItem
+										key={4}
+										variants={listItemVariants}
+										whileHover="hover"
+										exit="exit"
+									>
+										LIVE EXPERIENCES
+									</ListItem>
+								</Link>
+								<Link
+									to="/coaching"
+									style={{ textDecoration: "none" }}
 								>
-									LIVE EXPERIENCES
-								</ListItem>
-								<ListItem
-									key={5}
-									variants={listItemVariants}
-									// initial="initial"
-									whileHover="hover"
-									exit="exit"
-									// exit={{ opacity: 0, x: -20 }}
-									// transition={{ duration: 0.2 }}
+									<ListItem
+										key={5}
+										variants={listItemVariants}
+										whileHover="hover"
+										exit="exit"
+									>
+										COACHING
+									</ListItem>
+								</Link>
+								<Link
+									to="/blog"
+									style={{ textDecoration: "none" }}
 								>
-									COACHING
-								</ListItem>
-								<ListItem
-									key={6}
-									variants={listItemVariants}
-									// initial="initial"
-									whileHover="hover"
-									exit="exit"
-									// exit={{ opacity: 0, x: -20 }}
-									// transition={{ duration: 0.2 }}
+									<ListItem
+										key={6}
+										variants={listItemVariants}
+										whileHover="hover"
+										exit="exit"
+									>
+										BLOG
+									</ListItem>
+								</Link>
+								<Link
+									to="/contact"
+									style={{ textDecoration: "none" }}
 								>
-									BLOG
-								</ListItem>
-								<ListItem
-									key={7}
-									variants={listItemVariants}
-									// initial="initial"
-									whileHover="hover"
-									exit="exit"
-									// exit={{ opacity: 0, x: -20 }}
-									// transition={{ duration: 0.2 }}
+									<ListItem
+										key={7}
+										variants={listItemVariants}
+										whileHover="hover"
+										exit="exit"
+									>
+										CONTACT
+									</ListItem>
+								</Link>
+								<Link
+									to="/admission"
+									style={{ textDecoration: "none" }}
 								>
-									CONTACT
-								</ListItem>
-								<ListItem
-									key={8}
-									variants={listItemVariants}
-									// initial="initial"
-									whileHover="hover"
-									exit="exit"
-									// exit={{ opacity: 0, x: -20 }}
-									// transition={{ duration: 0.1 }}
-								>
-									ADMISSION APPLICATION
-								</ListItem>
+									<ListItem
+										key={8}
+										variants={listItemVariants}
+										whileHover="hover"
+										exit="exit"
+									>
+										ADMISSION APPLICATION
+									</ListItem>
+								</Link>
 							</List>
 						)}
 					</AnimatePresence>
@@ -318,7 +332,7 @@ const ListItem = styled(motion.li)`
 	letter-spacing: 0.2em;
 	list-style: none;
 	margin: 12px;
-	user-select: text !important;
+	user-select: none;
 
 	&:hover {
 		cursor: pointer;
