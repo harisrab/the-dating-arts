@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
-import { Scroll, Frame, Stack } from "framer";
+import { Scroll } from "framer";
 import EventSummary from "../../components/EventSummary";
 
 function UpcomingEvents() {
@@ -66,6 +66,7 @@ function UpcomingEvents() {
 				</div>
 				<Scroll style={scrollDiv}>
 					<EventSummary />
+
 					<EventSummary />
 					<EventSummary />
 					<EventSummary />

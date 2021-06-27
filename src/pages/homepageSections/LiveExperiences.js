@@ -35,3 +35,4 @@ const Wrapper = styled.div`
 		transform: translate(-50%, -50%);
 	}
 `;
+ 
