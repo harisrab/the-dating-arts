@@ -5,11 +5,17 @@ import { Scroll, Frame, Stack } from "framer";
 import EventSummary from "../../components/EventSummary";
 
 function UpcomingEvents() {
-	const [currentOption, setCurrentOption] = useState("all");
+	const [currentOption, setCurrentOption] = useState(0);
 
 	const changeOption = (e) => {
-		setCurrentOption(e.target.id);
+		setCurrentOption(Number(e.target.id));
+		console.log("Clicked -->>", e.target.id);
+		console.log(typeof e.target.id);
 	};
+
+	useEffect(() => {
+		console.log("Current Option --->>", currentOption);
+	}, [currentOption]);
 
 	return (
 		<Wrapper>
@@ -22,12 +28,12 @@ function UpcomingEvents() {
 					<div className="links">
 						<div
 							onClick={changeOption}
-							id="all"
+							id={0}
 							className="selectable"
 						>
 							<p
 								style={
-									currentOption === "all" && { opacity: 1 }
+									currentOption === 0 ? { opacity: 1 } : {}
 								}
 							>
 								All
@@ -35,32 +41,43 @@ function UpcomingEvents() {
 						</div>
 						<div
 							onClick={changeOption}
-							id="results"
+							id={1}
 							className="selectable"
 						>
 							<p
 								style={
-									currentOption === "results" && {
-										opacity: 1,
-									}
+									currentOption === 1 ? { opacity: 1 } : {}
 								}
 							>
 								Results Bootcamp
 							</p>
 						</div>
+
 						<div
 							onClick={changeOption}
-							id="online"
+							id={2}
 							className="selectable"
 						>
-							<p>Online Bootcamp</p>
+							<p
+								style={
+									currentOption === 2 ? { opacity: 1 } : {}
+								}
+							>
+								Online Bootcamp
+							</p>
 						</div>
 						<div
 							onClick={changeOption}
-							id="mastery"
+							id={3}
 							className="selectable"
 						>
-							<p>Mastery 1-ON-1</p>
+							<p
+								style={
+									currentOption === 3 ? { opacity: 1 } : {}
+								}
+							>
+								Mastery 1-ON-1
+							</p>
 						</div>
 					</div>
 				</div>
@@ -157,7 +174,7 @@ const ContentWrapper = styled.div`
 					font-size: 13px;
 					font-family: "Archivo", serif;
 					opacity: 0.4;
-					transition: 0.3s ease-out;
+					transition: 0.2s ease-out;
 					pointer-events: none;
 				}
 
@@ -171,7 +188,7 @@ const ContentWrapper = styled.div`
 
 				&:active {
 					p {
-						opacity: 0.3;
+						opacity: 0.6;
 					}
 				}
 			}
