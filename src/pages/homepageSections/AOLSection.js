@@ -4,6 +4,7 @@ import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import SelectableSlider from "../../components/SelectableSlider";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { motion, AnimatePresence } from "framer-motion";
 
 const AOL_Data = [
 	{
@@ -63,14 +64,37 @@ function AOLSection() {
 				/>
 			</div>
 
-			<ContentWrapper>
-				<p className="subtitle">Areas of Learning</p>
-				<h3 className="heading">{AOL_Data[currentIndex].heading}</h3>
-				<p className="copy">{AOL_Data[currentIndex].text}</p>
-			</ContentWrapper>
+			<AnimatePresence>
+				<ContentWrapper>
+					<p className="subtitle">Areas of Learning</p>
+					<div className="h1__wrapper">
+						<motion.h3
+							key={currentIndex}
+							initial={{ opacity: 1, y: 40 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 1, type: "spring" }}
+							className="heading"
+						>
+							{AOL_Data[currentIndex].heading}
+						</motion.h3>
+					</div>
+
+					<div className="p__wrapper">
+						<motion.p
+							key={currentIndex}
+							initial={{ opacity: 0, y: 50 }}
+							animate={{ opacity: 1, y: 0 }}
+							transition={{ duration: 1, type: "spring" }}
+							className="copy"
+						>
+							{AOL_Data[currentIndex].text}
+						</motion.p>
+					</div>
+				</ContentWrapper>
+			</AnimatePresence>
 			<div className="buttons-holder">
 				<ArrowBackIcon
-					onClick={() => {
+					onClick={(e) => {
 						if (
 							(currentIndex < AOL_Data.length) &
 							(currentIndex > 0)
@@ -147,6 +171,7 @@ const Wrapper = styled.div`
 			margin-left: 0;
 			padding: 0;
 			margin-right: 5px;
+
 			&:hover {
 				cursor: pointer;
 			}
@@ -157,6 +182,7 @@ const Wrapper = styled.div`
 			margin-left: 0;
 			padding: 0;
 			margin-left: 5px;
+
 			&:hover {
 				cursor: pointer;
 			}
@@ -166,7 +192,7 @@ const Wrapper = styled.div`
 
 const ContentWrapper = styled.div`
 	width: 40vw;
-	height: fit-content;
+	height: 30vh;
 
 	position: absolute;
 	top: 50%;
@@ -179,6 +205,25 @@ const ContentWrapper = styled.div`
 
 	display: flex;
 	flex-direction: column;
+
+	.h1__wrapper {
+		height: 60px;
+		min-height: fit-content;
+		width: fit-content;
+		padding-left: 0;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+
+	.p__wrapper {
+		width: fit-content;
+		height: 25vh;
+		overflow: hidden;
+	}
 
 	.subtitle {
 		opacity: 0.38;

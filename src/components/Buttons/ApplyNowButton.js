@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 
 const btnVariants = {
 	initial: {
-		color: "var(--main-color-white)",
+		color: "rgb(230, 230, 230)",
 		scale: 1,
 	},
 	final: {
-		color: "var(--main-color-black)",
+		color: "rgb(0,0,0)",
 	},
 };
 
@@ -30,7 +30,7 @@ function ApplyNowButton() {
 			onMouseLeave={() => setDidHover(false)}
 			initial="initial"
 			whileHover={"final"}
-			transition={{ duration: 5 }}
+			transition={{ duration: 0.2 }}
 		>
 			<p>Apply Now</p>
 			<AnimatedBG

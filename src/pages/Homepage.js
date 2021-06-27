@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import HeroSection from "./homepageSections/HeroSection";
@@ -13,7 +13,7 @@ import Footer from "./homepageSections/Footer";
 
 function Homepage() {
 	return (
-		<HomePageWrapper>
+		<HomePageWrapper id="main_app">
 			<HeroSection />
 			<BrandSection />
 			<AOLSection />
@@ -33,8 +33,6 @@ const HomePageWrapper = styled.div`
 	z-index: 49;
 	height: 100vh;
 	width: 100%;
-
-	background-color: red;
 
 	display: flex;
 	flex-direction: column;
@@ -64,4 +62,5 @@ const HomePageWrapper = styled.div`
 	}
 
 	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
 `;

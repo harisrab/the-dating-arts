@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Frame, AnimatePresence } from "framer";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import { useStateValue } from "../../Store/StateProvider";
@@ -44,17 +44,27 @@ const overlayVariants = {
 function ScrollUpButton() {
 	// eslint-disable-next-line no-unused-vars
 	const [{ user }, dispatch] = useStateValue();
+	const [showBtn, setShowBtn] = useState(false);
 	const history = useHistory();
 
-	const moveToLogin = () => {
-		// do some fancy page switching
-		// if user not availabe then switch to login page, otherwise move to user profile page
-		if (user) {
-			history.push("/profile");
-		} else {
-			history.push("/login");
-		}
+	const scrollTop = () => {
+		const body = document.getElementById("main_app");
+		body.scrollTop = 0;
 	};
+
+	useEffect(() => {
+		document
+			.getElementById("main_app")
+			.addEventListener("scroll", (event) => {
+				let scroll = event.target.scrollTop;
+
+				if (scroll > 600) {
+					setShowBtn(true);
+				} else {
+					setShowBtn(false);
+				}
+			});
+	});
 
 	return (
 		<Frame
@@ -62,9 +72,9 @@ function ScrollUpButton() {
 			initial={"initial"}
 			whileHover={"hover"}
 			whileTap={"tap"}
-			onClick={moveToLogin}
+			onClick={scrollTop}
 			style={{
-				display: "flex",
+				display: showBtn ? "flex" : "none",
 				justifyContent: "center",
 				alignItems: "center",
 				position: "relative",

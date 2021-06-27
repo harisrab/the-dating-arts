@@ -14,9 +14,6 @@ import ScrollUpButton from "./Buttons/ScrollUpButton";
 import MainMenu from "./MainMenu";
 
 function Header() {
-	
-
-
 	return (
 		<>
 			<HeaderWrapper>
