@@ -11,13 +11,16 @@ import Testimonials from "./homepageSections/Testimonials";
 import Newsletter from "./homepageSections/Newsletter";
 import Footer from "./homepageSections/Footer";
 
-function Homepage() {
+function Homepage({ showEventsModal, setShowEventsModal }) {
 	return (
 		<HomePageWrapper id="main_app">
 			<HeroSection />
 			<BrandSection />
 			<AOLSection />
-			<UpcomingEvents />
+			<UpcomingEvents
+				showEventsModal={showEventsModal}
+				setShowEventsModal={setShowEventsModal}
+			/>
 			<LiveExperiences />
 			<AtHomeTraining />
 			<Testimonials />

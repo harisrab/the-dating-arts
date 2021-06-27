@@ -1,21 +1,48 @@
 import React from "react";
 import styled from "styled-components";
+import Date from "./Date";
+import Title from "./Title";
+import Location from "./Location";
+import Price from "./Price";
+import SummaryButton from "./Buttons/SummaryButton";
+import { motion } from "framer-motion";
 
-function EventSummary() {
+function EventSummary({
+	date = { start: 14, end: 16, month: "June" },
+	title = "3 Days / 2 Nights Results Bootcamp",
+	location = "Las Vegas, USA",
+	price = "4,997",
+	setShowEventsModal,
+}) {
 	return (
-		<Wrapper>
-			<DateHolder></DateHolder>
-			<TitleHolder></TitleHolder>
-			<LocationHolder></LocationHolder>
-			<PriceTag></PriceTag>
-			<ButtonHolder></ButtonHolder>
+		<Wrapper
+			initial={{ skewX: 20, y: -10, opacity: 0 }}
+			animate={{ skewX: 0, y: 0, opacity: 1 }}
+			exit={{ opacity: 0 }}
+			transition={{ duration: 0.2 }}
+		>
+			<DateHolder>
+				<Date start={date.start} end={date.end} month={date.month} />
+			</DateHolder>
+			<TitleHolder>
+				<Title text={title} />
+			</TitleHolder>
+			<LocationHolder>
+				<Location location={location} />
+			</LocationHolder>
+			<PriceTag>
+				<Price price={price} />
+			</PriceTag>
+			<ButtonHolder>
+				<SummaryButton setShowEventsModal={setShowEventsModal} />
+			</ButtonHolder>
 		</Wrapper>
 	);
 }
 
 export default EventSummary;
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
 	height: 50px;
 	width: 100%;
 
@@ -34,31 +61,38 @@ const Wrapper = styled.div`
 
 const DateHolder = styled.div`
 	height: 100%;
-	width: 9%;
-	background-color: #0000ff58;
+	width: 8%;
+
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
 `;
 
 const TitleHolder = styled.div`
 	height: 100%;
 	flex-grow: 1;
-	background-color: #ffff0050;
+	display: flex;
+	align-items: center;
 `;
 
 const LocationHolder = styled.div`
 	height: 100%;
 	width: 22%;
-	background-color: #00800047;
+	display: flex;
+	align-items: center;
 `;
 
 const PriceTag = styled.div`
 	height: 100%;
 	width: 12%;
-	background-color: #001e8075;
+	display: flex;
+	align-items: center;
 `;
 
-
 const ButtonHolder = styled.div`
-height: 100%;
-width: 13%;
-background-color: #01887d8f;
+	height: 100%;
+	width: 14%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;

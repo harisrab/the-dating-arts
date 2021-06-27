@@ -6,9 +6,11 @@ import Header from "./components/Header";
 import Homepage from "./pages/Homepage";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ComponentsTestScreen from "./components/ComponentsTestScreen";
+import EventsModal from "./components/EventsModal";
 
 function App() {
 	const [{ loader }, dispatch] = useStateValue();
+	const [showEventsModal, setShowEventsModal] = useState(false);
 
 	const animateLoadingScreenOut = () => {
 		setTimeout(() => {
@@ -34,8 +36,14 @@ function App() {
 					</Route>
 
 					<Route path="/">
-						<Header  />
+						<EventsModal
+							setShowEventsModal={setShowEventsModal}
+							showEventsModal={showEventsModal}
+						/>
+						<Header />
 						<Homepage
+							showEventsModal={showEventsModal}
+							setShowEventsModal={setShowEventsModal}
 						/>
 					</Route>
 				</Switch>

@@ -1,17 +1,88 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
-import { Scroll, Frame, Stack } from "framer";
+import { Scroll, Frame, Stack, AnimatePresence } from "framer";
 import EventSummary from "../../components/EventSummary";
+import UpcomingEventsHeader from "../../components/UpcomingEventsHeader";
+import EventsModal from "../../components/EventsModal";
 
-function UpcomingEvents() {
+function UpcomingEvents({ showEventsModal, setShowEventsModal }) {
 	const [currentOption, setCurrentOption] = useState(0);
+	const [events, setEvents] = useState([]);
 
 	const changeOption = (e) => {
 		setCurrentOption(Number(e.target.id));
-		console.log("Clicked -->>", e.target.id);
-		console.log(typeof e.target.id);
 	};
+
+	useEffect(() => {
+		const data = [
+			{
+				date: { start: 11, end: 18, month: "Jul" },
+				title: "3 Days / 2 Nights Results Bootcamp",
+				location: "Las Vegas, USA",
+				price: "4,997",
+				id: 1,
+			},
+			{
+				date: { start: 17, end: 23, month: "Jun" },
+				title: "3 Days / 2 Nights Mastery 1-ON-1",
+				location: "Miami, FL USA.",
+				price: "9,997",
+				id: 2,
+			},
+			{
+				date: { start: 9, end: 18, month: "Jun" },
+				title: "3 Days / 2 Nights Results Bootcamp",
+				location: "Las Vegas, USA",
+				price: "4,997",
+				id: 2,
+			},
+			{
+				date: { start: 23, end: 25, month: "Jul" },
+				title: "3 Days / 2 Nights Mastery 1-ON-1",
+				location: "Los Angeles, USA",
+				price: "9,997",
+				id: 3,
+			},
+			{
+				date: { start: 14, end: 16, month: "Aug" },
+				title: "3 Days Express Online Bootcamp",
+				location: "At Home",
+				price: "1,997",
+				id: 1,
+			},
+			{
+				date: { start: 14, end: 16, month: "Sept" },
+				title: "3 Days / 2 Nights Results Bootcamp",
+				location: "Las Vegas, USA",
+				price: "4,997",
+				id: 2,
+			},
+			{
+				date: { start: 14, end: 16, month: "Nov" },
+				title: "3 Days / 2 Legends Immersion",
+				location: "Las Vegas, USA",
+				price: "4,997",
+				id: 3,
+			},
+			{
+				date: { start: 14, end: 16, month: "Nov" },
+				title: "3 Days / 2 Nights Results Bootcamp",
+				location: "Las Vegas, USA",
+				price: "4,997",
+				id: 1,
+			},
+			{
+				date: { start: 10, end: 12, month: "Dec" },
+				title: "3 Days Express Online Bootcamp",
+				location: "At Home",
+				price: "1,997",
+				id: 1,
+			},
+		];
+
+		setEvents(data);
+	}, []);
 
 	useEffect(() => {
 		console.log("Current Option --->>", currentOption);
@@ -20,77 +91,47 @@ function UpcomingEvents() {
 	return (
 		<Wrapper>
 			<ContentWrapper>
-				<div className="titles">
-					<div className="title-holder">
-						<h2>Upcoming Events</h2>
-					</div>
+				<UpcomingEventsHeader
+					changeOption={changeOption}
+					currentOption={currentOption}
+				/>
 
-					<div className="links">
-						<div
-							onClick={changeOption}
-							id={0}
-							className="selectable"
-						>
-							<p
-								style={
-									currentOption === 0 ? { opacity: 1 } : {}
-								}
-							>
-								All
-							</p>
-						</div>
-						<div
-							onClick={changeOption}
-							id={1}
-							className="selectable"
-						>
-							<p
-								style={
-									currentOption === 1 ? { opacity: 1 } : {}
-								}
-							>
-								Results Bootcamp
-							</p>
-						</div>
-
-						<div
-							onClick={changeOption}
-							id={2}
-							className="selectable"
-						>
-							<p
-								style={
-									currentOption === 2 ? { opacity: 1 } : {}
-								}
-							>
-								Online Bootcamp
-							</p>
-						</div>
-						<div
-							onClick={changeOption}
-							id={3}
-							className="selectable"
-						>
-							<p
-								style={
-									currentOption === 3 ? { opacity: 1 } : {}
-								}
-							>
-								Mastery 1-ON-1
-							</p>
-						</div>
-					</div>
-				</div>
 				<Scroll style={scrollDiv}>
-					<EventSummary />
-					<EventSummary />
-					<EventSummary />
-					<EventSummary />
-					<EventSummary />
-					<EventSummary />
-					<EventSummary />
-					<EventSummary />
-					<EventSummary />
+					<AnimatePresence>
+						{currentOption === 0
+							? events.map(
+									({ date, title, location, price, id }) => (
+										<EventSummary
+											date={date}
+											title={title}
+											location={location}
+											price={price}
+											setShowEventsModal={setShowEventsModal}
+										/>
+									)
+							  )
+							: events
+									.filter(
+										(eachEvent) =>
+											currentOption === eachEvent.id
+									)
+									.map(
+										({
+											date,
+											title,
+											location,
+											price,
+											id,
+										}) => (
+											<EventSummary
+												date={date}
+												title={title}
+												location={location}
+												price={price}
+											/>
+										)
+									)}
+					</AnimatePresence>
 				</Scroll>
 			</ContentWrapper>
 			<AnimatedDownArrow />
@@ -131,69 +172,6 @@ const ContentWrapper = styled.div`
 	left: 50%;
 	top: 43%;
 	transform: translate(-50%, -50%);
-
-	.titles {
-		height: 13%;
-		width: 100%;
-		/* background-color: red; */
-		margin-bottom: 40px;
-
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-
-		color: var(--main-color-white);
-
-		.title-holder {
-			height: 100%;
-			h2 {
-				font-family: "Spectral", sans-serif;
-				font-weight: 600;
-				font-size: 35px;
-			}
-			margin-right: 60px;
-		}
-
-		.links {
-			display: flex;
-			align-items: flex-end;
-			height: 100%;
-			width: auto;
-			justify-content: space-between;
-			gap: 25px;
-			.selectable {
-				width: fit-content;
-				height: 70%;
-				display: flex;
-				align-items: flex-end;
-
-				p {
-					padding: 0;
-					margin: 0;
-
-					font-size: 13px;
-					font-family: "Archivo", serif;
-					opacity: 0.4;
-					transition: 0.2s ease-out;
-					pointer-events: none;
-				}
-
-				&:hover {
-					cursor: pointer;
-
-					p {
-						opacity: 0.7;
-					}
-				}
-
-				&:active {
-					p {
-						opacity: 0.6;
-					}
-				}
-			}
-		}
-	}
 
 	.info_summary {
 		width: 100%;
