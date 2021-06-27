@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import { Scroll, Frame, Stack, AnimatePresence } from "framer";
-import EventSummary from "../../components/EventSummary";
-import UpcomingEventsHeader from "../../components/UpcomingEventsHeader";
-import EventsModal from "../../components/EventsModal";
+import EventSummary from "../../components/events_summary_components/EventSummary";
+import UpcomingEventsHeader from "../../components/events_summary_components/UpcomingEventsHeader";
+import EventsModal from "../../components/modals/EventsModal";
 
 function UpcomingEvents({ showEventsModal, setShowEventsModal }) {
 	const [currentOption, setCurrentOption] = useState(0);
