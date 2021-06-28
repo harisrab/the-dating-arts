@@ -1,6 +1,9 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import EventsModalHeader from "./events/EventsModalHeader";
+import EventsModalContent from "./events/EventsModalContent";
+import EventsModalFooter from "./events/EventsModalFooter";
 
 const modalBGVariants = {
 	initial: {
@@ -8,19 +11,6 @@ const modalBGVariants = {
 	},
 	final: {
 		opacity: 1,
-	},
-	exit: {
-		opacity: 0,
-	},
-};
-
-const modalVariants = {
-	initial: {
-		opacity: 0,
-	},
-	final: {
-		opacity: 1,
-		pointerEvents: "none",
 	},
 	exit: {
 		opacity: 0,
@@ -37,7 +27,13 @@ function EventsModal({ setShowEventsModal, showEventsModal }) {
 					animate="final"
 					exit="exit"
 					transition={{ duration: 0.3 }}
-				></Wrapper>
+				>
+					<EventsModalHeader setShowEventsModal={setShowEventsModal}/>
+
+					<EventsModalContent />
+
+					<EventsModalFooter />
+				</Wrapper>
 			)}
 		</AnimatePresence>
 	);
@@ -59,6 +55,7 @@ const Wrapper = styled(motion.div)`
 	z-index: 100000000;
 
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 `;
