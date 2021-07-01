@@ -4,11 +4,10 @@ import { motion } from "framer-motion";
 
 const btnVariants = {
 	initial: {
-		color: "rgb(230, 230, 230)",
-		scale: 1,
+		color: "rgb(204, 20, 20)",
 	},
 	final: {
-		color: "rgb(0,0,0)",
+		color: "rgb(230, 230, 230)",
 	},
 };
 
@@ -17,11 +16,10 @@ const bgVariants = {
 		height: "0%",
 	},
 	final: {
-		height: "107%",
+		height: "103%",
 	},
 };
-
-function SummaryButton({ setShowEventsModal }) {
+function EventsAddToCartButton() {
 	const [didHover, setDidHover] = useState(false);
 
 	return (
@@ -32,9 +30,8 @@ function SummaryButton({ setShowEventsModal }) {
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
-			onClick={() => setShowEventsModal(true)}
 		>
-			<p>Explore</p>
+			<p>Add To Cart</p>
 			<AnimatedBG
 				variants={bgVariants}
 				initial="initial"
@@ -45,17 +42,16 @@ function SummaryButton({ setShowEventsModal }) {
 	);
 }
 
-export default SummaryButton;
+export default EventsAddToCartButton;
 
 const ButtonWrapper = styled(motion.button)`
-	width: 93%;
-	height: 80%;
-	border: 1px var(--main-color-white) solid;
-	border-radius: 7px;
+	width: 12vw;
+	height: 3vw;
+	border: 2px var(--main-color-red) solid;
+
 	display: flex;
 	align-items: flex-end;
 	box-sizing: border-box;
-	overflow: hidden;
 
 	background-color: transparent;
 
@@ -64,9 +60,9 @@ const ButtonWrapper = styled(motion.button)`
 	}
 
 	position: relative;
-	color: var(--main-color-white);
 
 	p {
+		color: rgb(204, 20, 20);
 		position: absolute;
 
 		z-index: 1;
@@ -75,12 +71,17 @@ const ButtonWrapper = styled(motion.button)`
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
+		/* color: #dd31d2; */
 	}
+
+	overflow: hidden;
 `;
 
 const AnimatedBG = styled(motion.div)`
-	width: 120%;
+	width: 101%;
 	height: 0%;
-	background-color: white;
+	background-color: var(--main-color-red);
+	margin-left: -1px;
+	margin-bottom: -1px;
 	position: relative;
 `;

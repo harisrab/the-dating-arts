@@ -4,7 +4,7 @@
 /* Variables */
 
 :root {
-  --main-color-red: #CC1414;
+  --main-color-red: rgb(204, 20, 20);
   --main-color-blue: rgb(4, 102, 128);
   --main-color-white: rgb(230, 230, 230); 
   --main-color-dark-black: rgb(10, 10, 10);
