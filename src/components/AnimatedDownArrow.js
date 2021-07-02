@@ -5,30 +5,33 @@ import styled from "styled-components";
 
 function AnimatedDownArrow() {
 	return (
-		<DownArrow
-			// initial={{ y: 0 }}
-			animate={{ y: 10 }}
-			transition={{
-				repeat: Infinity,
-				duration: 1,
-				repeatType: "reverse",
-			}}
-		>
-			<KeyboardArrowDownIcon className="downarrow" />
-		</DownArrow>
+		<Wrapper>
+			<DownArrow
+				// initial={{ y: 0 }}
+				animate={{ y: 10 }}
+				transition={{
+					repeat: Infinity,
+					duration: 1,
+					repeatType: "reverse",
+				}}
+			>
+				<KeyboardArrowDownIcon className="downarrow" />
+			</DownArrow>
+		</Wrapper>
 	);
 }
 
 export default AnimatedDownArrow;
 
-const DownArrow = styled(motion.div)`
+const Wrapper = styled.div`
+	width: 100%;
 	position: absolute;
-
-	left: 50%;
-	transform: translate(-50%, 0);
-
 	bottom: 8%;
+	display: flex;
+	justify-content: center;
+`;
 
+const DownArrow = styled(motion.div)`
 	width: auto;
 	height: auto;
 

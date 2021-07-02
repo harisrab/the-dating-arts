@@ -8,7 +8,7 @@ import { request, gql } from "graphql-request";
 import { useStateValue } from "../../Store/StateProvider";
 
 function UpcomingEvents() {
-	const [currentOption, setCurrentOption] = useState(0);
+	const [currentOption, setCurrentOption] = useState("all");
 	const [{ upcomingEvents }, dispatch] = useStateValue();
 
 	const changeOption = (e) => {
