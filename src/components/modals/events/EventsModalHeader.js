@@ -1,14 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import CloseIcon from "@material-ui/icons/Close";
+import { useStateValue } from "../../../Store/StateProvider";
 
 function EventsModalHeader({ setShowEventsModal }) {
+	const [{ eventModalToggle }, dispatch] = useStateValue();
+
+	const ToggleModal = () => {
+		dispatch({
+			type: "SET_MODAL_STATE",
+			payload: false,
+		});
+
+		dispatch({
+			type: "SET_SELECTED_EVENT_ID",
+			payload: "",
+		});
+	};
 	return (
 		<Wrapper>
-			<div
-				className="exit__button"
-				onClick={() => setShowEventsModal(false)}
-			>
+			<div className="exit__button" onClick={ToggleModal}>
 				<CloseIcon />
 			</div>
 		</Wrapper>
@@ -20,7 +31,6 @@ export default EventsModalHeader;
 const Wrapper = styled.div`
 	height: 10%;
 	width: 100%;
-
 
 	display: flex;
 	justify-content: flex-end;

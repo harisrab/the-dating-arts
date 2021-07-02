@@ -11,7 +11,6 @@ import EventsModal from "./components/modals/EventsModal";
 function App() {
 	// eslint-disable-next-line no-unused-vars
 	const [{ loader }, dispatch] = useStateValue();
-	const [showEventsModal, setShowEventsModal] = useState(false);
 
 	useEffect(() => {
 		const animateLoadingScreenOut = () => {
@@ -36,15 +35,9 @@ function App() {
 					</Route>
 
 					<Route path="/">
-						<EventsModal
-							setShowEventsModal={setShowEventsModal}
-							showEventsModal={showEventsModal}
-						/>
+						<EventsModal />
 						<Header />
-						<Homepage
-							showEventsModal={showEventsModal}
-							setShowEventsModal={setShowEventsModal}
-						/>
+						<Homepage />
 					</Route>
 				</Switch>
 			</AppWrapper>

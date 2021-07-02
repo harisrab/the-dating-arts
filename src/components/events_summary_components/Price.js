@@ -1,12 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
+import CurrencyFormat from "react-currency-format";
 
-function Price({ price = "4,997" }) {
+function Price({ price = "4997" }) {
 	return (
 		<Wrapper>
 			<AttachMoneyIcon style={{ color: "white" }} />
-			<p>{price}</p>
+			<p>
+				<CurrencyFormat
+					value={price}
+					displayType={"text"}
+					thousandSeparator={true}
+				/>
+			</p>
 		</Wrapper>
 	);
 }

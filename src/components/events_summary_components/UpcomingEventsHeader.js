@@ -9,22 +9,54 @@ function UpcomingEventsHeader({ changeOption, currentOption }) {
 			</div>
 
 			<div className="links">
-				<div onClick={changeOption} id={0} className="selectable">
-					<p style={currentOption === 0 ? { opacity: 1 } : {}}>All</p>
+				<div onClick={changeOption} id={"all"} className="selectable">
+					<p style={currentOption === "all" ? { opacity: 1 } : {}}>
+						All
+					</p>
 				</div>
-				<div onClick={changeOption} id={1} className="selectable">
-					<p style={currentOption === 1 ? { opacity: 1 } : {}}>
+				<div
+					onClick={changeOption}
+					id={"results_bootcamp"}
+					className="selectable"
+				>
+					<p
+						style={
+							currentOption === "results_bootcamp"
+								? { opacity: 1 }
+								: {}
+						}
+					>
 						Results Bootcamp
 					</p>
 				</div>
 
-				<div onClick={changeOption} id={2} className="selectable">
-					<p style={currentOption === 2 ? { opacity: 1 } : {}}>
+				<div
+					onClick={changeOption}
+					id={"online_bootcamp"}
+					className="selectable"
+				>
+					<p
+						style={
+							currentOption === "online_bootcamp"
+								? { opacity: 1 }
+								: {}
+						}
+					>
 						Online Bootcamp
 					</p>
 				</div>
-				<div onClick={changeOption} id={3} className="selectable">
-					<p style={currentOption === 3 ? { opacity: 1 } : {}}>
+				<div
+					onClick={changeOption}
+					id={"mastery_one_on_one"}
+					className="selectable"
+				>
+					<p
+						style={
+							currentOption === "mastery_one_on_one"
+								? { opacity: 1 }
+								: {}
+						}
+					>
 						Mastery 1-ON-1
 					</p>
 				</div>

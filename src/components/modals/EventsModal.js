@@ -4,6 +4,7 @@ import styled from "styled-components";
 import EventsModalHeader from "./events/EventsModalHeader";
 import EventsModalContent from "./events/EventsModalContent";
 import EventsModalFooter from "./events/EventsModalFooter";
+import { useStateValue } from "../../Store/StateProvider";
 
 const modalBGVariants = {
 	initial: {
@@ -18,9 +19,11 @@ const modalBGVariants = {
 };
 
 function EventsModal({ setShowEventsModal, showEventsModal }) {
+	const [{ eventModalToggle }, dispatch] = useStateValue();
+
 	return (
 		<AnimatePresence>
-			{showEventsModal && (
+			{eventModalToggle && (
 				<Wrapper
 					variants={modalBGVariants}
 					initial="initial"
@@ -28,7 +31,9 @@ function EventsModal({ setShowEventsModal, showEventsModal }) {
 					exit="exit"
 					transition={{ duration: 0.3 }}
 				>
-					<EventsModalHeader setShowEventsModal={setShowEventsModal}/>
+					<EventsModalHeader
+						setShowEventsModal={setShowEventsModal}
+					/>
 
 					<EventsModalContent />
 

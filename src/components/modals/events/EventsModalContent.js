@@ -1,47 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DASlider from "./DASlider";
 import EventsAddToCartButton from "../../Buttons/EventsAddToCartButton";
 import ModalPriceTag from "./ModalPriceTag";
 import ModalDates from "./ModalDates";
+import { useStateValue } from "../../../Store/StateProvider";
 
-function EventsModalContent({
-	url = "https://images.unsplash.com/photo-1504704911898-68304a7d2807?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
-}) {
-	const handleSliderChange = (e, val) => {
-		console.log(e.target);
-		console.log("Current Value ===>>", val);
+function EventsModalContent() {
+	const [sliderAmount, setSliderAmount] = useState(2);
+	const [{ selectedEventId, upcomingEvents }, dispatch] = useStateValue();
+
+	const event = upcomingEvents.filter((event) =>
+		event.id.includes(selectedEventId)
+	);
+
+	let {
+		heading,
+		description,
+		location,
+		pricePerPerson,
+		startDate,
+		endDate,
+		spotsAvailable,
+		image,
+		locationName,
+	} = event[0];
+
+	const date = {
+		startDate: {
+			day: String(startDate.getDate()),
+			month: startDate.toLocaleString("en-us", { month: "long" }),
+			year: String(startDate.getFullYear()),
+		},
+		endDate: {
+			day: String(endDate.getDate()),
+			month: endDate.toLocaleString("en-us", { month: "long" }),
+			year: String(endDate.getFullYear()),
+		},
 	};
+
+	startDate = `${date.startDate.month} ${date.startDate.day}, ${date.startDate.year}`;
+	endDate = `${date.endDate.month} ${date.endDate.day}, ${date.endDate.year}`;
+
+	const handleSliderChange = (e, val) => {
+		setSliderAmount(val);
+	};
+
 	return (
 		<Wrapper>
 			<BackStrip></BackStrip>
-			<ImageContainer src={url} alt="image"></ImageContainer>
+			<ImageContainer url={image.url}></ImageContainer>
 
 			<Right>
 				<div className="upper">
 					<div className="price__holder">
-						<ModalPriceTag />
-						<ModalDates />
+						<ModalPriceTag price={pricePerPerson} />
+						<ModalDates startDate={startDate} endDate={endDate} />
 					</div>
 					<Heading>
-						<h2>3 Days Express Online Bootcamp</h2>
+						<h2>{heading}</h2>
 					</Heading>
 					<Description>
-						<p>
-							Here's to the crazy ones. The misfits. The rebels.
-							The troublemakers. The round pegs in the square
-							holes. The ones who see things differently. They're
-							not fond of rules. And they have no respect for the
-							status quo. You can quote them, disagree with them,
-							glorify or vilify them.{" "}
-						</p>
+						<p>{description}</p>
 					</Description>
 
 					<Location>
 						{" "}
 						<p>
 							<b>Location: </b>
-							<a href="#">Miami, LF USA</a>
+							<a
+								href={`https://maps.google.com/?q=${location.latitude},${location.longitude}`}
+								target="_blank"
+								rel="noreferrer"
+							>
+								{locationName}
+							</a>
 						</p>
 					</Location>
 				</div>
@@ -49,24 +82,24 @@ function EventsModalContent({
 				<div className="lower">
 					<Availability>
 						<p>
-							<b>Availability:</b> 10
+							<b>Availability:</b> {spotsAvailable}
 						</p>
 					</Availability>
 
 					<DASlider
-						defaultValue={1}
+						defaultValue={sliderAmount}
 						marks={true}
 						step={1}
 						min={0}
-						max={10}
+						max={spotsAvailable}
 						onChange={handleSliderChange}
 					/>
 
 					<SaveSpots>
-						Buy spots for <b>4</b> persons
+						Buy spots for <b>{sliderAmount}</b> persons
 					</SaveSpots>
 
-					<EventsAddToCartButton style={{ color: "red" }} />
+					<EventsAddToCartButton />
 				</div>
 			</Right>
 		</Wrapper>
@@ -96,12 +129,19 @@ const BackStrip = styled.div`
 	z-index: -1;
 `;
 
-const ImageContainer = styled.img`
-	height: 100%;
+const ImageContainer = styled.div`
+	max-height: 100%;
+	min-height: 100%;
+
 	width: 35%;
-	background-color: red;
+	background-color: black;
 	margin-left: 6%;
 	object-fit: cover;
+
+	background-image: url(${(props) => props.url});
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 `;
 
 const Right = styled.div`
@@ -139,10 +179,11 @@ const Right = styled.div`
 		position: absolute;
 		width: 100%;
 		height: 15%;
-		background-color: red;
 
 		top: 50%;
 		transform: translate(0, -50%);
+
+		display: flex;
 	}
 `;
 

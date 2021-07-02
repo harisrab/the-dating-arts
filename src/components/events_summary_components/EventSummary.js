@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Date from "./Date";
 import Title from "./Title";
@@ -7,13 +7,45 @@ import Price from "./Price";
 import SummaryButton from "../Buttons/SummaryButton";
 import { motion } from "framer-motion";
 
-function EventSummary({
-	date = { start: 14, end: 16, month: "June" },
-	title = "3 Days / 2 Nights Results Bootcamp",
-	location = "Las Vegas, USA",
-	price = "4,997",
-	setShowEventsModal,
-}) {
+function EventSummary({ event, setShowEventsModal }) {
+	let {
+		heading,
+		description,
+		location,
+		pricePerPerson,
+		startDate,
+		endDate,
+		spotsAvailable,
+		id,
+		locationName,
+	} = event;
+
+	// startDate = new Date(startDate);
+	// endDate = new Date(endDate);
+
+	const date = {
+		startDate: {
+			day:
+				String(startDate.getDate()).length === 1
+					? "0" + String(startDate.getDate())
+					: String(startDate.getDate()),
+			month: startDate.toLocaleString("en-us", { month: "short" }),
+			year: String(startDate.getFullYear()),
+		},
+		endDate: {
+			day:
+				String(endDate.getDate()).length === 1
+					? "0" + String(endDate.getDate())
+					: String(endDate.getDate()),
+			month: endDate.toLocaleString("en-us", { month: "short" }),
+			year: String(endDate.getFullYear()),
+		},
+	};
+
+	// useEffect(() => {
+	// 	console.log(new Date("2020/2/29"));
+	// }, []);
+
 	return (
 		<Wrapper
 			initial={{ skewX: 20, y: -10, opacity: 0 }}
@@ -22,19 +54,26 @@ function EventSummary({
 			transition={{ duration: 0.2 }}
 		>
 			<DateHolder>
-				<Date start={date.start} end={date.end} month={date.month} />
+				<Date
+					start={date.startDate.day}
+					end={date.endDate.day}
+					month={date.startDate.month}
+				/>
 			</DateHolder>
 			<TitleHolder>
-				<Title text={title} />
+				<Title text={heading} />
 			</TitleHolder>
 			<LocationHolder>
-				<Location location={location} />
+				<Location location={locationName} />
 			</LocationHolder>
 			<PriceTag>
-				<Price price={price} />
+				<Price price={pricePerPerson} />
 			</PriceTag>
 			<ButtonHolder>
-				<SummaryButton setShowEventsModal={setShowEventsModal} />
+				<SummaryButton
+					setShowEventsModal={setShowEventsModal}
+					id={id}
+				/>
 			</ButtonHolder>
 		</Wrapper>
 	);

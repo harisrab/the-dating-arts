@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useStateValue } from "../../Store/StateProvider";
 
 const btnVariants = {
 	initial: {
@@ -21,8 +22,25 @@ const bgVariants = {
 	},
 };
 
-function SummaryButton({ setShowEventsModal }) {
+function SummaryButton({ setShowEventsModal, id }) {
 	const [didHover, setDidHover] = useState(false);
+	const [{ eventModalToggle }, dispatch] = useStateValue();
+
+	const toggleModal = (e, id) => {
+		// Toggle Modal
+		dispatch({
+			type: "SET_MODAL_STATE",
+			payload: true,
+		});
+
+		// Set Selected ID
+		dispatch({
+			type: "SET_SELECTED_EVENT_ID",
+			payload: id,
+		});
+
+		console.log("Data Dispatched");
+	};
 
 	return (
 		<ButtonWrapper
@@ -30,9 +48,9 @@ function SummaryButton({ setShowEventsModal }) {
 			onMouseEnter={() => setDidHover(true)}
 			onMouseLeave={() => setDidHover(false)}
 			initial="initial"
-			whileHover={"final"}
+			whileHover="final"
 			transition={{ duration: 0.2 }}
-			onClick={() => setShowEventsModal(true)}
+			onClick={() => toggleModal(true, id)}
 		>
 			<p>Explore</p>
 			<AnimatedBG
@@ -79,7 +97,8 @@ const ButtonWrapper = styled(motion.button)`
 `;
 
 const AnimatedBG = styled(motion.div)`
-	width: 120%;
+	width: 100%;
+
 	height: 0%;
 	background-color: white;
 	position: relative;

@@ -15,6 +15,9 @@ export const initialState = {
 		items: 0,
 	},
 	user: null,
+	upcomingEvents: [],
+	eventModalToggle: false,
+	selectedEventId: "",
 };
 
 // Selectors
@@ -56,8 +59,23 @@ const reducer = (state, action) => {
 				},
 			};
 
-		case "SET_USER":
-			return state;
+		case "SET_MODAL_STATE":
+			return {
+				...state,
+				eventModalToggle: action.payload,
+			};
+
+		case "SET_SELECTED_EVENT_ID":
+			return {
+				...state,
+				selectedEventId: action.payload,
+			};
+
+		case "UPDATE_UPCOMING_EVENTS":
+			return {
+				...state,
+				upcomingEvents: action.payload,
+			};
 
 		default:
 			return state;

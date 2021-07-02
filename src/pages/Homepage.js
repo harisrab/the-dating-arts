@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import HeroSection from "./homepageSections/HeroSection";
@@ -11,16 +11,13 @@ import Testimonials from "./homepageSections/Testimonials";
 import Newsletter from "./homepageSections/Newsletter";
 import Footer from "./homepageSections/Footer";
 
-function Homepage({ showEventsModal, setShowEventsModal }) {
+function Homepage() {
 	return (
 		<HomePageWrapper id="main_app">
 			<HeroSection />
 			<BrandSection />
 			<AOLSection />
-			<UpcomingEvents
-				showEventsModal={showEventsModal}
-				setShowEventsModal={setShowEventsModal}
-			/>
+			<UpcomingEvents />
 			<LiveExperiences />
 			<AtHomeTraining />
 			<Testimonials />
