@@ -10,9 +10,10 @@ function SelectableSlider({ length = 5, currentIndex = 1, setCurrentIndex }) {
 					<motion.div
 						className="clickable"
 						onClick={() => setCurrentIndex(i)}
+						key={i}
 					>
 						<motion.div
-							key={i}
+							key={i + 20}
 							id={i}
 							className={`selector selector_${i}`}
 							style={

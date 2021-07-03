@@ -27,29 +27,36 @@ function AtHomeTraining() {
 
 		request(URL, query)
 			.then((data) => {
-				console.log(data.atHomeTrainings);
+				// console.log(data.atHomeTrainings);
 				setTrainings(data.atHomeTrainings);
 			})
 			.catch((error) => console.log(error));
 	}, []);
 
 	return (
-		<Wrapper>
-			<Header>
-				<h1>At Home Training</h1>
-				<p>
-					"While the masses spin around hamster wheels and end up in
-					anonymous graves, you’ll be taking a private escalator right
-					to the top with me as your personal coach"
-				</p>
-			</Header>
-			<CardsHolder>
-				{trainings.map((training, i) => {
-					return <TrainingCard training={training} key={i} />;
-				})}
-			</CardsHolder>
-			<AnimatedDownArrow />
-		</Wrapper>
+		<>
+			{trainings.length === 0 ? (
+				<></>
+			) : (
+				<Wrapper>
+					<Header>
+						<h1>At Home Training</h1>
+						<p>
+							"While the masses spin around hamster wheels and end
+							up in anonymous graves, you’ll be taking a private
+							escalator right to the top with me as your personal
+							coach"
+						</p>
+					</Header>
+					<CardsHolder>
+						{trainings.map((training, i) => {
+							return <TrainingCard training={training} key={i} />;
+						})}
+					</CardsHolder>
+					<AnimatedDownArrow />
+				</Wrapper>
+			)}
+		</>
 	);
 }
 

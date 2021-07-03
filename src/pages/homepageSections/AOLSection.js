@@ -1,128 +1,115 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import SelectableSlider from "../../components/SelectableSlider";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { motion, AnimatePresence } from "framer-motion";
-
-const AOL_Data = [
-	{
-		id: 32,
-		heading: "Masterclass Breakout",
-		text:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae ultricies nisl. Nam id tellus quam. In necsapien eros. Etiam lacinia metus ut iaculis dictum. Nam quisjusto dignissim, elementum eros id, dignissim dui. In laoreet nunc nibh. Morbi non sodales urna. In sit amet blandit justo.",
-		image_url: "#",
-	},
-	{
-		id: 33,
-		heading: "3 Days / 2 Nights",
-		text:
-			"In necsapien eros. Etiam lacinia metus ut iaculis dictum. Nam quisjusto dignissim, elementum eros id, dignissim dui. In laoreet nunc nibh, sit amet placerat eros finibus et. Morbi non sodales urna. In sit amet blandit justo.",
-		image_url: "#",
-	},
-	{
-		id: 34,
-		heading: "Online Bootcamp",
-		text:
-			"Suspendisse vitae ultricies nisl. Nam id tellus quam. In necsapien eros. Etiam lacinia metus ut iaculis dictum. Nam quisjusto dignissim, elementum eros id, dignissim dui. In laoreet nunc nibh, sit amet placerat eros finibus et. Morbi non sodales urna. In sit amet blandit justo.",
-		image_url: "#",
-	},
-	{
-		id: 35,
-		heading: "Live Experiences",
-		text:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae ultricies nisl. Nam id tellus quam. In necsapien eros. Etiam lacinia metus ut iaculis dictum. Nam quisjusto dignissim, elementum eros id, dignissim dui. In laoreet nunc nibh,  In sit amet blandit justo.",
-		image_url: "#",
-	},
-	{
-		id: 36,
-		heading: "Genuine Masters",
-		text:
-			"Lorem ipsum dolor sit amet, Nam quisjusto dignissim, elementum eros id, dignissim dui. In laoreet nunc nibh, sit amet placerat eros finibus et. Morbi non sodales urna. In sit amet blandit justo. consectetur adipiscing elit. Suspendisse vitae ultricies nisl. Nam id tellus quam. In necsapien eros. Etiam lacinia metus ut iaculis dictum. ",
-		image_url: "#",
-	},
-	{
-		id: 37,
-		heading: "Masterclass Breakout Finale",
-		text:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae ultricies nisl. Nam id tellus quam. In necsapien eros. Etiam lacinia metus ut iaculis dictum. Nam quisjusto dignissim, elementum eros id, dignissim dui. In laoreet nunc nibh, sit amet placerat eros finibus et. Morbi non sodales urna. In sit amet blandit justo.",
-		image_url: "#",
-	},
-];
+import { request, gql } from "graphql-request";
 
 function AOLSection() {
 	const [currentIndex, setCurrentIndex] = useState(0);
+
+	const [AOL, setAOL] = useState([]);
+
+	useEffect(() => {
+		const URL =
+			"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
+
+		const query = gql`
+			{
+				areasOfLearnings {
+					title
+					description
+				}
+			}
+		`;
+
+		request(URL, query)
+			.then((data) => {
+				console.log("Data AOL ====>", data.areasOfLearnings[2].title);
+
+				setAOL(data.areasOfLearnings);
+			})
+			.catch((error) => console.log(error));
+	}, []);
 
 	return (
 		<Wrapper>
 			<div className="sliderbar-holder">
 				<SelectableSlider
-					length={AOL_Data.length}
+					length={AOL.length}
 					currentIndex={currentIndex}
 					setCurrentIndex={setCurrentIndex}
 				/>
 			</div>
 
-			<AnimatePresence>
-				<ContentWrapper>
-					<p className="subtitle">Areas of Learning</p>
-					<div className="h1__wrapper">
-						<motion.h3
-							key={currentIndex}
-							initial={{ opacity: 1, y: 40 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 1, type: "spring" }}
-							className="heading"
-						>
-							{AOL_Data[currentIndex].heading}
-						</motion.h3>
-					</div>
+			{AOL.length !== 0 ? (
+				<>
+					<AnimatePresence>
+						<ContentWrapper>
+							<p className="subtitle">Areas of Learning</p>
+							<div className="h1__wrapper">
+								<motion.h3
+									key={currentIndex}
+									initial={{ opacity: 1, y: 40 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 1, type: "spring" }}
+									className="heading"
+								>
+									{AOL[currentIndex].title}
+								</motion.h3>
+							</div>
 
-					<div className="p__wrapper">
-						<motion.p
-							key={currentIndex}
-							initial={{ opacity: 0, y: 50 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 1, type: "spring" }}
-							className="copy"
-						>
-							{AOL_Data[currentIndex].text}
-						</motion.p>
+							<div className="p__wrapper">
+								<motion.p
+									key={currentIndex}
+									initial={{ opacity: 0, y: 50 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ duration: 1, type: "spring" }}
+									className="copy"
+								>
+									{AOL[currentIndex].description}
+								</motion.p>
+							</div>
+						</ContentWrapper>
+					</AnimatePresence>
+					<div className="buttons-holder">
+						<ArrowBackIcon
+							onClick={(e) => {
+								if (
+									(currentIndex < AOL.length) &
+									(currentIndex > 0)
+								) {
+									setCurrentIndex(currentIndex - 1);
+								}
+							}}
+							className="back"
+							style={
+								currentIndex === 0
+									? { opacity: 0.21 }
+									: { opacity: 1 }
+							}
+						/>
+						<ArrowForwardIcon
+							onClick={() => {
+								if (currentIndex < AOL.length - 1) {
+									setCurrentIndex(currentIndex + 1);
+								}
+							}}
+							className="forward"
+							style={
+								currentIndex === AOL.length - 1
+									? { opacity: 0.21 }
+									: { opacity: 1 }
+							}
+						/>
 					</div>
-				</ContentWrapper>
-			</AnimatePresence>
-			<div className="buttons-holder">
-				<ArrowBackIcon
-					onClick={(e) => {
-						if (
-							(currentIndex < AOL_Data.length) &
-							(currentIndex > 0)
-						) {
-							setCurrentIndex(currentIndex - 1);
-						}
-					}}
-					className="back"
-					style={
-						currentIndex === 0 ? { opacity: 0.21 } : { opacity: 1 }
-					}
-				/>
-				<ArrowForwardIcon
-					onClick={() => {
-						if (currentIndex < AOL_Data.length - 1) {
-							setCurrentIndex(currentIndex + 1);
-						}
-					}}
-					className="forward"
-					style={
-						currentIndex === AOL_Data.length - 1
-							? { opacity: 0.21 }
-							: { opacity: 1 }
-					}
-				/>
-			</div>
-
-			<AnimatedDownArrow />
+					<AnimatedDownArrow />{" "}
+				</>
+			) : (
+				<></>
+			)}
 		</Wrapper>
 	);
 }

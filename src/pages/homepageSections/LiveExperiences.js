@@ -23,35 +23,43 @@ function LiveExperiences() {
 
 		request(URL, query)
 			.then((data) => {
-				console.log(data.liveExperiences);
+				// console.log(data.liveExperiences);
 				setExperiences(data.liveExperiences);
 			})
 			.catch((error) => console.log(error));
 	}, []);
 
 	return (
-		<Wrapper>
-			<Header>
-				<h1>Live Experiences</h1>
-				<p>
-					You don't get in life what you want. You get in life what
-					you are.
-				</p>
-			</Header>
-			<CardsHolder>
-				{experiences.map(({ titleTag, mainTitle, description }, i) => {
-					return (
-						<Card
-							titleTag={titleTag}
-							mainTitle={mainTitle}
-							description={description}
-							key={i}
-						/>
-					);
-				})}
-			</CardsHolder>
-			<AnimatedDownArrow />
-		</Wrapper>
+		<>
+			{experiences.length === 0 ? (
+				<></>
+			) : (
+				<Wrapper>
+					<Header>
+						<h1>Live Experiences</h1>
+						<p>
+							You don't get in life what you want. You get in life
+							what you are.
+						</p>
+					</Header>
+					<CardsHolder>
+						{experiences.map(
+							({ titleTag, mainTitle, description }, i) => {
+								return (
+									<Card
+										titleTag={titleTag}
+										mainTitle={mainTitle}
+										description={description}
+										key={i}
+									/>
+								);
+							}
+						)}
+					</CardsHolder>
+					<AnimatedDownArrow />
+				</Wrapper>
+			)}
+		</>
 	);
 }
 

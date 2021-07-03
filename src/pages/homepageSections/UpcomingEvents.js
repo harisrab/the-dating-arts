@@ -52,9 +52,6 @@ function UpcomingEvents() {
 					};
 				});
 
-				console.log("Old Data =====> ", data.upcomingEvents);
-				console.log("Modified Data =====> ", newData);
-
 				dispatch({
 					type: "UPDATE_UPCOMING_EVENTS",
 					payload: newData,
@@ -64,38 +61,45 @@ function UpcomingEvents() {
 	}, [dispatch]);
 
 	return (
-		<Wrapper>
-			<ContentWrapper>
-				<UpcomingEventsHeader
-					changeOption={changeOption}
-					currentOption={currentOption}
-				/>
+		<>
+			{upcomingEvents.length === 0 ? (
+				<></>
+			) : (
+				<Wrapper>
+					<ContentWrapper>
+						<UpcomingEventsHeader
+							changeOption={changeOption}
+							currentOption={currentOption}
+						/>
 
-				<Scroll style={scrollDiv}>
-					<AnimatePresence>
-						{currentOption === "all"
-							? upcomingEvents.map((event) => (
-									<EventSummary
-										event={event}
-										key={event.id}
-									/>
-							  ))
-							: upcomingEvents
-									.filter(
-										(eachEvent) =>
-											currentOption === eachEvent.type
-									)
-									.map((event) => (
-										<EventSummary
-											event={event}
-											key={event.id}
-										/>
-									))}
-					</AnimatePresence>
-				</Scroll>
-			</ContentWrapper>
-			<AnimatedDownArrow />
-		</Wrapper>
+						<Scroll style={scrollDiv}>
+							<AnimatePresence>
+								{currentOption === "all"
+									? upcomingEvents.map((event) => (
+											<EventSummary
+												event={event}
+												key={event.id}
+											/>
+									  ))
+									: upcomingEvents
+											.filter(
+												(eachEvent) =>
+													currentOption ===
+													eachEvent.type
+											)
+											.map((event) => (
+												<EventSummary
+													event={event}
+													key={event.id}
+												/>
+											))}
+							</AnimatePresence>
+						</Scroll>
+					</ContentWrapper>
+					<AnimatedDownArrow />
+				</Wrapper>
+			)}
+		</>
 	);
 }
 

@@ -5,7 +5,6 @@ function Footer() {
 	return (
 		<Wrapper>
 			<h1>Footer</h1>
-			
 		</Wrapper>
 	);
 }
@@ -17,10 +16,7 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
-	background-image: url("homepage/generic_bg.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	background-color: var(--main-color-black);
 
 	position: relative;
 
