@@ -148,20 +148,7 @@ function MainMenu() {
 										whileHover="hover"
 										exit="exit"
 									>
-										HOME
-									</ListItem>
-								</Link>
-								<Link
-									to="/about"
-									style={{ textDecoration: "none" }}
-								>
-									<ListItem
-										key={2}
-										variants={listItemVariants}
-										whileHover="hover"
-										exit="exit"
-									>
-										ABOUT
+										Home
 									</ListItem>
 								</Link>
 								<Link
@@ -174,11 +161,11 @@ function MainMenu() {
 										whileHover="hover"
 										exit="exit"
 									>
-										STORE
+										Store
 									</ListItem>
 								</Link>
 								<Link
-									to="/experiences"
+									to="/live-experiences"
 									style={{ textDecoration: "none" }}
 								>
 									<ListItem
@@ -187,7 +174,7 @@ function MainMenu() {
 										whileHover="hover"
 										exit="exit"
 									>
-										LIVE EXPERIENCES
+										Live Experiences
 									</ListItem>
 								</Link>
 								<Link
@@ -200,20 +187,33 @@ function MainMenu() {
 										whileHover="hover"
 										exit="exit"
 									>
-										COACHING
+										At Home Trainings
 									</ListItem>
 								</Link>
 								<Link
-									to="/blog"
+									to="/about-tda"
 									style={{ textDecoration: "none" }}
 								>
 									<ListItem
-										key={6}
+										key={2}
 										variants={listItemVariants}
 										whileHover="hover"
 										exit="exit"
 									>
-										BLOG
+										About The Dating Arts
+									</ListItem>
+								</Link>
+								<Link
+									to="/about-colgate"
+									style={{ textDecoration: "none" }}
+								>
+									<ListItem
+										key={2}
+										variants={listItemVariants}
+										whileHover="hover"
+										exit="exit"
+									>
+										About Colagte
 									</ListItem>
 								</Link>
 								<Link
@@ -226,7 +226,7 @@ function MainMenu() {
 										whileHover="hover"
 										exit="exit"
 									>
-										CONTACT
+										Contact
 									</ListItem>
 								</Link>
 								<Link
@@ -239,7 +239,7 @@ function MainMenu() {
 										whileHover="hover"
 										exit="exit"
 									>
-										ADMISSION APPLICATION
+										Admission Application
 									</ListItem>
 								</Link>
 							</List>
@@ -326,10 +326,10 @@ const List = styled(motion.ul)`
 
 const ListItem = styled(motion.li)`
 	color: var(--main-color-white);
-	font-size: 0.7em;
-	font-weight: 700;
+	font-size: 17px;
+	font-weight: 400;
 	font-family: "Spectral";
-	letter-spacing: 0.2em;
+	letter-spacing: 1px;
 	list-style: none;
 	margin: 12px;
 	user-select: none;
