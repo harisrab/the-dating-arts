@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
+import { useHistory } from "react-router-dom";
+
 import { useStateValue } from "../Store/StateProvider";
 
 import { useAnimation } from "framer-motion";
@@ -14,6 +16,8 @@ import ScrollUpButton from "./Buttons/ScrollUpButton";
 import MainMenu from "./MainMenu";
 
 function Header() {
+	const history = useHistory();
+
 	return (
 		<>
 			<HeaderWrapper>
@@ -21,7 +25,7 @@ function Header() {
 
 				<TopSection>
 					<LogoHolder>
-						<Logo />
+						<Logo onClick={() => history.push("/")} />
 					</LogoHolder>
 					<RightSection>
 						<MenuButton />
@@ -63,6 +67,8 @@ const HeaderWrapper = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	pointer-events: none;
+
+	/* --webkit-user-select: auto; */
 `;
 
 const TopSection = styled.div`

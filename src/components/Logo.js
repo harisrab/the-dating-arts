@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 function Logo({ mode = "black" }) {
+	const history = useHistory();
+
 	return (
-		<LogoWrapper mode={mode}>
+		<LogoWrapper mode={mode} onClick={() => history.push("/")}>
 			<p className="logo" mode={mode}>
 				THE DATING <span className="logo">ARTS</span>
 			</p>
@@ -14,6 +17,10 @@ function Logo({ mode = "black" }) {
 export default Logo;
 
 const LogoWrapper = styled.div`
+	&:hover {
+		cursor: pointer;
+	}
+
 	max-width: fit-content;
 	height: 34px;
 
@@ -42,7 +49,6 @@ const LogoWrapper = styled.div`
 
 		user-select: text;
 		-webkit-user-select: text;
-		pointer-events: "auto";
 
 		span {
 			color: var(--logo-second-color);
