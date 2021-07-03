@@ -141,7 +141,7 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
-	background-color: #1a0000;
+	background-color: var(--main-color-footer);
 
 	position: relative;
 

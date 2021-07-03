@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 	align-items: center;
 
 	p {
-		font-family: "Archivo", sans-serif;
+		font-family: "Spectral", sans-serif;
 		color: var(--main-color-white);
 		font-weight: 200;
 		margin-top: 2px;

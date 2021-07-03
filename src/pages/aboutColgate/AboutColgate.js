@@ -1,33 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import HeroSection from "./homepageSections/HeroSection";
-import BrandSection from "./homepageSections/BrandSection";
-import AOLSection from "./homepageSections/AOLSection.js";
-import UpcomingEvents from "./homepageSections/UpcomingEvents";
-import LiveExperiences from "./homepageSections/LiveExperiences";
-import AtHomeTraining from "./homepageSections/AtHomeTraining";
-import Testimonials from "./homepageSections/Testimonials";
-import Newsletter from "./homepageSections/Newsletter";
-import Footer from "./homepageSections/Footer";
-
-function Homepage() {
+function AboutColgate() {
 	return (
 		<HomePageWrapper id="main_app">
-			<HeroSection />
-			<BrandSection />
-			<AOLSection />
-			<UpcomingEvents />
-			<LiveExperiences />
-			<AtHomeTraining />
-			<Testimonials />
-			<Newsletter />
-			<Footer />
+			<h1>About Colgate</h1>
 		</HomePageWrapper>
 	);
 }
 
-export default Homepage;
+export default AboutColgate;
 
 const HomePageWrapper = styled.div`
 	z-index: 49;
@@ -40,6 +22,7 @@ const HomePageWrapper = styled.div`
 	justify-content: flex-start;
 	overflow-y: scroll;
 	overflow: overlay;
+	background-color: black;
 
 	/* Style the scroll bar */
 	&::-webkit-scrollbar {
@@ -63,4 +46,13 @@ const HomePageWrapper = styled.div`
 
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
+
+	h1 {
+		position: absolute;
+
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		color: white;
+	}
 `;

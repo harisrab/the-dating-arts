@@ -33,7 +33,7 @@ function Header() {
 					<SocialIconsContainer>
 						<SocialIconsHeader type="instagram" />
 						<SocialIconsHeader type="facebook" />
-						<SocialIconsHeader type="twitter" />
+						<SocialIconsHeader type="youtube" />
 					</SocialIconsContainer>
 
 					<ScrollHolder>

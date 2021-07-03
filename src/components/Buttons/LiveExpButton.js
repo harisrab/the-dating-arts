@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useHistory } from "react-router";
 
 const btnVariants = {
 	initial: {
@@ -22,6 +23,7 @@ const bgVariants = {
 };
 function ApplyNowButton() {
 	const [didHover, setDidHover] = useState(false);
+	const history = useHistory();
 
 	return (
 		<ButtonWrapper
@@ -31,6 +33,7 @@ function ApplyNowButton() {
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
+			onClick={() => history.push("/live-experiences")}
 		>
 			<p>Explore</p>
 			<AnimatedBG

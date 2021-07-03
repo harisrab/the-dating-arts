@@ -120,6 +120,13 @@ function MainMenu() {
 		}
 	}, [active, controls]);
 
+	const closeMenu = () => {
+		dispatch({
+			type: "SET_HAMBURGER_STATE",
+			payload: false,
+		});
+	};
+
 	return (
 		<>
 			<Wrapper
@@ -141,7 +148,11 @@ function MainMenu() {
 								initial="initial"
 								exit={"exit"}
 							>
-								<Link to="/" style={{ textDecoration: "none" }}>
+								<Link
+									onClick={closeMenu}
+									to="/"
+									style={{ textDecoration: "none" }}
+								>
 									<ListItem
 										variants={listItemVariants}
 										key={1}
@@ -154,6 +165,7 @@ function MainMenu() {
 								<Link
 									to="/store"
 									style={{ textDecoration: "none" }}
+									onClick={closeMenu}
 								>
 									<ListItem
 										key={3}
@@ -167,6 +179,7 @@ function MainMenu() {
 								<Link
 									to="/live-experiences"
 									style={{ textDecoration: "none" }}
+									onClick={closeMenu}
 								>
 									<ListItem
 										key={4}
@@ -178,8 +191,9 @@ function MainMenu() {
 									</ListItem>
 								</Link>
 								<Link
-									to="/coaching"
+									to="/at-home-trainings"
 									style={{ textDecoration: "none" }}
+									onClick={closeMenu}
 								>
 									<ListItem
 										key={5}
@@ -193,6 +207,7 @@ function MainMenu() {
 								<Link
 									to="/about-tda"
 									style={{ textDecoration: "none" }}
+									onClick={closeMenu}
 								>
 									<ListItem
 										key={2}
@@ -206,6 +221,7 @@ function MainMenu() {
 								<Link
 									to="/about-colgate"
 									style={{ textDecoration: "none" }}
+									onClick={closeMenu}
 								>
 									<ListItem
 										key={2}
@@ -219,6 +235,7 @@ function MainMenu() {
 								<Link
 									to="/contact"
 									style={{ textDecoration: "none" }}
+									onClick={closeMenu}
 								>
 									<ListItem
 										key={7}
@@ -230,8 +247,9 @@ function MainMenu() {
 									</ListItem>
 								</Link>
 								<Link
-									to="/admission"
+									to="/application"
 									style={{ textDecoration: "none" }}
+									onClick={closeMenu}
 								>
 									<ListItem
 										key={8}

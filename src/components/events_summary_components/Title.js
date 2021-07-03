@@ -11,7 +11,7 @@ const Wrapper = styled.p`
 	color: var(--main-color-white);
 	padding-left: 40px;
 	font-size: 17px;
-	font-family: "Archivo", sans-serif;
+	font-family: "Spectral", sans-serif;
 	font-weight: 300;
     width: 100%;
 `;

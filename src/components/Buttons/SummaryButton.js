@@ -93,6 +93,10 @@ const ButtonWrapper = styled(motion.button)`
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
+
+		font-family: "Spectral", sans-serif;
+		font-weight: 500;
+		font-size: 14px;
 	}
 `;
 

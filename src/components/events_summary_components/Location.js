@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 
 	p {
 		color: var(--main-color-white);
-		font-family: "Archivo", sans-serif;
+		font-family: "Spectral", sans-serif;
 		font-weight: 200;
 
 		margin-left: 15px;

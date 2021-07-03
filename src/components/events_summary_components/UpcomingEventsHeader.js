@@ -107,7 +107,7 @@ const Titles = styled.div`
 				margin: 0;
 
 				font-size: 13px;
-				font-family: "Archivo", serif;
+				font-family: "Spectral", serif;
 				opacity: 0.4;
 				transition: 0.2s ease-out;
 				pointer-events: none;

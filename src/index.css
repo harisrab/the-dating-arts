@@ -11,6 +11,7 @@
   --main-color-dark-black-heavy: rgb(0, 0, 0);
   --main-color-transparent-red: rgba(204, 20, 20, 0.09);
   --main-color-light-black: rgb(19, 19, 19);
+  --main-color-footer: #1a0000;
   
   --logo-first-color: var(--main-color-white);
   --logo-second-color: #CC1414;  

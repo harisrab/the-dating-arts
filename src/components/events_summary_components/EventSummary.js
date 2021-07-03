@@ -112,6 +112,7 @@ const TitleHolder = styled.div`
 	flex-grow: 1;
 	display: flex;
 	align-items: center;
+
 `;
 
 const LocationHolder = styled.div`

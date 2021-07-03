@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useHistory } from "react-router-dom";
 
 const btnVariants = {
 	initial: {
@@ -23,6 +24,8 @@ const bgVariants = {
 function ApplyNowButton() {
 	const [didHover, setDidHover] = useState(false);
 
+	const history = useHistory();
+
 	return (
 		<ButtonWrapper
 			variants={btnVariants}
@@ -31,6 +34,7 @@ function ApplyNowButton() {
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
+			onClick={() => history.push("/application")}
 		>
 			<p>Apply Now</p>
 			<AnimatedBG
@@ -72,6 +76,10 @@ const ButtonWrapper = styled(motion.button)`
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%, -50%);
+
+		font-family: "Spectral", sans-serif;
+		font-weight: 500;
+		font-size: 14px;
 	}
 `;
 

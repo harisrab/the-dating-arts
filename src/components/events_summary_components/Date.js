@@ -17,11 +17,13 @@ const Wrapper = styled.div`
 	width: auto;
 
 	color: var(--main-color-white);
-	font-family: "Archivo", sans-serif;
+	font-family: "Spectral", sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 	justify-content: center;
+
+
 
 	p {
 		font-weight: 200;
@@ -30,5 +32,6 @@ const Wrapper = styled.div`
 	h3 {
 		font-weight: 500;
 		font-size: 20px;
+		margin-top: -6px;
 	}
 `;

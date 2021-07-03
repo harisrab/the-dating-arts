@@ -23,15 +23,14 @@ const variants = {
 };
 
 function SocialIconsHeader({ type = "instagram" }) {
-	const history = useHistory();
-
 	const moveToLogin = () => {
 		// do some fancy page switching
 		// if user not availabe then switch to login page, otherwise move to user profile page
 		if (type === "facebook") {
-			history.push("/");
-		} else if (type === "twitter") {
-			history.push("/");
+			window.location.href = "http://facebook.com/askcolgatenow";
+		} else if (type === "youtube") {
+			window.location.href =
+				"https://youtube.com/channel/UCkzwd-6cVehBGZbzQMddSeA";
 		} else if (type === "instagram") {
 			window.location.href = "https://www.instagram.com/askcolgate/";
 		}
@@ -66,11 +65,19 @@ function SocialIconsHeader({ type = "instagram" }) {
 						justifyContent: "center",
 					}}
 				>
-					<img
-						style={{ height: "45%", width: "45%" }}
-						src={`/${type}.svg`}
-						alt=""
-					/>
+					{type === "youtube" ? (
+						<img
+							style={{ height: "55%", width: "55%" }}
+							src={`/${type}.svg`}
+							alt=""
+						/>
+					) : (
+						<img
+							style={{ height: "45%", width: "45%" }}
+							src={`/${type}.svg`}
+							alt=""
+						/>
+					)}
 				</Frame>
 			</AnimatePresence>
 		</Frame>
