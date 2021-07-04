@@ -47,6 +47,7 @@ function SocialIconsHeader({ type = "instagram" }) {
 				position: "relative",
 				pointerEvents: "auto",
 				marginRight: "18px",
+				willChange: "transform",
 			}}
 		>
 			<AnimatePresence>

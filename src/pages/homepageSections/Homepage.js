@@ -20,14 +20,15 @@ function Homepage() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
+			transition={{ duration: 0.2 }}
 		>
 			<HeroSection />
 			<BrandSection />
-			{/* <AOLSection /> */}
-			{/* <UpcomingEvents /> */}
-			{/* <LiveExperiences /> */}
-			{/* <AtHomeTraining /> */}
-			{/* <Testimonials /> */}
+			<AOLSection />
+			<UpcomingEvents />
+			<LiveExperiences />
+			<AtHomeTraining />
+			<Testimonials />
 			<Newsletter />
 			<Footer />
 		</HomePageWrapper>

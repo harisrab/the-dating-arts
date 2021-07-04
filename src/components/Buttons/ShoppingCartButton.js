@@ -68,6 +68,7 @@ function ShoppingCartButton({ value = 0 }) {
 				position: "relative",
 				pointerEvents: "auto",
 				marginLeft: "18px",
+				willChange: "transform",
 			}}
 		>
 			<AnimatePresence>

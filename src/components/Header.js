@@ -72,6 +72,9 @@ const HeaderWrapper = styled.div`
 	pointer-events: none;
 
 	/* --webkit-user-select: auto; */
+	overflow: visible;
+
+
 `;
 
 const TopSection = styled.div`
@@ -122,6 +125,7 @@ const RightSection = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	/* gap: 18px; */
+	
 `;
 
 const SocialIconsContainer = styled.div`

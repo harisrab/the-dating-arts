@@ -32,14 +32,17 @@ const Wrapper = styled.div`
 	display: -webkit-flex;
 	display: flex;
 	justify-content: center;
+	will-change: transform;
 `;
 
 const DownArrow = styled(motion.div)`
 	width: auto;
 	height: auto;
+	will-change: transform;
 
 	.downarrow {
 		color: white;
 		height: 30px;
+		will-change: transform;
 	}
 `;

@@ -209,6 +209,7 @@ const Wrapper = styled(motion.div)`
 				color: #ffffff78 !important;
 				font-size: 18px !important;
 				transition: 0.2s ease-in;
+				will-change: transform;
 			}
 
 			&:hover {

@@ -140,6 +140,7 @@ const ContentWrapper = styled.div`
 
 		position: absolute;
 		top: -150px;
+		will-change: transform;
 	}
 
 	.h3__wrapper {
@@ -152,6 +153,8 @@ const ContentWrapper = styled.div`
 		display: -webkit-flex;
 		display: flex;
 		align-items: center;
+		will-change: transform;
+		
 	}
 
 	.p__wrapper {
@@ -163,6 +166,7 @@ const ContentWrapper = styled.div`
 		display: -webkit-flex;
 		display: flex;
 		align-items: center;
+		will-change: transform;
 	}
 
 	.heading {
@@ -171,6 +175,7 @@ const ContentWrapper = styled.div`
 		text-align: center;
 		font-size: 15px;
 		font-weight: 300;
+		will-change: transform;
 	}
 
 	.copy {
@@ -179,6 +184,7 @@ const ContentWrapper = styled.div`
 		font-size: 18px;
 		line-height: 1.4;
 		word-break: break-all;
+		will-change: transform;
 	}
 
 	.sliderbar-holder {

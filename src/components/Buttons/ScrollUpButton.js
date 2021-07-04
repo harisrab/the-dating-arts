@@ -24,8 +24,6 @@ const variants = {
 	},
 };
 
-
-
 function ScrollUpButton() {
 	// eslint-disable-next-line no-unused-vars
 	const [{ user }, dispatch] = useStateValue();
@@ -63,6 +61,7 @@ function ScrollUpButton() {
 				alignItems: "center",
 				position: "relative",
 				pointerEvents: "auto",
+				willChange: "transform",
 			}}
 		>
 			<AnimatePresence>

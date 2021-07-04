@@ -29,6 +29,7 @@ const Wrapper = styled.div`
 
 		margin-left: 15px;
 		margin-top: 4px;
+		will-change: transform;
 	}
 
 	p {
@@ -38,5 +39,6 @@ const Wrapper = styled.div`
 		font-size: 16px;
 
 		margin-left: 15px;
+		will-change: transform;
 	}
 `;

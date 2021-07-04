@@ -66,13 +66,10 @@ function UserHeaderButton() {
 			whileTap={"tap"}
 			onClick={moveToLogin}
 			style={{
-				// display: "flex",
-				// justifyContent: "center",
-				// alignItems: "center",
 				position: "relative",
 				overflow: "hidden",
 				pointerEvents: "auto",
-
+				willChange: "transform",
 			}}
 		>
 			<AnimatePresence>

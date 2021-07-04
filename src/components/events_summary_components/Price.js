@@ -28,6 +28,7 @@ const Wrapper = styled.div`
 	display: -webkit-flex;
 	display: flex;
 	align-items: center;
+	will-change: transform;
 
 	p {
 		font-family: "Spectral", sans-serif;
@@ -36,5 +37,6 @@ const Wrapper = styled.div`
 		font-size: 17px;
 		margin-top: 2px;
 		margin-left: 5px;
+		will-change: transform;
 	}
 `;

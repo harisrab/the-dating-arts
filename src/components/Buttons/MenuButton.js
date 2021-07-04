@@ -118,6 +118,7 @@ function MenuButton() {
 				pointerEvents: "auto",
 				zIndex: 1000000000,
 				marginLeft: "18px",
+				willChange: "transform",
 			}}
 		>
 			<AnimatePresence>
