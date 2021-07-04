@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 function LiveExperiences() {
 	return (
-		<HomePageWrapper id="main_app">
+		<HomePageWrapper
+			id="main_app"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<h1>Live Experiences</h1>
 		</HomePageWrapper>
 	);
@@ -11,11 +17,14 @@ function LiveExperiences() {
 
 export default LiveExperiences;
 
-const HomePageWrapper = styled.div`
+const HomePageWrapper = styled(motion.div)`
 	z-index: 49;
 	height: 100vh;
 	width: 100%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

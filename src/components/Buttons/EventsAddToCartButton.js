@@ -47,6 +47,9 @@ const ButtonWrapper = styled(motion.button)`
 	height: 3vw;
 	border: 2px var(--main-color-red) solid;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: flex-end;
 	box-sizing: border-box;

@@ -32,6 +32,9 @@ const Wrapper = styled.div`
 	margin-left: 70px;
 	/* background-color: blue; */
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	justify-content: space-between;
 
@@ -40,6 +43,9 @@ const Wrapper = styled.div`
 		width: 100px;
 		/* background-color: purple; */
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;

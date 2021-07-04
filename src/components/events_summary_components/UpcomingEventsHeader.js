@@ -73,6 +73,9 @@ const Titles = styled.div`
 	/* background-color: red; */
 	margin-bottom: 40px;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -90,17 +93,27 @@ const Titles = styled.div`
 	}
 
 	.links {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: flex-end;
 		height: 100%;
 		width: auto;
 		justify-content: space-between;
-		gap: 25px;
+
+		/* gap: 25px; */
+
 		.selectable {
 			width: fit-content;
 			height: 70%;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
 			display: flex;
 			align-items: flex-end;
+
+			margin-left: 25px;
 
 			p {
 				padding: 0;

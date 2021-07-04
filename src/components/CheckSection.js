@@ -17,6 +17,9 @@ const ChecksWrapper = styled.div`
 	height: 50px;
 	width: 100%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 
@@ -36,6 +39,9 @@ const ChecksWrapper = styled.div`
 		height: 50px;
 		width: 100%;
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 

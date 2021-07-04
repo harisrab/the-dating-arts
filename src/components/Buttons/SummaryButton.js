@@ -70,6 +70,9 @@ const ButtonWrapper = styled(motion.button)`
 	height: 80%;
 	border: 1px var(--main-color-white) solid;
 	border-radius: 7px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: flex-end;
 	box-sizing: border-box;

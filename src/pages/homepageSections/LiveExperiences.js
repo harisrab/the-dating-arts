@@ -81,6 +81,9 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -93,6 +96,9 @@ const Header = styled.div`
 
 	color: white;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 
@@ -122,6 +128,9 @@ const CardsHolder = styled.div`
 
 	/* background-color: #ffff0068; */
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	justify-content: center;
 
@@ -132,6 +141,9 @@ const InnerWrapper = styled.div`
 	width: 100%;
 	height: auto;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 

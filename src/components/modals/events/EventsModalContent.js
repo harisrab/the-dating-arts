@@ -114,6 +114,9 @@ const Wrapper = styled.div`
 
 	position: relative;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 `;
@@ -151,6 +154,9 @@ const Right = styled.div`
 	margin-left: 80px;
 	margin-right: 80px;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -161,6 +167,9 @@ const Right = styled.div`
 
 	.upper {
 		height: 38%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -169,6 +178,9 @@ const Right = styled.div`
 
 	.lower {
 		height: 38%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
@@ -183,6 +195,9 @@ const Right = styled.div`
 		top: 50%;
 		transform: translate(0, -50%);
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 	}
 `;

@@ -59,6 +59,9 @@ const Wrapper = styled(motion.div)`
 	background-color: #ffffff;
 	z-index: 100000000;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

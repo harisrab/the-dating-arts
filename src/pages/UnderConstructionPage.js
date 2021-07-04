@@ -7,8 +7,6 @@ import MenuButton from "../components/MenuButton";
 function UnderConstructionPage() {
 	const [active, setActive] = useState(false);
 
-
-
 	return (
 		<PageWrapper>
 			<Logo />
@@ -95,6 +93,9 @@ const RightContainer = styled.div`
 	/* border-top: solid 1px;
 	border-color: #e6e6e667; */
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
@@ -113,6 +114,9 @@ const RightContainer = styled.div`
 		border-top: solid 1px;
 		border-color: #e6e6e667;
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		flex-direction: column;
 
@@ -129,6 +133,9 @@ const CheckPoints = styled.div`
 	height: 100%;
 	margin-left: 350px;
 	flex: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -137,6 +144,9 @@ const CheckPoints = styled.div`
 		height: 100%;
 		margin-left: 0px;
 		flex: 1;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;

@@ -62,6 +62,9 @@ const HeaderWrapper = styled.div`
 	top: 50%;
 	transform: translate(-50%, -50%);
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -75,6 +78,9 @@ const TopSection = styled.div`
 	width: 100%;
 	height: 8%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -86,6 +92,9 @@ const BottomSection = styled.div`
 	width: 100%;
 	height: 8%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -95,6 +104,9 @@ const BottomSection = styled.div`
 const LogoHolder = styled.div`
 	height: 100%;
 	flex: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	pointer-events: "auto";
@@ -102,23 +114,32 @@ const LogoHolder = styled.div`
 
 const RightSection = styled.div`
 	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: space-between;
-	gap: 18px;
+	/* gap: 18px; */
 `;
 
 const SocialIconsContainer = styled.div`
 	height: 100%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	gap: 18px;
+	/* gap: 18px; */
 `;
 
 const ScrollHolder = styled.div`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	flex: 1;

@@ -55,6 +55,9 @@ const ButtonWrapper = styled(motion.button)`
 
 	margin-top: 0px;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: flex-end;
 	box-sizing: border-box;

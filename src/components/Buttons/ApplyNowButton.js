@@ -31,6 +31,7 @@ function ApplyNowButton() {
 			variants={btnVariants}
 			onMouseEnter={() => setDidHover(true)}
 			onMouseLeave={() => setDidHover(false)}
+			onTap={() => setDidHover(true)}
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
@@ -54,6 +55,9 @@ const ButtonWrapper = styled(motion.button)`
 	height: 44px;
 	border: 1px var(--main-color-white) solid;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: flex-end;
 	box-sizing: border-box;

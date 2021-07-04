@@ -34,11 +34,17 @@ const ComponentCheck = styled.div`
 	width: 100vw;
 	height: 100vh;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 
 	.items {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		flex-direction: row;
 		justify-content: space-evenly;

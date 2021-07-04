@@ -309,6 +309,9 @@ const Main = styled(motion.div)`
 
 	overflow: hidden;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -337,6 +340,9 @@ const Main = styled(motion.div)`
 `;
 
 const List = styled(motion.ul)`
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

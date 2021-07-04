@@ -55,6 +55,9 @@ const Wrapper = styled.div`
 		transform: translate(-50%, -50%);
 	}
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -64,6 +67,9 @@ const NewsletterWrapper = styled.div`
 	width: 80%;
 	height: 120px;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 `;
 
@@ -73,6 +79,9 @@ const TextContainer = styled.div`
 	padding-left: 10px;
 	padding-right: 10px;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -107,9 +116,15 @@ const FunctionalContainer = styled.div`
 	flex-grow: 1;
 	/* background-color: #9900ff47; */
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: flex-end;
 	form {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		width: 100%;
 		margin-bottom: 22px;

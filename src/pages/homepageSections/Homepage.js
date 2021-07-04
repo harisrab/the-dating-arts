@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
+// Import All Sections
 import HeroSection from "./HeroSection";
 import BrandSection from "./BrandSection";
 import AOLSection from "./AOLSection.js";
@@ -13,14 +15,19 @@ import Footer from "./Footer";
 
 function Homepage() {
 	return (
-		<HomePageWrapper id="main_app">
+		<HomePageWrapper
+			id="main_app"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<HeroSection />
 			<BrandSection />
-			<AOLSection />
-			<UpcomingEvents />
-			<LiveExperiences />
-			<AtHomeTraining />
-			<Testimonials />
+			{/* <AOLSection /> */}
+			{/* <UpcomingEvents /> */}
+			{/* <LiveExperiences /> */}
+			{/* <AtHomeTraining /> */}
+			{/* <Testimonials /> */}
 			<Newsletter />
 			<Footer />
 		</HomePageWrapper>
@@ -29,12 +36,16 @@ function Homepage() {
 
 export default Homepage;
 
-const HomePageWrapper = styled.div`
+const HomePageWrapper = styled(motion.div)`
 	z-index: 49;
 	height: 100vh;
 	width: 100%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
+
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
@@ -60,6 +71,12 @@ const HomePageWrapper = styled.div`
 	&::-webkit-scrollbar-thumb:hover {
 		background: var(--scrollbar-handle-hover-color);
 	}
+
+	/* Firefox */
+
+	scrollbar-color: var(--scrollbar-handle-color)
+		var(--scrollbar-background-color); /* thumb and track color */
+	scrollbar-width: thin;
 
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;

@@ -130,8 +130,6 @@ const Wrapper = styled.div`
 	position: relative;
 
 	scroll-snap-align: start;
-
-	
 `;
 
 const ContentWrapper = styled.div`
@@ -147,7 +145,12 @@ const ContentWrapper = styled.div`
 	font-family: "Spectral", sans-serif;
 	font-style: normal;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
+
+	
 	flex-direction: column;
 
 	.sliderbar-holder {
@@ -162,6 +165,9 @@ const ContentWrapper = styled.div`
 		width: fit-content;
 		padding-left: 0;
 		overflow: hidden;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 
@@ -204,6 +210,9 @@ const ContentWrapper = styled.div`
 		width: 40vw;
 		height: auto;
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 

@@ -42,6 +42,9 @@ const Wrapper = styled(motion.div)`
 	width: auto;
 
 	color: white;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 
@@ -51,6 +54,9 @@ const Wrapper = styled(motion.div)`
 		flex-grow: 1;
 		height: 4vh;
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 

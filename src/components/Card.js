@@ -40,12 +40,15 @@ const Wrapper = styled(motion.div)`
 	font-family: "Spectral", sans-serif;
 	color: var(--main-color-white);
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 
 	padding: 30px;
-    padding-bottom: 0px;
+	padding-bottom: 0px;
 
 	.tag_holder {
 		font-weight: 200;
@@ -65,6 +68,6 @@ const Wrapper = styled(motion.div)`
 			font-weight: 200;
 			font-size: 13px;
 		}
-        margin-bottom: 20px;
+		margin-bottom: 20px;
 	}
 `;

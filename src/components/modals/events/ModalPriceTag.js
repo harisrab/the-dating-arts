@@ -27,6 +27,9 @@ export default ModalPriceTag;
 const Wrapper = styled.div`
 	height: 100%;
 	width: 200px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 
 	font-family: "Spectral", sans-serif;
@@ -34,6 +37,9 @@ const Wrapper = styled.div`
 
 	h2 {
 		height: 100%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 		font-size: 35px;
@@ -42,6 +48,9 @@ const Wrapper = styled.div`
 
 	.per_person {
 		height: 100%;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 		font-weight: 200;

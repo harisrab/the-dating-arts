@@ -18,12 +18,13 @@ const Wrapper = styled.div`
 
 	color: var(--main-color-white);
 	font-family: "Spectral", sans-serif;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 	justify-content: center;
-
-
 
 	p {
 		font-weight: 200;

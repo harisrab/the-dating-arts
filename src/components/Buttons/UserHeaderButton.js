@@ -72,6 +72,7 @@ function UserHeaderButton() {
 				position: "relative",
 				overflow: "hidden",
 				pointerEvents: "auto",
+
 			}}
 		>
 			<AnimatePresence>

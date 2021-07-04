@@ -21,18 +21,19 @@ const LogoWrapper = styled.div`
 		cursor: pointer;
 	}
 
+	pointer-events: auto;
+
 	max-width: fit-content;
 	height: 34px;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
 
-	user-select: text;
-	-webkit-user-select: text;
-	pointer-events: "auto";
-
-	z-index: 1000000000;
+	/* z-index: 1000000000; */
 
 	p {
 		font-family: "Spectral", serif;
@@ -46,10 +47,6 @@ const LogoWrapper = styled.div`
 				? "var(--main-color-dark-black)"
 				: "var(--main-color-white)"};
 		line-height: 1.2em;
-
-		user-select: text;
-		-webkit-user-select: text;
-		pointer-events: "auto";
 
 		span {
 			color: var(--logo-second-color);

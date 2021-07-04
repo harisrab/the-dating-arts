@@ -92,6 +92,9 @@ const Wrapper = styled(motion.div)`
 	font-family: "Spectral", sans-serif;
 	color: var(--main-color-white);
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -101,10 +104,16 @@ const Wrapper = styled(motion.div)`
 		height: 35px;
 		margin-top: 10px;
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 
 		.price__amount {
 			height: 100%;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
 			display: flex;
 			align-items: center;
 
@@ -116,6 +125,9 @@ const Wrapper = styled(motion.div)`
 
 		.per__tag {
 			height: 100%;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
 			display: flex;
 			align-items: center;
 
@@ -133,6 +145,9 @@ const Wrapper = styled(motion.div)`
 		margin-bottom: 10px;
 		margin-top: 10px;
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 
@@ -143,6 +158,9 @@ const Wrapper = styled(motion.div)`
 	}
 
 	.feature__strips {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -157,6 +175,9 @@ const Wrapper = styled(motion.div)`
 			width: 100%;
 			margin-bottom: 10px;
 
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
 			display: flex;
 			align-items: center;
 
@@ -176,6 +197,9 @@ const Wrapper = styled(motion.div)`
 		height: 50px;
 		width: 100%;
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;

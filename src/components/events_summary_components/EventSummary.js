@@ -39,7 +39,6 @@ function EventSummary({ event, setShowEventsModal }) {
 		},
 	};
 
-
 	return (
 		<Wrapper
 			initial={{ skewX: 20, y: -10, opacity: 0 }}
@@ -79,7 +78,11 @@ const Wrapper = styled(motion.div)`
 	height: 50px;
 	width: 100%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
+
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
@@ -96,6 +99,9 @@ const DateHolder = styled.div`
 	height: 100%;
 	width: 8%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
@@ -104,14 +110,19 @@ const DateHolder = styled.div`
 const TitleHolder = styled.div`
 	height: 100%;
 	flex-grow: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
-
 `;
 
 const LocationHolder = styled.div`
 	height: 100%;
 	width: 22%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 `;
@@ -119,6 +130,9 @@ const LocationHolder = styled.div`
 const PriceTag = styled.div`
 	height: 100%;
 	width: 12%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 `;
@@ -126,6 +140,9 @@ const PriceTag = styled.div`
 const ButtonHolder = styled.div`
 	height: 100%;
 	width: 14%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: center;

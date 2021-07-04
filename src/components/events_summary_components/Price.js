@@ -23,6 +23,9 @@ export default Price;
 const Wrapper = styled.div`
 	width: 100%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 

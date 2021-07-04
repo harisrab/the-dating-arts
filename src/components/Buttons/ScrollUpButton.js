@@ -6,8 +6,8 @@ import { useHistory } from "react-router-dom";
 
 const variants = {
 	initial: {
-		width: "5.5vh",
-		height: "5.5vh",
+		width: "34px",
+		height: "34px",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -24,28 +24,12 @@ const variants = {
 	},
 };
 
-const overlayVariants = {
-	initial: {
-		opacity: 0,
-		height: "0%",
-		width: "100%",
-		positon: "absolute",
-		top: 0,
-		left: 0,
-		backgroundColor: "blue",
-		zIndex: 100,
-	},
-	final: {
-		opacity: 1,
-		height: "100%",
-	},
-};
+
 
 function ScrollUpButton() {
 	// eslint-disable-next-line no-unused-vars
 	const [{ user }, dispatch] = useStateValue();
 	const [showBtn, setShowBtn] = useState(false);
-	const history = useHistory();
 
 	const scrollTop = () => {
 		const body = document.getElementById("main_app");

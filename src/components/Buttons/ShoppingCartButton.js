@@ -64,7 +64,11 @@ function ShoppingCartButton({ value = 0 }) {
 			whileHover={"hover"}
 			whileTap={"tap"}
 			onClick={moveToCheckout}
-			style={{ position: "relative", pointerEvents: "auto" }}
+			style={{
+				position: "relative",
+				pointerEvents: "auto",
+				marginLeft: "18px",
+			}}
 		>
 			<AnimatePresence>
 				{/* render this only when at the checkout page or payment page */}
@@ -144,6 +148,9 @@ const ItemsIndicator = styled.div`
 	right: 1px;
 	box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: center;

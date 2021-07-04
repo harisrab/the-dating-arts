@@ -32,6 +32,9 @@ const Wrapper = styled.div`
 	height: 10%;
 	width: 100%;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -42,6 +45,9 @@ const Wrapper = styled.div`
 		margin-right: 8px;
 		background-color: white;
 
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 		justify-content: center;

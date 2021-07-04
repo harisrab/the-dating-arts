@@ -80,7 +80,10 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
-	/* display: flex;
+	/* display: -webkit-box;
+display: -ms-flexbox; 
+display: -webkit-flex;
+display: flex; ;
 	align-items: center;
 	justify-content: center; */
 `;
@@ -91,6 +94,9 @@ const Header = styled.div`
 
 	color: white;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 
@@ -128,6 +134,9 @@ const CardsHolder = styled.div`
 
 	margin-top: 20px;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	justify-content: center;
 	align-items: center;

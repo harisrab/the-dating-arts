@@ -43,7 +43,11 @@ function SocialIconsHeader({ type = "instagram" }) {
 			whileHover={"hover"}
 			whileTap={"tap"}
 			onClick={moveToLogin}
-			style={{ position: "relative", pointerEvents: "auto" }}
+			style={{
+				position: "relative",
+				pointerEvents: "auto",
+				marginRight: "18px",
+			}}
 		>
 			<AnimatePresence>
 				{/* render this only when at the checkout page or payment page */}

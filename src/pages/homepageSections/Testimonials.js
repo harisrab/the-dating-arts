@@ -106,6 +106,9 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -117,11 +120,13 @@ const ContentWrapper = styled.div`
 
 	position: relative;
 
-
 	color: var(--main-color-white);
 	font-family: "Spectral", sans-serif;
 	font-style: normal;
 
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -135,8 +140,6 @@ const ContentWrapper = styled.div`
 
 		position: absolute;
 		top: -150px;
-
-		
 	}
 
 	.h3__wrapper {
@@ -144,6 +147,9 @@ const ContentWrapper = styled.div`
 		min-height: fit-content;
 		width: fit-content;
 		overflow: hidden;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 	}
@@ -152,6 +158,9 @@ const ContentWrapper = styled.div`
 		width: fit-content;
 		overflow: hidden;
 		height: 40px;
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 	}
