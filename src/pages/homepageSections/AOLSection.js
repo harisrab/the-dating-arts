@@ -36,18 +36,18 @@ function AOLSection() {
 
 	return (
 		<Wrapper>
-			<div className="sliderbar-holder">
-				<SelectableSlider
-					length={AOL.length}
-					currentIndex={currentIndex}
-					setCurrentIndex={setCurrentIndex}
-				/>
-			</div>
-
 			{AOL.length !== 0 ? (
 				<>
 					<AnimatePresence>
 						<ContentWrapper>
+							<div className="sliderbar-holder">
+								<SelectableSlider
+									length={AOL.length}
+									currentIndex={currentIndex}
+									setCurrentIndex={setCurrentIndex}
+								/>
+							</div>
+
 							<p className="subtitle">Areas of Learning</p>
 							<div className="h1__wrapper">
 								<motion.h3
@@ -72,39 +72,40 @@ function AOLSection() {
 									{AOL[currentIndex].description}
 								</motion.p>
 							</div>
+
+							<div className="buttons-holder">
+								<ArrowBackIcon
+									onClick={(e) => {
+										if (
+											(currentIndex < AOL.length) &
+											(currentIndex > 0)
+										) {
+											setCurrentIndex(currentIndex - 1);
+										}
+									}}
+									className="back"
+									style={
+										currentIndex === 0
+											? { opacity: 0.21 }
+											: { opacity: 1 }
+									}
+								/>
+								<ArrowForwardIcon
+									onClick={() => {
+										if (currentIndex < AOL.length - 1) {
+											setCurrentIndex(currentIndex + 1);
+										}
+									}}
+									className="forward"
+									style={
+										currentIndex === AOL.length - 1
+											? { opacity: 0.21 }
+											: { opacity: 1 }
+									}
+								/>
+							</div>
 						</ContentWrapper>
 					</AnimatePresence>
-					<div className="buttons-holder">
-						<ArrowBackIcon
-							onClick={(e) => {
-								if (
-									(currentIndex < AOL.length) &
-									(currentIndex > 0)
-								) {
-									setCurrentIndex(currentIndex - 1);
-								}
-							}}
-							className="back"
-							style={
-								currentIndex === 0
-									? { opacity: 0.21 }
-									: { opacity: 1 }
-							}
-						/>
-						<ArrowForwardIcon
-							onClick={() => {
-								if (currentIndex < AOL.length - 1) {
-									setCurrentIndex(currentIndex + 1);
-								}
-							}}
-							className="forward"
-							style={
-								currentIndex === AOL.length - 1
-									? { opacity: 0.21 }
-									: { opacity: 1 }
-							}
-						/>
-					</div>
 					<AnimatedDownArrow />{" "}
 				</>
 			) : (
@@ -130,27 +131,83 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
+	
+`;
+
+const ContentWrapper = styled.div`
+	width: 40vw;
+	height: auto;
+
+	position: absolute;
+	top: 50%;
+	left: 12%;
+	transform: translate(0, -50%);
+
+	color: var(--main-color-white);
+	font-family: "Spectral", sans-serif;
+	font-style: normal;
+
+	display: flex;
+	flex-direction: column;
+
 	.sliderbar-holder {
 		height: auto;
 		width: 25vw;
-		position: absolute;
-		top: 23%;
-		left: 12vw;
+		margin-bottom: 40px;
 	}
 
+	.h1__wrapper {
+		height: 60px;
+		min-height: fit-content;
+		width: fit-content;
+		padding-left: 0;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+
+		margin-bottom: 20px;
+		margin-top: 0px;
+	}
+
+	.p__wrapper {
+		width: fit-content;
+		height: auto;
+		padding-bottom: 20px;
+		overflow: hidden;
+	}
+
+	.subtitle {
+		opacity: 0.38;
+		color: #e8e8e8;
+		font-size: 16px;
+		font-weight: 300;
+	}
+
+	.heading {
+		color: #e8e8e8;
+		font-size: 32px;
+		font-weight: 500;
+		margin-bottom: 10px;
+		margin-top: 8px;
+	}
+
+	.copy {
+		color: #e8e8e8;
+		font-weight: 300;
+		font-size: 14.4px;
+		line-height: 1.4;
+		word-break: keep-all;
+	}
+
+	/* Buttons */
 	.buttons-holder {
 		width: 40vw;
 		height: auto;
 
-		position: absolute;
-
-		left: 11.8vw;
-		bottom: 23vh;
-
 		display: flex;
 		align-items: center;
 
-		margin-top: 50px;
+		margin-top: 20px;
 		color: var(--main-color-white);
 
 		.back {
@@ -174,64 +231,5 @@ const Wrapper = styled.div`
 				cursor: pointer;
 			}
 		}
-	}
-`;
-
-const ContentWrapper = styled.div`
-	width: 40vw;
-	height: 30vh;
-
-	position: absolute;
-	top: 50%;
-	left: 12vw;
-	transform: translate(0, -50%);
-
-	color: var(--main-color-white);
-	font-family: "Spectral", sans-serif;
-	font-style: normal;
-
-	display: flex;
-	flex-direction: column;
-
-	.h1__wrapper {
-		height: 60px;
-		min-height: fit-content;
-		width: fit-content;
-		padding-left: 0;
-		overflow: hidden;
-		display: flex;
-		align-items: center;
-
-		margin-bottom: 20px;
-		margin-top: 20px;
-	}
-
-	.p__wrapper {
-		width: fit-content;
-		height: 25vh;
-		overflow: hidden;
-	}
-
-	.subtitle {
-		opacity: 0.38;
-		color: #e8e8e8;
-		font-size: 1em;
-		font-weight: 300;
-	}
-
-	.heading {
-		color: #e8e8e8;
-		font-size: 2em;
-		font-weight: 500;
-		margin-bottom: 10px;
-		margin-top: 8px;
-	}
-
-	.copy {
-		color: #e8e8e8;
-		font-weight: 300;
-		font-size: 0.9em;
-		line-height: 1.4;
-		word-break: break-all;
 	}
 `;

@@ -35,27 +35,29 @@ function LiveExperiences() {
 				<></>
 			) : (
 				<Wrapper>
-					<Header>
-						<h1>Live Experiences</h1>
-						<p>
-							You don't get in life what you want. You get in life
-							what you are.
-						</p>
-					</Header>
-					<CardsHolder>
-						{experiences.map(
-							({ titleTag, mainTitle, description }, i) => {
-								return (
-									<Card
-										titleTag={titleTag}
-										mainTitle={mainTitle}
-										description={description}
-										key={i}
-									/>
-								);
-							}
-						)}
-					</CardsHolder>
+					<InnerWrapper>
+						<Header>
+							<h1>Live Experiences</h1>
+							<p>
+								You don't get in life what you want. You get in
+								life what you are.
+							</p>
+						</Header>
+						<CardsHolder>
+							{experiences.map(
+								({ titleTag, mainTitle, description }, i) => {
+									return (
+										<Card
+											titleTag={titleTag}
+											mainTitle={mainTitle}
+											description={description}
+											key={i}
+										/>
+									);
+								}
+							)}
+						</CardsHolder>
+					</InnerWrapper>
 					<AnimatedDownArrow />
 				</Wrapper>
 			)}
@@ -78,12 +80,16 @@ const Wrapper = styled.div`
 	position: relative;
 
 	scroll-snap-align: start;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 const Header = styled.div`
 	width: 100%;
 	height: 100px;
-	margin-top: 60px;
 
 	color: white;
 
@@ -97,26 +103,39 @@ const Header = styled.div`
 
 	h1 {
 		font-weight: 500;
-		font-size: 35px;
+		font-size: 32px;
 		margin-bottom: 15px;
 	}
 
 	p {
 		font-weight: 200;
-		font-size: 18px;
+		font-size: 16px;
 	}
+
+	position: absolute;
+	top: -120px;
 `;
 
 const CardsHolder = styled.div`
 	height: 310px;
 	width: 100%;
 
-	position: absolute;
-	top: 50%;
-	transform: translate(0, -35%);
-
 	/* background-color: #ffff0068; */
 
 	display: flex;
 	justify-content: center;
+
+	margin-top: 20px;
+`;
+
+const InnerWrapper = styled.div`
+	width: 100%;
+	height: auto;
+
+	display: flex;
+	flex-direction: column;
+
+	margin-top: 40px;
+
+	position: relative;
 `;

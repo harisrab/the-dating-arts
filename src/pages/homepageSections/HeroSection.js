@@ -12,9 +12,9 @@ function HeroSection() {
 					Your dream woman will be right in front of you one day.
 				</h3>
 				<h3 className="line2">Do your have the skills to get her?</h3>
-			</div>
-			<div className="button-holder">
-				<ApplyNowButton />
+				<div className="button-holder">
+					<ApplyNowButton />
+				</div>
 			</div>
 
 			<AnimatedDownArrow />
@@ -43,23 +43,22 @@ const HeroSectionWrapper = styled.div`
 		color: white;
 		position: absolute;
 
-		top: 36%;
-		left: 13%;
+		top: 50%;
+		left: 35%;
+
+		transform: translate(-50%, -50%);
 
 		.line1 {
 			font-weight: 200;
-			font-size: 1.4em;
+			font-size: 22.5px;
 		}
 
 		.line2 {
-			font-size: 2.1em;
+			font-size: 33.6px;
 			font-weight: 700;
 		}
-	}
-
-	.button-holder {
-		position: absolute;
-		top: 55%;
-		left: 13%;
+		.button-holder {
+			margin-top: 30px;
+		}
 	}
 `;

@@ -8,8 +8,8 @@ import { useLocation, useHistory } from "react-router-dom";
 
 const variants = {
 	initial: {
-		width: "5.5vh",
-		height: "5.5vh",
+		width: "34px",
+		height: "34px",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -88,7 +88,6 @@ function ShoppingCartButton({ value = 0 }) {
 							paddingBottom: 2,
 							color: "var(--main-color-white)",
 							overflow: "hidden",
-							
 						}}
 					>
 						<p

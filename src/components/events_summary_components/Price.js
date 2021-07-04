@@ -30,6 +30,7 @@ const Wrapper = styled.div`
 		font-family: "Spectral", sans-serif;
 		color: var(--main-color-white);
 		font-weight: 200;
+		font-size: 17px;
 		margin-top: 2px;
 		margin-left: 5px;
 	}

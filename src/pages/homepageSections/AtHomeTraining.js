@@ -39,20 +39,24 @@ function AtHomeTraining() {
 				<></>
 			) : (
 				<Wrapper>
-					<Header>
-						<h1>At Home Training</h1>
-						<p>
-							"While the masses spin around hamster wheels and end
-							up in anonymous graves, you’ll be taking a private
-							escalator right to the top with me as your personal
-							coach"
-						</p>
-					</Header>
-					<CardsHolder>
-						{trainings.map((training, i) => {
-							return <TrainingCard training={training} key={i} />;
-						})}
-					</CardsHolder>
+					<InnerWrapper>
+						<Header>
+							<h1>At Home Training</h1>
+							<p>
+								"While the masses spin around hamster wheels and
+								end up in anonymous graves, you’ll be taking a
+								private escalator right to the top with me as
+								your personal coach"
+							</p>
+						</Header>
+						<CardsHolder>
+							{trainings.map((training, i) => {
+								return (
+									<TrainingCard training={training} key={i} />
+								);
+							})}
+						</CardsHolder>
+					</InnerWrapper>
 					<AnimatedDownArrow />
 				</Wrapper>
 			)}
@@ -75,13 +79,15 @@ const Wrapper = styled.div`
 	position: relative;
 
 	scroll-snap-align: start;
+
+	/* display: flex;
+	align-items: center;
+	justify-content: center; */
 `;
 
 const Header = styled.div`
 	width: 100%;
-	height: 130px;
-	/* background-color: #0000ff4e; */
-	margin-top: 50px;
+	height: auto;
 
 	color: white;
 
@@ -95,7 +101,7 @@ const Header = styled.div`
 
 	h1 {
 		font-weight: 500;
-		font-size: 30px;
+		font-size: 28px;
 		margin-bottom: 10px;
 	}
 
@@ -111,6 +117,9 @@ const Header = styled.div`
 		font-weight: 300;
 		font-size: 18px;
 	}
+
+	position: absolute;
+	top: -130px;
 `;
 
 const CardsHolder = styled.div`
@@ -122,4 +131,11 @@ const CardsHolder = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+`;
+
+const InnerWrapper = styled.div`
+	position: relative;
+
+	top: 53%;
+	transform: translateY(-50%);
 `;

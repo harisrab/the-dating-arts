@@ -39,7 +39,7 @@ const LogoWrapper = styled.div`
 		/* font-size: 0.8125em; */
 
 		/* font-size: 2vh; */
-		font-size: 0.7rem;
+		font-size: 12px;
 		letter-spacing: 0.31875em;
 		color: ${(props) =>
 			props.mode === "white"
@@ -49,6 +49,7 @@ const LogoWrapper = styled.div`
 
 		user-select: text;
 		-webkit-user-select: text;
+		pointer-events: "auto";
 
 		span {
 			color: var(--logo-second-color);

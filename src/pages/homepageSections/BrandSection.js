@@ -5,7 +5,7 @@ import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 function BrandSection() {
 	return (
 		<Wrapper>
-			<img src="/homepage/Brands.png" alt="" />
+			<img src="/homepage/Brands.svg" alt="" />
 
 			<TextSection>
 				<h2>People we've worked with.</h2>
@@ -38,9 +38,11 @@ const Wrapper = styled.div`
 
 	img {
 		position: absolute;
-		height: 70vh;
-		top: 17%;
-		right: 10%;
+		height: 300px;
+		top: 50%;
+		left: 75%;
+
+		transform: translate(-50%, -50%);
 	}
 `;
 
@@ -50,20 +52,21 @@ const TextSection = styled.div`
 
 	position: absolute;
 	top: 50%;
-	left: 10vw;
-	transform: translate(0, -50%);
+	left: 32%;
+	transform: translate(-50%, -50%);
 
 	pointer-events: none;
 
 	h2 {
 		font-family: "Spectral", sans-serif;
 		font-weight: 600;
-		font-size: 2em;
+		font-size: 32px;
 		margin-bottom: 15px;
 	}
 
 	p {
 		font-family: "Spectral", sans-serif;
 		font-weight: 200;
+		font-size: 15px;
 	}
 `;

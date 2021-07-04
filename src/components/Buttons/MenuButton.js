@@ -6,8 +6,8 @@ import { useStateValue } from "../../Store/StateProvider";
 
 const variants = {
 	initial: {
-		width: "5.5vh",
-		height: "5.5vh",
+		width: "34px",
+		height: "34px",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",
@@ -27,7 +27,7 @@ const variants = {
 const lineOneVariants = {
 	initial: {
 		width: "28.8%",
-		height: "2.2%",
+		height: "2.5%",
 		backgroundColor: "#e6e6e6",
 		overflow: "visible",
 		position: "absolute",
@@ -49,7 +49,7 @@ const lineOneVariants = {
 
 const lineTwoVariants = {
 	initial: {
-		height: "2.2%",
+		height: "2.5%",
 		width: "44.4%",
 		backgroundColor: "#e6e6e6",
 		overflow: "visible",
@@ -73,7 +73,7 @@ const lineTwoVariants = {
 const lineThreeVariants = {
 	initial: {
 		width: "28.8%",
-		height: "2.2%",
+		height: "2.5%",
 		backgroundColor: "#e6e6e6",
 		overflow: "visible",
 		position: "absolute",

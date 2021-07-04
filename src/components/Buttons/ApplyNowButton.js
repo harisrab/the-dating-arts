@@ -50,8 +50,8 @@ function ApplyNowButton() {
 export default ApplyNowButton;
 
 const ButtonWrapper = styled(motion.button)`
-	width: 10vw;
-	height: 3.2vw;
+	width: 130px;
+	height: 44px;
 	border: 1px var(--main-color-white) solid;
 
 	display: flex;
@@ -66,6 +66,8 @@ const ButtonWrapper = styled(motion.button)`
 
 	position: relative;
 	color: var(--main-color-white);
+
+	overflow: hidden;
 
 	p {
 		position: absolute;

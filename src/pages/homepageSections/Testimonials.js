@@ -43,19 +43,9 @@ function Testimonials() {
 				<></>
 			) : (
 				<Wrapper>
-					<div className="sliderbar-holder">
-						<SelectableSlider
-							length={testimonials.length}
-							currentIndex={currentIndex}
-							setCurrentIndex={setCurrentIndex}
-						/>
-					</div>
-
-					<h2>Testimonials</h2>
-
-
 					<AnimatePresence>
 						<ContentWrapper>
+							<h2>Testimonials</h2>
 							<div className="h3__wrapper">
 								<motion.h3
 									key={currentIndex}
@@ -73,11 +63,22 @@ function Testimonials() {
 									key={currentIndex}
 									initial={{ opacity: 0, y: 50 }}
 									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 1, type: "spring", delay: 0.1 }}
+									transition={{
+										duration: 1,
+										type: "spring",
+										delay: 0.1,
+									}}
 									className="copy"
 								>
 									{testimonials[currentIndex].author}
 								</motion.p>
+							</div>
+							<div className="sliderbar-holder">
+								<SelectableSlider
+									length={testimonials.length}
+									currentIndex={currentIndex}
+									setCurrentIndex={setCurrentIndex}
+								/>
 							</div>
 						</ContentWrapper>
 					</AnimatePresence>
@@ -105,60 +106,17 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
-	h1 {
-		color: white;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	.sliderbar-holder {
-		height: auto;
-		width: 200px;
-		position: absolute;
-		top: 75%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	.right_left_btns {
-		width: 89.37%;
-		height: auto;
-
-		display: flex;
-		justify-content: space-between;
-
-		position: absolute;
-		left: 50%;
-		top: 50%;
-
-		transform: translate(-50%, -50%);
-	}
-
-	h2 { 
-		color: white;
-		font-family: "Spectral", sans-serif;
-		font-weight: 300;
-		font-size: 30px;
-
-		position: absolute;
-		left: 50%;
-		transform: translateX(-50%);
-		top: 100px;
-
-	}
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
 
 const ContentWrapper = styled.div`
 	width: 60vw;
 	height: auto;
 
+	position: relative;
 
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 
 	color: var(--main-color-white);
 	font-family: "Spectral", sans-serif;
@@ -169,6 +127,18 @@ const ContentWrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 
+	h2 {
+		color: white;
+		font-family: "Spectral", sans-serif;
+		font-weight: 300;
+		font-size: 32px;
+
+		position: absolute;
+		top: -150px;
+
+		
+	}
+
 	.h3__wrapper {
 		height: 80px;
 		min-height: fit-content;
@@ -176,7 +146,6 @@ const ContentWrapper = styled.div`
 		overflow: hidden;
 		display: flex;
 		align-items: center;
-
 	}
 
 	.p__wrapper {
@@ -201,5 +170,13 @@ const ContentWrapper = styled.div`
 		font-size: 18px;
 		line-height: 1.4;
 		word-break: break-all;
+	}
+
+	.sliderbar-holder {
+		height: auto;
+		width: 200px;
+
+		position: absolute;
+		bottom: -100px;
 	}
 `;

@@ -8,8 +8,8 @@ import "./UserHeaderButton.css";
 
 const variants = {
 	initial: {
-		width: "5.5vh",
-		height: "5.5vh",
+		width: "34px",
+		height: "34px",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
 		border: "1px solid #e6e6e6",

@@ -20,9 +20,6 @@ function EventSummary({ event, setShowEventsModal }) {
 		locationName,
 	} = event;
 
-	// startDate = new Date(startDate);
-	// endDate = new Date(endDate);
-
 	const date = {
 		startDate: {
 			day:
@@ -42,9 +39,6 @@ function EventSummary({ event, setShowEventsModal }) {
 		},
 	};
 
-	// useEffect(() => {
-	// 	console.log(new Date("2020/2/29"));
-	// }, []);
 
 	return (
 		<Wrapper
