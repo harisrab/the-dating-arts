@@ -1,41 +1,23 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
-import { request, gql } from "graphql-request";
 import { motion, AnimatePresence } from "framer-motion";
 import SelectableSlider from "../../components/SelectableSlider";
 import RightButton from "../../components/Buttons/RightButton";
 import LeftButton from "../../components/Buttons/LeftButton";
+import { useStateValue } from "../../Store/StateProvider";
 
 function Testimonials() {
-	const [testimonials, setTestimonials] = useState([]);
 	const [currentIndex, setCurrentIndex] = useState(0);
 
-	useEffect(() => {
-		const URL =
-			"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
-
-		const query = gql`
-			{
-				testimonials {
-					id
-					quote
-					author
-				}
-			}
-		`;
-
-		request(URL, query)
-			.then((data) => {
-				// console.log("Data AOL ====>", data.testimonials);
-				setTestimonials(data.testimonials);
-			})
-			.catch((error) => console.log(error));
-	}, []);
+	const [{ cmsData }, dispatch] = useStateValue();
+	const [testimonials, setTestimonials] = useState([]);
 
 	useEffect(() => {
-		console.log("Current Index ====> ", currentIndex);
-	}, [currentIndex]);
+		if (cmsData.status === "fetched") {
+			setTestimonials(cmsData.data.testimonials);
+		}
+	}, [cmsData]);
 
 	return (
 		<>
@@ -154,7 +136,6 @@ const ContentWrapper = styled.div`
 		display: flex;
 		align-items: center;
 		will-change: transform;
-		
 	}
 
 	.p__wrapper {

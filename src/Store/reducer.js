@@ -14,6 +14,11 @@ export const initialState = {
 	basket: {
 		items: 0,
 	},
+	cmsData: {
+		status: "idle",
+		error: null,
+		data: [],
+	},
 	user: null,
 	upcomingEvents: [],
 	eventModalToggle: false,
@@ -75,6 +80,41 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				upcomingEvents: action.payload,
+			};
+
+		// return {
+		// 	...state,
+		// 	cmsData: {
+		// 		...state.cmsData,
+		// 		data: {
+		// 			...state.cmsData.data,
+		// 			upcomingEvents: action.payload,
+		// 		},
+		// 	},
+		// };
+
+		case "FETCHING":
+			return {
+				...state,
+				cmsData: {
+					status: "fetching",
+				},
+			};
+
+		case "FETCHED":
+			return {
+				...state,
+				cmsData: {
+					status: "fetched",
+					data: action.payload,
+				},
+			};
+
+		case "FETCH_ERROR":
+			return {
+				...state,
+				status: "error",
+				error: action.payload,
 			};
 
 		default:

@@ -10,6 +10,8 @@ function ContactPage() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.2 }}
+			key={5}
+
 		>
 			<h1>Contact Page</h1>
 		</HomePageWrapper>

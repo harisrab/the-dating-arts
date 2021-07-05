@@ -10,6 +10,7 @@ function StorePage() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.2 }}
+			key={1}
 
 		>
 			<h1>Store</h1>

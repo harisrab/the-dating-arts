@@ -9,6 +9,8 @@ function AboutColgate() {
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
+			key={7}
+
 		>
 			<h1>About Colgate</h1>
 		</HomePageWrapper>

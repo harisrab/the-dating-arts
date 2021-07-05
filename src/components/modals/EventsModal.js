@@ -30,6 +30,7 @@ function EventsModal({ setShowEventsModal, showEventsModal }) {
 					animate="final"
 					exit="exit"
 					transition={{ duration: 0.3 }}
+					key={20}
 				>
 					<EventsModalHeader
 						setShowEventsModal={setShowEventsModal}

@@ -5,34 +5,19 @@ import SelectableSlider from "../../components/SelectableSlider";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { motion, AnimatePresence } from "framer-motion";
-import { request, gql } from "graphql-request";
+import { useStateValue } from "../../Store/StateProvider";
 
 function AOLSection() {
 	const [currentIndex, setCurrentIndex] = useState(0);
+	const [{ cmsData }, dispatch] = useStateValue();
 
 	const [AOL, setAOL] = useState([]);
 
 	useEffect(() => {
-		const URL =
-			"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
-
-		const query = gql`
-			{
-				areasOfLearnings {
-					title
-					description
-				}
-			}
-		`;
-
-		request(URL, query)
-			.then((data) => {
-				console.log("Data AOL ====>", data.areasOfLearnings[2].title);
-
-				setAOL(data.areasOfLearnings);
-			})
-			.catch((error) => console.log(error));
-	}, []);
+		if (cmsData.status === "fetched") {
+			setAOL(cmsData.data.areasOfLearnings);
+		}
+	}, [cmsData]);
 
 	return (
 		<Wrapper>
@@ -150,7 +135,6 @@ const ContentWrapper = styled.div`
 	display: -webkit-flex;
 	display: flex;
 
-	
 	flex-direction: column;
 
 	.sliderbar-holder {
