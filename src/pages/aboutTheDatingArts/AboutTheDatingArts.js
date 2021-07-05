@@ -8,6 +8,7 @@ import WhoAreWe from "./WhoAreWe";
 import WhereAreWeBased from "./WhereAreWeBased";
 import ServicesWeProvide from "./ServicesWeProvide";
 import OurReputedExclusivity from "./OurReputedExclusivity";
+import Newsletter from "../homepageSections/Newsletter";
 import Footer from "../homepageSections/Footer";
 
 function AboutTheDatingArts() {
@@ -25,6 +26,7 @@ function AboutTheDatingArts() {
 			<WhereAreWeBased />
 			<ServicesWeProvide />
 			<OurReputedExclusivity />
+			<Newsletter />
 			<Footer />
 		</AboutWrapper>
 	);
