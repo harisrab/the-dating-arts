@@ -4,61 +4,22 @@ import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import { Scroll, AnimatePresence } from "framer";
 import EventSummary from "../../components/events_summary_components/EventSummary";
 import UpcomingEventsHeader from "../../components/events_summary_components/UpcomingEventsHeader";
-import { request, gql } from "graphql-request";
 import { useStateValue } from "../../Store/StateProvider";
 
 function UpcomingEvents() {
 	const [currentOption, setCurrentOption] = useState("all");
-	const [{ upcomingEvents }, dispatch] = useStateValue();
+	const [{ cmsData }, dispatch] = useStateValue();
+	const [upcomingEvents, setUpcomingEvents] = useState([]);
 
 	const changeOption = (e) => {
 		setCurrentOption(e.target.id);
 	};
 
 	useEffect(() => {
-		const URL =
-			"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
-
-		const query = gql`
-			{
-				upcomingEvents {
-					heading
-					description
-					location {
-						latitude
-						longitude
-					}
-					pricePerPerson
-					startDate
-					endDate
-					spotsAvailable
-					id
-					image {
-						url
-					}
-					locationName
-					type
-				}
-			}
-		`;
-
-		request(URL, query)
-			.then((data) => {
-				const newData = data.upcomingEvents.map((event) => {
-					return {
-						...event,
-						startDate: new Date(event.startDate),
-						endDate: new Date(event.endDate),
-					};
-				});
-
-				dispatch({
-					type: "UPDATE_UPCOMING_EVENTS",
-					payload: newData,
-				});
-			})
-			.catch((error) => console.log(error));
-	}, [dispatch]);
+		if (cmsData.status === "fetched") {
+			setUpcomingEvents(cmsData.data.upcomingEvents);
+		}
+	}, [cmsData]);
 
 	return (
 		<>

@@ -10,6 +10,7 @@ function AdmissionApplication() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.2 }}
+			key={2}
 
 		>
 			<h1>Admission Application</h1>

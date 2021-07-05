@@ -11,6 +11,7 @@ function LiveExperiences() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.2 }}
+			key={3}
 		>
 			<h1>Live Experiences</h1>
 		</HomePageWrapper>

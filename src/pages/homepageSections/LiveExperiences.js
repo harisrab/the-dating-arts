@@ -2,32 +2,18 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import Card from "../../components/Card";
-import { request, gql } from "graphql-request";
+import { useStateValue } from "../../Store/StateProvider";
 
 function LiveExperiences() {
+	const [{ cmsData }, dispatch] = useStateValue();
+
 	const [experiences, setExperiences] = useState([]);
 
 	useEffect(() => {
-		const URL =
-			"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
-
-		const query = gql`
-			{
-				liveExperiences {
-					titleTag
-					mainTitle
-					description
-				}
-			}
-		`;
-
-		request(URL, query)
-			.then((data) => {
-				// console.log(data.liveExperiences);
-				setExperiences(data.liveExperiences);
-			})
-			.catch((error) => console.log(error));
-	}, []);
+		if (cmsData.status === "fetched") {
+			setExperiences(cmsData.data.liveExperiences);
+		}
+	}, [cmsData]);
 
 	return (
 		<>

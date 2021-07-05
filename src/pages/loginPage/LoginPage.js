@@ -10,6 +10,8 @@ function LoginPage() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.2 }}
+			key={8}
+
 		>
 			<h1>Login Page</h1>
 		</HomePageWrapper>

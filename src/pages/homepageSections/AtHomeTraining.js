@@ -2,36 +2,17 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import TrainingCard from "../../components/TrainingCard";
-import { request, gql } from "graphql-request";
+import { useStateValue } from "../../Store/StateProvider";
 
 function AtHomeTraining() {
+	const [{ cmsData }, dispatch] = useStateValue();
 	const [trainings, setTrainings] = useState([]);
 
 	useEffect(() => {
-		const URL =
-			"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
-
-		const query = gql`
-			{
-				atHomeTrainings {
-					price
-					per
-					title
-					feature1
-					feature2
-					feature3
-					feature4
-				}
-			}
-		`;
-
-		request(URL, query)
-			.then((data) => {
-				// console.log(data.atHomeTrainings);
-				setTrainings(data.atHomeTrainings);
-			})
-			.catch((error) => console.log(error));
-	}, []);
+		if (cmsData.status === "fetched") {
+			setTrainings(cmsData.data.atHomeTrainings);
+		}
+	}, [cmsData]);
 
 	return (
 		<>

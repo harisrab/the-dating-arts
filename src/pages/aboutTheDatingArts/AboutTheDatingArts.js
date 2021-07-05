@@ -10,6 +10,8 @@ function AboutTheDatingArts() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.2 }}
+			key={6}
+
 		>
 			<h1>About The Dating Arts</h1>
 		</HomePageWrapper>

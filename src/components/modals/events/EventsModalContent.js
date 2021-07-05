@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import DASlider from "./DASlider";
 import EventsAddToCartButton from "../../Buttons/EventsAddToCartButton";
@@ -8,101 +8,125 @@ import { useStateValue } from "../../../Store/StateProvider";
 
 function EventsModalContent() {
 	const [sliderAmount, setSliderAmount] = useState(2);
-	const [{ selectedEventId, upcomingEvents }, dispatch] = useStateValue();
+	const [{ selectedEventId, cmsData }, dispatch] = useStateValue();
+	const [eventDetails, setEventDetails] = useState("");
 
-	const event = upcomingEvents.filter((event) =>
-		event.id.includes(selectedEventId)
-	);
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			let event = cmsData.data.upcomingEvents.filter((event) =>
+				event.id.includes(selectedEventId)
+			)[0];
 
-	let {
-		heading,
-		description,
-		location,
-		pricePerPerson,
-		startDate,
-		endDate,
-		spotsAvailable,
-		image,
-		locationName,
-	} = event[0];
+			console.log("Date ====> ", String(event.startDate.getDate()));
 
-	const date = {
-		startDate: {
-			day: String(startDate.getDate()),
-			month: startDate.toLocaleString("en-us", { month: "long" }),
-			year: String(startDate.getFullYear()),
-		},
-		endDate: {
-			day: String(endDate.getDate()),
-			month: endDate.toLocaleString("en-us", { month: "long" }),
-			year: String(endDate.getFullYear()),
-		},
-	};
+			const date = {
+				startDate: {
+					day: String(event.startDate.getDate()),
+					month: event.startDate.toLocaleString("en-us", {
+						month: "long",
+					}),
+					year: String(event.startDate.getFullYear()),
+				},
+				endDate: {
+					day: String(event.endDate.getDate()),
+					month: event.endDate.toLocaleString("en-us", {
+						month: "long",
+					}),
+					year: String(event.endDate.getFullYear()),
+				},
+			};
 
-	startDate = `${date.startDate.month} ${date.startDate.day}, ${date.startDate.year}`;
-	endDate = `${date.endDate.month} ${date.endDate.day}, ${date.endDate.year}`;
+			const startDate = `${date.startDate.month} ${date.startDate.day}, ${date.startDate.year}`;
+			const endDate = `${date.endDate.month} ${date.endDate.day}, ${date.endDate.year}`;
+
+			event = {
+				...event,
+				startDate: startDate,
+				endDate: endDate,
+			};
+
+			setEventDetails(event);
+
+			console.log("CMS Data ===> ", cmsData);
+			console.log("Date ===> ", startDate);
+		}
+	}, [cmsData]);
 
 	const handleSliderChange = (e, val) => {
 		setSliderAmount(val);
 	};
 
 	return (
-		<Wrapper>
-			<BackStrip></BackStrip>
-			<ImageContainer url={image.url}></ImageContainer>
+		<>
+			{eventDetails ? (
+				<Wrapper>
+					<BackStrip></BackStrip>
+					<ImageContainer
+						url={eventDetails.image.url}
+					></ImageContainer>
 
-			<Right>
-				<div className="upper">
-					<div className="price__holder">
-						<ModalPriceTag price={pricePerPerson} />
-						<ModalDates startDate={startDate} endDate={endDate} />
-					</div>
-					<Heading>
-						<h2>{heading}</h2>
-					</Heading>
-					<Description>
-						<p>{description}</p>
-					</Description>
+					<Right>
+						<div className="upper">
+							<div className="price__holder">
+								<ModalPriceTag
+									price={eventDetails.pricePerPerson}
+								/>
+								<ModalDates
+									startDate={eventDetails.startDate}
+									endDate={eventDetails.endDate}
+								/>
+							</div>
+							<Heading>
+								<h2>{eventDetails.heading}</h2>
+							</Heading>
+							<Description>
+								<p>{eventDetails.description}</p>
+							</Description>
 
-					<Location>
-						{" "}
-						<p>
-							<b>Location: </b>
-							<a
-								href={`https://maps.google.com/?q=${location.latitude},${location.longitude}`}
-								target="_blank"
-								rel="noreferrer"
-							>
-								{locationName}
-							</a>
-						</p>
-					</Location>
-				</div>
+							<Location>
+								{" "}
+								<p>
+									<b>Location: </b>
+									<a
+										href={`https://maps.google.com/?q=${eventDetails.location.latitude},${eventDetails.location.longitude}`}
+										target="_blank"
+										rel="noreferrer"
+									>
+										{eventDetails.locationName}
+									</a>
+								</p>
+							</Location>
+						</div>
 
-				<div className="lower">
-					<Availability>
-						<p>
-							<b>Availability:</b> {spotsAvailable}
-						</p>
-					</Availability>
+						<div className="lower">
+							<Availability>
+								<p>
+									<b>Availability:</b>{" "}
+									{eventDetails.spotsAvailable}
+								</p>
+							</Availability>
 
-					<DASlider
-						defaultValue={sliderAmount}
-						marks={true}
-						step={1}
-						min={0}
-						max={spotsAvailable}
-						onChange={handleSliderChange}
-					/>
+							<DASlider
+								defaultValue={sliderAmount}
+								marks={true}
+								step={1}
+								min={0}
+								max={eventDetails.spotsAvailable}
+								onChange={handleSliderChange}
+							/>
 
-					<SaveSpots>
-						Buy spots for <b>{sliderAmount}</b> persons
-					</SaveSpots>
+							<SaveSpots>
+								Buy spots for <b>{sliderAmount}</b> persons
+							</SaveSpots>
 
-					<EventsAddToCartButton />
-				</div>
-			</Right>
-		</Wrapper>
+							<EventsAddToCartButton />
+						</div>
+					</Right>
+				</Wrapper>
+			) : (
+				<></>
+			)}
+		</>
 	);
 }
 
