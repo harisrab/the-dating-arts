@@ -7,6 +7,7 @@ import HeroSection from "./HeroSection";
 import BeginningsAndMasters from "./BeginningsAndMasters";
 import TheTutelage from "./TheTutelage";
 import ExperiencesOfLife from "./ExperiencesOfLife";
+import VideoListings from "./VideoListings";
 import Newsletter from "../homepageSections/Newsletter";
 import Footer from "../homepageSections/Footer";
 
@@ -24,6 +25,7 @@ function AboutColgate() {
 			<BeginningsAndMasters />
 			<TheTutelage />
 			<ExperiencesOfLife />
+			<VideoListings />
 			<Newsletter />
 			<Footer />
 		</AboutWrapper>

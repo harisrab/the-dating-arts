@@ -20,9 +20,7 @@ function Testimonials() {
 	}, [cmsData]);
 
 	useEffect(() => {
-		console.log("Timer Set Off !!!!");
 		const interval = setInterval(() => {
-			console.log("This will run every second!");
 			if (currentIndex === testimonials.length - 1) {
 				setCurrentIndex(0);
 			} else {

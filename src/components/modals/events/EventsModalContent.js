@@ -5,6 +5,7 @@ import EventsAddToCartButton from "../../Buttons/EventsAddToCartButton";
 import ModalPriceTag from "./ModalPriceTag";
 import ModalDates from "./ModalDates";
 import { useStateValue } from "../../../Store/StateProvider";
+import { motion } from "framer-motion";
 
 function EventsModalContent() {
 	const [sliderAmount, setSliderAmount] = useState(2);
@@ -61,9 +62,20 @@ function EventsModalContent() {
 			{eventDetails ? (
 				<Wrapper>
 					<BackStrip></BackStrip>
-					<ImageContainer
-						url={eventDetails.image.url}
-					></ImageContainer>
+					<div className="image_container">
+						<ImageContainer
+							initial={{ width: "0%", scale: 1 }}
+							animate={{ width: "100%", scale: 1.1 }}
+							transition={{
+								duration: 3,
+								delay: 0.4,
+								ease: "easeOut",
+								type: "spring",
+							}}
+							style={{ originX: 0 }}
+							url={eventDetails.image.url}
+						></ImageContainer>
+					</div>
 
 					<Right>
 						<div className="upper">
@@ -143,6 +155,48 @@ const Wrapper = styled.div`
 	display: -webkit-flex;
 	display: flex;
 	align-items: center;
+
+	.image_container {
+		width: 35%;
+		min-height: 100%;
+		max-height: 100%;
+		margin-left: 6%;
+
+		/* position: relative; */
+
+		/* display: flex;
+		align-items: center; */
+
+		position: relative;
+		overflow: hidden;
+		/* z-index: -1;  */
+	}
+`;
+
+const ImageContainer = styled(motion.div)`
+	height: 100%;
+	width: 100%;
+	background-color: blue;
+
+	position: absolute;
+	/* max-height: 100%;
+	min-height: 100%; */
+
+	/* position: absolute; */
+
+	/* height: 100%;
+	width: 100%;
+	background-color: black;
+	object-fit: cover; */
+	background-image: url(${(props) => props.url});
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	/* 
+	
+	background-color: red; */
+
+	/* z-index: 1; */
 `;
 
 const BackStrip = styled.div`
@@ -154,21 +208,6 @@ const BackStrip = styled.div`
 	top: 50%;
 	transform: translate(0, -50%);
 	z-index: -1;
-`;
-
-const ImageContainer = styled.div`
-	max-height: 100%;
-	min-height: 100%;
-
-	width: 35%;
-	background-color: black;
-	margin-left: 6%;
-	object-fit: cover;
-
-	background-image: url(${(props) => props.url});
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
 `;
 
 const Right = styled.div`
