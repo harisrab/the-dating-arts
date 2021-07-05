@@ -29,6 +29,9 @@ const HeroSectionWrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
+	pointer-events: all;
+	user-select: text;
+
 	background-image: url("homepage/herosection_background.png");
 	background-repeat: no-repeat;
 	background-position: center;
@@ -39,6 +42,9 @@ const HeroSectionWrapper = styled.div`
 	scroll-snap-align: start;
 
 	.text-wrapper {
+		pointer-events: all;
+		user-select: text;
+
 		font-family: "Spectral";
 		color: white;
 		position: absolute;
@@ -51,11 +57,17 @@ const HeroSectionWrapper = styled.div`
 		.line1 {
 			font-weight: 200;
 			font-size: 22.5px;
+
+			pointer-events: all;
+			user-select: text;
 		}
 
 		.line2 {
 			font-size: 33.6px;
 			font-weight: 700;
+
+			pointer-events: all;
+			user-select: text;
 		}
 		.button-holder {
 			margin-top: 30px;

@@ -2,24 +2,39 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+// Import Sections
+import HeroSection from "./HeroSection";
+import BeginningsAndMasters from "./BeginningsAndMasters";
+import TheTutelage from "./TheTutelage";
+import ExperiencesOfLife from "./ExperiencesOfLife";
+import VideoListings from "./VideoListings";
+import Newsletter from "../homepageSections/Newsletter";
+import Footer from "../homepageSections/Footer";
+
 function AboutColgate() {
 	return (
-		<HomePageWrapper
+		<AboutWrapper
 			id="main_app"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
-			key={7}
-
+			transition={{ duration: 0.2 }}
+			key={6}
 		>
-			<h1>About Colgate</h1>
-		</HomePageWrapper>
+			<HeroSection />
+			<BeginningsAndMasters />
+			<TheTutelage />
+			<ExperiencesOfLife />
+			<VideoListings />
+			<Newsletter />
+			<Footer />
+		</AboutWrapper>
 	);
 }
 
 export default AboutColgate;
 
-const HomePageWrapper = styled(motion.div)`
+const AboutWrapper = styled(motion.div)`
 	z-index: 49;
 	height: 100vh;
 	width: 100%;
@@ -28,9 +43,11 @@ const HomePageWrapper = styled(motion.div)`
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
+
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
+
 	overflow-y: scroll;
 	overflow: overlay;
 	background-color: black;
@@ -57,13 +74,4 @@ const HomePageWrapper = styled(motion.div)`
 
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
-
-	h1 {
-		position: absolute;
-
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		color: white;
-	}
 `;

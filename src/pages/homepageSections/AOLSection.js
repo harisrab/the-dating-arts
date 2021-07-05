@@ -107,6 +107,9 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
+	pointer-events: all;
+	user-select: text;
+
 	background-image: url("homepage/Areas_Of_Learning.png");
 	background-repeat: no-repeat;
 	background-position: center;
@@ -137,6 +140,9 @@ const ContentWrapper = styled.div`
 
 	flex-direction: column;
 
+	pointer-events: all;
+	user-select: text;
+
 	.sliderbar-holder {
 		height: auto;
 		width: 25vw;
@@ -157,6 +163,9 @@ const ContentWrapper = styled.div`
 
 		margin-bottom: 20px;
 		margin-top: 0px;
+
+		pointer-events: all;
+		user-select: text;
 	}
 
 	.p__wrapper {
@@ -164,13 +173,18 @@ const ContentWrapper = styled.div`
 		height: auto;
 		padding-bottom: 20px;
 		overflow: hidden;
+
+		pointer-events: all;
+		user-select: text;
 	}
 
 	.subtitle {
-		opacity: 0.38;
-		color: #e8e8e8;
+		color: gray;
 		font-size: 16px;
 		font-weight: 300;
+
+		pointer-events: all;
+		user-select: text;
 	}
 
 	.heading {
@@ -179,6 +193,9 @@ const ContentWrapper = styled.div`
 		font-weight: 500;
 		margin-bottom: 10px;
 		margin-top: 8px;
+
+		pointer-events: all;
+		user-select: text;
 	}
 
 	.copy {
@@ -187,6 +204,9 @@ const ContentWrapper = styled.div`
 		font-size: 14.4px;
 		line-height: 1.4;
 		word-break: keep-all;
+
+		pointer-events: all;
+		user-select: text;
 	}
 
 	/* Buttons */

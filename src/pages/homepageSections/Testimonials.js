@@ -19,6 +19,20 @@ function Testimonials() {
 		}
 	}, [cmsData]);
 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			if (currentIndex === testimonials.length - 1) {
+				setCurrentIndex(0);
+			} else {
+				setCurrentIndex(currentIndex + 1);
+			}
+		}, 3000);
+
+		// interval();
+
+		return () => clearInterval(interval);
+	}, [currentIndex, testimonials.length]);
+
 	return (
 		<>
 			{testimonials.length === 0 ? (
@@ -33,7 +47,10 @@ function Testimonials() {
 									key={currentIndex}
 									initial={{ opacity: 1, y: 40 }}
 									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 1, type: "spring" }}
+									transition={{
+										duration: 1,
+										type: "spring",
+									}}
 									className="heading"
 								>
 									{testimonials[currentIndex].quote}
@@ -64,7 +81,6 @@ function Testimonials() {
 							</div>
 						</ContentWrapper>
 					</AnimatePresence>
-
 					<AnimatedDownArrow />
 				</Wrapper>
 			)}

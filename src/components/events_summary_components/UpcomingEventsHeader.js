@@ -68,6 +68,9 @@ function UpcomingEventsHeader({ changeOption, currentOption }) {
 export default UpcomingEventsHeader;
 
 const Titles = styled.div`
+	pointer-events: all;
+	user-select: text;
+
 	height: 13%;
 	width: 100%;
 	/* background-color: red; */
@@ -88,8 +91,14 @@ const Titles = styled.div`
 			font-family: "Spectral", sans-serif;
 			font-weight: 600;
 			font-size: 35px;
+
+			pointer-events: all;
+			user-select: text;
 		}
 		margin-right: 60px;
+
+		pointer-events: all;
+		user-select: text;
 	}
 
 	.links {
