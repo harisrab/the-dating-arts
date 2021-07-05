@@ -10,7 +10,7 @@ const aVars = {
 		scale: 1,
 	},
 	final: {
-		scale: 1.1,
+		scale: 1.05,
 	},
 };
 
@@ -183,6 +183,14 @@ const ContentWrapper = styled.div`
 		width: auto;
 
 		position: relative;
+
+		border-radius: 5px;
+		overflow: hidden;
+
+		&:hover {
+			border: 3px solid;
+			border-color: #8b0000;
+		}
 
 		.thumbnail {
 			height: 150px;
