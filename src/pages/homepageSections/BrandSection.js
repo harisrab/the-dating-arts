@@ -30,6 +30,9 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
+	pointer-events: all;
+	user-select: text;
+
 	background-color: var(--main-color-dark-black);
 
 	position: relative;
@@ -50,23 +53,30 @@ const TextSection = styled.div`
 	color: white;
 	width: 43vw;
 
+	pointer-events: all;
+	user-select: text;
+
 	position: absolute;
 	top: 50%;
 	left: 32%;
 	transform: translate(-50%, -50%);
-
-	pointer-events: none;
 
 	h2 {
 		font-family: "Spectral", sans-serif;
 		font-weight: 600;
 		font-size: 32px;
 		margin-bottom: 15px;
+
+		pointer-events: all;
+		user-select: text;
 	}
 
 	p {
 		font-family: "Spectral", sans-serif;
 		font-weight: 200;
 		font-size: 15px;
+
+		pointer-events: all;
+		user-select: text;
 	}
 `;

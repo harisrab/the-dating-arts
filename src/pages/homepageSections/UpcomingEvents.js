@@ -71,6 +71,9 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
+	pointer-events: all;
+	user-select: text;
+
 	background-image: url("homepage/generic_bg.png");
 	background-repeat: no-repeat;
 	background-position: center;
@@ -79,14 +82,6 @@ const Wrapper = styled.div`
 	position: relative;
 
 	scroll-snap-align: start;
-
-	h1 {
-		color: white;
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
 `;
 
 const ContentWrapper = styled.div`
@@ -98,11 +93,15 @@ const ContentWrapper = styled.div`
 	top: 43%;
 	transform: translate(-50%, -50%);
 
+	pointer-events: all;
+	user-select: text;
+
 	.info_summary {
 		width: 100%;
 		height: 50px;
 		background-color: yellow;
 		margin-bottom: 5px;
+		
 	}
 `;
 

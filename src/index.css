@@ -24,6 +24,15 @@
   --scrollbar-background-color: #85858514;
 }
 
+::-moz-selection {
+  color: var(--main-color-red);
+  background: var(--main-color-black);
+}
+
+::selection {
+  color: var(--main-color-white);
+  background: rgb(95, 0, 0);
+}
 
 * {
   box-sizing: border-box;
