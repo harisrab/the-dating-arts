@@ -3,7 +3,7 @@ import styled from "styled-components";
 import CloseIcon from "@material-ui/icons/Close";
 import { useStateValue } from "../../../Store/StateProvider";
 
-function EventsModalHeader({ setShowEventsModal }) {
+function EventsModalHeader() {
 	const [{ eventModalToggle }, dispatch] = useStateValue();
 
 	const ToggleModal = () => {

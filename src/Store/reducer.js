@@ -22,7 +22,9 @@ export const initialState = {
 	user: null,
 	upcomingEvents: [],
 	eventModalToggle: false,
+	productModalToggle: false,
 	selectedEventId: "",
+	selectedProductId: "",
 };
 
 // Selectors
@@ -68,6 +70,12 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				eventModalToggle: action.payload,
+			};
+
+		case "SET_PRODUCT_MODAL_STATE":
+			return {
+				...state,
+				productModalToggle: action.payload,
 			};
 
 		case "SET_SELECTED_EVENT_ID":

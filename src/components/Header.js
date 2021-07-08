@@ -15,7 +15,7 @@ import SocialIconsHeader from "./Buttons/SocialIconsHeader";
 import ScrollUpButton from "./Buttons/ScrollUpButton";
 import MainMenu from "./MainMenu";
 
-function Header() {
+function Header({ background = "black" }) {
 	const history = useHistory();
 
 	return (
@@ -25,23 +25,35 @@ function Header() {
 
 				<TopSection>
 					<LogoHolder>
-						<Logo onClick={() => history.push("/")} />
+						<Logo
+							background={background}
+							onClick={() => history.push("/")}
+						/>
 					</LogoHolder>
 					<RightSection>
-						<MenuButton />
-						<ShoppingCartButton />
-						<UserHeaderButton />
+						<MenuButton background={background} />
+						<ShoppingCartButton background={background} />
+						<UserHeaderButton background={background} />
 					</RightSection>
 				</TopSection>
 				<BottomSection>
 					<SocialIconsContainer>
-						<SocialIconsHeader type="instagram" />
-						<SocialIconsHeader type="facebook" />
-						<SocialIconsHeader type="youtube" />
+						<SocialIconsHeader
+							type="instagram"
+							background={background}
+						/>
+						<SocialIconsHeader
+							type="facebook"
+							background={background}
+						/>
+						<SocialIconsHeader
+							type="youtube"
+							background={background}
+						/>
 					</SocialIconsContainer>
 
 					<ScrollHolder>
-						<ScrollUpButton />
+						<ScrollUpButton background={background} />
 					</ScrollHolder>
 				</BottomSection>
 			</HeaderWrapper>
@@ -73,8 +85,6 @@ const HeaderWrapper = styled.div`
 
 	/* --webkit-user-select: auto; */
 	overflow: visible;
-
-
 `;
 
 const TopSection = styled.div`
@@ -125,7 +135,6 @@ const RightSection = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	/* gap: 18px; */
-	
 `;
 
 const SocialIconsContainer = styled.div`
