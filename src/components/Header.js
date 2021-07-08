@@ -14,9 +14,13 @@ import ShoppingCartButton from "./Buttons/ShoppingCartButton";
 import SocialIconsHeader from "./Buttons/SocialIconsHeader";
 import ScrollUpButton from "./Buttons/ScrollUpButton";
 import MainMenu from "./MainMenu";
+import JumpBackBtn from "./JumpBackBtn";
 
 function Header({ background = "black" }) {
 	const history = useHistory();
+	const [{ headerLogoState }, dispatch] = useStateValue();
+
+	
 
 	return (
 		<>
@@ -25,10 +29,13 @@ function Header({ background = "black" }) {
 
 				<TopSection>
 					<LogoHolder>
-						<Logo
-							background={background}
-							onClick={() => history.push("/")}
-						/>
+						{headerLogoState === "normal" && (
+							<Logo
+								background={background}
+								onClick={() => history.push("/")}
+							/>
+						)}
+						{headerLogoState === "jumpback" && <JumpBackBtn />}
 					</LogoHolder>
 					<RightSection>
 						<MenuButton background={background} />
@@ -139,7 +146,6 @@ const RightSection = styled.div`
 
 const SocialIconsContainer = styled.div`
 	height: 100%;
-
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;

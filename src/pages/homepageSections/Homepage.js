@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import {
+	ScrollManager,
+	WindowScroller,
+	ElementScroller,
+} from "react-scroll-manager";
+
 // Import All Sections
 import HeroSection from "./HeroSection";
 import BrandSection from "./BrandSection";
@@ -15,24 +21,28 @@ import Footer from "./Footer";
 
 function Homepage() {
 	return (
-		<HomePageWrapper
-			id="main_app"
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			transition={{ duration: 0.2 }}
-			key={9}
-		>
-			<HeroSection />
-			<BrandSection />
-			<AOLSection />
-			<UpcomingEvents />
-			<LiveExperiences />
-			<AtHomeTraining />
-			<Testimonials />
-			<Newsletter />
-			<Footer />
-		</HomePageWrapper>
+		<>
+			<HomePageWrapper
+				id="main_app"
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				exit={{ opacity: 0 }}
+				transition={{ duration: 0.2 }}
+				key={9}
+			>
+				<HeroSection />
+				<BrandSection />
+				<AOLSection />
+				<UpcomingEvents />
+				<ElementScroller scrollKey="le">
+					<LiveExperiences className="le" />
+				</ElementScroller>
+				<AtHomeTraining />
+				<Testimonials />
+				<Newsletter />
+				<Footer />
+			</HomePageWrapper>
+		</>
 	);
 }
 

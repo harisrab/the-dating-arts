@@ -25,6 +25,7 @@ export const initialState = {
 	productModalToggle: false,
 	selectedEventId: "",
 	selectedProductId: "",
+	headerLogoState: "normal",
 };
 
 // Selectors
@@ -65,6 +66,13 @@ const reducer = (state, action) => {
 					switchToHome: action.payload,
 				},
 			};
+
+		case "SET_LOGO_TYPE": 
+		console.log("State Changed")
+		return {
+			...state,
+			headerLogoState: action.payload
+		}
 
 		case "SET_MODAL_STATE":
 			return {

@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { useStateValue } from "./Store/StateProvider";
-import LoadingPage from "./pages/LoadingPage";
 import Header from "./components/Header";
 import BlackHeader from "./components/blackHeader/BlackHeader";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ComponentsTestScreen from "./components/ComponentsTestScreen";
+
 import EventsModal from "./components/modals/EventsModal";
 import ProductModal from "./components/modals/ProductModal";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,27 +17,15 @@ import AboutColgate from "./pages/aboutColgate/AboutColgate";
 import AboutTheDatingArts from "./pages/aboutTheDatingArts/AboutTheDatingArts";
 import ContactPage from "./pages/contactPage/ContactPage";
 import LiveExperiences from "./pages/liveExperiences/LiveExperiences";
+
+import LiveExperiencesWrapper from "./pages/LiveExperiencesWrapper";
+
 import AtHomeTrainings from "./pages/atHomeTrainings/AtHomeTrainings";
 import AdmissionApplication from "./pages/admissionApplication/AdmissionApplication";
 import StorePage from "./pages/storePage/StorePage";
 import LoginPage from "./pages/loginPage/LoginPage";
 
 function App() {
-	// eslint-disable-next-line no-unused-vars
-	// const [{ loader }, dispatch] = useStateValue();
-
-	// useEffect(() => {
-	// 	const animateLoadingScreenOut = () => {
-	// 		setTimeout(() => {
-	// 			dispatch({
-	// 				type: "SET_PRELOADER",
-	// 				payload: false,
-	// 			});
-	// 		}, 6000);
-	// 	};
-	// 	animateLoadingScreenOut();
-	// }, [dispatch]);
-
 	const cache = useRef({});
 	const url =
 		"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
@@ -146,7 +133,6 @@ function App() {
 	return (
 		<Router>
 			{/* <LoadingPage /> */}
-
 			<AppWrapper id="main-wrapper">
 				<AnimatePresence>
 					<Switch key={2}>
@@ -160,8 +146,7 @@ function App() {
 							<StorePage />
 						</Route>
 						<Route path="/live-experiences">
-							<Header key={1} />
-							<LiveExperiences />
+							<LiveExperiencesWrapper />
 						</Route>
 						<Route path="/at-home-trainings">
 							<Header key={1} />
