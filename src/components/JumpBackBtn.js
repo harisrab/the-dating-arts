@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
-import { useStateValue } from "../../../Store/StateProvider";
+import { useStateValue } from "../Store/StateProvider";
 import { motion } from "framer-motion";
-import ShoppingCartButton from "../../blackHeader/Buttons/ShoppingCartButton";
+import { useHistory } from "react-router-dom";
 
 const variants = {
 	initial: {},
@@ -19,36 +19,27 @@ const textVars = {
 
 function ProductModalHeader() {
 	const [{ eventModalToggle }, dispatch] = useStateValue();
+	let history = useHistory();
 
-	const ToggleModal = () => {
-		dispatch({
-			type: "SET_PRODUCT_MODAL_STATE",
-			payload: false,
-		});
-
-		dispatch({
-			type: "SET_SELECTED_PRODUCT_ID",
-			payload: "",
-		});
+	const GoBack = () => {
+		history.goBack();
 	};
 	return (
 		<Wrapper>
 			<motion.div
 				className="exit__button"
-				onClick={ToggleModal}
+				onClick={GoBack}
 				variants={variants}
 				initial="initial"
 				whileHover="final"
 				transition={{ duration: 0.1 }}
+				style={{ pointerEvents: "auto" }}
 			>
-				<ArrowBackIosIcon />
+				<ArrowBackIosIcon style={{ color: "#fff" }} />
 				<motion.p variants={textVars} transition={{ duration: 0.3 }}>
 					Go back
 				</motion.p>
 			</motion.div>
-			<div className="cart_btn">
-				<ShoppingCartButton />
-			</div>
 		</Wrapper>
 	);
 }
@@ -56,23 +47,13 @@ function ProductModalHeader() {
 export default ProductModalHeader;
 
 const Wrapper = styled.div`
-	height: 15%;
-	width: 100%;
-
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
 	.exit__button {
 		height: auto;
 		width: auto;
 
-		margin-left: 50px;
+		margin-left: 0px;
 
-		background-color: var(--main-color-white);
+		/* background-color: var(--main-color-white); */
 
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -86,23 +67,25 @@ const Wrapper = styled.div`
 			cursor: pointer;
 		}
 
-			p {
-				margin-left: 10px;
-				margin-top: -2px;
+		pointer-events: "auto";
+		user-select: text;
+		-webkit-user-select: text;
 
-				opacity: 0;
+		p {
+			margin-left: 10px;
+			margin-top: -2px;
 
-				text-decoration: underline;
-				text-decoration-style: dotted;
+			opacity: 0;
 
-				color: gray;
-			}
-	}
+			text-decoration: underline;
+			text-decoration-style: dotted;
 
-	.cart_btn {
-		height: auto;
-		width: auto;
-		margin-right: 70px;
+			color: #b6b6b6;
+
+			pointer-events: "auto";
+			user-select: text;
+			-webkit-user-select: text;
+		}
 	}
 
 	/* background-color:	 blue; */

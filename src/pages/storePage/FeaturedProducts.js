@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ProductItemDetailsButton from "../../components/Buttons/ProductItemDetailsButton";
 import ProductItemAddToCart from "../../components/Buttons/ProductItemAddToCart";
+import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 
 function FeaturedProducts() {
 	const data = [
@@ -86,6 +87,7 @@ function FeaturedProducts() {
 					);
 				})}
 			</ContentWrapper>
+			<AnimatedDownArrow color="black"/>
 		</Wrapper>
 	);
 }
