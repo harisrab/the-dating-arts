@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import ProductLeft from "./ProductLeft";
+import ProductRight from "./ProductRight";
+import FeaturedProducts from "./FeaturedProducts";
+import WhiteFooter from "../../components/WhiteFooter";
 
 function StorePage() {
 	return (
@@ -11,9 +15,11 @@ function StorePage() {
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.2 }}
 			key={1}
-
 		>
-			<h1>Store</h1>
+			<ProductLeft />
+			<ProductRight />
+			<FeaturedProducts />
+			<WhiteFooter />
 		</HomePageWrapper>
 	);
 }
@@ -34,36 +40,28 @@ const HomePageWrapper = styled(motion.div)`
 	justify-content: flex-start;
 	overflow-y: scroll;
 	overflow: overlay;
-	background-color: black;
+	background-color: white;
 
 	/* Style the scroll bar */
 	&::-webkit-scrollbar {
-		width: 0.3em;
+		width: 0.6em;
 	}
 
 	&::-webkit-scrollbar-track {
-		background: var(--scrollbar-background-color);
+		background: #cccccc;
 	}
 
 	/* Handle */
 	&::-webkit-scrollbar-thumb {
-		background: var(--scrollbar-handle-color);
+		background: #4b4b4b;
 		border-radius: 4px;
 	}
 
 	/* Handle on hover */
 	&::-webkit-scrollbar-thumb:hover {
-		background: var(--scrollbar-handle-hover-color);
+		background: #424242;
 	}
 
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
-
-	h1 {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		color: white;
-	}
 `;

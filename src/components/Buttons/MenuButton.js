@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Frame, AnimatePresence } from "framer";
 
 import CloseIcon from "@material-ui/icons/Close";
@@ -10,8 +10,8 @@ const variants = {
 		height: "34px",
 		overflow: "visible",
 		backgroundColor: "#ffffff0",
-		border: "1px solid #e6e6e6",
-		shadow: "0px 0px 5px 0px #e6e6e6",
+		border:"1px solid #e6e6e6",
+		shadow:"0px 0px 5px 0px #e6e6e6",
 	},
 	hover: {
 		transition: { duration: 0.2, type: "tween" },
@@ -93,7 +93,7 @@ const lineThreeVariants = {
 	},
 };
 
-function MenuButton() {
+function MenuButton({ background }) {
 	const [{ menu }, dispatch] = useStateValue();
 
 	let active = menu.buttonStates.hamburger;

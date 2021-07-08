@@ -13,7 +13,6 @@ const aVars = {
 		scale: 1.05,
 	},
 };
-
 const overlayVars = {
 	initial: {
 		opacity: 0,
@@ -165,6 +164,8 @@ const ContentWrapper = styled.div`
 
 	.videos {
 		display: flex;
+
+		align-items: center;
 		height: auto;
 		width: auto;
 

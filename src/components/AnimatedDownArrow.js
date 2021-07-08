@@ -3,7 +3,7 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-function AnimatedDownArrow() {
+function AnimatedDownArrow({ color }) {
 	return (
 		<Wrapper>
 			<DownArrow
@@ -15,7 +15,14 @@ function AnimatedDownArrow() {
 					repeatType: "reverse",
 				}}
 			>
-				<KeyboardArrowDownIcon className="downarrow" />
+				<KeyboardArrowDownIcon
+					style={
+						color === "black"
+							? { color: "rgb(0, 0, 0)" }
+							: { color: "rgb(255, 255, 255)" }
+					}
+					className="downarrow"
+				/>
 			</DownArrow>
 		</Wrapper>
 	);
@@ -41,7 +48,7 @@ const DownArrow = styled(motion.div)`
 	will-change: transform;
 
 	.downarrow {
-		color: white;
+		color: #fff;
 		height: 30px;
 		will-change: transform;
 	}

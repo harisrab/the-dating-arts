@@ -2,14 +2,16 @@ import React from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 
-function Logo({ mode = "black" }) {
+function Logo({ background = "black" }) {
 	const history = useHistory();
 
+	console.log("Background Color =====> ", background);
+
 	return (
-		<LogoWrapper mode={mode} onClick={() => history.push("/")}>
-			<p className="logo" mode={mode}>
+		<LogoWrapper onClick={() => history.push("/")}>
+			<LogoTitle className="logo" background={background}>
 				THE DATING <span className="logo">ARTS</span>
-			</p>
+			</LogoTitle>
 		</LogoWrapper>
 	);
 }
@@ -34,25 +36,22 @@ const LogoWrapper = styled.div`
 	justify-content: flex-start;
 
 	/* z-index: 1000000000; */
+`;
 
-	p {
-		font-family: "Spectral", serif;
-		/* font-size: 0.8125em; */
+const LogoTitle = styled.p`
+	font-family: "Spectral", serif;
+	/* font-size: 0.8125em; */
 
-		/* font-size: 2vh; */
-		font-size: 12px;
-		letter-spacing: 0.31875em;
-		color: ${(props) =>
-			props.mode === "white"
-				? "var(--main-color-dark-black)"
-				: "var(--main-color-white)"};
-		line-height: 1.2em;
+	/* font-size: 2vh; */
+	font-size: 14px;
+	letter-spacing: 0.31875em;
+	color: ${(props) => (props.background === "white" ? `black` : `white`)};
+	line-height: 1.2em;
 
-		span {
-			color: var(--logo-second-color);
-			pointer-events: "auto";
-			user-select: text;
-			-webkit-user-select: text;
-		}
+	span {
+		color: var(--logo-second-color);
+		pointer-events: "auto";
+		user-select: text;
+		-webkit-user-select: text;
 	}
 `;

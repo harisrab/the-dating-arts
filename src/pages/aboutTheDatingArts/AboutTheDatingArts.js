@@ -54,7 +54,7 @@ const AboutWrapper = styled(motion.div)`
 
 	/* Style the scroll bar */
 	&::-webkit-scrollbar {
-		width: 0.3em;
+		width: 0.6em;
 	}
 
 	&::-webkit-scrollbar-track {

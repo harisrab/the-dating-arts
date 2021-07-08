@@ -3,9 +3,12 @@ import styled from "styled-components";
 import { useStateValue } from "./Store/StateProvider";
 import LoadingPage from "./pages/LoadingPage";
 import Header from "./components/Header";
+import BlackHeader from "./components/blackHeader/BlackHeader";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ComponentsTestScreen from "./components/ComponentsTestScreen";
 import EventsModal from "./components/modals/EventsModal";
+import ProductModal from "./components/modals/ProductModal";
 import { motion, AnimatePresence } from "framer-motion";
 import { request, gql } from "graphql-request";
 
@@ -146,37 +149,42 @@ function App() {
 
 			<AppWrapper id="main-wrapper">
 				<AnimatePresence>
-					<Header key={1} />
 					<Switch key={2}>
-						<Route path="/components-test">
-							<ComponentsTestScreen />
-						</Route>
-
-						<Route path="/store">
-							<StorePage />
-						</Route>
 						<Route path="/application">
+							<Header key={1} />
 							<AdmissionApplication />
 						</Route>
+						<Route path="/store">
+							<ProductModal />
+							<BlackHeader key={1} />
+							<StorePage />
+						</Route>
 						<Route path="/live-experiences">
+							<Header key={1} />
 							<LiveExperiences />
 						</Route>
 						<Route path="/at-home-trainings">
+							<Header key={1} />
 							<AtHomeTrainings />
 						</Route>
 						<Route path="/contact">
+							<Header key={1} />
 							<ContactPage />
 						</Route>
 						<Route path="/about-tda">
+							<Header key={1} />
 							<AboutTheDatingArts />
 						</Route>
 						<Route path="/about-colgate">
+							<Header key={1} />
 							<AboutColgate />
 						</Route>
 						<Route path="/login">
+							<Header key={1} />
 							<LoginPage />
 						</Route>
 						<Route path="/">
+							<Header key={1} />
 							<EventsModal />
 							<Homepage />
 						</Route>
