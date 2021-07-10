@@ -17,7 +17,7 @@ const bgVariants = {
 		height: "103%",
 	},
 };
-function SubscribeButton() {
+function SubmitButton() {
 	const [didHover, setDidHover] = useState(false);
 
 	const handleSubscribe = (e) => {
@@ -36,7 +36,7 @@ function SubscribeButton() {
 			onClick={handleSubscribe}
 		>
 			<motion.p
-				initial={!didHover ? { color: "#000000" } : {}}
+				initial={!didHover ? { color: "#a70000" } : {}}
 				animate={didHover ? { color: "#fff" } : {}}
 			>
 				ADD TO CART
@@ -51,13 +51,13 @@ function SubscribeButton() {
 	);
 }
 
-export default SubscribeButton;
+export default SubmitButton;
 
 const ButtonWrapper = styled(motion.button)`
 	width: 100%;
 	height: 3.2vw;
 	border: 1px solid;
-	border-color: black;
+	border-color: var(--main-color-red);
 
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -94,7 +94,7 @@ const ButtonWrapper = styled(motion.button)`
 const AnimatedBG = styled(motion.div)`
 	width: 101%;
 	height: 0%;
-	background-color: black;
+	background-color: var(--main-color-red);
 	margin-left: -1px;
 	margin-bottom: -1px;
 	position: relative;

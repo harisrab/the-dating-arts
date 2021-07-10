@@ -21,7 +21,7 @@ function LiveExperiences() {
 			{experiences.length === 0 ? (
 				<></>
 			) : (
-				<Wrapper>
+				<Wrapper id="main_app">
 					<InnerWrapper>
 						<Header>
 							<h1>Live Experiences</h1>

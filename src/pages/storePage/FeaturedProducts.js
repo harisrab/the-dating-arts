@@ -87,7 +87,7 @@ function FeaturedProducts() {
 					);
 				})}
 			</ContentWrapper>
-			<AnimatedDownArrow color="black"/>
+			<AnimatedDownArrow color="black" />
 		</Wrapper>
 	);
 }
@@ -140,6 +140,13 @@ const ContentWrapper = styled.div`
 const ProductItem = styled.div`
 	height: auto;
 	flex: 1;
+
+	transition: 0.2s ease-out;
+	&:hover {
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+			rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+		scale: 1.2;
+	}
 
 	/* background-color: white; */
 

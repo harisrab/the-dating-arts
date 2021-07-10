@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import SubmitButton from "../../components/Buttons/SubmitButton";
+import { MaskedInput } from "baseui/input";
 
 function ContactPage() {
 	return (
@@ -13,7 +14,7 @@ function ContactPage() {
 			transition={{ duration: 0.2 }}
 			key={5}
 		>
-			<ContentWrapper>
+			<ContentWrapper id="main_app">
 				<Left>
 					<div className="sub-heading">
 						<h2>Contact Us</h2>
@@ -28,21 +29,29 @@ function ContactPage() {
 					<form action="">
 						<div className="top-section">
 							<div className="field name-field">
-								<label htmlFor="">Full name</label>
-								<input type="text" />
+								<input placeholder="Full name" type="text" />
 							</div>
 							<div className="field phone-field">
-								<label htmlFor="">Phone number</label>
-								<input type="text" />
+								<MaskedInput
+									placeholder="Phone number"
+									mask="(999) 999-9999"
+								/>
 							</div>
 						</div>
-						<div className="field email-field">
-							<label htmlFor="">E-mail address</label>
-							<input type="text" />
+						<div className="field second">
+							<input
+								placeholder="E-mail address"
+								type="text"
+								className="email-field"
+							/>
 						</div>
-						<div className="field message-field">
-							<label htmlFor="">Message</label>
-							<input type="text" />
+						<div className="field third">
+							<textarea
+								placeholder="Your message"
+								wrap="soft"
+								type="text"
+								className="message"
+							/>
 						</div>
 						<div className="submit-button">
 							<SubmitButton />
@@ -105,7 +114,6 @@ const HomePageWrapper = styled(motion.div)`
 `;
 
 const ContentWrapper = styled.div`
-	background-color: blue;
 	height: 70%;
 	width: 90%;
 
@@ -117,10 +125,11 @@ const ContentWrapper = styled.div`
 const Right = styled.div`
 	height: 100%;
 	width: 500px;
-	background-color: #000000;
+	margin-right: 30px;
 
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 
 	.top-section {
 		display: flex;
@@ -130,12 +139,54 @@ const Right = styled.div`
 		margin-bottom: 20px;
 	}
 
+	.second {
+		margin-bottom: 20px;
+	}
+
+	.third {
+		margin-bottom: 20px;
+		height: 150px;
+	}
+
 	.field {
 		font-family: "Spectral", sans-serif;
 		color: white;
 
 		display: flex;
 		flex-direction: column;
+
+		.message {
+			width: 100%;
+			max-width: 100%;
+			min-width: 100%;
+
+			height: 100%;
+
+			border: 1px solid white;
+			background-color: transparent;
+			transition: 0.2s ease-out;
+
+			border-radius: 5px;
+
+			padding-left: 10px;
+			padding-top: 10px;
+
+			font-family: "Spectral";
+			font-size: 14px;
+			font-weight: 300;
+			color: #dadada;
+
+			/* Style the scroll bar */
+			&::-webkit-scrollbar {
+				display: none;
+			}
+
+			&:focus {
+				outline: none;
+				border: 2px solid;
+				border-color: #e4e4e4;
+			}
+		}
 
 		label {
 			margin-bottom: 10px;
@@ -145,12 +196,36 @@ const Right = styled.div`
 		input {
 			height: 35px;
 			width: 230px;
-			padding-left: 5px;
-			border-radius: 3px;
-		
+			padding-left: 10px;
+			border-radius: 5px;
+
+			border: 1px solid white;
+			background-color: transparent;
+			transition: 0.2s ease-out;
+
+			font-family: "Spectral";
+			font-size: 14px;
+			font-weight: 300;
+			color: #dadada;
+
 			&:focus {
-				border: 1px solid red;
+				outline: none;
+				border: 2px solid;
+				border-color: #e4e4e4;
 			}
+
+			.email-field {
+				width: 100%;
+			}
+
+			.message-field input {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		.email-field {
+			width: 100%;
 		}
 	}
 `;
@@ -158,7 +233,6 @@ const Right = styled.div`
 const Left = styled.div`
 	height: 100%;
 	width: 500px;
-	background-color: yellow;
 
 	font-family: "Spectral", sans-serif;
 
@@ -184,6 +258,8 @@ const Left = styled.div`
 		h2 {
 			font-weight: 300;
 			font-size: 20px;
+			margin-bottom: -10px;
+			color: gray;
 		}
 	}
 `;

@@ -19,7 +19,7 @@ function AtHomeTraining() {
 			{trainings.length === 0 ? (
 				<></>
 			) : (
-				<Wrapper>
+				<Wrapper id="main_app">
 					<InnerWrapper>
 						<Header>
 							<h1>At Home Training</h1>

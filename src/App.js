@@ -16,11 +16,10 @@ import Homepage from "./pages/homepageSections/Homepage";
 import AboutColgate from "./pages/aboutColgate/AboutColgate";
 import AboutTheDatingArts from "./pages/aboutTheDatingArts/AboutTheDatingArts";
 import ContactPage from "./pages/contactPage/ContactPage";
-import LiveExperiences from "./pages/liveExperiences/LiveExperiences";
 
 import LiveExperiencesWrapper from "./pages/LiveExperiencesWrapper";
+import AtHomeTrainingsWrapper from "./pages/AtHomeTrainingsWrapper";
 
-import AtHomeTrainings from "./pages/atHomeTrainings/AtHomeTrainings";
 import AdmissionApplication from "./pages/admissionApplication/AdmissionApplication";
 import StorePage from "./pages/storePage/StorePage";
 import LoginPage from "./pages/loginPage/LoginPage";
@@ -149,8 +148,7 @@ function App() {
 							<LiveExperiencesWrapper />
 						</Route>
 						<Route path="/at-home-trainings">
-							<Header key={1} />
-							<AtHomeTrainings />
+							<AtHomeTrainingsWrapper />
 						</Route>
 						<Route path="/contact">
 							<Header key={1} />
