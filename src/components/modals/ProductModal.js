@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ProductModalHeader from "./products/ProductModalHeader";
 import ProductModalContent from "./products/ProductModalContent";
@@ -19,7 +19,33 @@ const modalBGVariants = {
 };
 
 function ProductModal() {
-	const [{ productModalToggle }, dispatch] = useStateValue();
+	const [
+		{ selectedProductId, cmsData, productModalToggle },
+		dispatch,
+	] = useStateValue();
+
+	const [info, setInfo] = useState({});
+
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setInfo(
+				cmsData.data.products.filter(
+					(product) => product.id === selectedProductId
+				)[0]
+			);
+			console.log("Product ID (Selected) ========> ", selectedProductId);
+			console.log(
+				"Current Product ID ========> ",
+				cmsData.data.products[0].id
+			);
+			console.log(
+				"Product Extracted ========> ",
+				cmsData.data.products.filter(
+					(product) => product.id === selectedProductId
+				)[0]
+			);
+		}
+	}, [cmsData, selectedProductId]);
 
 	return (
 		<AnimatePresence>
@@ -32,13 +58,22 @@ function ProductModal() {
 					transition={{ duration: 0.3 }}
 					key={20}
 				>
-					<img src="/inside_book.png" alt="" />
+					{info !== undefined && cmsData.status === "fetched" ? (
+						<>
+							<img src={info.detailsImage.url} alt="" />
 
-					<ProductModalHeader />
+							<ProductModalHeader />
 
-					<ProductModalContent />
+							<ProductModalContent
+								info={info}
+								status={cmsData.status}
+							/>
 
-					<ProductModalFooter />
+							<ProductModalFooter />
+						</>
+					) : (
+						<></>
+					)}
 				</Wrapper>
 			)}
 		</AnimatePresence>

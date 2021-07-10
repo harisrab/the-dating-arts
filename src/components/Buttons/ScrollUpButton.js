@@ -37,7 +37,6 @@ function ScrollUpButton() {
 	useEffect(() => {
 		const el = document.getElementById("main_app");
 
-		console.log("Element Fetched =====> ", el);
 
 		el.addEventListener("scroll", (event) => {
 			let scroll = event.target.scrollTop;

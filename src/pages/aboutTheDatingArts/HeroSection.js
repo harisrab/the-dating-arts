@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function HeroSection() {
+function HeroSection({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -35,13 +35,7 @@ function HeroSection() {
 								The Dating <span>Arts</span>
 							</h1>
 						</div>
-						<div className="summary">
-							Twenty years from now you will be more disappointed
-							by the things that you didn't do than by the ones
-							you did do. So throw off the bowlines. Sail away
-							from the safe harbor. Catch the trade winds in your
-							sails. Explore. Dream. Discover.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -53,7 +47,7 @@ function HeroSection() {
 							initial="initial"
 							animate={controls}
 							transition={{ duration: 2, delay: 1 }}
-							src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

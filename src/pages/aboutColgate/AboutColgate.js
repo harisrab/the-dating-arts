@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useStateValue } from "../../Store/StateProvider";
 
 // Import Sections
 import HeroSection from "./HeroSection";
@@ -12,23 +13,63 @@ import Newsletter from "../homepageSections/Newsletter";
 import Footer from "../homepageSections/Footer";
 
 function AboutColgate() {
+	const [{ cmsData }, dispatch] = useStateValue();
+	const [data, setData] = useState({});
+
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setData(cmsData.data.pageAboutColgates[0]);
+		}
+	}, [cmsData]);
+
 	return (
-		<AboutWrapper
-			id="main_app"
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			transition={{ duration: 0.2 }}
-			key={6}
-		>
-			<HeroSection />
-			<BeginningsAndMasters />
-			<TheTutelage />
-			<ExperiencesOfLife />
-			<VideoListings />
-			<Newsletter />
-			<Footer />
-		</AboutWrapper>
+		<div id="main_app">
+			{cmsData.status === "fetched" && data !== {} ? (
+				<AboutWrapper
+					id="main_app"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.2 }}
+					key={6}
+				>
+					<HeroSection
+						heading={data.heroTitle}
+						description={data.heroDescription}
+						url={cmsData.data.pageAboutColgates[0].heroImage.url}
+					/>
+					<BeginningsAndMasters
+						heading={data.beginningsAndMasters}
+						description={data.beginningsAndMastersDescription}
+						url={
+							cmsData.data.pageAboutColgates[0]
+								.beginningsAndMastersImage.url
+						}
+					/>
+					<TheTutelage
+						heading={data.theTutelageTitle}
+						description={data.theTutelageDescription}
+						url={
+							cmsData.data.pageAboutColgates[0].theTutelageImage
+								.url
+						}
+					/>
+					<ExperiencesOfLife
+						heading={data.experiencesOfLifeTitle}
+						description={data.experiencesOfLifeDescription}
+						url={
+							cmsData.data.pageAboutColgates[0]
+								.experiencesOfLifeImage.url
+						}
+					/>
+					<VideoListings />
+					<Newsletter />
+					<Footer />
+				</AboutWrapper>
+			) : (
+				<></>
+			)}
+		</div>
 	);
 }
 

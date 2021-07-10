@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function WhoAreWe() {
+function WhoAreWe({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -25,22 +25,9 @@ function WhoAreWe() {
 				<LeftSection>
 					<div className="text-container">
 						<div className="main-heading">
-							<h1>Beginnings and Masters</h1>
+							<h1>{heading}</h1>
 						</div>
-						<div className="summary">
-							Colgate began his mastery of social dynamics at the
-							age of 16 when he met now long time friend and
-							wingman, Erik Von Marovik, known throughout the
-							world as Mystery, the World’s Greatest Pick Up
-							Artist. The two worked side by side along with other
-							top dating masters for over a decade together
-							teaching seminars all over the world with lifestyle
-							and legendary stories to match. Colgate was the
-							youngest person ever to be awarded the Master Pickup
-							Badge by Mystery, a merit that showcases world-class
-							skill and proficiency in all the levels of social
-							artistry.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -56,7 +43,7 @@ function WhoAreWe() {
 								delay: 0.3,
 								ease: "easeOut",
 							}}
-							src="https://images.unsplash.com/photo-1618208122329-27e7f10d6d6b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

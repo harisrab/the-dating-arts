@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function HeroSection() {
+function HeroSection({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -32,16 +32,10 @@ function HeroSection() {
 						</div>
 						<div className="main-heading">
 							<h1>
-								<span>Colgate</span>
+								<span>{heading}</span>
 							</h1>
 						</div>
-						<div className="summary">
-							Twenty years from now you will be more disappointed
-							by the things that you didn't do than by the ones
-							you did do. So throw off the bowlines. Sail away
-							from the safe harbor. Catch the trade winds in your
-							sails. Explore. Dream. Discover.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -53,7 +47,7 @@ function HeroSection() {
 							initial="initial"
 							animate={controls}
 							transition={{ duration: 2, delay: 1 }}
-							src="/colgate_profile.png"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function TheTutelage() {
+function TheTutelage({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -25,19 +25,9 @@ function TheTutelage() {
 				<LeftSection>
 					<div className="text-container">
 						<div className="main-heading">
-							<h1>The Tutelage.</h1>
+							<h1>{heading}</h1>
 						</div>
-						<div className="summary">
-							Colgate has received a degree from Rutgers
-							University in Psychology and Critical Sexual Studies
-							in addition to having conducted social facilitation
-							research for the Psychology Department at Rutgers
-							for 3 years. This research helped him solidify
-							concepts and theories that has allowed him to
-							research and analyze how to develop better social
-							skills to improve lifestyle and ability to find
-							long-term relationships.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -53,7 +43,7 @@ function TheTutelage() {
 								delay: 0.3,
 								ease: "easeOut",
 							}}
-							src="https://newbrunswick.rutgers.edu/sites/default/files/styles/16x9_full_1024_2x/public/2020-03/PG%20172%23250_web.jpg?itok=q_0gQALe"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

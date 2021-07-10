@@ -5,47 +5,37 @@ import ProductExploreButton from "../../components/Buttons/ProductExploreButton"
 import CheckIcon from "@material-ui/icons/Check";
 import { useStateValue } from "../../Store/StateProvider";
 
-function ProductRight() {
+function ProductRight({ info }) {
 	const [_, dispatch] = useStateValue();
 
-	const data = {
-		title: "The Mindset",
-		subtitle: "Thirteen Foundational Principles of an Attractive Man",
-		desc:
-			"In sodales vitae tortor vitae tristique. Praesent vel dolor quam. Pellentesque auc arcu a auctor pellentesque. Nunc ullamcorper ante non libero lacinia, in imperdiet nisi volutpat. Quisque nec sem sollicitudin, pharetra nibh blandit, interdum eros. Aliquam orci odi pellentesque id tellus eu, volutpat feugiat quam. Praesent porta molestie leo ut egestas.Lorem ipsum dolor sit amet, consecteturadipiscing elit. Pellentesque commodo a liberoultricies sollicitudin. Aenean vitae lectusnunc. Etiam tincidunt consectetur nunc aeleifend. Pellentesque lacinia nulla neque, idtempus mi consequat sit amet. Ut ut accumsannibh.",
-		features: [
-			"This is mock feature 1",
-			"This is mock feature 2",
-			"This is mock feature 3",
-			"This is mock feature 4",
-		],
-		img: { cover: "/book_cover.png", inside: "/book_inside.png" },
+	const onClickReadMore = () => {
+		dispatch({
+			type: "SET_SELECTED_PRODUCT_ID",
+			payload: info.id,
+		});
+		dispatch({
+			type: "SET_PRODUCT_MODAL_STATE",
+			payload: true,
+		});
 	};
 
 	return (
 		<Wrapper>
 			<ContentWrapper>
 				<LeftSection>
-					<img src="/book_cover.png" alt="Book Cover" />
+					<img src={info.coverImage.url} alt="Book Cover" />
 				</LeftSection>
 				<RightSection>
 					<RightContent>
 						<div className="title">
-							<h2>{data.title}</h2>
-							<p>{data.subtitle}</p>
+							<h2>{info.title}</h2>
+							<p>{info.subtitle}</p>
 						</div>
 
 						<div className="desc">
 							<p>
-								{`${data.desc.substring(0, 300)}`}{" "}
-								<span
-									onClick={() =>
-										dispatch({
-											type: "SET_PRODUCT_MODAL_STATE",
-											payload: true,
-										})
-									}
-								>
+								{`${info.productDescription.substring(0, 300)}`}{" "}
+								<span onClick={onClickReadMore}>
 									Read more.
 								</span>
 							</p>
@@ -53,24 +43,23 @@ function ProductRight() {
 
 						<div className="features">
 							<ul>
-								{data.features
-									.slice(0, 3)
-									.map((eachFeature, i) => {
-										return (
-											<li key={i}>
-												<img
-													src="/tickmark.svg"
-													alt=""
-												/>
-												{eachFeature}
-											</li>
-										);
-									})}
+								{[
+									info.feature1,
+									info.feature2,
+									info.feature3,
+								].map((eachFeature, i) => {
+									return (
+										<li key={i}>
+											<img src="/tickmark.svg" alt="" />
+											{eachFeature}
+										</li>
+									);
+								})}
 							</ul>
 						</div>
 
 						<div className="explore_btn">
-							<ProductExploreButton />
+							<ProductExploreButton id={info.id} />
 						</div>
 					</RightContent>
 				</RightSection>

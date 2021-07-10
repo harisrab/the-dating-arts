@@ -72,6 +72,111 @@ function App() {
 				quote
 				author
 			}
+
+			aboutTheDatingArts {
+				heroTitle
+				heroDescription
+				heroImage {
+					url
+				}
+				whoAreWeTitle
+				whoAreWeDescription
+				whoAreWeImage {
+					url
+				}
+				whereAreWeBasedTitle
+				whereAreWeBasedDescription
+				whereAreWeBasedImage {
+					url
+				}
+				servicesWeProvidetitle
+				servicesWeProvideDescription
+				servicesWeProvideImage {
+					url
+				}
+				ourReputedExclusivityTitle
+				ourReputedExclusivityDescription
+				ourReputedExclusivityImage {
+					url
+				}
+			}
+
+			pageAboutColgates {
+				heroTitle
+				heroDescription
+				heroImage {
+					url
+				}
+				beginningsAndMasters
+				beginningsAndMastersDescription
+				beginningsAndMastersImage {
+					url
+				}
+				theTutelageTitle
+				theTutelageDescription
+				theTutelageImage {
+					url
+				}
+				experiencesOfLifeTitle
+				experiencesOfLifeDescription
+				experiencesOfLifeImage {
+					url
+				}
+			}
+
+			pageLiveExperiences {
+				heroTitle
+				heroDescription
+				resultsBootcampIntroductionTitle
+				resultsBootcampIntroductionDescription
+				resultsBootcampDetailsTitle
+				resultsBootcampDetailsDescription
+				mastery1On1BootcampIntroductionTitle
+				mastery1On1BootcampIntroductionDescription
+				mastery1On1BootcampDetailsTitle
+				mastery1On1BootcampDetailsDescription
+				legendsImmersionIntroductionTitle
+				legendsImmersionIntroductionDescription
+				legendsImmersionDetailsTitle
+				legendsImmersionDetailsDescription
+				tailorMadeIconIntroductionTitle
+				tailorMadeIconIntroductionDescription
+				tailorMadeIconDetailsTitle
+				tailorMadeIconDetailsDescription
+			}
+
+			pageAtHomeTrainings {
+				heroTitle
+				heroDescription
+				closeHerSchoolLiveTitle
+				closeHerSchoolLiveDescription
+				expressOnlineBootcampTitle
+				expressOnlineBootcampDescription
+				empowerVideoSessionTitle
+				empowerVideoSessionDescription
+				masterclassBreakoutTitle
+				masterclassBreakoutDescription
+			}
+
+			products {
+				id
+				title
+				subtitle
+				productDescription
+				productDisplayType
+				feature1
+				feature2
+				feature3
+				feature4
+				feature5
+				feature6
+				coverImage {
+					url
+				}
+				detailsImage {
+					url
+				}
+			}
 		}
 	`;
 

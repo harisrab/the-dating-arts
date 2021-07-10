@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
+import { useStateValue } from "../../Store/StateProvider";
+
 // Import Sections
 import HeroSection from "./HeroSection";
 import WhoAreWe from "./WhoAreWe";
@@ -12,23 +14,59 @@ import Newsletter from "../homepageSections/Newsletter";
 import Footer from "../homepageSections/Footer";
 
 function AboutTheDatingArts() {
+	const [{ cmsData }, dispatch] = useStateValue();
+	const [data, setData] = useState({});
+
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setData(cmsData.data.aboutTheDatingArts[0]);
+		}
+	}, [cmsData]);
+
+
 	return (
-		<AboutWrapper
-			id="main_app"
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			transition={{ duration: 0.2 }}
-			key={6}
-		>
-			<HeroSection />
-			<WhoAreWe />
-			<WhereAreWeBased />
-			<ServicesWeProvide />
-			<OurReputedExclusivity />
-			<Newsletter />
-			<Footer />
-		</AboutWrapper>
+		<div id="main_app">
+			{Object.keys(data).length === 0 ? (
+				<></>
+			) : (
+				<AboutWrapper
+					id="main_app"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.2 }}
+					key={6}
+				>
+					<HeroSection
+						heading={data.heroTitle}
+						description={data.heroDescription}
+						url={data.heroImage.url}
+					/>
+					<WhoAreWe
+						heading={data.whoAreWeTitle}
+						description={data.whoAreWeDescription}
+						url={data.whoAreWeImage.url}
+					/>
+					<WhereAreWeBased
+						heading={data.whereAreWeBasedTitle}
+						description={data.whereAreWeBasedDescription}
+						url={data.whereAreWeBasedImage.url}
+					/>
+					<ServicesWeProvide
+						heading={data.servicesWeProvidetitle}
+						description={data.servicesWeProvideDescription}
+						url={data.servicesWeProvideImage.url}
+					/>
+					<OurReputedExclusivity
+						heading={data.ourReputedExclusivityTitle}
+						description={data.ourReputedExclusivityDescription}
+						url={data.ourReputedExclusivityImage.url}
+					/>
+					<Newsletter />
+					<Footer />
+				</AboutWrapper>
+			)}
+		</div>
 	);
 }
 
