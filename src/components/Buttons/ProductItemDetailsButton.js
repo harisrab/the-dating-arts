@@ -18,12 +18,17 @@ const bgVariants = {
 		height: "103%",
 	},
 };
-function ProductItemDetailsButton() {
+function ProductItemDetailsButton({ info }) {
 	const [didHover, setDidHover] = useState(false);
 
 	const [{ productModalToggle }, dispatch] = useStateValue();
 
 	const handleProductModal = (e) => {
+		dispatch({
+			type: "SET_SELECTED_PRODUCT_ID",
+			payload: info.id,
+		});
+
 		dispatch({
 			type: "SET_PRODUCT_MODAL_STATE",
 			payload: true,

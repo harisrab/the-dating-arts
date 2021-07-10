@@ -21,11 +21,15 @@ const bgVariants = {
 		height: "103%",
 	},
 };
-function ProductExploreButton() {
+function ProductExploreButton({ id }) {
 	const [didHover, setDidHover] = useState(false);
 	const [{ productModalToggle }, dispatch] = useStateValue();
 
 	const handleProductModal = (e) => {
+		dispatch({
+			type: "SET_SELECTED_PRODUCT_ID",
+			payload: id,
+		});
 		dispatch({
 			type: "SET_PRODUCT_MODAL_STATE",
 			payload: true,

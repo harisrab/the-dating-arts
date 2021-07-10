@@ -5,47 +5,30 @@ import AddToCartProductModalButton from "../../Buttons/AddToCartProductModalButt
 import { useStateValue } from "../../../Store/StateProvider";
 import { motion } from "framer-motion";
 
-function ProductModalContent() {
-	const [sliderAmount, setSliderAmount] = useState(2);
-	const [{ selectedEventId, cmsData }, dispatch] = useStateValue();
-	const [eventDetails, setEventDetails] = useState("");
-
-	const data = {
-		title: "The Mindset",
-		subtitle: "Thirteen Foundational Principles of an Attractive Man",
-		desc:
-			"In sodales vitae tortor vitae tristique. Praesent vel dolor quam. Pellentesque auc arcu a auctor pellentesque. Nunc ullamcorper ante non libero lacinia, in imperdiet nisi volutpat. Quisque nec sem sollicitudin, pharetra nibh blandit, interdum eros. Aliquam orci odi pellentesque id tellus eu, volutpat feugiat quam. Praesent porta molestie leo ut egestas.Lorem ipsum dolor sit amet, consecteturadipiscing elit. Pellentesque commodo a liberoultricies sollicitudin. Aenean vitae lectusnunc. Etiam tincidunt consectetur nunc aeleifend. Pellentesque lacinia nulla neque, idtempus mi consequat sit amet. Ut ut accumsannibh. Praesent vel dolor quam. Pellentesque auc arcu a auctor pellentesque. Nunc ullamcorper ante non libero lacinia, in imperdiet nisi volutpat. Quisque nec sem sollicitudin, pharetra nibh blandit, interdum eros. Aliquam orci odi pellentesque id tellus eu, volutpat feugiat quam. Praesent porta molestie leo ut egestas.Lorem ipsum dolor sit amet, consecteturadipiscing elit. Pellentesque commodo a liberoultricies sollicitudin. Aenean vitae lectusnunc. Etiam tincidunt consectetur nunc aeleifend. Pellentesque lacinia nulla neque, idtempus mi consequat sit amet. Ut ut accumsannibh.",
-		features: [
-			"This is mock feature 1",
-			"This is mock feature 2",
-			"This is mock feature 3",
-			"This is mock feature 4",
-			"This is mock feature 5",
-			"This is mock feature 6",
-		],
-		img: { cover: "/book_cover.png", inside: "/book_inside.png" },
-	};
-
+function ProductModalContent({ info, status }) {
 	return (
 		<Wrapper>
-			<ContentHolder>
-				<LeftSection>
-					<div className="start">
-						<div className="title">
-							<h2>{data.title}</h2>
-						</div>
-						<div className="subtitle">
-							<p>{data.subtitle}</p>
-						</div>
-						<div className="desc">
-							<p>{data.desc}</p>
-						</div>
+			{info !== {} && status === "fetched" ? (
+				<ContentHolder>
+					<LeftSection>
+						<div className="start">
+							<div className="title">
+								<h2>{info.title}</h2>
+							</div>
+							<div className="subtitle">
+								<p>{info.subtitle}</p>
+							</div>
+							<div className="desc">
+								<p>{info.productDescription}</p>
+							</div>
 
-						<div className="features">
-							<ul>
-								{data.features
-									.slice(0, 3)
-									.map((eachFeature, i) => {
+							<div className="features">
+								<ul>
+									{[
+										info.feature1,
+										info.feature2,
+										info.feature3,
+									].map((eachFeature, i) => {
 										return (
 											<li key={i}>
 												<img
@@ -56,11 +39,13 @@ function ProductModalContent() {
 											</li>
 										);
 									})}
-							</ul>
-							<ul>
-								{data.features
-									.slice(3, 6)
-									.map((eachFeature, i) => {
+								</ul>
+								<ul>
+									{[
+										info.feature4,
+										info.feature5,
+										info.feature6,
+									].map((eachFeature, i) => {
 										return (
 											<li key={i}>
 												<img
@@ -71,14 +56,17 @@ function ProductModalContent() {
 											</li>
 										);
 									})}
-							</ul>
+								</ul>
+							</div>
 						</div>
-					</div>
-					<div className="end">
-						<AddToCartProductModalButton />
-					</div>
-				</LeftSection>
-			</ContentHolder>
+						<div className="end">
+							<AddToCartProductModalButton />
+						</div>
+					</LeftSection>
+				</ContentHolder>
+			) : (
+				<></>
+			)}
 		</Wrapper>
 	);
 }
@@ -196,7 +184,7 @@ const LeftSection = styled.div`
 				flex-direction: column;
 				flex-wrap: wrap;
 				justify-content: center;
-				
+
 				li {
 					display: flex;
 					align-items: center;

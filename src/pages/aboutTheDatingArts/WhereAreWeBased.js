@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function WhereAreWeBased() {
+function WhereAreWeBased({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -25,26 +25,9 @@ function WhereAreWeBased() {
 				<LeftSection>
 					<div className="text-container">
 						<div className="main-heading">
-							<h1>Where are we based?</h1>
+							<h1>{heading}</h1>
 						</div>
-						<div className="summary">
-							While AskColgate is based in Las Vegas, Nevada, we
-							have an international network of clients from
-							Europe, UAE, Asia, Australia and beyond. Many of our
-							international clients made a decision to go with
-							AskColgate because of our clear strategic approach
-							to mastering social dynamics and developing social
-							skills to be able to align and create an amazing
-							impression with anyone. These influential, high
-							net-worth individuals make up an incredibly diverse
-							client base as AskColgate ranging from a wide
-							variety of nationalities, professional industries,
-							ages, etc. Our clients understand that those who are
-							successful at dating and social skills are those who
-							are prepared. Preparation allows an action to be
-							taken. That is what AskColgate ensures, complete
-							preparation for the moments that matter.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -60,7 +43,7 @@ function WhereAreWeBased() {
 								delay: 0.3,
 								ease: "easeOut",
 							}}
-							src="https://images.unsplash.com/photo-1571751239008-50cad6cb9265?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

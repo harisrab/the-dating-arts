@@ -2,12 +2,6 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-import {
-	ScrollManager,
-	WindowScroller,
-	ElementScroller,
-} from "react-scroll-manager";
-
 // Import All Sections
 import HeroSection from "./HeroSection";
 import BrandSection from "./BrandSection";
@@ -34,9 +28,7 @@ function Homepage() {
 				<BrandSection />
 				<AOLSection />
 				<UpcomingEvents />
-				<ElementScroller scrollKey="le">
-					<LiveExperiences className="le" />
-				</ElementScroller>
+				<LiveExperiences />
 				<AtHomeTraining />
 				<Testimonials />
 				<Newsletter />

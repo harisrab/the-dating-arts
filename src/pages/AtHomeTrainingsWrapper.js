@@ -1,16 +1,13 @@
 import React, { useEffect } from "react";
 import Header from "../components/Header";
-import LiveExperiences from "../pages/liveExperiences/LiveExperiences";
+import AtHomeTrainings from "../pages/atHomeTrainings/AtHomeTrainings";
 import { useStateValue } from "../Store/StateProvider";
 
-function LiveExperiencesWrapper() {
+function AtHomeTrainingsWrapper() {
 	const [{ headerLogoState }, dispatch] = useStateValue();
 
 	useEffect(() => {
-		console.log(`Component Mounted`);
-
 		return () => {
-			console.log("Component Will Unmount");
 			dispatch({
 				type: "SET_LOGO_TYPE",
 				payload: "normal",
@@ -21,9 +18,9 @@ function LiveExperiencesWrapper() {
 	return (
 		<>
 			<Header key={1} />
-			<LiveExperiences />
+			<AtHomeTrainings />
 		</>
 	);
 }
 
-export default LiveExperiencesWrapper;
+export default AtHomeTrainingsWrapper;

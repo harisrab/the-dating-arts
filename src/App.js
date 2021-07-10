@@ -16,11 +16,10 @@ import Homepage from "./pages/homepageSections/Homepage";
 import AboutColgate from "./pages/aboutColgate/AboutColgate";
 import AboutTheDatingArts from "./pages/aboutTheDatingArts/AboutTheDatingArts";
 import ContactPage from "./pages/contactPage/ContactPage";
-import LiveExperiences from "./pages/liveExperiences/LiveExperiences";
 
 import LiveExperiencesWrapper from "./pages/LiveExperiencesWrapper";
+import AtHomeTrainingsWrapper from "./pages/AtHomeTrainingsWrapper";
 
-import AtHomeTrainings from "./pages/atHomeTrainings/AtHomeTrainings";
 import AdmissionApplication from "./pages/admissionApplication/AdmissionApplication";
 import StorePage from "./pages/storePage/StorePage";
 import LoginPage from "./pages/loginPage/LoginPage";
@@ -72,6 +71,111 @@ function App() {
 				id
 				quote
 				author
+			}
+
+			aboutTheDatingArts {
+				heroTitle
+				heroDescription
+				heroImage {
+					url
+				}
+				whoAreWeTitle
+				whoAreWeDescription
+				whoAreWeImage {
+					url
+				}
+				whereAreWeBasedTitle
+				whereAreWeBasedDescription
+				whereAreWeBasedImage {
+					url
+				}
+				servicesWeProvidetitle
+				servicesWeProvideDescription
+				servicesWeProvideImage {
+					url
+				}
+				ourReputedExclusivityTitle
+				ourReputedExclusivityDescription
+				ourReputedExclusivityImage {
+					url
+				}
+			}
+
+			pageAboutColgates {
+				heroTitle
+				heroDescription
+				heroImage {
+					url
+				}
+				beginningsAndMasters
+				beginningsAndMastersDescription
+				beginningsAndMastersImage {
+					url
+				}
+				theTutelageTitle
+				theTutelageDescription
+				theTutelageImage {
+					url
+				}
+				experiencesOfLifeTitle
+				experiencesOfLifeDescription
+				experiencesOfLifeImage {
+					url
+				}
+			}
+
+			pageLiveExperiences {
+				heroTitle
+				heroDescription
+				resultsBootcampIntroductionTitle
+				resultsBootcampIntroductionDescription
+				resultsBootcampDetailsTitle
+				resultsBootcampDetailsDescription
+				mastery1On1BootcampIntroductionTitle
+				mastery1On1BootcampIntroductionDescription
+				mastery1On1BootcampDetailsTitle
+				mastery1On1BootcampDetailsDescription
+				legendsImmersionIntroductionTitle
+				legendsImmersionIntroductionDescription
+				legendsImmersionDetailsTitle
+				legendsImmersionDetailsDescription
+				tailorMadeIconIntroductionTitle
+				tailorMadeIconIntroductionDescription
+				tailorMadeIconDetailsTitle
+				tailorMadeIconDetailsDescription
+			}
+
+			pageAtHomeTrainings {
+				heroTitle
+				heroDescription
+				closeHerSchoolLiveTitle
+				closeHerSchoolLiveDescription
+				expressOnlineBootcampTitle
+				expressOnlineBootcampDescription
+				empowerVideoSessionTitle
+				empowerVideoSessionDescription
+				masterclassBreakoutTitle
+				masterclassBreakoutDescription
+			}
+
+			products {
+				id
+				title
+				subtitle
+				productDescription
+				productDisplayType
+				feature1
+				feature2
+				feature3
+				feature4
+				feature5
+				feature6
+				coverImage {
+					url
+				}
+				detailsImage {
+					url
+				}
 			}
 		}
 	`;
@@ -149,8 +253,7 @@ function App() {
 							<LiveExperiencesWrapper />
 						</Route>
 						<Route path="/at-home-trainings">
-							<Header key={1} />
-							<AtHomeTrainings />
+							<AtHomeTrainingsWrapper />
 						</Route>
 						<Route path="/contact">
 							<Header key={1} />

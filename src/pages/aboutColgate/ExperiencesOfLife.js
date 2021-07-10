@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function ExperiencesOfLife() {
+function ExperiencesOfLife({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -25,30 +25,9 @@ function ExperiencesOfLife() {
 				<LeftSection>
 					<div className="text-container">
 						<div className="main-heading">
-							<h1>Experiences of Life</h1>
+							<h1>{heading}</h1>
 						</div>
-						<div className="summary">
-							He has acquired a massive amount of knowledge in a
-							well rounded range of areas and topics and can go as
-							deep as you would like with virtually all topics
-							with regards to social interactions, dating and
-							relationships. With a focus on confidence building,
-							leadership, image & style, conversation skills,
-							reconnecting with fun, being legitimately cool,
-							Colgate focuses on his clients individual
-							personality types, drive, and ambition and quickly
-							recognizes the key underlying factors that can lead
-							to an imbalance between personal, dating and social
-							happiness and abundance. While the focus of his
-							coaching is on making his clients empirically
-							better, the lessons learned translate very easily
-							into their personal and professional lives. Colgate
-							prides himself on his track record and dedication to
-							making sure all of his clients reach a level that is
-							truly far beyond their expectation in a clear,
-							logical, unbiased, and sustainable approach with a
-							system and practical execution for success.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -64,7 +43,7 @@ function ExperiencesOfLife() {
 								delay: 0.3,
 								ease: "easeOut",
 							}}
-							src="https://images.unsplash.com/photo-1553509990-7686c6f0fae1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1112&q=80"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

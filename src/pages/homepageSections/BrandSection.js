@@ -6,7 +6,6 @@ function BrandSection() {
 	return (
 		<Wrapper>
 			<img src="/homepage/Brands.svg" alt="" />
-
 			<TextSection>
 				<h2>People we've worked with.</h2>
 				<p>

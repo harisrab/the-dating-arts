@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function ServicesWeProvide() {
+function ServicesWeProvide({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -25,16 +25,9 @@ function ServicesWeProvide() {
 				<LeftSection>
 					<div className="text-container">
 						<div className="main-heading">
-							<h1>Our Reputed Exclusivity</h1>
+							<h1>{heading}</h1>
 						</div>
-						<div className="summary">
-							We pride ourselves on exclusivity, providing unique
-							coaching experiences and developing authentic social
-							skills that will last a lifetime. From your very
-							first approach to far beyond you meeting your
-							partner, our elite social strategies offer the best
-							expertise you can’t and won’t find anywhere else.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -50,7 +43,7 @@ function ServicesWeProvide() {
 								delay: 0.3,
 								ease: "easeOut",
 							}}
-							src="https://images.unsplash.com/photo-1429514513361-8fa32282fd5f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

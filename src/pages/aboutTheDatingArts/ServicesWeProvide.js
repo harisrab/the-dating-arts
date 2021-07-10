@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function ServicesWeProvide() {
+function ServicesWeProvide({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -25,19 +25,9 @@ function ServicesWeProvide() {
 				<LeftSection>
 					<div className="text-container">
 						<div className="main-heading">
-							<h1>Services we provide.</h1>
+							<h1>{heading}</h1>
 						</div>
-						<div className="summary">
-							AskColgate provides the highest level of bespoke one
-							on one coaching through innovative strategies that
-							allow our clients to thrive from the start of their
-							journey. AskColgate has helped thousands of clients
-							who are having issues with dating and social
-							dynamics discover the proper mindset and systems to
-							overcome their insecurities so they can have
-							amazing, long-lasting connections and moments with
-							the kinds of relationships they desire.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -53,7 +43,7 @@ function ServicesWeProvide() {
 								delay: 0.3,
 								ease: "easeOut",
 							}}
-							src="https://images.unsplash.com/photo-1564736676781-d0f57b29f67a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

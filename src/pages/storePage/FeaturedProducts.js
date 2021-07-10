@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ProductItemDetailsButton from "../../components/Buttons/ProductItemDetailsButton";
 import ProductItemAddToCart from "../../components/Buttons/ProductItemAddToCart";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
+import { useStateValue } from "../../Store/StateProvider";
 
 function FeaturedProducts() {
+	const [{ cmsData }, dispatch] = useStateValue();
+
 	const data = [
 		{
 			title: "The Mindset",
@@ -59,35 +62,48 @@ function FeaturedProducts() {
 			img: { cover: "/book_cover.png", inside: "/book_inside.png" },
 		},
 	];
+
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setProducts(cmsData.data.products);
+		}
+	}, [cmsData]);
+
 	return (
 		<Wrapper>
-			<ContentWrapper>
-				<div className="title">
-					<h2>Featured Picks</h2>
-				</div>
-				{data.map((eachProduct) => {
-					return (
-						<ProductItem>
-							<img src={eachProduct.img.cover} alt="" />
-							<div className="product_title">
-								<p>{eachProduct.title}</p>
-							</div>
-							<div className="subtitle">
-								<p>{eachProduct.subtitle}</p>
-							</div>
-							<div className="button_group">
-								<div className="left">
-									<ProductItemDetailsButton />
+			{products.length !== 0 && cmsData.status === "fetched" ? (
+				<ContentWrapper>
+					<div className="title">
+						<h2>Featured Picks</h2>
+					</div>
+					{products.slice(0, 4).map((eachProduct) => {
+						return (
+							<ProductItem>
+								<img src={eachProduct.coverImage.url} alt="" />
+								<div className="product_title">
+									<p>{eachProduct.title}</p>
 								</div>
-								<div className="right">
-									<ProductItemAddToCart />
+								<div className="subtitle">
+									<p>{eachProduct.subtitle}</p>
 								</div>
-							</div>
-						</ProductItem>
-					);
-				})}
-			</ContentWrapper>
-			<AnimatedDownArrow color="black"/>
+								<div className="button_group">
+									<div className="left">
+										<ProductItemDetailsButton />
+									</div>
+									<div className="right">
+										<ProductItemAddToCart />
+									</div>
+								</div>
+							</ProductItem>
+						);
+					})}
+				</ContentWrapper>
+			) : (
+				<></>
+			)}
+			<AnimatedDownArrow color="black" />
 		</Wrapper>
 	);
 }
@@ -140,6 +156,15 @@ const ContentWrapper = styled.div`
 const ProductItem = styled.div`
 	height: auto;
 	flex: 1;
+	max-width: 300px;
+	min-width: 300px;
+
+	transition: 0.2s ease-out;
+	&:hover {
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+			rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+		scale: 1.2;
+	}
 
 	/* background-color: white; */
 

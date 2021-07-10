@@ -9,7 +9,7 @@ const imageVar = {
 	final: { width: "90%" },
 };
 
-function WhoAreWe() {
+function WhoAreWe({ heading, description, url }) {
 	const controls = useAnimation();
 	const { ref, inView } = useInView();
 
@@ -25,20 +25,9 @@ function WhoAreWe() {
 				<LeftSection>
 					<div className="text-container">
 						<div className="main-heading">
-							<h1>Who are we?</h1>
+							<h1>{heading}</h1>
 						</div>
-						<div className="summary">
-							For over a decade, The Dating Arts has secured its
-							highly acclaimed reputation as the premier dating
-							and social strategy consulting agency for
-							professionals looking to better their lifestyles,
-							social skills, and relationships with a goal to live
-							and date fearlessly. Founded by Wemerson Oliveira,
-							The Dating Arts has been helping high caliber, goal
-							oriented, and successful minded clients in the areas
-							of dating, relationship, social dynamics, and
-							personal development.
-						</div>
+						<div className="summary">{description}</div>
 					</div>
 				</LeftSection>
 				<RightSection>
@@ -54,7 +43,7 @@ function WhoAreWe() {
 								delay: 0.3,
 								ease: "easeOut",
 							}}
-							src="https://images.unsplash.com/photo-1578736641330-3155e606cd40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
+							src={url}
 							alt=""
 						/>
 					</motion.div>

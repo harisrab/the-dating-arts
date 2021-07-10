@@ -67,12 +67,12 @@ const reducer = (state, action) => {
 				},
 			};
 
-		case "SET_LOGO_TYPE": 
-		console.log("State Changed")
-		return {
-			...state,
-			headerLogoState: action.payload
-		}
+		case "SET_LOGO_TYPE":
+			console.log("State Changed");
+			return {
+				...state,
+				headerLogoState: action.payload,
+			};
 
 		case "SET_MODAL_STATE":
 			return {
@@ -90,6 +90,12 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				selectedEventId: action.payload,
+			};
+
+		case "SET_SELECTED_PRODUCT_ID":
+			return {
+				...state,
+				selectedProductId: action.payload,
 			};
 
 		case "UPDATE_UPCOMING_EVENTS":

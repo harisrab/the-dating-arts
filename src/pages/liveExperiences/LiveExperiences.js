@@ -2,8 +2,20 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Footer from "../homepageSections/Footer";
+import LiveExperiencesSection from "../liveExperiences/LiveExperiencesSection";
+import LiveIntroduction from "../liveExperiences/LiveIntroduction";
+import { useStateValue } from "../../Store/StateProvider";
 
 function LiveExperiences() {
+	const [{ cmsData }, dispatch] = useStateValue();
+	const [data, setData] = useState({});
+
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setData(cmsData.data.pageLiveExperiences[0]);
+		}
+	}, [cmsData]);
+
 	return (
 		<HomePageWrapper
 			id="main_app"
@@ -13,7 +25,69 @@ function LiveExperiences() {
 			transition={{ duration: 0.2 }}
 			key={3}
 		>
-			<h1>Live Experiences</h1>
+			{cmsData.status === "fetched" && data !== {} ? (
+				<>
+					<LiveIntroduction
+						heading={data.heroTitle}
+						description={data.heroDescription}
+					/>
+
+					{/* Legends Immersion Bootcamp */}
+
+					<LiveExperiencesSection
+						blurb={"Introduction"}
+						title={data.legendsImmersionIntroductionTitle}
+						text={data.legendsImmersionIntroductionDescription}
+					/>
+					<LiveExperiencesSection
+						blurb={"Details"}
+						title={data.legendsImmersionDetailsTitle}
+						text={data.legendsImmersionDetailsDescription}
+					/>
+
+					{/* Mastery Bootcamp */}
+
+					<LiveExperiencesSection
+						blurb={"Introduction"}
+						title={data.mastery1On1BootcampIntroductionTitle}
+						text={data.mastery1On1BootcampIntroductionDescription}
+					/>
+					<LiveExperiencesSection
+						blurb={"Details"}
+						title={data.mastery1On1BootcampDetailsTitle}
+						text={data.mastery1On1BootcampDetailsDescription}
+					/>
+
+					{/* Results Bootcamp */}
+
+					<LiveExperiencesSection
+						blurb={"Introduction"}
+						title={data.resultsBootcampIntroductionTitle}
+						text={data.resultsBootcampIntroductionDescription}
+					/>
+					<LiveExperiencesSection
+						blurb={"Details"}
+						title={data.resultsBootcampDetailsTitle}
+						text={data.resultsBootcampDetailsDescription}
+					/>
+
+					{/* Tailor Made Icon */}
+
+					<LiveExperiencesSection
+						blurb={"Introduction"}
+						title={data.tailorMadeIconIntroductionTitle}
+						text={data.tailorMadeIconIntroductionDescription}
+					/>
+					<LiveExperiencesSection
+						blurb={"Details"}
+						title={data.tailorMadeIconDetailsTitle}
+						text={data.tailorMadeIconDetailsDescription}
+					/>
+					<Footer />
+				</>
+			) : (
+				<></>
+			)}
 		</HomePageWrapper>
 	);
 }

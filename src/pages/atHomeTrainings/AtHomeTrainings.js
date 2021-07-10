@@ -1,20 +1,62 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import AtHomeSection from "../atHomeTrainings/AtHomeSection";
+import AtHomeIntroduction from "../atHomeTrainings/AtHomeIntroduction";
+import { useStateValue } from "../../Store/StateProvider";
+import Footer from "../homepageSections/Footer";
 
 function AtHomeTrainings() {
-	return (
-		<HomePageWrapper
-			id="main_app"
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			transition={{ duration: 0.2 }}
-			key={4}
+	const [{ cmsData }, dispatch] = useStateValue();
+	const [data, setData] = useState({});
 
-		>
-			<h1>At Home Trainings</h1>
-		</HomePageWrapper>
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setData(cmsData.data.pageAtHomeTrainings[0]);
+		}
+	}, [cmsData]);
+
+	return (
+		<div id="main_app">
+			{cmsData.status === "fetched" && data !== {} ? (
+				<HomePageWrapper
+					id="main_app"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.2 }}
+					key={4}
+				>
+					<AtHomeIntroduction
+						heading={data.heroTitle}
+						description={data.heroDescription}
+					/>
+					<AtHomeSection
+						blurb={"Introduction"}
+						title={data.closeHerSchoolLiveTitle}
+						text={data.closeHerSchoolLiveDescription}
+					/>
+					<AtHomeSection
+						blurb={"Introduction"}
+						title={data.empowerVideoSessionTitle}
+						text={data.empowerVideoSessionDescription}
+					/>
+					<AtHomeSection
+						blurb={"Introduction"}
+						title={data.expressOnlineBootcampTitle}
+						text={data.expressOnlineBootcampDescription}
+					/>
+					<AtHomeSection
+						blurb={"Introduction"}
+						title={data.masterclassBreakoutTitle}
+						text={data.masterclassBreakoutDescription}
+					/>
+					<Footer />
+				</HomePageWrapper>
+			) : (
+				<></>
+			)}
+		</div>
 	);
 }
 

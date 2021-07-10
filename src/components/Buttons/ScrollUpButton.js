@@ -35,17 +35,18 @@ function ScrollUpButton() {
 	};
 
 	useEffect(() => {
-		document
-			.getElementById("main_app")
-			.addEventListener("scroll", (event) => {
-				let scroll = event.target.scrollTop;
+		const el = document.getElementById("main_app");
 
-				if (scroll > 600) {
-					setShowBtn(true);
-				} else {
-					setShowBtn(false);
-				}
-			});
+
+		el.addEventListener("scroll", (event) => {
+			let scroll = event.target.scrollTop;
+
+			if (scroll > 600) {
+				setShowBtn(true);
+			} else {
+				setShowBtn(false);
+			}
+		});
 	});
 
 	return (

@@ -7,8 +7,12 @@ import CheckIcon from "@material-ui/icons/Check";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import { IconButton } from "@material-ui/core";
+import { useStateValue } from "../Store/StateProvider";
+import { useHistory } from "react-router-dom";
 
 function TrainingCard({ training }) {
+	const history = useHistory();
+
 	let {
 		price,
 		per,
@@ -18,6 +22,8 @@ function TrainingCard({ training }) {
 		feature3,
 		feature4,
 	} = training;
+
+	const [{ headerLogoState }, dispatch] = useStateValue();
 
 	return (
 		<Wrapper
@@ -63,7 +69,17 @@ function TrainingCard({ training }) {
 					color="secondary"
 					aria-label="add to shopping cart"
 				>
-					<InfoOutlinedIcon className="icon" />
+					<InfoOutlinedIcon
+						onClick={() => {
+							dispatch({
+								type: "SET_LOGO_TYPE",
+								payload: "jumpback",
+							});
+
+							history.push("/at-home-trainings");
+						}}
+						className="icon"
+					/>
 				</IconButton>
 				<IconButton
 					className="outer"
