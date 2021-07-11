@@ -8,61 +8,6 @@ import { useStateValue } from "../../Store/StateProvider";
 function FeaturedProducts() {
 	const [{ cmsData }, dispatch] = useStateValue();
 
-	const data = [
-		{
-			title: "The Mindset",
-			subtitle: "Thirteen Foundational Principles of an Attractive Man",
-			desc:
-				"In sodales vitae tortor vitae tristique. Praesent vel dolor quam. Pellentesque auc arcu a auctor pellentesque. Nunc ullamcorper ante non libero lacinia, in imperdiet nisi volutpat. Quisque nec sem sollicitudin, pharetra nibh blandit, interdum eros. Aliquam orci odi pellentesque id tellus eu, volutpat feugiat quam. Praesent porta molestie leo ut egestas.Lorem ipsum dolor sit amet, consecteturadipiscing elit. Pellentesque commodo a liberoultricies sollicitudin. Aenean vitae lectusnunc. Etiam tincidunt consectetur nunc aeleifend. Pellentesque lacinia nulla neque, idtempus mi consequat sit amet. Ut ut accumsannibh.",
-			features: [
-				"This is mock feature 1",
-				"This is mock feature 2",
-				"This is mock feature 3",
-				"This is mock feature 4",
-			],
-			img: { cover: "/book_cover.png", inside: "/book_inside.png" },
-		},
-		{
-			title: "The Mindset",
-			subtitle: "Thirteen Foundational Principles of an Attractive Man",
-			desc:
-				"In sodales vitae tortor vitae tristique. Praesent vel dolor quam. Pellentesque auc arcu a auctor pellentesque. Nunc ullamcorper ante non libero lacinia, in imperdiet nisi volutpat. Quisque nec sem sollicitudin, pharetra nibh blandit, interdum eros. Aliquam orci odi pellentesque id tellus eu, volutpat feugiat quam. Praesent porta molestie leo ut egestas.Lorem ipsum dolor sit amet, consecteturadipiscing elit. Pellentesque commodo a liberoultricies sollicitudin. Aenean vitae lectusnunc. Etiam tincidunt consectetur nunc aeleifend. Pellentesque lacinia nulla neque, idtempus mi consequat sit amet. Ut ut accumsannibh.",
-			features: [
-				"This is mock feature 1",
-				"This is mock feature 2",
-				"This is mock feature 3",
-				"This is mock feature 4",
-			],
-			img: { cover: "/book_cover.png", inside: "/book_inside.png" },
-		},
-		{
-			title: "The Mindset",
-			subtitle: "Thirteen Foundational Principles of an Attractive Man",
-			desc:
-				"In sodales vitae tortor vitae tristique. Praesent vel dolor quam. Pellentesque auc arcu a auctor pellentesque. Nunc ullamcorper ante non libero lacinia, in imperdiet nisi volutpat. Quisque nec sem sollicitudin, pharetra nibh blandit, interdum eros. Aliquam orci odi pellentesque id tellus eu, volutpat feugiat quam. Praesent porta molestie leo ut egestas.Lorem ipsum dolor sit amet, consecteturadipiscing elit. Pellentesque commodo a liberoultricies sollicitudin. Aenean vitae lectusnunc. Etiam tincidunt consectetur nunc aeleifend. Pellentesque lacinia nulla neque, idtempus mi consequat sit amet. Ut ut accumsannibh.",
-			features: [
-				"This is mock feature 1",
-				"This is mock feature 2",
-				"This is mock feature 3",
-				"This is mock feature 4",
-			],
-			img: { cover: "/book_cover.png", inside: "/book_inside.png" },
-		},
-		{
-			title: "The Mindset",
-			subtitle: "Thirteen Foundational Principles of an Attractive Man",
-			desc:
-				"In sodales vitae tortor vitae tristique. Praesent vel dolor quam. Pellentesque auc arcu a auctor pellentesque. Nunc ullamcorper ante non libero lacinia, in imperdiet nisi volutpat. Quisque nec sem sollicitudin, pharetra nibh blandit, interdum eros. Aliquam orci odi pellentesque id tellus eu, volutpat feugiat quam. Praesent porta molestie leo ut egestas.Lorem ipsum dolor sit amet, consecteturadipiscing elit. Pellentesque commodo a liberoultricies sollicitudin. Aenean vitae lectusnunc. Etiam tincidunt consectetur nunc aeleifend. Pellentesque lacinia nulla neque, idtempus mi consequat sit amet. Ut ut accumsannibh.",
-			features: [
-				"This is mock feature 1",
-				"This is mock feature 2",
-				"This is mock feature 3",
-				"This is mock feature 4",
-			],
-			img: { cover: "/book_cover.png", inside: "/book_inside.png" },
-		},
-	];
-
 	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
@@ -78,27 +23,37 @@ function FeaturedProducts() {
 					<div className="title">
 						<h2>Featured Picks</h2>
 					</div>
-					{products.slice(0, 4).map((eachProduct) => {
-						return (
-							<ProductItem>
-								<img src={eachProduct.coverImage.url} alt="" />
-								<div className="product_title">
-									<p>{eachProduct.title}</p>
-								</div>
-								<div className="subtitle">
-									<p>{eachProduct.subtitle}</p>
-								</div>
-								<div className="button_group">
-									<div className="left">
-										<ProductItemDetailsButton />
+					{products
+						.slice(0, 4)
+						.filter(({ featured }) => featured === true)
+						.map((eachProduct) => {
+							return (
+								<ProductItem>
+									<img
+										src={eachProduct.coverImage.url}
+										alt=""
+									/>
+									<div className="product_title">
+										<p>{eachProduct.title}</p>
 									</div>
-									<div className="right">
-										<ProductItemAddToCart />
+									<div className="subtitle">
+										<p>{eachProduct.subtitle}</p>
 									</div>
-								</div>
-							</ProductItem>
-						);
-					})}
+									<div className="button_group">
+										<div className="left">
+											<ProductItemDetailsButton
+												id={eachProduct.id}
+											/>
+										</div>
+										<div className="right">
+											<ProductItemAddToCart
+												id={eachProduct.id}
+											/>
+										</div>
+									</div>
+								</ProductItem>
+							);
+						})}
 				</ContentWrapper>
 			) : (
 				<></>

@@ -26,6 +26,7 @@ export const initialState = {
 	selectedEventId: "",
 	selectedProductId: "",
 	headerLogoState: "normal",
+	showNewsletter: true,
 };
 
 // Selectors
@@ -72,6 +73,12 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				headerLogoState: action.payload,
+			};
+
+		case "TOGGLE_NEWSLETTER":
+			return {
+				...state,
+				showNewsletter: action.payload,
 			};
 
 		case "SET_MODAL_STATE":

@@ -23,6 +23,7 @@ import AtHomeTrainingsWrapper from "./pages/AtHomeTrainingsWrapper";
 import AdmissionApplication from "./pages/admissionApplication/AdmissionApplication";
 import StorePage from "./pages/storePage/StorePage";
 import LoginPage from "./pages/loginPage/LoginPage";
+import NewsletterPopup from "./components/NewsletterPopup";
 
 function App() {
 	const cache = useRef({});
@@ -176,6 +177,7 @@ function App() {
 				detailsImage {
 					url
 				}
+				featured
 			}
 		}
 	`;
@@ -274,6 +276,7 @@ function App() {
 						<Route path="/">
 							<Header key={1} />
 							<EventsModal />
+							<NewsletterPopup />
 							<Homepage />
 						</Route>
 					</Switch>
