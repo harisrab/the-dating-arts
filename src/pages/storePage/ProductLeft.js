@@ -28,14 +28,17 @@ function ProductLeft({ info }) {
 				<RightSection>
 					<RightContent>
 						<div className="title">
-							<h2>{info.title}</h2>
-							<p>{info.subtitle}</p>
+							<h2 className="storepage">{info.title}</h2>
+							<p className="storepage">{info.subtitle}</p>
 						</div>
 
 						<div className="desc">
-							<p>
+							<p className="storepage">
 								{`${info.productDescription.substring(0, 300)}`}{" "}
-								<span onClick={onClickReadMore}>
+								<span
+									className="storepage"
+									onClick={onClickReadMore}
+								>
 									Read more.
 								</span>
 							</p>
@@ -49,7 +52,7 @@ function ProductLeft({ info }) {
 									info.feature3,
 								].map((eachFeature, i) => {
 									return (
-										<li key={i}>
+										<li className="storepage" key={i}>
 											<img src="/tickmark.svg" alt="" />
 											{eachFeature}
 										</li>
@@ -77,8 +80,9 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
-	pointer-events: all;
-	user-select: text;
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	background-color: var(--main-color-white);
 
@@ -98,6 +102,10 @@ const ContentWrapper = styled.div`
 	/* background-color: #c7c7c7; */
 
 	display: flex;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 
 const LeftSection = styled.div`
@@ -120,6 +128,10 @@ const RightSection = styled.div`
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 
 const RightContent = styled.div`
@@ -130,14 +142,29 @@ const RightContent = styled.div`
 
 	font-family: "Spectral", sans-serif;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	.title {
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 		h2 {
 			font-weight: 400;
 			font-size: 25px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 
 		p {
 			color: gray;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 
@@ -145,9 +172,17 @@ const RightContent = styled.div`
 		margin-top: 25px;
 		margin-bottom: 20px;
 
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		p {
 			font-size: 14px;
 			font-weight: 200;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 
 			span {
 				text-decoration: underline;
@@ -155,6 +190,10 @@ const RightContent = styled.div`
 				color: gray;
 				margin-left: 5px;
 				transition: 0.3s ease-out;
+
+				pointer-events: all !important;
+				user-select: text !important;
+				--webkit-user-select: text !important;
 
 				&:hover {
 					color: #9b9b9b;
@@ -165,13 +204,25 @@ const RightContent = styled.div`
 	}
 
 	.features {
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		ul {
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
+
 			li {
 				display: flex;
 				align-items: center;
 				list-style-type: none;
 
 				font-weight: 200;
+
+				pointer-events: all !important;
+				user-select: text !important;
+				--webkit-user-select: text !important;
 
 				img {
 					height: 10px;

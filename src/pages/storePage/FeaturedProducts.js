@@ -21,7 +21,7 @@ function FeaturedProducts() {
 			{products.length !== 0 && cmsData.status === "fetched" ? (
 				<ContentWrapper>
 					<div className="title">
-						<h2>Featured Picks</h2>
+						<h2 className="storepage">Featured Picks</h2>
 					</div>
 					{products
 						.slice(0, 4)
@@ -34,10 +34,14 @@ function FeaturedProducts() {
 										alt=""
 									/>
 									<div className="product_title">
-										<p>{eachProduct.title}</p>
+										<p className="storepage">
+											{eachProduct.title}
+										</p>
 									</div>
 									<div className="subtitle">
-										<p>{eachProduct.subtitle}</p>
+										<p className="storepage">
+											{eachProduct.subtitle}
+										</p>
 									</div>
 									<div className="button_group">
 										<div className="left">
@@ -82,6 +86,10 @@ const Wrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 const ContentWrapper = styled.div`
 	height: 350px;
@@ -101,9 +109,17 @@ const ContentWrapper = styled.div`
 		transform: translateX(-50%);
 		top: -80px;
 
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		h2 {
 			font-weight: 400;
 			font-size: 30px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 `;
@@ -113,6 +129,10 @@ const ProductItem = styled.div`
 	flex: 1;
 	max-width: 300px;
 	min-width: 300px;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	transition: 0.2s ease-out;
 	&:hover {
@@ -134,6 +154,10 @@ const ProductItem = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	img {
 		height: 220px;
 	}
@@ -141,19 +165,35 @@ const ProductItem = styled.div`
 	.product_title {
 		width: 100%;
 
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		p {
 			font-weight: 500;
 			margin-left: 20px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 
 	.subtitle {
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		p {
 			font-size: 14px;
 			font-weight: 300;
 			color: gray;
 			margin-left: 20px;
 			margin-right: 20px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 

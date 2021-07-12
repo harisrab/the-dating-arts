@@ -81,6 +81,10 @@ const HomePageWrapper = styled(motion.div)`
 	overflow: overlay;
 	background-color: black;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	/* Style the scroll bar */
 	&::-webkit-scrollbar {
 		width: 0.6em;
@@ -110,6 +114,10 @@ const HomePageWrapper = styled(motion.div)`
 		left: 50%;
 		transform: translate(-50%, -50%);
 		color: white;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 `;
 
@@ -120,6 +128,10 @@ const ContentWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 
 const Right = styled.div`
@@ -130,6 +142,10 @@ const Right = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	.top-section {
 		display: flex;
@@ -243,23 +259,45 @@ const Left = styled.div`
 
 	color: white;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	.main-heading {
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 		h2 {
 			font-weight: 400;
 			font-size: 40px;
 
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
+
 			span {
 				color: var(--main-color-red);
+
+				pointer-events: all !important;
+				user-select: text !important;
+				--webkit-user-select: text !important;
 			}
 		}
 	}
 
 	.sub-heading {
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 		h2 {
 			font-weight: 300;
 			font-size: 20px;
 			margin-bottom: -10px;
 			color: gray;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 `;

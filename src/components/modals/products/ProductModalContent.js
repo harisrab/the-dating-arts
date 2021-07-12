@@ -86,6 +86,10 @@ const Wrapper = styled.div`
 	align-items: center;
 
 	justify-content: flex-end;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 
 const ContentHolder = styled.div`
@@ -96,6 +100,10 @@ const ContentHolder = styled.div`
 
 	display: flex;
 	justify-content: space-between;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 
 const LeftSection = styled.div`
@@ -110,15 +118,37 @@ const LeftSection = styled.div`
 	align-items: flex-start;
 	justify-content: space-between;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	.start {
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		.title {
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
+
 			h2 {
 				font-weight: 400;
 				font-size: 25px;
-			}
 
+				pointer-events: all !important;
+				user-select: text !important;
+				--webkit-user-select: text !important;
+			}
+		}
+
+		.subtitle {
 			p {
 				color: gray;
+
+				pointer-events: all !important;
+				user-select: text !important;
+				--webkit-user-select: text !important;
 			}
 		}
 
@@ -135,9 +165,17 @@ const LeftSection = styled.div`
 
 			scroll-behavior: smooth;
 
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
+
 			p {
 				font-size: 14px;
 				font-weight: 200;
+
+				pointer-events: all !important;
+				user-select: text !important;
+				--webkit-user-select: text !important;
 
 				span {
 					text-decoration: underline;
@@ -145,6 +183,10 @@ const LeftSection = styled.div`
 					color: gray;
 					margin-left: 5px;
 					transition: 0.3s ease-out;
+
+					pointer-events: all !important;
+					user-select: text !important;
+					--webkit-user-select: text !important;
 
 					&:hover {
 						color: #9b9b9b;
@@ -178,12 +220,20 @@ const LeftSection = styled.div`
 			flex-direction: row;
 			justify-content: space-between;
 
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
+
 			ul {
 				height: 100%;
 				display: flex;
 				flex-direction: column;
 				flex-wrap: wrap;
 				justify-content: center;
+
+				pointer-events: all !important;
+				user-select: text !important;
+				--webkit-user-select: text !important;
 
 				li {
 					display: flex;
@@ -196,6 +246,11 @@ const LeftSection = styled.div`
 					position: relative;
 
 					padding-left: 15px;
+
+					pointer-events: all !important;
+					user-select: text !important;
+					--webkit-user-select: text !important;
+
 					img {
 						height: 10px;
 						top: 50%;

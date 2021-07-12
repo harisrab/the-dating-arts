@@ -150,6 +150,10 @@ const Wrapper = styled.div`
 
 	position: relative;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -161,6 +165,10 @@ const Wrapper = styled.div`
 		min-height: 100%;
 		max-height: 100%;
 		margin-left: 6%;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 
 		/* position: relative; */
 
@@ -179,24 +187,15 @@ const ImageContainer = styled(motion.div)`
 	background-color: blue;
 
 	position: absolute;
-	/* max-height: 100%;
-	min-height: 100%; */
 
-	/* position: absolute; */
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
-	/* height: 100%;
-	width: 100%;
-	background-color: black;
-	object-fit: cover; */
 	background-image: url(${(props) => props.url});
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	/* 
-	
-	background-color: red; */
-
-	/* z-index: 1; */
 `;
 
 const BackStrip = styled.div`
@@ -208,6 +207,10 @@ const BackStrip = styled.div`
 	top: 50%;
 	transform: translate(0, -50%);
 	z-index: -1;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 
 const Right = styled.div`
@@ -216,6 +219,10 @@ const Right = styled.div`
 
 	margin-left: 80px;
 	margin-right: 80px;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -237,6 +244,31 @@ const Right = styled.div`
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: space-between;
+
+		pointer-events: all;
+		user-select: text;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
+		.price__holder {
+			position: absolute;
+			width: 100%;
+			height: 15%;
+
+			top: 50%;
+			transform: translate(0, -50%);
+
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
+		}
 	}
 
 	.lower {
@@ -248,26 +280,26 @@ const Right = styled.div`
 		flex-direction: column;
 		align-items: flex-start;
 		justify-content: space-between;
-	}
 
-	.price__holder {
-		position: absolute;
-		width: 100%;
-		height: 15%;
-
-		top: 50%;
-		transform: translate(0, -50%);
-
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 `;
 
 const Heading = styled.div`
 	font-weight: 700;
 	font-size: 18px;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
+	h2 {
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+	}
 `;
 
 const Description = styled.div`
@@ -275,17 +307,35 @@ const Description = styled.div`
 	font-size: 14px;
 	line-height: 19.5px;
 	opacity: 0.7;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
+	p {
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+	}
 `;
 
 const Location = styled.div`
 	b {
 		font-weight: 600;
 		margin-right: 5px;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 
 	a {
 		color: black;
 		font-weight: 200;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 `;
 
@@ -294,9 +344,17 @@ const Availability = styled.div`
 		color: black;
 		font-weight: 200;
 
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		b {
 			font-weight: 600;
 			margin-right: 5px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 `;
@@ -305,8 +363,15 @@ const SaveSpots = styled.div`
 	p {
 		font-weight: 200;
 
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 		b {
 			font-weight: 600;
+
+			pointer-events: auto !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 `;

@@ -5,9 +5,9 @@ import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 function HeroSection() {
 	return (
 		<Wrapper>
-			<h3>Welcome To Our Store</h3>
-			<h2>
-				take all you <span>desire</span>
+			<h3 className="storepage">Welcome To Our Store</h3>
+			<h2 className="storepage">
+				take all you <span className="storepage">desire</span>
 			</h2>
 			<AnimatedDownArrow color="black" />
 		</Wrapper>
@@ -31,12 +31,18 @@ const Wrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	pointer-events: all;
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	h3 {
 		font-family: "Spectral", sans-serif;
 		font-weight: 400;
 		font-size: 50px;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 
 	h2 {
@@ -45,7 +51,14 @@ const Wrapper = styled.div`
 		font-size: 25px;
 		color: gray;
 
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		span {
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 `;

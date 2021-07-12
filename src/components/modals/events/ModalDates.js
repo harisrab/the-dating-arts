@@ -38,6 +38,10 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	.date__holder {
 		height: 100%;
 		width: 100px;
@@ -53,15 +57,27 @@ const Wrapper = styled.div`
 
 		color: white;
 
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
 		.tag {
 			font-weight: 700;
 			font-size: 13px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 
 		.date {
 			font-weight: 300;
 			font-size: 13px;
 			opacity: 0.7;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 `;

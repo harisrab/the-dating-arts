@@ -68,19 +68,18 @@ export default NewsletterPopup;
 const Wrapper = styled.div`
 	height: 330px;
 	width: 300px;
-	background-color: #000000ed;
+	background-color: #e7e7e7ec;
 	/* 
 	position: absolute;
 	top: 50%;
 	right: 50%; */
 
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	right: 65px;
+	bottom: 90px;
 
 	z-index: 50;
-	border: #363636 1px solid;
+	border: #272727 1px solid;
 	border-radius: 5px;
 
 	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
@@ -93,7 +92,7 @@ const Wrapper = styled.div`
 	justify-content: space-between;
 
 	.upper {
-		color: white;
+		color: #272727;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -115,6 +114,7 @@ const Wrapper = styled.div`
 		}
 
 		h3 {
+			color: white;
 			font-weight: 300;
 			font-size: 20px;
 			margin-top: 10px;
@@ -142,7 +142,7 @@ const Wrapper = styled.div`
 			margin-bottom: 10px;
 
 			h4 {
-				color: white;
+				color: #272727;
 				font-family: "Spectral", sans-serif;
 				font-weight: 300;
 				font-size: 15px;
@@ -167,10 +167,10 @@ const Wrapper = styled.div`
 				width: 80%;
 				background-color: transparent;
 				outline: none;
-				border: 1px solid white;
+				border: 1px solid #272727;
 				border-radius: 3px;
 				padding-left: 10px;
-				color: #c7c7c7;
+				color: #272727;
 			}
 
 			button {
@@ -210,6 +210,6 @@ const IconButtonWrapper = styled(IconButton)`
 `;
 
 const CloseIconWrapper = styled(CloseIcon)`
-	color: white;
+	color: #272727;
 	font-size: 15px !important;
 `;

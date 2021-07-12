@@ -99,6 +99,9 @@ const HomePageWrapper = styled(motion.div)`
 	height: 100vh;
 	width: 100%;
 
+	pointer-events: all;
+	user-select: text;
+
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -139,5 +142,8 @@ const HomePageWrapper = styled(motion.div)`
 		left: 50%;
 		transform: translate(-50%, -50%);
 		color: white;
+
+		pointer-events: all;
+		user-select: text;
 	}
 `;

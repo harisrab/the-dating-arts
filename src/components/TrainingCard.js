@@ -25,6 +25,16 @@ function TrainingCard({ training }) {
 
 	const [{ headerLogoState }, dispatch] = useStateValue();
 
+	const redirectToEvents = () => {
+		dispatch({
+			type: "SET_CURRENT_OPTION",
+			payload: "online_bootcamp",
+		});
+
+		const body = document.getElementById("upcoming-events-section");
+		body.scrollIntoView(true);
+	};
+
 	return (
 		<Wrapper
 			initial={{ scale: 1 }}
@@ -85,6 +95,7 @@ function TrainingCard({ training }) {
 					className="outer"
 					color="secondary"
 					aria-label="add to shopping cart"
+					onClick={redirectToEvents}
 				>
 					<AddShoppingCartIcon className="icon" />
 				</IconButton>

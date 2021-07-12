@@ -7,9 +7,15 @@ import UpcomingEventsHeader from "../../components/events_summary_components/Upc
 import { useStateValue } from "../../Store/StateProvider";
 
 function UpcomingEvents() {
-	const [currentOption, setCurrentOption] = useState("all");
-	const [{ cmsData }, dispatch] = useStateValue();
+	const [{ cmsData, currentOption }, dispatch] = useStateValue();
 	const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+	const setCurrentOption = (id) => {
+		dispatch({
+			type: "SET_CURRENT_OPTION",
+			payload: id,
+		});
+	};
 
 	const changeOption = (e) => {
 		setCurrentOption(e.target.id);
@@ -26,7 +32,7 @@ function UpcomingEvents() {
 			{upcomingEvents.length === 0 ? (
 				<></>
 			) : (
-				<Wrapper>
+				<Wrapper id="upcoming-events-section">
 					<ContentWrapper>
 						<UpcomingEventsHeader
 							changeOption={changeOption}
@@ -101,7 +107,6 @@ const ContentWrapper = styled.div`
 		height: 50px;
 		background-color: yellow;
 		margin-bottom: 5px;
-		
 	}
 `;
 

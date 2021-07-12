@@ -33,8 +33,9 @@ const Wrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	pointer-events: all;
-	user-select: text;
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	position: relative;
 
@@ -47,6 +48,10 @@ const ContentWrapper = styled.div`
 	font-family: "Spectral", sans-serif;
 	color: white;
 	display: flex;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 
 const Left = styled.div`
@@ -56,6 +61,10 @@ const Left = styled.div`
 	display: flex;
 	align-items: center;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	.left-content {
 		margin-left: 100px;
 		h2 {
@@ -63,6 +72,10 @@ const Left = styled.div`
 			font-weight: 400;
 
 			color: var(--main-color-red);
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 `;
@@ -72,10 +85,18 @@ const Right = styled.div`
 	align-items: center;
 	justify-content: center;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	p {
 		width: 80%;
 		font-weight: 200;
 		font-size: 18px;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 	height: 100%;
 	width: 60%;
