@@ -27,6 +27,7 @@ export const initialState = {
 	selectedProductId: "",
 	headerLogoState: "normal",
 	showNewsletter: true,
+	currentOption: "all",
 };
 
 // Selectors
@@ -87,6 +88,17 @@ const reducer = (state, action) => {
 				eventModalToggle: action.payload,
 			};
 
+		case "SET_CURRENT_OPTION":
+			return {
+				...state,
+				currentOption: action.payload,
+			};
+
+		case "SET_USER":
+			return {
+				...state,
+				user: action.payload,
+			};
 		case "SET_PRODUCT_MODAL_STATE":
 			return {
 				...state,

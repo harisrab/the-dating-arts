@@ -29,8 +29,9 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
-	pointer-events: all;
-	user-select: text;
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	background-color: var(--main-color-dark-black);
 
@@ -52,8 +53,9 @@ const TextSection = styled.div`
 	color: white;
 	width: 43vw;
 
-	pointer-events: all;
-	user-select: text;
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	position: absolute;
 	top: 50%;
@@ -66,8 +68,9 @@ const TextSection = styled.div`
 		font-size: 32px;
 		margin-bottom: 15px;
 
-		pointer-events: all;
-		user-select: text;
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 
 	p {
@@ -75,7 +78,8 @@ const TextSection = styled.div`
 		font-weight: 200;
 		font-size: 15px;
 
-		pointer-events: all;
-		user-select: text;
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 `;

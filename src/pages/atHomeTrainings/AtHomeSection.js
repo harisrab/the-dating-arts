@@ -32,8 +32,9 @@ const Wrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	pointer-events: all;
-	user-select: text;
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 
 	position: relative;
 
@@ -46,6 +47,10 @@ const ContentWrapper = styled.div`
 	font-family: "Spectral", sans-serif;
 	color: white;
 	display: flex;
+
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
 `;
 
 const Left = styled.div`
@@ -55,16 +60,28 @@ const Left = styled.div`
 	display: flex;
 	align-items: center;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	.left-content {
 		margin-left: 100px;
 		p {
 			color: grey;
 			font-size: 18px;
 			margin-bottom: -5px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 		h2 {
 			font-size: 35px;
 			font-weight: 400;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
 		}
 	}
 `;
@@ -74,10 +91,18 @@ const Right = styled.div`
 	align-items: center;
 	justify-content: center;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	p {
 		width: 80%;
 		font-weight: 200;
 		font-size: 18px;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 	height: 100%;
 	width: 60%;

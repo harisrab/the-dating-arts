@@ -16,6 +16,7 @@ import Homepage from "./pages/homepageSections/Homepage";
 import AboutColgate from "./pages/aboutColgate/AboutColgate";
 import AboutTheDatingArts from "./pages/aboutTheDatingArts/AboutTheDatingArts";
 import ContactPage from "./pages/contactPage/ContactPage";
+import AccountPage from "./pages/accountPage/AccountPage";
 
 import LiveExperiencesWrapper from "./pages/LiveExperiencesWrapper";
 import AtHomeTrainingsWrapper from "./pages/AtHomeTrainingsWrapper";
@@ -242,6 +243,10 @@ function App() {
 			<AppWrapper id="main-wrapper">
 				<AnimatePresence>
 					<Switch key={2}>
+						<Route path="/profile">
+							<Header key={1} />
+							<AccountPage />
+						</Route>
 						<Route path="/application">
 							<Header key={1} />
 							<AdmissionApplication />

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import Login from "./Login";
 
-function LoginPage() {
+function AccountPage() {
 	return (
 		<HomePageWrapper
 			id="main_app"
@@ -13,12 +12,12 @@ function LoginPage() {
 			transition={{ duration: 0.2 }}
 			key={8}
 		>
-			<Login />
+			<h1>Account Page</h1>
 		</HomePageWrapper>
 	);
 }
 
-export default LoginPage;
+export default AccountPage;
 
 const HomePageWrapper = styled(motion.div)`
 	z-index: 49;
@@ -59,4 +58,12 @@ const HomePageWrapper = styled(motion.div)`
 
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
+
+	h1 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: white;
+	}
 `;

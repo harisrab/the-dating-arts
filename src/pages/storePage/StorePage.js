@@ -63,6 +63,10 @@ const HomePageWrapper = styled(motion.div)`
 	overflow: overlay;
 	background-color: white;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	/* Style the scroll bar */
 	&::-webkit-scrollbar {
 		width: 0.6em;

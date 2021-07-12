@@ -35,6 +35,10 @@ const Wrapper = styled.div`
 	font-family: "Spectral", sans-serif;
 	color: white;
 
+	pointer-events: all !important;
+	user-select: text !important;
+	--webkit-user-select: text !important;
+
 	h2 {
 		height: 100%;
 		display: -webkit-box;
@@ -44,6 +48,10 @@ const Wrapper = styled.div`
 		align-items: center;
 		font-size: 35px;
 		font-weight: 500;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 
 	.per_person {
@@ -58,6 +66,10 @@ const Wrapper = styled.div`
 		padding-left: 10px;
 		padding-top: 8px;
 		opacity: 0.7;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
 	}
 `;
 

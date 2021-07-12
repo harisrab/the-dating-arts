@@ -95,12 +95,29 @@ function UserHeaderButton() {
 							opacity: 0,
 						}}
 					>
-						<Avatar
-							style={{ position: "absolute", top: 0, left: 0 }}
-							alt="Remy Sharp"
-							src=""
-							variant="square"
-						/>
+						{user.additionalUserInfo.providerId === "google.com" ? (
+							<Avatar
+								style={{
+									position: "absolute",
+									top: 0,
+									left: 0,
+								}}
+								alt={user.user.displayName}
+								src={user.additionalUserInfo.profile.picture}
+								variant="square"
+							/>
+						) : (
+							<Avatar
+								style={{
+									position: "absolute",
+									top: 0,
+									left: 0,
+								}}
+								alt=""
+								src="/pp.jpg"
+								variant="square"
+							/>
+						)}
 					</Frame>
 				)}
 

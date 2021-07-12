@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CloseIcon from "@material-ui/icons/Close";
+import { IconButton } from "@material-ui/core";
 import { useStateValue } from "../../../Store/StateProvider";
 
 function EventsModalHeader() {
@@ -20,7 +21,9 @@ function EventsModalHeader() {
 	return (
 		<Wrapper>
 			<div className="exit__button" onClick={ToggleModal}>
-				<CloseIcon />
+				<IconButton>
+					<CloseIcon />
+				</IconButton>
 			</div>
 		</Wrapper>
 	);
