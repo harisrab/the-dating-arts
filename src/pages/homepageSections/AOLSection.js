@@ -6,10 +6,23 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { motion, AnimatePresence } from "framer-motion";
 import { useStateValue } from "../../Store/StateProvider";
+import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+import { IconButton } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+
+const useStyles = makeStyles((theme) => ({
+	customHoverFocus: {
+		"&:hover, &.Mui-focusVisible": { backgroundColor: "#79797985" },
+		backgroundColor: { backgroundColor: "#aaaaaa85" },
+	},
+}));
 
 function AOLSection() {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [{ cmsData }, dispatch] = useStateValue();
+
+	const classes = useStyles();
 
 	const [AOL, setAOL] = useState([]);
 
@@ -59,35 +72,52 @@ function AOLSection() {
 							</div>
 
 							<div className="buttons-holder">
-								<ArrowBackIcon
-									onClick={(e) => {
-										if (
-											(currentIndex < AOL.length) &
-											(currentIndex > 0)
-										) {
-											setCurrentIndex(currentIndex - 1);
+								<div className="left">
+									<ArrowBackIcon
+										onClick={(e) => {
+											if (
+												(currentIndex < AOL.length) &
+												(currentIndex > 0)
+											) {
+												setCurrentIndex(
+													currentIndex - 1
+												);
+											}
+										}}
+										className="back"
+										style={
+											currentIndex === 0
+												? { opacity: 0.21 }
+												: { opacity: 1 }
 										}
-									}}
-									className="back"
-									style={
-										currentIndex === 0
-											? { opacity: 0.21 }
-											: { opacity: 1 }
-									}
-								/>
-								<ArrowForwardIcon
-									onClick={() => {
-										if (currentIndex < AOL.length - 1) {
-											setCurrentIndex(currentIndex + 1);
+									/>
+									<ArrowForwardIcon
+										onClick={() => {
+											if (currentIndex < AOL.length - 1) {
+												setCurrentIndex(
+													currentIndex + 1
+												);
+											}
+										}}
+										className="forward"
+										style={
+											currentIndex === AOL.length - 1
+												? { opacity: 0.21 }
+												: { opacity: 1 }
 										}
-									}}
-									className="forward"
-									style={
-										currentIndex === AOL.length - 1
-											? { opacity: 0.21 }
-											: { opacity: 1 }
-									}
-								/>
+									/>
+								</div>
+								<div className="right">
+									<IconButtonWrapper
+										className={classes.customHoverFocus}
+										onClick={() =>
+											(window.location.href =
+												AOL[currentIndex].gumroadLink)
+										}
+									>
+										<ShoppingCartBtnWrapper />
+									</IconButtonWrapper>
+								</div>
 							</div>
 						</ContentWrapper>
 					</AnimatePresence>
@@ -101,6 +131,14 @@ function AOLSection() {
 }
 
 export default AOLSection;
+
+const IconButtonWrapper = styled(IconButton)`
+	justify-self: flex-end;
+`;
+const ShoppingCartBtnWrapper = styled(ShoppingBasketIcon)`
+	color: white;
+	font-size: 18px !important;
+`;
 
 const Wrapper = styled.div`
 	height: 100vh;
@@ -219,30 +257,41 @@ const ContentWrapper = styled.div`
 		display: -webkit-flex;
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 
 		margin-top: 20px;
 		color: var(--main-color-white);
 
-		.back {
-			height: 3.5vh;
-			margin-left: 0;
-			padding: 0;
-			margin-right: 5px;
+		.left {
+			display: flex;
+			align-items: center;
 
-			&:hover {
-				cursor: pointer;
+			.back {
+				height: 3.5vh;
+				margin-left: 0;
+				padding: 0;
+				margin-right: 5px;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+
+			.forward {
+				height: 3.5vh;
+				margin-left: 0;
+				padding: 0;
+				margin-left: 5px;
+
+				&:hover {
+					cursor: pointer;
+				}
 			}
 		}
 
-		.forward {
-			height: 3.5vh;
-			margin-left: 0;
-			padding: 0;
-			margin-left: 5px;
-
-			&:hover {
-				cursor: pointer;
-			}
+		.right {
+			display: flex;
+			align-items: center;
 		}
 	}
 `;

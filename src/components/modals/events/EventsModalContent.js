@@ -128,10 +128,12 @@ function EventsModalContent() {
 							/>
 
 							<SaveSpots>
-								Buy spots for <b>{sliderAmount}</b> persons
+								Reserve spots for <b>{sliderAmount}</b> persons
 							</SaveSpots>
 
-							<EventsAddToCartButton />
+							<EventsAddToCartButton
+								url={eventDetails.gumroadLink}
+							/>
 						</div>
 					</Right>
 				</Wrapper>

@@ -10,8 +10,12 @@ const bgVariants = {
 		height: "103%",
 	},
 };
-function EventsAddToCartButton() {
+function EventsAddToCartButton({ url }) {
 	const [didHover, setDidHover] = useState(false);
+
+	const navigate = () => {
+		window.location.href = url;
+	};
 
 	return (
 		<AnimatePresence>
@@ -22,8 +26,9 @@ function EventsAddToCartButton() {
 				whileHover={{ color: "#ffffff" }}
 				whileTap="final"
 				transition={{ duration: 0.2 }}
+				onClick={navigate}
 			>
-				<p>Add To Cart</p>
+				<p>EXPLORE</p>
 				<AnimatedBG
 					variants={bgVariants}
 					initial="initial"

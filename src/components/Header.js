@@ -20,8 +20,6 @@ function Header({ background = "black" }) {
 	const history = useHistory();
 	const [{ headerLogoState }, dispatch] = useStateValue();
 
-	
-
 	return (
 		<>
 			<HeaderWrapper>
@@ -39,8 +37,8 @@ function Header({ background = "black" }) {
 					</LogoHolder>
 					<RightSection>
 						<MenuButton background={background} />
-						<ShoppingCartButton background={background} />
-						<UserHeaderButton background={background} />
+						{/* <ShoppingCartButton background={background} />
+						<UserHeaderButton background={background} /> */}
 					</RightSection>
 				</TopSection>
 				<BottomSection>
