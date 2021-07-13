@@ -51,7 +51,7 @@ function FeaturedProducts() {
 										</div>
 										<div className="right">
 											<ProductItemAddToCart
-												id={eachProduct.id}
+												url={eachProduct.gumroadLink}
 											/>
 										</div>
 									</div>

@@ -60,7 +60,9 @@ function ProductModalContent({ info, status }) {
 							</div>
 						</div>
 						<div className="end">
-							<AddToCartProductModalButton />
+							<AddToCartProductModalButton
+								url={info.gumroadLink}
+							/>
 						</div>
 					</LeftSection>
 				</ContentHolder>

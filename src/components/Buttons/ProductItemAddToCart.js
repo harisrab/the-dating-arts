@@ -17,12 +17,12 @@ const bgVariants = {
 		height: "103%",
 	},
 };
-function ProductItemDetailsButton() {
+function ProductItemDetailsButton({ url }) {
 	const [didHover, setDidHover] = useState(false);
 
 	const handleSubscribe = (e) => {
 		e.preventDefault();
-		console.log("Add to Cart Button was Clicked");
+		window.location.href = url;
 	};
 
 	return (
@@ -39,7 +39,7 @@ function ProductItemDetailsButton() {
 				initial={!didHover ? { color: "#fff" } : {}}
 				animate={didHover ? { color: "#fff" } : {}}
 			>
-				ADD TO CART
+				BUY NOW
 			</motion.p>
 		</ButtonWrapper>
 	);
@@ -60,7 +60,7 @@ const ButtonWrapper = styled(motion.button)`
 	align-items: flex-end;
 	box-sizing: border-box;
 
-    overflow: hidden;
+	overflow: hidden;
 
 	border-radius: 5px;
 
