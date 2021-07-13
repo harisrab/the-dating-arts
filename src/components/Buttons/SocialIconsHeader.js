@@ -27,7 +27,7 @@ function SocialIconsHeader({ type = "instagram" }) {
 		// do some fancy page switching
 		// if user not availabe then switch to login page, otherwise move to user profile page
 		if (type === "facebook") {
-			window.location.href = "http://facebook.com/askcolgatenow";
+			window.location.href = "https://facebook.com/askcolgatenow";
 		} else if (type === "youtube") {
 			window.location.href =
 				"https://youtube.com/channel/UCkzwd-6cVehBGZbzQMddSeA";

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { useHistory } from "react-router-dom";
+import { useStateValue } from "../../Store/StateProvider";
 
 const btnVariants = {
 	initial: {
@@ -22,9 +22,9 @@ const bgVariants = {
 	},
 };
 function ApplyNowButton() {
-	const [didHover, setDidHover] = useState(false);
+	const [{ cmsData }, dispatch] = useStateValue();
 
-	const history = useHistory();
+	const [didHover, setDidHover] = useState(false);
 
 	return (
 		<ButtonWrapper
@@ -35,7 +35,10 @@ function ApplyNowButton() {
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
-			onClick={() => history.push("/application")}
+			onClick={() =>
+				(window.location.href =
+					cmsData.data.applicationPages[0].googleFormsLink)
+			}
 		>
 			<p>Apply Now</p>
 			<AnimatedBG

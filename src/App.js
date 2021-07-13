@@ -36,6 +36,10 @@ function App() {
 			areasOfLearnings {
 				title
 				description
+				gumroadLink
+			}
+			applicationPages {
+				googleFormsLink
 			}
 			upcomingEvents {
 				heading
@@ -53,6 +57,7 @@ function App() {
 					url
 				}
 				locationName
+				gumroadLink
 				type
 			}
 			liveExperiences {

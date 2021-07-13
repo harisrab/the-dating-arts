@@ -32,8 +32,8 @@ function Header({ background = "white" }) {
 					</LogoHolder>
 					<RightSection>
 						<MenuButton background={background} />
-						<ShoppingCartButton background={background} />
-						<UserHeaderButton background={background} />
+						{/* <ShoppingCartButton background={background} />
+						<UserHeaderButton background={background} /> */}
 					</RightSection>
 				</TopSection>
 				<BottomSection>
