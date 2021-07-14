@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 function Footer() {
+	const [isMobile, setIsMobile] = useState();
+
+	useEffect(() => {
+		setIsMobile(window.matchMedia("(max-device-width: 480px)").matches);
+	}, []);
 	return (
 		<Wrapper>
 			<p className="rights_reserved">
-				© 2021 The Dating Arts. All rights reserved.
+				© 2021 The Dating Arts.{isMobile && <br></br>} All rights
+				reserved.
 			</p>
 			<div className="left_links">
 				<ul>
@@ -175,6 +181,10 @@ const Wrapper = styled.div`
 		transform: translateY(-50%);
 
 		right: 15%;
+
+		@media only screen and (max-device-width: 480px) {
+			display: none;
+		}
 	}
 
 	.rights_reserved {
@@ -186,6 +196,12 @@ const Wrapper = styled.div`
 		font-family: "Spectral", sans-serif;
 		font-weight: 200;
 		font-size: 13px;
+
+		@media only screen and (max-device-width: 480px) {
+			left: 10%;
+			bottom: 8%;
+			width: 200px;
+		}
 	}
 `;
 

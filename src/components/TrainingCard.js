@@ -253,4 +253,9 @@ const Wrapper = styled(motion.div)`
 	}
 
 	overflow: hidden;
+
+	@media only screen and (max-device-width: 480px) {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
 `;
