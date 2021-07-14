@@ -67,4 +67,9 @@ const Wrapper = styled(motion.div)`
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
+
+	overflow: hidden;
+
+	@media only screen and (max-device-width: 480px) {
+	}
 `;

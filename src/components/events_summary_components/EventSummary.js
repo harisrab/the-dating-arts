@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Date from "./Date";
 import Title from "./Title";
@@ -8,6 +8,12 @@ import SummaryButton from "../Buttons/SummaryButton";
 import { motion } from "framer-motion";
 
 function EventSummary({ event, setShowEventsModal }) {
+	const [isMobile, setIsMobile] = useState();
+
+	useEffect(() => {
+		setIsMobile(window.matchMedia("(max-device-width: 480px)").matches);
+	}, []);
+
 	let {
 		heading,
 		description,
@@ -56,12 +62,26 @@ function EventSummary({ event, setShowEventsModal }) {
 			<TitleHolder>
 				<Title text={heading} />
 			</TitleHolder>
-			<LocationHolder>
-				<Location location={locationName} />
-			</LocationHolder>
-			<PriceTag>
-				<Price price={pricePerPerson} />
-			</PriceTag>
+
+			{isMobile ? (
+				<div className="inline-container">
+					<LocationHolder>
+						<Location location={locationName} />
+					</LocationHolder>
+					<PriceTag>
+						<Price price={pricePerPerson} />
+					</PriceTag>
+				</div>
+			) : (
+				<>
+					<LocationHolder>
+						<Location location={locationName} />
+					</LocationHolder>
+					<PriceTag>
+						<Price price={pricePerPerson} />
+					</PriceTag>
+				</>
+			)}
 			<ButtonHolder>
 				<SummaryButton
 					setShowEventsModal={setShowEventsModal}
@@ -93,6 +113,29 @@ const Wrapper = styled(motion.div)`
 	border: 1px solid #d70909;
 
 	margin-bottom: 9px;
+
+	@media only screen and (max-device-width: 480px) {
+		height: 30vh;
+		width: 100%;
+
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		.inline-container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: -5px;
+			width: 100%;
+			padding-right: 20px;
+		}
+	}
 `;
 
 const DateHolder = styled.div`
@@ -105,6 +148,12 @@ const DateHolder = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+
+	@media only screen and (max-device-width: 480px) {
+		width: 100%;
+		padding-right: 20px;
+		padding-top: 10px;
+	}
 `;
 
 const TitleHolder = styled.div`
@@ -115,6 +164,14 @@ const TitleHolder = styled.div`
 	display: -webkit-flex;
 	display: flex;
 	align-items: center;
+
+	@media only screen and (max-device-width: 480px) {
+		width: 100%;
+		justify-content: center;
+
+		margin-top: -10px;
+		margin-bottom: 5px;
+	}
 `;
 
 const LocationHolder = styled.div`
@@ -125,6 +182,10 @@ const LocationHolder = styled.div`
 	display: -webkit-flex;
 	display: flex;
 	align-items: center;
+
+	@media only screen and (max-device-width: 480px) {
+		width: auto;
+	}
 `;
 
 const PriceTag = styled.div`
@@ -135,6 +196,10 @@ const PriceTag = styled.div`
 	display: -webkit-flex;
 	display: flex;
 	align-items: center;
+
+	@media only screen and (max-device-width: 480px) {
+		width: auto;
+	}
 `;
 
 const ButtonHolder = styled.div`
@@ -146,4 +211,9 @@ const ButtonHolder = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	@media only screen and (max-device-width: 480px) {
+		width: 100%;
+		margin-top: 20px;
+	}
 `;

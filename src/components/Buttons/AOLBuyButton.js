@@ -18,39 +18,27 @@ const bgVariants = {
 		height: "0%",
 	},
 	final: {
-		height: "107%",
+		height: "103%",
 	},
 };
+function AOLBuyButton() {
+	const [{ cmsData }, dispatch] = useStateValue();
 
-function SummaryButton({ setShowEventsModal, id }) {
 	const [didHover, setDidHover] = useState(false);
-	const [{ eventModalToggle }, dispatch] = useStateValue();
-
-	const toggleModal = (e, id) => {
-		// Toggle Modal
-		dispatch({
-			type: "SET_MODAL_STATE",
-			payload: true,
-		});
-
-		// Set Selected ID
-		dispatch({
-			type: "SET_SELECTED_EVENT_ID",
-			payload: id,
-		});
-
-		console.log("Data Dispatched");
-	};
 
 	return (
 		<ButtonWrapper
 			variants={btnVariants}
 			onMouseEnter={() => setDidHover(true)}
 			onMouseLeave={() => setDidHover(false)}
+			onTap={() => setDidHover(true)}
 			initial="initial"
-			whileHover="final"
+			whileHover={"final"}
 			transition={{ duration: 0.2 }}
-			onClick={() => toggleModal(true, id)}
+			onClick={() =>
+				(window.location.href =
+					cmsData.data.applicationPages[0].googleFormsLink)
+			}
 		>
 			<p>Explore</p>
 			<AnimatedBG
@@ -63,20 +51,19 @@ function SummaryButton({ setShowEventsModal, id }) {
 	);
 }
 
-export default SummaryButton;
+export default AOLBuyButton;
 
 const ButtonWrapper = styled(motion.button)`
-	width: 93%;
-	height: 80%;
+	width: 130px;
+	height: 44px;
 	border: 1px var(--main-color-white) solid;
-	border-radius: 7px;
+
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
 	align-items: flex-end;
 	box-sizing: border-box;
-	overflow: hidden;
 
 	background-color: transparent;
 
@@ -86,6 +73,8 @@ const ButtonWrapper = styled(motion.button)`
 
 	position: relative;
 	color: var(--main-color-white);
+
+	overflow: hidden;
 
 	p {
 		position: absolute;
@@ -100,24 +89,41 @@ const ButtonWrapper = styled(motion.button)`
 		font-family: "Spectral", sans-serif;
 		font-weight: 500;
 		font-size: 14px;
-		will-change: transform;
 	}
 
 	@media only screen and (max-device-width: 480px) {
+		border: 1px var(--main-color-red) solid;
+		color: var(--main-color-white);
+
 		background-color: var(--main-color-red);
-		border-color: var(--main-color-red);
-		height: 70%;
+
+		p {
+			position: absolute;
+			color: white;
+
+			z-index: 1;
+
+			width: 100%;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+
+			font-family: "Spectral", sans-serif;
+			font-weight: 500;
+			font-size: 14px;
+		}
 	}
 `;
 
 const AnimatedBG = styled(motion.div)`
-	width: 100%;
-
+	width: 101%;
 	height: 0%;
 	background-color: white;
+	margin-left: -1px;
+	margin-bottom: -1px;
 	position: relative;
 
 	@media only screen and (max-device-width: 480px) {
-		background-color: transparent;
+		background-color: var(--main-color-red);
 	}
 `;

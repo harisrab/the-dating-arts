@@ -87,6 +87,18 @@ const ButtonWrapper = styled(motion.button)`
 		font-family: "Spectral", sans-serif;
 		font-weight: 500;
 	}
+
+	@media only screen and (max-device-width: 480px)  {
+		height: 40px;
+		width: 100%;
+		margin-top: 20px;
+		background-color: var(--main-color-red);
+
+		p {
+			color: white;
+			font-weight: 200;
+		}
+	}
 `;
 
 const AnimatedBG = styled(motion.div)`

@@ -91,6 +91,8 @@ function Testimonials() {
 export default Testimonials;
 
 const Wrapper = styled.div`
+	overflow: hidden;
+
 	height: 100vh;
 	width: 100%;
 	flex-shrink: 0;
@@ -110,6 +112,11 @@ const Wrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	@media only screen and (max-device-width: 480px) {
+		background-image: none;
+		background-color: black;
+	}
 `;
 
 const ContentWrapper = styled.div`
@@ -190,5 +197,22 @@ const ContentWrapper = styled.div`
 
 		position: absolute;
 		bottom: -100px;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		width: 100%;
+
+		.h3__wrapper {
+			width: 85%;
+			height: 90px;
+		}
+
+		.p__wrapper {
+			margin-top: 30px;
+		}
+
+		.sliderbar-holder {
+			bottom: -110px;
+		}
 	}
 `;

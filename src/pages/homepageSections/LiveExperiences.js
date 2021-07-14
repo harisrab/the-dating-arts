@@ -15,7 +15,6 @@ function LiveExperiences() {
 		}
 	}, [cmsData]);
 
-	
 	return (
 		<>
 			{experiences.length === 0 ? (
@@ -55,6 +54,8 @@ function LiveExperiences() {
 export default LiveExperiences;
 
 const Wrapper = styled.div`
+	overflow: hidden;
+
 	height: 100vh;
 	width: 100%;
 	flex-shrink: 0;
@@ -75,6 +76,14 @@ const Wrapper = styled.div`
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+
+	@media only screen and (max-device-width: 480px) {
+		justify-content: flex-start;
+		height: auto;
+		background-image: none;
+		background-color: black;
+		scroll-snap-align: start;
+	}
 `;
 
 const Header = styled.div`
@@ -107,6 +116,18 @@ const Header = styled.div`
 
 	position: absolute;
 	top: -120px;
+
+	@media only screen and (max-device-width: 480px) {
+		h1 {
+			font-size: 30px;
+			font-weight: 400;
+		}
+
+		p {
+			width: 85%;
+			text-align: center;
+		}
+	}
 `;
 
 const CardsHolder = styled.div`
@@ -122,6 +143,13 @@ const CardsHolder = styled.div`
 	justify-content: center;
 
 	margin-top: 20px;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		height: auto;
+		justify-content: flex-start;
+		align-items: center;
+	}
 `;
 
 const InnerWrapper = styled.div`
@@ -137,4 +165,10 @@ const InnerWrapper = styled.div`
 	margin-top: 40px;
 
 	position: relative;
+
+	@media only screen and (max-device-width: 480px) {
+		margin-top: 280px;
+
+		margin-bottom: 180px;
+	}
 `;

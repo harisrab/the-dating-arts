@@ -17,12 +17,12 @@ const bgVariants = {
 		height: "103%",
 	},
 };
-function SubscribeButton() {
+function SubscribeButton({ url }) {
 	const [didHover, setDidHover] = useState(false);
 
-	const handleSubscribe = (e) => {
+	const handleRouting = (e) => {
 		e.preventDefault();
-		console.log("Add to Cart Button was Clicked");
+		window.location.href = url;
 	};
 
 	return (
@@ -33,13 +33,13 @@ function SubscribeButton() {
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
-			onClick={handleSubscribe}
+			onClick={handleRouting}
 		>
 			<motion.p
 				initial={!didHover ? { color: "#000000" } : {}}
 				animate={didHover ? { color: "#fff" } : {}}
 			>
-				ADD TO CART
+				BUY NOW
 			</motion.p>
 			<AnimatedBG
 				variants={bgVariants}

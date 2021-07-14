@@ -6,7 +6,7 @@ import CurrencyFormat from "react-currency-format";
 function Price({ price = "4997" }) {
 	return (
 		<Wrapper>
-			<AttachMoneyIcon style={{ color: "white" }} />
+			<AttachMoneyIconWrapper />
 			<p>
 				<CurrencyFormat
 					value={price}
@@ -38,5 +38,19 @@ const Wrapper = styled.div`
 		margin-top: 2px;
 		margin-left: 5px;
 		will-change: transform;
+	}
+
+
+	@media only screen and (max-device-width: 480px) {
+		
+	}
+`;
+
+const AttachMoneyIconWrapper = styled(AttachMoneyIcon)`
+	color: white;
+	
+	@media only screen and (max-device-width: 480px) {
+		color: white;
+		font-size: 17px !important;
 	}
 `;

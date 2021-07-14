@@ -48,6 +48,8 @@ function AtHomeTraining() {
 export default AtHomeTraining;
 
 const Wrapper = styled.div`
+	overflow: hidden;
+
 	height: 100vh;
 	width: 100%;
 	flex-shrink: 0;
@@ -61,12 +63,12 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
-	/* display: -webkit-box;
-display: -ms-flexbox; 
-display: -webkit-flex;
-display: flex; ;
-	align-items: center;
-	justify-content: center; */
+	@media only screen and (max-device-width: 480px) {
+		height: fit-content;
+		background-image: none;
+		background-color: black;
+		padding-bottom: 400px;
+	}
 `;
 
 const Header = styled.div`
@@ -107,6 +109,20 @@ const Header = styled.div`
 
 	position: absolute;
 	top: -130px;
+
+	@media only screen and (max-device-width: 480px) {
+		h1 {
+			font-weight: 400;
+			margin-bottom: 20px;
+		}
+
+		p {
+			text-align: center;
+			width: 85%;
+		}
+
+		top: -180px;
+	}
 `;
 
 const CardsHolder = styled.div`
@@ -121,6 +137,12 @@ const CardsHolder = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		height: auto;
+		justify-content: flex-start;
+	}
 `;
 
 const InnerWrapper = styled.div`
@@ -128,4 +150,9 @@ const InnerWrapper = styled.div`
 
 	top: 53%;
 	transform: translateY(-50%);
+
+	@media only screen and (max-device-width: 480px) {
+		margin-top: 190px;
+		
+	}
 `;

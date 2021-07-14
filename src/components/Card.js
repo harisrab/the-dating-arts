@@ -70,4 +70,9 @@ const Wrapper = styled(motion.div)`
 		}
 		margin-bottom: 20px;
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		margin-bottom: 30px;
+		height: fit-content;
+	}
 `;

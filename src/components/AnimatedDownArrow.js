@@ -6,6 +6,7 @@ import styled from "styled-components";
 function AnimatedDownArrow({ color }) {
 	return (
 		<Wrapper>
+			<p>Scroll</p>
 			<DownArrow
 				// initial={{ y: 0 }}
 				animate={{ y: 10 }}
@@ -40,6 +41,19 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	will-change: transform;
+
+	@media only screen and (max-device-width: 480px) {
+		bottom: 8%;
+
+		p {
+			display: block;
+			color: white;
+		}
+	}
+
+	p {
+		display: none;
+	}
 `;
 
 const DownArrow = styled(motion.div)`

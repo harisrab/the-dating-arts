@@ -198,6 +198,26 @@ const Wrapper = styled.div`
 	}
 
 	display: ${(props) => (props.showNewsletter ? "flex" : "none")};
+
+	@media only screen and (max-device-width: 480px) {
+		height: 330px;
+		width: 300px;
+		background-color: #e7e7e7ec;
+		/* 
+	position: absolute;
+	top: 50%;
+	right: 50%; */
+
+		position: absolute;
+		left: 50%;
+		top: 50%;
+
+		transform: translate(-50%, -50%);
+
+		z-index: 50;
+		border: #272727 1px solid;
+		border-radius: 5px;
+	}
 `;
 
 const IconButtonWrapper = styled(IconButton)`
