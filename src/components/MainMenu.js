@@ -284,6 +284,10 @@ const Wrapper = styled(motion.div)`
 
 	overflow: hidden;
 	/* display: none; */
+
+	@media only screen and (max-device-width: 480px) {
+		left: -7.5vw;
+	}
 `;
 
 const Background = styled(motion.div)`

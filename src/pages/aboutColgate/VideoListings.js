@@ -132,6 +132,15 @@ const Wrapper = styled.div`
 	justify-content: center;
 
 	pointer-events: all;
+	overflow: hidden;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		background-image: none;
+		background-color: black;
+		height: auto;
+		padding-bottom: 200px;
+	}
 `;
 
 const ContentWrapper = styled.div`
@@ -237,4 +246,106 @@ const ContentWrapper = styled.div`
 	user-select: text;
 
 	/* background-color: red; */
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+
+		pointer-events: all;
+		user-select: text;
+
+		width: 89.37%;
+		height: 86.94%;
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		font-family: "Spectral", sans-serif;
+
+		position: relative;
+
+		h2 {
+			position: absolute;
+			top: 80px;
+
+			color: white;
+			font-weight: 400;
+			font-size: 30px;
+
+			pointer-events: all;
+			user-select: text;
+			text-align: center;
+		}
+
+		.videos {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			height: auto;
+			width: auto;
+
+			pointer-events: all;
+			user-select: text;
+			/* background-color: red; */
+
+			/* margin-bottom: 30px; */
+
+			margin-top: 300px;
+		}
+
+		a {
+		
+
+			height: 150px;
+			width: auto;
+			margin-bottom: 30px;
+			position: relative;
+
+			border-radius: 5px;
+			overflow: hidden;
+
+
+
+			.thumbnail {
+				height: 150px;
+				width: 250px;
+				background-color: blue;
+			}
+
+			.overlay {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+				top: 0;
+				left: 0;
+
+				z-index: 10000;
+
+				overflow: hidden;
+
+				background-color: #000000cf;
+
+				opacity: 0;
+
+				padding-right: 20px;
+				padding-left: 20px;
+
+				display: flex;
+				align-items: center;
+
+				p {
+					color: white;
+					/* width: 250px; */
+					font-size: 12px;
+					font-weight: 400;
+					font-family: "Spectral", sans-serif;
+
+					/* margin-top: 35px; */
+					/* margin-left: 20px; */
+				}
+			}
+		}
+	}
 `;
