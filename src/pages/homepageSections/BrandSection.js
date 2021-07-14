@@ -39,6 +39,8 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
+	overflow: hidden;
+
 	img {
 		position: absolute;
 		height: 300px;
@@ -46,6 +48,21 @@ const Wrapper = styled.div`
 		left: 75%;
 
 		transform: translate(-50%, -50%);
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		background-color: black;
+
+		img {
+			position: absolute;
+			height: 250px;
+			top: 80%;
+			left: 52.5%;
+
+			transform: translate(-50%, -50%);
+
+			opacity: 0.15;
+		}
 	}
 `;
 
@@ -81,5 +98,34 @@ const TextSection = styled.div`
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		width: 85vw;
+		position: absolute;
+		top: 40%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		h2 {
+			font-family: "Spectral", sans-serif;
+			font-weight: 600;
+			font-size: 25px;
+			margin-bottom: 15px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
+		}
+
+		p {
+			font-family: "Spectral", sans-serif;
+			font-weight: 200;
+			font-size: 15px;
+
+			pointer-events: all !important;
+			user-select: text !important;
+			--webkit-user-select: text !important;
+		}
 	}
 `;

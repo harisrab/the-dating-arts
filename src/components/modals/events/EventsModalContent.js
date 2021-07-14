@@ -11,6 +11,11 @@ function EventsModalContent() {
 	const [sliderAmount, setSliderAmount] = useState(2);
 	const [{ selectedEventId, cmsData }, dispatch] = useStateValue();
 	const [eventDetails, setEventDetails] = useState("");
+	const [isMobile, setIsMobile] = useState();
+
+	useEffect(() => {
+		setIsMobile(window.matchMedia("(max-device-width: 480px)").matches);
+	}, []);
 
 	useEffect(() => {
 		if (cmsData.status === "fetched") {
@@ -64,8 +69,16 @@ function EventsModalContent() {
 					<BackStrip></BackStrip>
 					<div className="image_container">
 						<ImageContainer
-							initial={{ width: "0%", scale: 1 }}
-							animate={{ width: "100%", scale: 1.1 }}
+							initial={
+								isMobile
+									? { height: "0%", scale: 1 }
+									: { width: "0%", scale: 1 }
+							}
+							animate={
+								isMobile
+									? { height: "100%", scale: 1 }
+									: { width: "100%", scale: 1 }
+							}
 							transition={{
 								duration: 3,
 								delay: 0.4,
@@ -181,12 +194,24 @@ const Wrapper = styled.div`
 		overflow: hidden;
 		/* z-index: -1;  */
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+
+		.image_container {
+			width: 90%;
+			min-height: 20%;
+			max-height: 25%;
+
+			margin-left: 0;
+		}
+	}
 `;
 
 const ImageContainer = styled(motion.div)`
 	height: 100%;
 	width: 100%;
-	background-color: blue;
+	background-color: black;
 
 	position: absolute;
 
@@ -213,6 +238,10 @@ const BackStrip = styled.div`
 	pointer-events: all !important;
 	user-select: text !important;
 	--webkit-user-select: text !important;
+
+	@media only screen and (max-device-width: 480px) {
+		display: none;
+	}
 `;
 
 const Right = styled.div`
@@ -287,6 +316,30 @@ const Right = styled.div`
 		user-select: text !important;
 		--webkit-user-select: text !important;
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		width: 90%;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 20px;
+
+		.upper {
+			height: auto;
+			flex: 1;
+
+			.price__holder {
+				display: none;
+			}
+		}
+
+		.lower {
+			height: auto;
+			flex: 1;
+			margin-top: 10px;
+		}
+
+		justify-content: flex-start;
+	}
 `;
 
 const Heading = styled.div`
@@ -301,6 +354,15 @@ const Heading = styled.div`
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		h2 {
+			font-weight: 500;
+			font-size: 22px;
+			margin-top: 10px;
+			margin-bottom: 20px;
+		}
 	}
 `;
 
@@ -318,6 +380,10 @@ const Description = styled.div`
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		margin-bottom: 10px;
 	}
 `;
 
@@ -375,5 +441,9 @@ const SaveSpots = styled.div`
 			user-select: text !important;
 			--webkit-user-select: text !important;
 		}
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		margin-bottom: 10px;
 	}
 `;

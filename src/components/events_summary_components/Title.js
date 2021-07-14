@@ -14,4 +14,9 @@ const Wrapper = styled.p`
 	font-family: "Spectral", sans-serif;
 	font-weight: 300;
     width: 100%;
+
+	@media only screen and (max-device-width: 480px) {
+		padding-left: 10px;
+		font-size: 16px;
+	}
 `;

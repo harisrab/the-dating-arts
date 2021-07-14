@@ -48,6 +48,9 @@ function AtHomeTraining() {
 export default AtHomeTraining;
 
 const Wrapper = styled.div`
+	overflow: hidden;
+
+	
 	height: 100vh;
 	width: 100%;
 	flex-shrink: 0;

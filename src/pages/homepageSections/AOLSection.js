@@ -10,6 +10,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
+import AOLBuyButton from "../../components/Buttons/AOLBuyButton";
 
 const useStyles = makeStyles((theme) => ({
 	customHoverFocus: {
@@ -73,50 +74,9 @@ function AOLSection() {
 
 							<div className="buttons-holder">
 								<div className="left">
-									<ArrowBackIcon
-										onClick={(e) => {
-											if (
-												(currentIndex < AOL.length) &
-												(currentIndex > 0)
-											) {
-												setCurrentIndex(
-													currentIndex - 1
-												);
-											}
-										}}
-										className="back"
-										style={
-											currentIndex === 0
-												? { opacity: 0.21 }
-												: { opacity: 1 }
-										}
+									<AOLBuyButton
+										url={AOL[currentIndex].gumroadLink}
 									/>
-									<ArrowForwardIcon
-										onClick={() => {
-											if (currentIndex < AOL.length - 1) {
-												setCurrentIndex(
-													currentIndex + 1
-												);
-											}
-										}}
-										className="forward"
-										style={
-											currentIndex === AOL.length - 1
-												? { opacity: 0.21 }
-												: { opacity: 1 }
-										}
-									/>
-								</div>
-								<div className="right">
-									<IconButtonWrapper
-										className={classes.customHoverFocus}
-										onClick={() =>
-											(window.location.href =
-												AOL[currentIndex].gumroadLink)
-										}
-									>
-										<ShoppingCartBtnWrapper />
-									</IconButtonWrapper>
 								</div>
 							</div>
 						</ContentWrapper>
@@ -132,13 +92,7 @@ function AOLSection() {
 
 export default AOLSection;
 
-const IconButtonWrapper = styled(IconButton)`
-	justify-self: flex-end;
-`;
-const ShoppingCartBtnWrapper = styled(ShoppingBasketIcon)`
-	color: white;
-	font-size: 18px !important;
-`;
+
 
 const Wrapper = styled.div`
 	height: 100vh;
@@ -156,6 +110,13 @@ const Wrapper = styled.div`
 	position: relative;
 
 	scroll-snap-align: start;
+
+	@media only screen and (max-device-width: 480px) {
+		background-image: none;
+		background-color: black;
+	}
+
+	overflow: hidden;
 `;
 
 const ContentWrapper = styled.div`
@@ -292,6 +253,82 @@ const ContentWrapper = styled.div`
 		.right {
 			display: flex;
 			align-items: center;
+		}
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		width: 85vw;
+		height: auto;
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		.sliderbar-holder {
+			height: auto;
+			width: 100%;
+			margin-bottom: 40px;
+		}
+
+		.h1__wrapper {
+			height: 60px;
+			min-height: fit-content;
+			width: fit-content;
+			padding-left: 0;
+			overflow: hidden;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			align-items: center;
+
+			margin-bottom: 20px;
+			margin-top: 10px;
+
+			pointer-events: all;
+			user-select: text;
+		}
+
+		.p__wrapper {
+			width: fit-content;
+			height: auto;
+			padding-bottom: 20px;
+			overflow: hidden;
+
+			pointer-events: all;
+			user-select: text;
+		}
+
+		.subtitle {
+			color: gray;
+			font-size: 16px;
+			font-weight: 300;
+
+			pointer-events: all;
+			user-select: text;
+		}
+
+		.heading {
+			color: #e8e8e8;
+			font-size: 28px;
+			font-weight: 500;
+			margin-bottom: 10px;
+			margin-top: 8px;
+
+			pointer-events: all;
+			user-select: text;
+		}
+
+		.copy {
+			color: #e8e8e8;
+			font-weight: 300;
+			font-size: 14.4px;
+			line-height: 1.4;
+			word-break: keep-all;
+
+			pointer-events: all;
+			user-select: text;
 		}
 	}
 `;

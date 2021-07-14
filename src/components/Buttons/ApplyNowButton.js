@@ -90,6 +90,29 @@ const ButtonWrapper = styled(motion.button)`
 		font-weight: 500;
 		font-size: 14px;
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		border: 1px var(--main-color-red) solid;
+		color: var(--main-color-white);
+
+		background-color: var(--main-color-red);
+
+		p {
+			position: absolute;
+			color: white;
+
+			z-index: 1;
+
+			width: 100%;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+
+			font-family: "Spectral", sans-serif;
+			font-weight: 500;
+			font-size: 14px;
+		}
+	}
 `;
 
 const AnimatedBG = styled(motion.div)`
@@ -99,4 +122,8 @@ const AnimatedBG = styled(motion.div)`
 	margin-left: -1px;
 	margin-bottom: -1px;
 	position: relative;
+
+	@media only screen and (max-device-width: 480px) {
+		background-color: var(--main-color-red);
+	}
 `;

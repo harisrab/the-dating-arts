@@ -84,4 +84,11 @@ const HomePageWrapper = styled(motion.div)`
 
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
+
+	@media only screen and (max-device-width: 480px) {
+		/* Style the scroll bar */
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
 `;

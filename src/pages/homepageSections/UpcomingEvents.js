@@ -9,6 +9,16 @@ import { useStateValue } from "../../Store/StateProvider";
 function UpcomingEvents() {
 	const [{ cmsData, currentOption }, dispatch] = useStateValue();
 	const [upcomingEvents, setUpcomingEvents] = useState([]);
+	const [isMobile, setIsMobile] = useState();
+
+	useEffect(() => {
+		setIsMobile(window.matchMedia("(max-device-width: 480px)").matches);
+
+		console.log(
+			"Device is mobile ====> ",
+			window.matchMedia("(max-device-width: 480px)")
+		);
+	}, []);
 
 	const setCurrentOption = (id) => {
 		dispatch({
@@ -39,7 +49,23 @@ function UpcomingEvents() {
 							currentOption={currentOption}
 						/>
 
-						<Scroll style={scrollDiv}>
+						<Scroll
+							style={
+								isMobile
+									? {
+											width: "75vw",
+											height: "45vh",
+											minWidth: "75vw",
+											maxWidth: "75vw",
+									  }
+									: {
+											width: "75vw",
+											height: "90%",
+											minWidth: "75vw",
+											maxWidth: "75vw",
+									  }
+							}
+						>
 							<AnimatePresence>
 								{currentOption === "all"
 									? upcomingEvents.map((event) => (
@@ -73,6 +99,7 @@ function UpcomingEvents() {
 export default UpcomingEvents;
 
 const Wrapper = styled.div`
+	overflow: hidden;
 	height: 100vh;
 	width: 100%;
 	flex-shrink: 0;
@@ -88,30 +115,36 @@ const Wrapper = styled.div`
 	position: relative;
 
 	scroll-snap-align: start;
+
+	@media only screen and (max-device-width: 480px) {
+		background-image: none;
+		background-color: black;
+	}
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 const ContentWrapper = styled.div`
 	height: 53vh;
-	width: 75vw;
+	width: 75%;
 
-	position: absolute;
+	/* position: absolute;
 	left: 50%;
 	top: 43%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%); */
 
 	pointer-events: all;
 	user-select: text;
+	margin-bottom: 80px;
 
-	.info_summary {
-		width: 100%;
-		height: 50px;
-		background-color: yellow;
-		margin-bottom: 5px;
+	@media only screen and (max-device-width: 480px) {
+		height: 60vh;
+
+		margin-bottom: 0px;
 	}
-`;
 
-const scrollDiv = {
-	width: "100%",
-	height: "90%",
-	backgroundColor: "#dddd0d1",
-};
+	overflow-x: hidden;
+`;

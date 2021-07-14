@@ -20,6 +20,10 @@ function Header({ background = "black" }) {
 	const history = useHistory();
 	const [{ headerLogoState }, dispatch] = useStateValue();
 
+	useEffect(() => {
+		window.scrollTo(0, 1)
+	}, []);
+
 	return (
 		<>
 			<HeaderWrapper>
@@ -90,6 +94,11 @@ const HeaderWrapper = styled.div`
 
 	/* --webkit-user-select: auto; */
 	overflow: visible;
+
+	@media only screen and (max-device-width: 480px) {
+		height: 86.94%;
+		width: 85%;
+	}
 `;
 
 const TopSection = styled.div`
@@ -151,6 +160,10 @@ const SocialIconsContainer = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	/* gap: 18px; */
+
+	@media only screen and (max-device-width: 480px) {
+		display: none;
+	}
 `;
 
 const ScrollHolder = styled.div`

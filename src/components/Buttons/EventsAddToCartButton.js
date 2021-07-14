@@ -77,6 +77,18 @@ const ButtonWrapper = styled(motion.button)`
 	}
 
 	overflow: hidden;
+
+	@media only screen and (max-device-width: 480px) {
+		width: 100%;
+		height: 40px;
+
+		background-color: var(--main-color-red);
+
+		p {
+			color: white;
+			font-family: "Spectral", sans-serif;
+		}
+	}
 `;
 
 const AnimatedBG = styled(motion.div)`
@@ -86,4 +98,8 @@ const AnimatedBG = styled(motion.div)`
 	margin-left: -1px;
 	margin-bottom: -1px;
 	position: relative;
+
+	@media only screen and (max-device-width: 480px) {
+		display: none;
+	}
 `;

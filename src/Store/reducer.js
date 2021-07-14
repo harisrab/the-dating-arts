@@ -26,7 +26,9 @@ export const initialState = {
 	selectedEventId: "",
 	selectedProductId: "",
 	headerLogoState: "normal",
-	showNewsletter: true,
+	showNewsletter: window.matchMedia("(max-device-width: 480px)").matches
+		? false
+		: true,
 	currentOption: "all",
 };
 
