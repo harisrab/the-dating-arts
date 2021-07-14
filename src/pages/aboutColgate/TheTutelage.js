@@ -76,6 +76,15 @@ const Wrapper = styled.div`
 	justify-content: center;
 
 	pointer-events: all;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		background-image: none;
+		background-color: black;
+	}
+
+	overflow-x: hidden;
+
 `;
 
 const ContentWrapper = styled.div`
@@ -85,6 +94,12 @@ const ContentWrapper = styled.div`
 	display: flex;
 	pointer-events: all;
 	user-select: text;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		height: 75%;
+		width: 100%;
+	}
 `;
 
 const LeftSection = styled.div`
@@ -131,6 +146,56 @@ const LeftSection = styled.div`
 
 		margin-left: 50px;
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		height: 60%;
+		width: 100%;
+
+		display: flex;
+		align-items: center;
+		pointer-events: all;
+		user-select: text;
+
+		justify-content: center;
+
+		.text-container {
+			display: flex;
+			flex-direction: column;
+
+			height: auto;
+			width: 85%;
+
+			font-family: "Spectral", sans-serif;
+			color: var(--main-color-white);
+			pointer-events: all;
+			user-select: text;
+
+			.main-heading {
+				font-size: 18px;
+				pointer-events: all;
+				user-select: text;
+
+				h1 {
+					pointer-events: all;
+					user-select: text;
+					font-weight: 400;
+				}
+
+				margin-bottom: 10px;
+			}
+
+			.summary {
+				pointer-events: all;
+				user-select: text;
+				font-weight: 200;
+				font-size: 15px;
+				height: 180px;
+				overflow-y: scroll;
+			}
+
+			margin-left: 0px;
+		}
+	}
 `;
 
 const RightSection = styled(motion.div)`
@@ -157,6 +222,37 @@ const RightSection = styled(motion.div)`
 
 			transform-origin: left;
 			-o-transform-origin: left;
+		}
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		height: 40%;
+		width: 100%;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		pointer-events: all;
+		user-select: text;
+
+		.img_wrapper {
+			height: auto;
+			width: auto;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			img {
+				height: 180px;
+				width: 380px;
+
+				object-fit: cover;
+				-o-object-fit: cover;
+
+				transform-origin: left;
+				-o-transform-origin: left;
+			}
 		}
 	}
 `;

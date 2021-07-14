@@ -52,7 +52,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: var(--main-color-dark-black);
+  background-color: black;
 
 }
 

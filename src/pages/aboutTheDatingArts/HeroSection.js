@@ -80,6 +80,13 @@ const Wrapper = styled.div`
 	justify-content: center;
 
 	pointer-events: all;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		background-image: none;
+		background-color: black;
+	}
+	overflow: hidden;
 `;
 
 const ContentWrapper = styled.div`
@@ -89,6 +96,12 @@ const ContentWrapper = styled.div`
 	display: flex;
 	pointer-events: all;
 	user-select: text;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		height: 70%;
+		width: 80%;
+	}
 `;
 
 const LeftSection = styled.div`
@@ -150,6 +163,64 @@ const LeftSection = styled.div`
 
 		margin-left: 50px;
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		width: 100%;
+		height: 60%;
+		width: 100%;
+
+		.text-container {
+			display: flex;
+			flex-direction: column;
+
+			height: auto;
+			width: 100%;
+
+			font-family: "Spectral", sans-serif;
+			color: var(--main-color-white);
+			pointer-events: all;
+			user-select: text;
+
+			.about {
+				pointer-events: all;
+				user-select: text;
+				p {
+					pointer-events: all;
+					user-select: text;
+					color: gray;
+				}
+				margin-bottom: -3px;
+			}
+
+			.main-heading {
+				font-size: 18px;
+				pointer-events: all;
+				user-select: text;
+				margin-top: 10px;
+
+				h1 {
+					pointer-events: all;
+					user-select: text;
+					font-weight: 400;
+					span {
+						pointer-events: all;
+						user-select: text;
+						color: var(--main-color-red);
+					}
+				}
+
+				margin-bottom: 10px;
+			}
+
+			.summary {
+				pointer-events: all;
+				user-select: text;
+				font-weight: 200;
+			}
+
+			margin-left: 0px;
+		}
+	}
 `;
 
 const RightSection = styled(motion.div)`
@@ -178,6 +249,33 @@ const RightSection = styled(motion.div)`
 
 			transform-origin: left;
 			-webkit-transform-origin: left;
+		}
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		height: 40%;
+		width: 100%;
+
+		.img_wrapper {
+			height: auto;
+			width: auto;
+
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			img {
+				height: 190px;
+				width: 250px;
+
+				object-fit: cover;
+				-o-object-fit: cover;
+				/* -o-object-position: right; */
+				/* object-position: right; */
+
+				transform-origin: left;
+				-webkit-transform-origin: left;
+			}
 		}
 	}
 `;
