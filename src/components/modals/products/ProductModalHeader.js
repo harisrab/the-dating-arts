@@ -112,6 +112,7 @@ const Wrapper = styled.div`
 		height: auto;
 		width: auto;
 		margin-right: 70px;
+		display: none;
 	}
 
 	/* background-color:	 blue; */

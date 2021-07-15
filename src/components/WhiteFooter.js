@@ -181,6 +181,7 @@ const Wrapper = styled.div`
 
 		right: 15%;
 
+		display: none;
 		@media only screen and (max-device-width: 480px) {
 			display: none;
 		}
