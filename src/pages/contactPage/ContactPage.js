@@ -32,10 +32,7 @@ function ContactPage() {
 								<input placeholder="Full name" type="text" />
 							</div>
 							<div className="field phone-field">
-								<MaskedInput
-									placeholder="Phone number"
-									mask="(999) 999-9999"
-								/>
+								<input placeholder="Phone number" />
 							</div>
 						</div>
 						<div className="field second">
@@ -132,6 +129,11 @@ const ContentWrapper = styled.div`
 	pointer-events: all !important;
 	user-select: text !important;
 	--webkit-user-select: text !important;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		width: 100%;
+	}
 `;
 
 const Right = styled.div`
@@ -244,6 +246,53 @@ const Right = styled.div`
 			width: 100%;
 		}
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		width: 85%;
+		height: 50%;
+		margin-right: 0px;
+
+		input {
+			width: 100%;
+
+			&:focus {
+				border: 2px solid white;
+			}
+		}
+
+		.top-section {
+			display: flex;
+			align-items: center;
+			width: 100%;
+
+			.name-field {
+				display: flex;
+				justify-content: flex-start;
+				width: 48%;
+
+				input {
+					width: 100%;
+				}
+			}
+
+			.phone-field {
+				display: flex;
+				align-items: center;
+
+				justify-content: flex-end;
+				width: 48%;
+
+				input {
+					width: 100%;
+				}
+			}
+		}
+
+		.submit-button {
+			height: auto;
+			width: 100%;
+		}
+	}
 `;
 
 const Left = styled.div`
@@ -298,6 +347,20 @@ const Left = styled.div`
 			pointer-events: all !important;
 			user-select: text !important;
 			--webkit-user-select: text !important;
+		}
+	}
+
+
+	@media only screen and (max-device-width: 480px) {
+		width: 85%;
+		height: 50%;
+
+		padding-left: 0px;
+
+		.main-heading {
+			h2 {
+				font-size: 35px;
+			}
 		}
 	}
 `;
