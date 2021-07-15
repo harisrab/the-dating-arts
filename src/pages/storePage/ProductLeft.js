@@ -93,6 +93,15 @@ const Wrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		height: auto;
+		padding-top: 60px;
+		padding-bottom: 250px;
+	}
+
+	overflow: hidden;
 `;
 
 const ContentWrapper = styled.div`
@@ -106,6 +115,10 @@ const ContentWrapper = styled.div`
 	pointer-events: all !important;
 	user-select: text !important;
 	--webkit-user-select: text !important;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+	}
 `;
 
 const LeftSection = styled.div`
@@ -117,6 +130,11 @@ const LeftSection = styled.div`
 		height: 100%;
 		width: 100%;
 		object-fit: cover;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		height: 50%;
+		width: 100%;
 	}
 `;
 
@@ -132,6 +150,13 @@ const RightSection = styled.div`
 	pointer-events: all !important;
 	user-select: text !important;
 	--webkit-user-select: text !important;
+
+	@media only screen and (max-device-width: 480px) {
+		height: 50%;
+		width: 100%;
+
+		justify-content: center;
+	}
 `;
 
 const RightContent = styled.div`
@@ -239,5 +264,22 @@ const RightContent = styled.div`
 		width: auto;
 
 		margin-top: 40px;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		height: 100%;
+		width: 90%;
+
+		margin-right: 0px;
+
+		.title {
+			h2 {
+			}
+
+			p {
+				font-size: 12px;
+				width: 100%;
+			}
+		}
 	}
 `;

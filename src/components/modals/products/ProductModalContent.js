@@ -6,6 +6,12 @@ import { useStateValue } from "../../../Store/StateProvider";
 import { motion } from "framer-motion";
 
 function ProductModalContent({ info, status }) {
+	const [isMobile, setIsMobile] = useState();
+
+	useEffect(() => {
+		setIsMobile(window.matchMedia("(max-device-width: 480px)").matches);
+	}, []);
+
 	return (
 		<Wrapper>
 			{info !== {} && status === "fetched" ? (
@@ -40,23 +46,27 @@ function ProductModalContent({ info, status }) {
 										);
 									})}
 								</ul>
-								<ul>
-									{[
-										info.feature4,
-										info.feature5,
-										info.feature6,
-									].map((eachFeature, i) => {
-										return (
-											<li key={i}>
-												<img
-													src="/tickmark.svg"
-													alt=""
-												/>
-												{eachFeature}
-											</li>
-										);
-									})}
-								</ul>
+								{isMobile ? (
+									<></>
+								) : (
+									<ul>
+										{[
+											info.feature4,
+											info.feature5,
+											info.feature6,
+										].map((eachFeature, i) => {
+											return (
+												<li key={i}>
+													<img
+														src="/tickmark.svg"
+														alt=""
+													/>
+													{eachFeature}
+												</li>
+											);
+										})}
+									</ul>
+								)}
 							</div>
 						</div>
 						<div className="end">
@@ -92,6 +102,10 @@ const Wrapper = styled.div`
 	pointer-events: all !important;
 	user-select: text !important;
 	--webkit-user-select: text !important;
+
+	@media only screen and (max-device-width: 480px) {
+		justify-content: center;
+	}
 `;
 
 const ContentHolder = styled.div`
@@ -106,6 +120,12 @@ const ContentHolder = styled.div`
 	pointer-events: all !important;
 	user-select: text !important;
 	--webkit-user-select: text !important;
+
+	@media only screen and (max-device-width: 480px) {
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
 `;
 
 const LeftSection = styled.div`
@@ -269,5 +289,43 @@ const LeftSection = styled.div`
 
 	.end {
 		width: 100%;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		width: 85%;
+		align-items: center;
+
+		justify-content: flex-start;
+
+		.start {
+			.title {
+				h2 {
+				}
+			}
+
+			.subtitle {
+				p {
+				}
+			}
+
+			.desc {
+				height: 150px;
+			}
+
+			.features {
+				height: auto;
+				ul {
+					width: 100%;
+
+					li {
+						padding-left: 10px;
+					}
+				}
+
+				margin-bottom: 20px;
+			}
+		}
+
+		justify-content: flex-end;
 	}
 `;

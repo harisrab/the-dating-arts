@@ -61,4 +61,16 @@ const Wrapper = styled.div`
 			--webkit-user-select: text !important;
 		}
 	}
+
+
+	@media only screen and (max-device-width: 480px) {
+		h3 {
+			text-align: center;
+			font-size: 30px;
+		}
+
+		h2 {
+			font-size: 20px;
+		}
+	}
 `;

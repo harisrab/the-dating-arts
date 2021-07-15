@@ -89,4 +89,9 @@ const ButtonWrapper = styled(motion.button)`
 		font-family: "Spectral", sans-serif;
 		font-weight: 500;
 	}
+
+
+	@media only screen and (max-device-width: 480px)  {
+		height: 40px;
+	}
 `;

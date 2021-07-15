@@ -41,7 +41,7 @@ function ProductModalHeader() {
 				whileHover="final"
 				transition={{ duration: 0.1 }}
 			>
-				<ArrowBackIosIcon />
+				<ArrowBackIosIconWrapper />
 				<motion.p variants={textVars} transition={{ duration: 0.3 }}>
 					Go back
 				</motion.p>
@@ -55,6 +55,12 @@ function ProductModalHeader() {
 
 export default ProductModalHeader;
 
+const ArrowBackIosIconWrapper = styled(ArrowBackIosIcon)`
+	@media only screen and (max-device-width: 480px) {
+		font-size: 20px !important;
+	}
+`;
+
 const Wrapper = styled.div`
 	height: 15%;
 	width: 100%;
@@ -65,6 +71,9 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	position: relative;
+	z-index: 11;
 
 	.exit__button {
 		height: auto;
@@ -86,17 +95,17 @@ const Wrapper = styled.div`
 			cursor: pointer;
 		}
 
-			p {
-				margin-left: 10px;
-				margin-top: -2px;
+		p {
+			margin-left: 10px;
+			margin-top: -2px;
 
-				opacity: 0;
+			opacity: 0;
 
-				text-decoration: underline;
-				text-decoration-style: dotted;
+			text-decoration: underline;
+			text-decoration-style: dotted;
 
-				color: gray;
-			}
+			color: gray;
+		}
 	}
 
 	.cart_btn {
@@ -106,4 +115,14 @@ const Wrapper = styled.div`
 	}
 
 	/* background-color:	 blue; */
+
+	@media only screen and (max-device-width: 480px) {
+		.cart_btn {
+			display: none;
+		}
+
+		.exit__button {
+			margin-left: 35px;
+		}
+	}
 `;

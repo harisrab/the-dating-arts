@@ -113,4 +113,14 @@ const Wrapper = styled(motion.div)`
 	}
 
 	overflow: hidden;
+
+	@media only screen and (max-device-width: 480px) {
+		img {
+			height: 300px;
+			top: 25%;
+			left: 50%;
+			z-index: 10;
+
+		}
+	}
 `;

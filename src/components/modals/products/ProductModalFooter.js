@@ -12,4 +12,11 @@ const Wrapper = styled.div`
 	width: 100%;
 
 	/* background-color: blue; */
+
+
+	
+	@media only screen and (max-device-width: 480px) {
+		height: 5%;
+		
+	}
 `;
