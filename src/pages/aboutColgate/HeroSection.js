@@ -48,7 +48,7 @@ function HeroSection({ heading, description, url }) {
 							animate={controls}
 							transition={{
 								duration: 2,
-								delay: 0.3,
+								delay: 0.6,
 								ease: "easeOut",
 							}}
 							src={url}
