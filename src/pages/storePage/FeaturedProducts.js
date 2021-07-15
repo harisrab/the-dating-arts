@@ -23,41 +23,156 @@ function FeaturedProducts() {
 					<div className="title">
 						<h2 className="storepage">Featured Picks</h2>
 					</div>
-					{products
-						.slice(0, 4)
-						.filter(({ featured }) => featured === true)
-						.map((eachProduct) => {
-							return (
-								<ProductItem>
-									<img
-										src={eachProduct.coverImage.url}
-										alt=""
-									/>
-									<div className="product_title">
-										<p className="storepage">
-											{eachProduct.title}
-										</p>
-									</div>
-									<div className="subtitle">
-										<p className="storepage">
-											{eachProduct.subtitle}
-										</p>
-									</div>
-									<div className="button_group">
-										<div className="left">
-											<ProductItemDetailsButton
-												id={eachProduct.id}
-											/>
+					<>
+						{products
+							.slice(0, 4)
+							.filter(({ featured }) => featured === true)
+							.map((eachProduct) => {
+								return (
+									<ProductItem>
+										<img
+											src={eachProduct.coverImage.url}
+											alt=""
+										/>
+										<div className="product_title">
+											<p className="storepage">
+												{eachProduct.title}
+											</p>
 										</div>
-										<div className="right">
-											<ProductItemAddToCart
-												url={eachProduct.gumroadLink}
-											/>
+										<div className="subtitle">
+											<p className="storepage">
+												{eachProduct.subtitle}
+											</p>
 										</div>
-									</div>
-								</ProductItem>
-							);
-						})}
+										<div className="button_group">
+											<div className="left">
+												<ProductItemDetailsButton
+													id={eachProduct.id}
+												/>
+											</div>
+											<div className="right">
+												<ProductItemAddToCart
+													url={
+														eachProduct.gumroadLink
+													}
+												/>
+											</div>
+										</div>
+									</ProductItem>
+								);
+							})}
+						{products
+							.slice(0, 4)
+							.filter(({ featured }) => featured === true)
+							.map((eachProduct) => {
+								return (
+									<ProductItem>
+										<img
+											src={eachProduct.coverImage.url}
+											alt=""
+										/>
+										<div className="product_title">
+											<p className="storepage">
+												{eachProduct.title}
+											</p>
+										</div>
+										<div className="subtitle">
+											<p className="storepage">
+												{eachProduct.subtitle}
+											</p>
+										</div>
+										<div className="button_group">
+											<div className="left">
+												<ProductItemDetailsButton
+													id={eachProduct.id}
+												/>
+											</div>
+											<div className="right">
+												<ProductItemAddToCart
+													url={
+														eachProduct.gumroadLink
+													}
+												/>
+											</div>
+										</div>
+									</ProductItem>
+								);
+							})}
+						{products
+							.slice(0, 4)
+							.filter(({ featured }) => featured === true)
+							.map((eachProduct) => {
+								return (
+									<ProductItem>
+										<img
+											src={eachProduct.coverImage.url}
+											alt=""
+										/>
+										<div className="product_title">
+											<p className="storepage">
+												{eachProduct.title}
+											</p>
+										</div>
+										<div className="subtitle">
+											<p className="storepage">
+												{eachProduct.subtitle}
+											</p>
+										</div>
+										<div className="button_group">
+											<div className="left">
+												<ProductItemDetailsButton
+													id={eachProduct.id}
+												/>
+											</div>
+											<div className="right">
+												<ProductItemAddToCart
+													url={
+														eachProduct.gumroadLink
+													}
+												/>
+											</div>
+										</div>
+									</ProductItem>
+								);
+							})}
+						{products
+							.slice(0, 4)
+							.filter(({ featured }) => featured === true)
+							.map((eachProduct) => {
+								return (
+									<ProductItem>
+										<img
+											src={eachProduct.coverImage.url}
+											alt=""
+										/>
+										<div className="product_title">
+											<p className="storepage">
+												{eachProduct.title}
+											</p>
+										</div>
+										<div className="subtitle">
+											<p className="storepage">
+												{eachProduct.subtitle}
+											</p>
+										</div>
+										<div className="button_group">
+											<div className="left">
+												<ProductItemDetailsButton
+													id={eachProduct.id}
+												/>
+											</div>
+											<div className="right">
+												<ProductItemAddToCart
+													url={
+														eachProduct.gumroadLink
+													}
+												/>
+											</div>
+										</div>
+									</ProductItem>
+								);
+							})}
+					</>
 				</ContentWrapper>
 			) : (
 				<></>
@@ -90,6 +205,13 @@ const Wrapper = styled.div`
 	pointer-events: all !important;
 	user-select: text !important;
 	--webkit-user-select: text !important;
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		padding-top: 300px;
+		padding-bottom: 300px;
+		height: auto;
+	}
 `;
 const ContentWrapper = styled.div`
 	height: 350px;
@@ -121,6 +243,21 @@ const ContentWrapper = styled.div`
 			user-select: text !important;
 			--webkit-user-select: text !important;
 		}
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		flex-direction: column;
+		width: 100%;
+
+		.title {
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			top: -130px;
+		}
+
+		height: auto;
 	}
 `;
 
@@ -223,5 +360,12 @@ const ProductItem = styled.div`
 			display: flex;
 			justify-content: center;
 		}
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		margin-bottom: 20px;
+
+
+		
 	}
 `;

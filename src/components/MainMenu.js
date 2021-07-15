@@ -275,18 +275,19 @@ const Wrapper = styled(motion.div)`
 	position: absolute;
 	height: 0vh;
 	width: 100vw;
-
+	
 	top: -6.53vh;
 	left: -5.315vw;
-
+	
 	z-index: 1000000;
 	pointer-events: all;
-
+	
 	overflow: hidden;
 	/* display: none; */
-
+	
 	@media only screen and (max-device-width: 480px) {
-		left: -7.5vw;
+		left: -6.2vw;
+		width: 105vw;
 	}
 `;
 

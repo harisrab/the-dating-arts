@@ -147,6 +147,10 @@ const SocialIconsContainer = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	/* gap: 18px; */
+
+	@media only screen and (max-device-width: 480px) {
+		display: none;
+	}
 `;
 
 const ScrollHolder = styled.div`
