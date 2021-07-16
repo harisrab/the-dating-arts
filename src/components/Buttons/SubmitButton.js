@@ -20,11 +20,6 @@ const bgVariants = {
 function SubmitButton() {
 	const [didHover, setDidHover] = useState(false);
 
-	const handleSubscribe = (e) => {
-		e.preventDefault();
-		console.log("Add to Cart Button was Clicked");
-	};
-
 	return (
 		<ButtonWrapper
 			variants={btnVariants}
@@ -33,7 +28,6 @@ function SubmitButton() {
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
-			onClick={handleSubscribe}
 		>
 			<motion.p
 				initial={!didHover ? { color: "#a70000" } : {}}

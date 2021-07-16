@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useStateValue } from "../../Store/StateProvider";
 
 function Footer() {
 	const [isMobile, setIsMobile] = useState();
+	const [{ cmsData }, dispatch] = useStateValue();
 
 	useEffect(() => {
 		setIsMobile(window.matchMedia("(max-device-width: 480px)").matches);
@@ -78,7 +80,13 @@ function Footer() {
 							At Home Trainings
 						</ListItem>
 					</Link>
-					<Link to="/application" style={{ textDecoration: "none" }}>
+					<Link
+						to={{
+							pathname: `${cmsData.data.applicationPages[0].googleFormsLink}`,
+						}}
+						target="_blank"
+						style={{ textDecoration: "none" }}
+					>
 						<ListItem
 							initial={{ opacity: 0.7, scale: 1 }}
 							whileHover={{ opacity: 1, scale: 1.1 }}

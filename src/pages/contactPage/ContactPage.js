@@ -3,8 +3,50 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import SubmitButton from "../../components/Buttons/SubmitButton";
 import { MaskedInput } from "baseui/input";
+import { firebase } from "../../firebase";
+
+const sendEmail = firebase.functions().httpsCallable("sendEmail");
 
 function ContactPage() {
+	const [fullName, setFullName] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+
+	const handleNameChange = (e) => {
+		setFullName(e.target.value);
+	};
+
+	const handlePhoneNumberChange = (e) => {
+		setPhoneNumber(e.target.value);
+	};
+
+	const handleEmailChange = (e) => {
+		setEmail(e.target.value);
+	};
+
+	const handleMessageChange = (e) => {
+		setMessage(e.target.value);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log("Submit Button was clicked");
+
+		sendEmail({
+			name: fullName,
+			email: email,
+			message: message,
+			phone: phoneNumber,
+		})
+			.then((res) => {
+				console.log("Success", res);
+			})
+			.catch((err) => {
+				console.log("Error", err);
+			});
+	};
+
 	return (
 		<HomePageWrapper
 			id="main_app"
@@ -26,24 +68,41 @@ function ContactPage() {
 					</div>
 				</Left>
 				<Right>
-					<form action="">
+					<form onSubmit={handleSubmit} action="">
 						<div className="top-section">
 							<div className="field name-field">
-								<input placeholder="Full name" type="text" />
+								<input
+									onChange={handleNameChange}
+									value={fullName}
+									placeholder="Full name"
+									type="text"
+									required
+								/>
 							</div>
 							<div className="field phone-field">
-								<input placeholder="Phone number" />
+								<input
+									onChange={handlePhoneNumberChange}
+									value={phoneNumber}
+									placeholder="Phone number"
+									required
+								/>
 							</div>
 						</div>
 						<div className="field second">
 							<input
+								onChange={handleEmailChange}
+								value={email}
 								placeholder="E-mail address"
 								type="text"
 								className="email-field"
+								required
 							/>
 						</div>
 						<div className="field third">
 							<textarea
+								required
+								onChange={handleMessageChange}
+								value={message}
 								placeholder="Your message"
 								wrap="soft"
 								type="text"
@@ -51,7 +110,7 @@ function ContactPage() {
 							/>
 						</div>
 						<div className="submit-button">
-							<SubmitButton />
+							<SubmitButton type="submit" />
 						</div>
 					</form>
 				</Right>
@@ -349,7 +408,6 @@ const Left = styled.div`
 			--webkit-user-select: text !important;
 		}
 	}
-
 
 	@media only screen and (max-device-width: 480px) {
 		width: 85%;
