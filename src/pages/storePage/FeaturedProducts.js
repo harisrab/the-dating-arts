@@ -61,117 +61,6 @@ function FeaturedProducts() {
 									</ProductItem>
 								);
 							})}
-						{products
-							.slice(0, 4)
-							.filter(({ featured }) => featured === true)
-							.map((eachProduct) => {
-								return (
-									<ProductItem>
-										<img
-											src={eachProduct.coverImage.url}
-											alt=""
-										/>
-										<div className="product_title">
-											<p className="storepage">
-												{eachProduct.title}
-											</p>
-										</div>
-										<div className="subtitle">
-											<p className="storepage">
-												{eachProduct.subtitle}
-											</p>
-										</div>
-										<div className="button_group">
-											<div className="left">
-												<ProductItemDetailsButton
-													id={eachProduct.id}
-												/>
-											</div>
-											<div className="right">
-												<ProductItemAddToCart
-													url={
-														eachProduct.gumroadLink
-													}
-												/>
-											</div>
-										</div>
-									</ProductItem>
-								);
-							})}
-						{products
-							.slice(0, 4)
-							.filter(({ featured }) => featured === true)
-							.map((eachProduct) => {
-								return (
-									<ProductItem>
-										<img
-											src={eachProduct.coverImage.url}
-											alt=""
-										/>
-										<div className="product_title">
-											<p className="storepage">
-												{eachProduct.title}
-											</p>
-										</div>
-										<div className="subtitle">
-											<p className="storepage">
-												{eachProduct.subtitle}
-											</p>
-										</div>
-										<div className="button_group">
-											<div className="left">
-												<ProductItemDetailsButton
-													id={eachProduct.id}
-												/>
-											</div>
-											<div className="right">
-												<ProductItemAddToCart
-													url={
-														eachProduct.gumroadLink
-													}
-												/>
-											</div>
-										</div>
-									</ProductItem>
-								);
-							})}
-						{products
-							.slice(0, 4)
-							.filter(({ featured }) => featured === true)
-							.map((eachProduct) => {
-								return (
-									<ProductItem>
-										<img
-											src={eachProduct.coverImage.url}
-											alt=""
-										/>
-										<div className="product_title">
-											<p className="storepage">
-												{eachProduct.title}
-											</p>
-										</div>
-										<div className="subtitle">
-											<p className="storepage">
-												{eachProduct.subtitle}
-											</p>
-										</div>
-										<div className="button_group">
-											<div className="left">
-												<ProductItemDetailsButton
-													id={eachProduct.id}
-												/>
-											</div>
-											<div className="right">
-												<ProductItemAddToCart
-													url={
-														eachProduct.gumroadLink
-													}
-												/>
-											</div>
-										</div>
-									</ProductItem>
-								);
-							})}
 					</>
 				</ContentWrapper>
 			) : (
@@ -364,8 +253,5 @@ const ProductItem = styled.div`
 
 	@media only screen and (max-device-width: 480px) {
 		margin-bottom: 20px;
-
-
-		
 	}
 `;
