@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import SubmitButton from "../../components/Buttons/SubmitButton";
-import { MaskedInput } from "baseui/input";
-import { firebase } from "../../firebase";
 
-const sendEmail = firebase.functions().httpsCallable("sendEmail");
+import axios from "axios";
 
 function ContactPage() {
 	const [fullName, setFullName] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
+	const [success, setSuccess] = useState("");
 
 	const handleNameChange = (e) => {
 		setFullName(e.target.value);
@@ -33,18 +32,27 @@ function ContactPage() {
 		e.preventDefault();
 		console.log("Submit Button was clicked");
 
-		sendEmail({
+		const msg = {
 			name: fullName,
 			email: email,
 			message: message,
 			phone: phoneNumber,
-		})
+		};
+
+		axios
+			.post(
+				"https://us-central1-the-dating-arts.cloudfunctions.net/emailMessage",
+				msg
+			)
 			.then((res) => {
-				console.log("Success", res);
+				console.log("Response ====> ", res.data);
 			})
 			.catch((err) => {
-				console.log("Error", err);
+				console.log("Error ====> ", err);
+				setSuccess(true);
 			});
+
+		console.log("Form Data ====> ", msg);
 	};
 
 	return (
@@ -69,48 +77,54 @@ function ContactPage() {
 				</Left>
 				<Right>
 					<form onSubmit={handleSubmit} action="">
-						<div className="top-section">
-							<div className="field name-field">
-								<input
-									onChange={handleNameChange}
-									value={fullName}
-									placeholder="Full name"
-									type="text"
-									required
-								/>
-							</div>
-							<div className="field phone-field">
-								<input
-									onChange={handlePhoneNumberChange}
-									value={phoneNumber}
-									placeholder="Phone number"
-									required
-								/>
-							</div>
-						</div>
-						<div className="field second">
-							<input
-								onChange={handleEmailChange}
-								value={email}
-								placeholder="E-mail address"
-								type="text"
-								className="email-field"
-								required
-							/>
-						</div>
-						<div className="field third">
-							<textarea
-								required
-								onChange={handleMessageChange}
-								value={message}
-								placeholder="Your message"
-								wrap="soft"
-								type="text"
-								className="message"
-							/>
-						</div>
+						{success === "" ? (
+							<>
+								<div className="top-section">
+									<div className="field name-field">
+										<input
+											onChange={handleNameChange}
+											value={fullName}
+											placeholder="Full name"
+											type="text"
+											required
+										/>
+									</div>
+									<div className="field phone-field">
+										<input
+											onChange={handlePhoneNumberChange}
+											value={phoneNumber}
+											placeholder="Phone number"
+											required
+										/>
+									</div>
+								</div>
+								<div className="field second">
+									<input
+										onChange={handleEmailChange}
+										value={email}
+										placeholder="E-mail address"
+										type="text"
+										className="email-field"
+										required
+									/>
+								</div>
+								<div className="field third">
+									<textarea
+										required
+										onChange={handleMessageChange}
+										value={message}
+										placeholder="Your message"
+										wrap="soft"
+										type="text"
+										className="message"
+									/>
+								</div>
+							</>
+						) : (
+							<></>
+						)}
 						<div className="submit-button">
-							<SubmitButton type="submit" />
+							<SubmitButton type="submit" success={success} />
 						</div>
 					</form>
 				</Right>

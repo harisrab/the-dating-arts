@@ -359,9 +359,11 @@ const Heading = styled.div`
 	@media only screen and (max-device-width: 480px) {
 		h2 {
 			font-weight: 500;
-			font-size: 22px;
+			font-size: 18px;
 			margin-top: 10px;
 			margin-bottom: 20px;
+
+			display: none;
 		}
 	}
 `;

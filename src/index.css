@@ -4,11 +4,11 @@
 :root {
   --main-color-red: #cc1414;
   --main-color-blue: rgb(4, 102, 128);
-  --main-color-white: rgb(230, 230, 230); 
-  --main-color-dark-black: rgb(10, 10, 10);
+  --main-color-white: #e6e6e6; 
+  --main-color-dark-black: #0a0a0a;
   --main-color-dark-black-heavy: rgb(0, 0, 0);
   --main-color-transparent-red: rgba(204, 20, 20, 0.09);
-  --main-color-light-black: rgb(19, 19, 19);
+  --main-color-light-black: #131313;
   --main-color-footer: #1a0000;
   
   --logo-first-color: var(--main-color-white);

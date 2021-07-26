@@ -80,21 +80,25 @@ function Footer() {
 							At Home Trainings
 						</ListItem>
 					</Link>
-					<Link
-						to={{
-							pathname: `${cmsData.data.applicationPages[0].googleFormsLink}`,
-						}}
-						target="_blank"
-						style={{ textDecoration: "none" }}
-					>
-						<ListItem
-							initial={{ opacity: 0.7, scale: 1 }}
-							whileHover={{ opacity: 1, scale: 1.1 }}
-							transition={{ duration: 0.2 }}
+					{cmsData.status === "fetched" ? (
+						<Link
+							to={{
+								pathname: `${cmsData.data.applicationPages[0].googleFormsLink}`,
+							}}
+							target="_blank"
+							style={{ textDecoration: "none" }}
 						>
-							Admission Application
-						</ListItem>
-					</Link>
+							<ListItem
+								initial={{ opacity: 0.7, scale: 1 }}
+								whileHover={{ opacity: 1, scale: 1.1 }}
+								transition={{ duration: 0.2 }}
+							>
+								Admission Application
+							</ListItem>
+						</Link>
+					) : (
+						<></>
+					)}
 					<Link to="/contact" style={{ textDecoration: "none" }}>
 						<ListItem
 							initial={{ opacity: 0.7, scale: 1 }}
@@ -114,35 +118,6 @@ function Footer() {
 						</ListItem>
 					</Link>
 				</ul>
-			</div>
-			<div className="right_links">
-				<Link to="/policies#privacy" style={{ textDecoration: "none" }}>
-					<ListItemRight
-						initial={{ opacity: 0.7, scale: 1 }}
-						whileHover={{ opacity: 1, scale: 1.1 }}
-						transition={{ duration: 0.2 }}
-					>
-						Privacy Policy
-					</ListItemRight>
-				</Link>
-				<Link to="/policies#tc" style={{ textDecoration: "none" }}>
-					<ListItemRight
-						initial={{ opacity: 0.7, scale: 1 }}
-						whileHover={{ opacity: 1, scale: 1.1 }}
-						transition={{ duration: 0.2 }}
-					>
-						Terms and Conditions
-					</ListItemRight>
-				</Link>
-				<Link to="/policies#return" style={{ textDecoration: "none" }}>
-					<ListItemRight
-						initial={{ opacity: 0.7, scale: 1 }}
-						whileHover={{ opacity: 1, scale: 1.1 }}
-						transition={{ duration: 0.2 }}
-					>
-						Return Policy
-					</ListItemRight>
-				</Link>
 			</div>
 		</Wrapper>
 	);

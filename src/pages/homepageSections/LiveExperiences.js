@@ -83,6 +83,8 @@ const Wrapper = styled.div`
 		background-image: none;
 		background-color: black;
 		scroll-snap-align: start;
+		padding-top: 350px;
+		padding-bottom: 350px;
 	}
 `;
 
@@ -118,6 +120,7 @@ const Header = styled.div`
 	top: -120px;
 
 	@media only screen and (max-device-width: 480px) {
+		top: -170px;
 		h1 {
 			font-size: 30px;
 			font-weight: 400;
@@ -167,8 +170,8 @@ const InnerWrapper = styled.div`
 	position: relative;
 
 	@media only screen and (max-device-width: 480px) {
-		margin-top: 280px;
+		margin-top: 0px;
 
-		margin-bottom: 180px;
+		margin-bottom: 0px;
 	}
 `;

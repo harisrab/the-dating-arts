@@ -52,28 +52,41 @@ function EventSummary({ event, setShowEventsModal }) {
 			exit={{ opacity: 0 }}
 			transition={{ duration: 0.2 }}
 		>
-			<DateHolder>
-				<Date
-					start={date.startDate.day}
-					end={date.endDate.day}
-					month={date.startDate.month}
-				/>
-			</DateHolder>
-			<TitleHolder>
-				<Title text={heading} />
-			</TitleHolder>
-
 			{isMobile ? (
-				<div className="inline-container">
-					<LocationHolder>
-						<Location location={locationName} />
-					</LocationHolder>
-					<PriceTag>
-						<Price price={pricePerPerson} />
-					</PriceTag>
-				</div>
+				<>
+					<div class="inline-one-container">
+						<DateHolder>
+							<Date
+								start={date.startDate.day}
+								end={date.endDate.day}
+								month={date.startDate.month}
+							/>
+						</DateHolder>
+						<TitleHolder>
+							<Title text={heading} />
+						</TitleHolder>
+					</div>
+					<div className="inline-container">
+						<LocationHolder>
+							<Location location={locationName} />
+						</LocationHolder>
+						<PriceTag>
+							<Price price={pricePerPerson} />
+						</PriceTag>
+					</div>
+				</>
 			) : (
 				<>
+					<DateHolder>
+						<Date
+							start={date.startDate.day}
+							end={date.endDate.day}
+							month={date.startDate.month}
+						/>
+					</DateHolder>
+					<TitleHolder>
+						<Title text={heading} />
+					</TitleHolder>
 					<LocationHolder>
 						<Location location={locationName} />
 					</LocationHolder>
@@ -112,10 +125,10 @@ const Wrapper = styled(motion.div)`
 	border-radius: 10px;
 	border: 1px solid #d70909;
 
-	margin-bottom: 9px;
+	margin-bottom: 20px;
 
 	@media only screen and (max-device-width: 480px) {
-		height: 30vh;
+		height: 160px;
 		width: 100%;
 
 		display: -webkit-box;
@@ -127,11 +140,21 @@ const Wrapper = styled(motion.div)`
 		justify-content: flex-start;
 		align-items: flex-start;
 
+		.inline-one-container {
+			display: flex;
+			align-items: center;
+			flex-direction: row-reverse;
+			padding-top: 10px;
+			padding-right: 20px;
+			margin-bottom: 20px;
+		}
+
 		.inline-container {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			margin-top: -5px;
+			margin-bottom: -20px;
 			width: 100%;
 			padding-right: 20px;
 		}
@@ -150,9 +173,7 @@ const DateHolder = styled.div`
 	justify-content: flex-end;
 
 	@media only screen and (max-device-width: 480px) {
-		width: 100%;
-		padding-right: 20px;
-		padding-top: 10px;
+		width: 30%;
 	}
 `;
 
@@ -166,11 +187,10 @@ const TitleHolder = styled.div`
 	align-items: center;
 
 	@media only screen and (max-device-width: 480px) {
-		width: 100%;
+		/* width: 100%; */
 		justify-content: center;
 
-		margin-top: -10px;
-		margin-bottom: 5px;
+		width: 70%;
 	}
 `;
 

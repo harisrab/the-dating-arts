@@ -17,6 +17,6 @@ const Wrapper = styled.p`
 
 	@media only screen and (max-device-width: 480px) {
 		padding-left: 10px;
-		font-size: 16px;
+		font-size: 15px;
 	}
 `;

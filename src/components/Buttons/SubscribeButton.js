@@ -20,13 +20,8 @@ const bgVariants = {
 		height: "103%",
 	},
 };
-function SubscribeButton() {
+function SubscribeButton({ status }) {
 	const [didHover, setDidHover] = useState(false);
-
-	const handleSubscribe = (e) => {
-		e.preventDefault();
-		console.log("Subscribe Button Clicked");
-	};
 
 	return (
 		<ButtonWrapper
@@ -36,15 +31,46 @@ function SubscribeButton() {
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
-			onClick={handleSubscribe}
+			disabled={status === "" ? false : status ? true : true}
+			style={
+				status === ""
+					? {}
+					: status
+					? {
+							backgroundColor: "green",
+							borderColor: "green",
+							color: "#ffffff",
+					  }
+					: { backgroundColor: "red", color: "#ffffff" }
+			}
 		>
-			<p>SUBSCRIBE</p>
-			<AnimatedBG
-				variants={bgVariants}
-				initial="initial"
-				animate={didHover ? "final" : {}}
-				transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}
-			></AnimatedBG>
+			<p
+				style={
+					status === ""
+						? {}
+						: status
+						? { color: "#ffffff" }
+						: { color: "#ffffff" }
+				}
+			>
+				{status === "" ? "SUBSCRIBE" : status ? "SUBSCRIBED" : "ERROR"}
+			</p>
+			{status === "" ? (
+				<AnimatedBG
+					variants={bgVariants}
+					initial="initial"
+					animate={didHover ? "final" : {}}
+					transition={{
+						type: "tween",
+						ease: "easeOut",
+						duration: 0.3,
+					}}
+				></AnimatedBG>
+			) : status ? (
+				<></>
+			) : (
+				<></>
+			)}
 		</ButtonWrapper>
 	);
 }
@@ -88,7 +114,7 @@ const ButtonWrapper = styled(motion.button)`
 		font-weight: 500;
 	}
 
-	@media only screen and (max-device-width: 480px)  {
+	@media only screen and (max-device-width: 480px) {
 		height: 40px;
 		width: 100%;
 		margin-top: 20px;
