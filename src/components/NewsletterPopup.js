@@ -4,6 +4,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 import { useStateValue } from "../Store/StateProvider";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
 	customHoverFocus: {
@@ -13,19 +14,52 @@ const useStyles = makeStyles((theme) => ({
 
 function NewsletterPopup() {
 	const [{ showNewsletter }, dispatch] = useStateValue();
-	const [registered, setRegistered] = useState(false);
 
 	const classes = useStyles();
-
-	const submitNewsletter = (e) => {
-		e.preventDefault();
-	};
 
 	const closeNewsletter = () => {
 		dispatch({
 			type: "TOGGLE_NEWSLETTER",
 			payload: false,
 		});
+	};
+
+	const [status, setStatus] = useState("");
+	const [email, setEmail] = useState("");
+	const [emailValid, setEmailValid] = useState("");
+
+	const handleEmail = (e) => {
+		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		setEmail(e.target.value);
+
+		if (re.test(String(e.target.value).toLowerCase())) {
+			setEmailValid(true);
+		} else if (e.target.value === "") {
+			setEmailValid("");
+		} else {
+			setEmailValid(false);
+		}
+	};
+
+	const handleSubscription = (e) => {
+		e.preventDefault();
+		console.log("Subscription Button Clicked");
+
+		if (emailValid) {
+			axios
+				.post(
+					"https://us-central1-the-dating-arts.cloudfunctions.net/addSubscriber",
+					{ email: email }
+				)
+				.then((res) => {
+					setStatus(true);
+					console.log("Subscribed");
+				})
+				.catch((err) => {
+					setStatus(false);
+					console.log("Error");
+				});
+		}
 	};
 
 	return (
@@ -38,10 +72,22 @@ function NewsletterPopup() {
 				<h3>Newsletter</h3>
 			</div>
 
-			<div className="bottom" onSubmit={submitNewsletter}>
-				{!registered ? (
-					<form action="">
-						<input type="text" placeholder="Email address" />
+			<div className="bottom">
+				{!status ? (
+					<form onSubmit={handleSubscription}>
+						<input
+							type="text"
+							placeholder="Email address"
+							onChange={handleEmail}
+							value={email}
+							style={
+								emailValid === ""
+									? { borderColor: "#1d1d1d" }
+									: emailValid === true
+									? { borderColor: "#33f502" }
+									: { borderColor: "red" }
+							}
+						/>
 						<button type="submit">SUBSCRIBE</button>
 					</form>
 				) : (

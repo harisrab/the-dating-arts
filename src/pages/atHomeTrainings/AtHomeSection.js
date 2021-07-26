@@ -42,6 +42,7 @@ const Wrapper = styled.div`
 
 	@media only screen and (max-device-width: 480px) {
 		flex-direction: column;
+		padding-top: 450px;
 	}
 `;
 

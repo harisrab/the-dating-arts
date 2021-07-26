@@ -17,7 +17,7 @@ const bgVariants = {
 		height: "103%",
 	},
 };
-function SubmitButton() {
+function SubmitButton({ success }) {
 	const [didHover, setDidHover] = useState(false);
 
 	return (
@@ -28,19 +28,55 @@ function SubmitButton() {
 			initial="initial"
 			whileHover={"final"}
 			transition={{ duration: 0.2 }}
+			disabled={success === "" ? false : success ? true : true}
+			style={
+				success === ""
+					? {}
+					: success
+					? {
+							backgroundColor: "green",
+							borderColor: "green",
+							color: "#fff",
+					  }
+					: {
+							backgroundColor: "green",
+							borderColor: "green",
+							color: "#fff",
+					  }
+			}
 		>
-			<motion.p
-				initial={!didHover ? { color: "#a70000" } : {}}
-				animate={didHover ? { color: "#fff" } : {}}
-			>
-				SUBMIT
-			</motion.p>
-			<AnimatedBG
-				variants={bgVariants}
-				initial="initial"
-				animate={didHover ? "final" : {}}
-				transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}
-			></AnimatedBG>
+			{success === "" ? (
+				<motion.p
+					initial={!didHover ? { color: "#a70000" } : {}}
+					animate={didHover ? { color: "#fff" } : {}}
+				>
+					SUBMIT
+				</motion.p>
+			) : (
+				<p
+					style={{
+						color: "white",
+						fontWeight: "200",
+						fontSize: "18px",
+					}}
+				>
+					Message Submitted
+				</p>
+			)}
+			{success === "" ? (
+				<AnimatedBG
+					variants={bgVariants}
+					initial="initial"
+					animate={didHover ? "final" : {}}
+					transition={{
+						type: "tween",
+						ease: "easeOut",
+						duration: 0.3,
+					}}
+				></AnimatedBG>
+			) : (
+				<></>
+			)}
 		</ButtonWrapper>
 	);
 }

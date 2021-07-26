@@ -104,3 +104,5 @@ const HomePageWrapper = styled(motion.div)`
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
 `;
+
+

@@ -17,6 +17,7 @@ import AboutColgate from "./pages/aboutColgate/AboutColgate";
 import AboutTheDatingArts from "./pages/aboutTheDatingArts/AboutTheDatingArts";
 import ContactPage from "./pages/contactPage/ContactPage";
 import AccountPage from "./pages/accountPage/AccountPage";
+import ComingSoon from "./pages/ComingSoon";
 
 import LiveExperiencesWrapper from "./pages/LiveExperiencesWrapper";
 import AtHomeTrainingsWrapper from "./pages/AtHomeTrainingsWrapper";
@@ -28,6 +29,8 @@ import NewsletterPopup from "./components/NewsletterPopup";
 
 function App() {
 	const cache = useRef({});
+	const [showWebsite, setShowWebsite] = useState(false);
+
 	const url =
 		"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
 
@@ -245,54 +248,60 @@ function App() {
 
 	return (
 		<Router>
-			{/* <LoadingPage /> */}
-			<AppWrapper id="main-wrapper">
-				<AnimatePresence>
-					<Switch key={2}>
-						<Route path="/profile">
-							<Header key={1} />
-							<AccountPage />
-						</Route>
-						<Route path="/application">
-							<Header key={1} />
-							<AdmissionApplication />
-						</Route>
-						<Route path="/store">
-							<ProductModal />
-							<BlackHeader key={1} />
-							<StorePage />
-						</Route>
-						<Route path="/live-experiences">
-							<LiveExperiencesWrapper />
-						</Route>
-						<Route path="/at-home-trainings">
-							<AtHomeTrainingsWrapper />
-						</Route>
-						<Route path="/contact">
-							<Header key={1} />
-							<ContactPage />
-						</Route>
-						<Route path="/about-tda">
-							<Header key={1} />
-							<AboutTheDatingArts />
-						</Route>
-						<Route path="/about-colgate">
-							<Header key={1} />
-							<AboutColgate />
-						</Route>
-						<Route path="/login">
-							<Header key={1} />
-							<LoginPage />
-						</Route>
-						<Route path="/">
-							<Header key={1} />
-							<EventsModal />
-							<NewsletterPopup />
-							<Homepage />
-						</Route>
-					</Switch>
-				</AnimatePresence>
-			</AppWrapper>
+			{showWebsite ? (
+				<AppWrapper id="main-wrapper">
+					<AnimatePresence>
+						<Switch key={2}>
+							<Route path="/profile">
+								<Header key={1} />
+								<AccountPage />
+							</Route>
+							<Route path="/application">
+								<Header key={1} />
+								<AdmissionApplication />
+							</Route>
+							<Route path="/store">
+								<ProductModal />
+								<BlackHeader key={1} />
+								<StorePage />
+							</Route>
+							<Route path="/live-experiences">
+								<LiveExperiencesWrapper />
+							</Route>
+							<Route path="/at-home-trainings">
+								<AtHomeTrainingsWrapper />
+							</Route>
+							<Route path="/contact">
+								<Header key={1} />
+								<ContactPage />
+							</Route>
+							<Route path="/about-tda">
+								<Header key={1} />
+								<AboutTheDatingArts />
+							</Route>
+							<Route path="/about-colgate">
+								<Header key={1} />
+								<AboutColgate />
+							</Route>
+							<Route path="/login">
+								<Header key={1} />
+								<LoginPage />
+							</Route>
+							<Route path="/">
+								<Header key={1} />
+								<EventsModal />
+								<NewsletterPopup />
+								<Homepage />
+							</Route>
+						</Switch>
+					</AnimatePresence>
+				</AppWrapper>
+			) : (
+				<ComingSoon
+					showWebsite={showWebsite}
+					setShowWebsite={setShowWebsite}
+				/>
+			)}
 		</Router>
 	);
 }

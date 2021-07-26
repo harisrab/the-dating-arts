@@ -1,10 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import EmailIcon from "@material-ui/icons/Email";
 import SubscribeButton from "../../components/Buttons/SubscribeButton";
+import axios from "axios";
 
 function Newsletter() {
+	const [status, setStatus] = useState("");
+	const [email, setEmail] = useState("");
+	const [emailValid, setEmailValid] = useState("");
+
+	const handleEmail = (e) => {
+		const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+		setEmail(e.target.value);
+
+		if (re.test(String(e.target.value).toLowerCase())) {
+			setEmailValid(true);
+		} else if (e.target.value === "") {
+			setEmailValid("");
+		} else {
+			setEmailValid(false);
+		}
+	};
+
+	useEffect(() => {
+		console.log("Email Valid Status ===> ", emailValid);
+	}, [emailValid]);
+
+	const handleSubscription = (e) => {
+		e.preventDefault();
+		console.log("Subscription Button Clicked");
+
+		axios
+			.post(
+				"https://us-central1-the-dating-arts.cloudfunctions.net/addSubscriber",
+				{ email: email }
+			)
+			.then((res) => {
+				setStatus(true);
+				console.log("Subscribed");
+			})
+			.catch((err) => {
+				setStatus(false);
+				console.log("Error");
+			});
+	};
+
 	return (
 		<Wrapper>
 			<NewsletterWrapper>
@@ -18,10 +59,22 @@ function Newsletter() {
 					</p>
 				</TextContainer>
 				<FunctionalContainer>
-					<form>
-						<input className="input__box" type="text" />
+					<form onSubmit={handleSubscription}>
+						<input
+							style={
+								emailValid === ""
+									? { borderColor: "white" }
+									: emailValid === true
+									? { borderColor: "#33f502" }
+									: { borderColor: "red" }
+							}
+							className="input__box"
+							type="email"
+							onChange={handleEmail}
+							value={email}
+						/>
 						<EmailIcon className="icon" />
-						<SubscribeButton />
+						<SubscribeButton type="submit" status={status} />
 					</form>
 				</FunctionalContainer>
 			</NewsletterWrapper>
@@ -184,6 +237,7 @@ const FunctionalContainer = styled.div`
 			font-size: 15px;
 			font-family: "Spectral", sans-serif;
 			font-weight: 200;
+			outline: none;
 		}
 	}
 
