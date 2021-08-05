@@ -12,9 +12,7 @@ const functions = require("firebase-functions");
 let Mailchimp = require("mailchimp-api-v3");
 let mailchimp = new Mailchimp("de0e860b7f7abc77eebfaedbaa9ce3fb-us12");
 const mail = require("@sendgrid/mail");
-mail.setApiKey(
-	"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"
-);
+mail.setApiKey("aefa626ce760fd96586e5192c7532919-us12");
 
 exports.addSubscriber = functions.https.onRequest((req, res) => {
 	cors(req, res, () => {

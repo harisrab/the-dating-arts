@@ -92,8 +92,6 @@ function AOLSection() {
 
 export default AOLSection;
 
-
-
 const Wrapper = styled.div`
 	height: 100vh;
 	width: 100%;
@@ -169,12 +167,35 @@ const ContentWrapper = styled.div`
 
 	.p__wrapper {
 		width: fit-content;
-		height: auto;
+		height: 120px;
 		padding-bottom: 20px;
 		overflow: hidden;
+		overflow-y: scroll;
 
 		pointer-events: all;
 		user-select: text;
+
+		margin-bottom: 20px;
+		padding-right: 20px;
+
+		&::-webkit-scrollbar {
+			width: 0.3em;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: var(--scrollbar-background-color);
+		}
+
+		/* Handle */
+		&::-webkit-scrollbar-thumb {
+			background: #c2c2c2;
+			border-radius: 4px;
+		}
+
+		/* Handle on hover */
+		&::-webkit-scrollbar-thumb:hover {
+			background: var(--scrollbar-handle-hover-color);
+		}
 	}
 
 	.subtitle {
@@ -292,12 +313,32 @@ const ContentWrapper = styled.div`
 
 		.p__wrapper {
 			width: fit-content;
-			height: auto;
+			height: 180px;
 			padding-bottom: 20px;
 			overflow: hidden;
+			overflow-y: scroll;
 
 			pointer-events: all;
 			user-select: text;
+
+			&::-webkit-scrollbar {
+				width: 0.3em;
+			}
+
+			&::-webkit-scrollbar-track {
+				background: var(--scrollbar-background-color);
+			}
+
+			/* Handle */
+			&::-webkit-scrollbar-thumb {
+				background: #c2c2c2;
+				border-radius: 4px;
+			}
+
+			/* Handle on hover */
+			&::-webkit-scrollbar-thumb:hover {
+				background: var(--scrollbar-handle-hover-color);
+			}
 		}
 
 		.subtitle {
