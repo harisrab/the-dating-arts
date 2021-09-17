@@ -5,6 +5,9 @@ import IconButton from "@material-ui/core/IconButton";
 import { makeStyles } from "@material-ui/core/styles";
 import { useStateValue } from "../Store/StateProvider";
 import axios from "axios";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import LottieAnimation from "../components/Lottie";
+import tickMark from "../components/lottie/tick-mark.json";
 
 const useStyles = makeStyles((theme) => ({
 	customHoverFocus: {
@@ -65,11 +68,10 @@ function NewsletterPopup() {
 	return (
 		<Wrapper showNewsletter={showNewsletter}>
 			<div className="upper">
-				<p>Subscribe To</p>
+				{!status ? <p>Subscribe To</p> : <p>Subscribed</p>}
 				<h2>
 					The Dating <span>Arts</span>
 				</h2>
-				<h3>Newsletter</h3>
 			</div>
 
 			<div className="bottom">
@@ -82,20 +84,33 @@ function NewsletterPopup() {
 							value={email}
 							style={
 								emailValid === ""
-									? { borderColor: "#1d1d1d" }
+									? {
+											borderColor: "#1d1d1d",
+									  }
 									: emailValid === true
-									? { borderColor: "#33f502" }
-									: { borderColor: "red" }
+									? { borderColor: "#219e02" }
+									: {
+											borderColor: "#cc1414",
+
+											boxShadow: "#cc1414",
+									  }
 							}
 						/>
-						<button type="submit">SUBSCRIBE</button>
+						<button type="submit">
+							<NotificationsIcon className="bell-icon" />
+						</button>
 					</form>
 				) : (
 					<div className="registered-wrapper">
-						<h4>
+						{/* <h4>
 							You've been successfully registered! Check your
 							email for confirmation.
-						</h4>
+						</h4> */}
+						<LottieAnimation
+							lotti={tickMark}
+							height={70}
+							width={70}
+						/>
 					</div>
 				)}
 			</div>
@@ -112,17 +127,17 @@ function NewsletterPopup() {
 export default NewsletterPopup;
 
 const Wrapper = styled.div`
-	height: 330px;
+	height: auto;
 	width: 300px;
-	background-color: #e7e7e7ec;
+	background-color: #fffffffd;
 	/* 
 	position: absolute;
 	top: 50%;
 	right: 50%; */
 
 	position: absolute;
-	right: 65px;
-	bottom: 90px;
+	right: 150px;
+	bottom: 42px;
 
 	z-index: 50;
 	border: #272727 1px solid;
@@ -137,13 +152,14 @@ const Wrapper = styled.div`
 	align-items: center;
 	justify-content: space-between;
 
+	padding: 30px 0px;
+
 	.upper {
 		color: #272727;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		font-family: "Spectral", sans-serif;
-		margin-top: 60px;
 		width: 100%;
 
 		p {
@@ -152,7 +168,7 @@ const Wrapper = styled.div`
 
 		h2 {
 			font-weight: 300;
-			font-size: 30px;
+			font-size: 25px;
 
 			span {
 				color: var(--main-color-red);
@@ -177,7 +193,7 @@ const Wrapper = styled.div`
 
 	.bottom {
 		width: 100%;
-		margin-bottom: 45px;
+		margin-top: 20px;
 
 		.registered-wrapper {
 			display: flex;
@@ -201,35 +217,55 @@ const Wrapper = styled.div`
 		}
 		form {
 			display: flex;
-			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-
+			position: relative;
 			font-family: "Spectral", sans-serif;
+
+			margin-right: 25px;
+			margin-left: 25px;
 
 			input {
 				font-family: "Spectral", sans-serif;
-				height: 30px;
-				width: 80%;
+				height: 35px;
+				width: 100%;
 				background-color: transparent;
 				outline: none;
-				border: 1px solid #272727;
-				border-radius: 3px;
-				padding-left: 10px;
+				border: 1.5px solid #272727;
+				border-radius: 20px;
+				padding-left: 15px;
 				color: #272727;
+				transition: 0.3s ease-in-out;
+
+				&:focus {
+					box-shadow: 0 0 0 3px rgb(39, 39, 39, 0.2);
+				}
 			}
 
 			button {
 				font-family: "Spectral", sans-serif;
-				height: 30px;
-				width: 80%;
-				margin-top: 10px;
-				border-radius: 3px;
+				height: 28px;
+				width: 28px;
+
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				position: absolute;
+				right: 5px;
+				top: 50%;
+				transform: translateY(-50%);
+
+				border-radius: 50%;
 				outline: none;
 				border: none;
 				background-color: var(--main-color-red);
 				color: white;
 				transition: 0.3s ease-out;
+
+				.bell-icon {
+					font-size: 18px;
+				}
 
 				&:hover {
 					background-color: #b90303;

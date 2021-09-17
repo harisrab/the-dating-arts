@@ -39,3 +39,7 @@ display: flex; ;
     transform: rotate(360deg);
   }
 }
+
+#intercom-container-body {
+  z-index: 100000;
+}

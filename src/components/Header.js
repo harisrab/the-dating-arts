@@ -61,9 +61,9 @@ function Header({ background = "black" }) {
 						/>
 					</SocialIconsContainer>
 
-					<ScrollHolder>
-						<ScrollUpButton background={background} />
-					</ScrollHolder>
+					{/* <ScrollHolder> */}
+						{/* <ScrollUpButton background={background} /> */}
+					{/* </ScrollHolder> */}
 				</BottomSection>
 			</HeaderWrapper>
 		</>

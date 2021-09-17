@@ -60,7 +60,7 @@ function UpcomingEvents() {
 									  }
 									: {
 											width: "75vw",
-											height: "90%",
+											height: "55%",
 											minWidth: "75vw",
 											maxWidth: "75vw",
 									  }

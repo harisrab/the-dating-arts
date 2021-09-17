@@ -1,7 +1,10 @@
+
+// Imports
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "../components/Logo";
 
+// Component
 function StorePage({ showWebsite, setShowWebsite }) {
 	const [accessKey, setAccessKey] = useState("");
 	const [error, setError] = useState("");
@@ -15,6 +18,7 @@ function StorePage({ showWebsite, setShowWebsite }) {
 			setError("Key incorrect!");
 		}
 	};
+
 
 	return (
 		<HomePageWrapper
@@ -48,6 +52,10 @@ function StorePage({ showWebsite, setShowWebsite }) {
 }
 
 export default StorePage;
+
+
+
+
 
 const HomePageWrapper = styled.div`
 	z-index: 49;

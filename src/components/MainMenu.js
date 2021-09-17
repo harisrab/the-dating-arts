@@ -4,6 +4,7 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useStateValue } from "../Store/StateProvider";
 import { Link } from "react-router-dom";
 
+
 // Animation Variants
 const wrapperVariants = {
 	initial: {

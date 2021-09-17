@@ -27,9 +27,16 @@ import StorePage from "./pages/storePage/StorePage";
 import LoginPage from "./pages/loginPage/LoginPage";
 import NewsletterPopup from "./components/NewsletterPopup";
 
+// Intercom Integration
+import { IntercomProvider, useIntercom } from "react-use-intercom";
+
+// const INTERCOM_APP_ID = process.env.INTERCOM_APP_KEY;
+const INTERCOM_APP_ID = "r4lqfnyy";
+
 function App() {
 	const cache = useRef({});
 	const [showWebsite, setShowWebsite] = useState(false);
+	const { boot, shutdown, hide, show, update } = useIntercom();
 
 	const url =
 		"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
@@ -246,56 +253,62 @@ function App() {
 		// };
 	}, [url, dispatch, query]);
 
+	// useEffect(() => {
+	// 	boot();
+	// }, []);
+
 	return (
 		<Router>
-			{showWebsite ? (
-				<AppWrapper id="main-wrapper">
-					<AnimatePresence>
-						<Switch key={2}>
-							<Route path="/profile">
-								<Header key={1} />
-								<AccountPage />
-							</Route>
-							<Route path="/application">
-								<Header key={1} />
-								<AdmissionApplication />
-							</Route>
-							<Route path="/store">
-								<ProductModal />
-								<BlackHeader key={1} />
-								<StorePage />
-							</Route>
-							<Route path="/live-experiences">
-								<LiveExperiencesWrapper />
-							</Route>
-							<Route path="/at-home-trainings">
-								<AtHomeTrainingsWrapper />
-							</Route>
-							<Route path="/contact">
-								<Header key={1} />
-								<ContactPage />
-							</Route>
-							<Route path="/about-tda">
-								<Header key={1} />
-								<AboutTheDatingArts />
-							</Route>
-							<Route path="/about-colgate">
-								<Header key={1} />
-								<AboutColgate />
-							</Route>
-							<Route path="/login">
-								<Header key={1} />
-								<LoginPage />
-							</Route>
-							<Route path="/">
-								<Header key={1} />
-								<EventsModal />
-								<NewsletterPopup />
-								<Homepage />
-							</Route>
-						</Switch>
-					</AnimatePresence>
-				</AppWrapper>
+			{true ? (
+				<IntercomProvider appId={INTERCOM_APP_ID} autoBoot>
+					<AppWrapper id="main-wrapper">
+						<AnimatePresence>
+							<Switch key={2}>
+								<Route path="/profile">
+									<Header key={1} />
+									<AccountPage />
+								</Route>
+								<Route path="/application">
+									<Header key={1} />
+									<AdmissionApplication />
+								</Route>
+								<Route path="/store">
+									<ProductModal />
+									<BlackHeader key={1} />
+									<StorePage />
+								</Route>
+								<Route path="/live-experiences">
+									<LiveExperiencesWrapper />
+								</Route>
+								<Route path="/at-home-trainings">
+									<AtHomeTrainingsWrapper />
+								</Route>
+								<Route path="/contact">
+									<Header key={1} />
+									<ContactPage />
+								</Route>
+								<Route path="/about-tda">
+									<Header key={1} />
+									<AboutTheDatingArts />
+								</Route>
+								<Route path="/about-colgate">
+									<Header key={1} />
+									<AboutColgate />
+								</Route>
+								<Route path="/login">
+									<Header key={1} />
+									<LoginPage />
+								</Route>
+								<Route path="/">
+									<Header key={1} />
+									<EventsModal />
+									<NewsletterPopup />
+									<Homepage />
+								</Route>
+							</Switch>
+						</AnimatePresence>
+					</AppWrapper>
+				</IntercomProvider>
 			) : (
 				<ComingSoon
 					showWebsite={showWebsite}
