@@ -14,6 +14,7 @@
 * Styled Components
 * Context API (State Management)
 * Material UI
+* YouTube API
 
 ![Mockups-05_compressed](https://user-images.githubusercontent.com/62747193/133923440-0a4f5b26-7030-4aeb-8ad8-facb41294745.jpg)
 ![Mockups-06_compressed](https://user-images.githubusercontent.com/62747193/133923450-2fab8fbb-90e3-4987-b1a6-07761c1437cf.jpg)
