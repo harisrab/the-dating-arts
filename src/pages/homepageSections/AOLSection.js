@@ -92,8 +92,6 @@ function AOLSection() {
 
 export default AOLSection;
 
-
-
 const Wrapper = styled.div`
 	height: 100vh;
 	width: 100%;
@@ -110,6 +108,10 @@ const Wrapper = styled.div`
 	position: relative;
 
 	scroll-snap-align: start;
+
+	@media screen and (max-height: 550px) {
+		height: 145vh;
+	}
 
 	@media only screen and (max-device-width: 480px) {
 		background-image: none;
@@ -206,6 +208,35 @@ const ContentWrapper = styled.div`
 
 		pointer-events: all;
 		user-select: text;
+		height: 100px;
+		overflow-y: scroll;
+		padding-right: 10px;
+
+		/* Style the scroll bar */
+		&::-webkit-scrollbar {
+			width: 0.6em;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: var(--scrollbar-background-color);
+		}
+
+		/* Handle */
+		&::-webkit-scrollbar-thumb {
+			background: var(--scrollbar-handle-color);
+			border-radius: 4px;
+		}
+
+		/* Handle on hover */
+		&::-webkit-scrollbar-thumb:hover {
+			background: var(--scrollbar-handle-hover-color);
+		}
+
+		/* Firefox */
+
+		scrollbar-color: var(--scrollbar-handle-color)
+			var(--scrollbar-background-color); /* thumb and track color */
+		scrollbar-width: thin;
 	}
 
 	/* Buttons */

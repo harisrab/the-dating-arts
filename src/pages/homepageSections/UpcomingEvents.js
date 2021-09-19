@@ -10,14 +10,11 @@ function UpcomingEvents() {
 	const [{ cmsData, currentOption }, dispatch] = useStateValue();
 	const [upcomingEvents, setUpcomingEvents] = useState([]);
 	const [isMobile, setIsMobile] = useState();
+	const [isMedium, setIsMedium] = useState();
 
 	useEffect(() => {
 		setIsMobile(window.matchMedia("(max-device-width: 480px)").matches);
-
-		console.log(
-			"Device is mobile ====> ",
-			window.matchMedia("(max-device-width: 480px)")
-		);
+		setIsMedium(window.matchMedia("(max-device-width: 970px)").matches);
 	}, []);
 
 	const setCurrentOption = (id) => {
@@ -116,6 +113,15 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
+	@media screen and (max-height: 550px) {
+		height: 145vh;
+	}
+
+	@media screen and (max-width: 970px) {
+		background-image: none;
+		background-color: black;
+	}
+
 	@media only screen and (max-device-width: 480px) {
 		background-image: none;
 		background-color: black;
@@ -135,6 +141,14 @@ const ContentWrapper = styled.div`
 	left: 50%;
 	top: 43%;
 	transform: translate(-50%, -50%); */
+	@media screen and (max-height: 550px) {
+		height: 60%;
+	}
+
+	@media screen and (max-width: 970px) {
+		height: 60%;
+		margin-bottom: 0px;
+	}
 
 	pointer-events: all;
 	user-select: text;

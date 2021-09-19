@@ -138,6 +138,10 @@ const Wrapper = styled.div`
 
 	scroll-snap-align: start;
 
+	@media screen and (max-height: 550px) {
+		height: 150vh;
+	}
+
 	h1 {
 		color: white;
 		position: absolute;

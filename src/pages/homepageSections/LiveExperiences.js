@@ -77,6 +77,10 @@ const Wrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 
+	@media screen and (max-height: 550px) {
+		height: 150vh;
+	}
+
 	@media only screen and (max-device-width: 480px) {
 		justify-content: flex-start;
 		height: auto;

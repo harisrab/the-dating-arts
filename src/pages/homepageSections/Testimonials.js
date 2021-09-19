@@ -1,90 +1,62 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useCycle } from "framer-motion";
 import SelectableSlider from "../../components/SelectableSlider";
 import RightButton from "../../components/Buttons/RightButton";
 import LeftButton from "../../components/Buttons/LeftButton";
 import { useStateValue } from "../../Store/StateProvider";
+import Folders from "../../components/Folders";
+
+import "../../styles.css";
+import Reviews from "../../components/Reviews";
 
 function Testimonials() {
-	const [currentIndex, setCurrentIndex] = useState(0);
+	const [selectedFolder, setSelectedFolder] = useState(0);
+	const [shouldRender, setShouldRender] = useState(selectedFolder);
 
-	const [{ cmsData }, dispatch] = useStateValue();
-	const [testimonials, setTestimonials] = useState([]);
+	const handleFolderSelection = (e) => {
+		// Handles selection of folders
+		setSelectedFolder(e.target.id);
+	};
+
+	const handleShowAll = () => {
+		setSelectedFolder(0);
+		setShouldRender(0);
+	};
 
 	useEffect(() => {
-		if (cmsData.status === "fetched") {
-			setTestimonials(cmsData.data.testimonials);
-		}
-	}, [cmsData]);
-
-	useEffect(() => {
-		const interval = setInterval(() => {
-			if (currentIndex === testimonials.length - 1) {
-				setCurrentIndex(0);
-			} else {
-				setCurrentIndex(currentIndex + 1);
-			}
-		}, 3000);
-
-		// interval();
-
-		return () => clearInterval(interval);
-	}, [currentIndex, testimonials.length]);
+		console.log(selectedFolder);
+	}, [selectedFolder]);
 
 	return (
-		<>
-			{testimonials.length === 0 ? (
-				<></>
-			) : (
-				<Wrapper>
-					<AnimatePresence>
-						<ContentWrapper>
-							<h2>Testimonials</h2>
-							<div className="h3__wrapper">
-								<motion.h3
-									key={currentIndex}
-									initial={{ opacity: 1, y: 40 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{
-										duration: 1,
-										type: "spring",
-									}}
-									className="heading"
-								>
-									{testimonials[currentIndex].quote}
-								</motion.h3>
-							</div>
+		<Wrapper>
+			<h2>Testimonials</h2>
+			{/* <button onClick={handleShowAll}>Click</button> */}
+			<Folders
+				selectedFolder={selectedFolder}
+				setSelectedFolder={setSelectedFolder}
+				handleFolderSelection={handleFolderSelection}
+				shouldRender={shouldRender}
+				setShouldRender={setShouldRender}
+			/>
 
-							<div className="p__wrapper">
-								<motion.p
-									key={currentIndex}
-									initial={{ opacity: 0, y: 50 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{
-										duration: 1,
-										type: "spring",
-										delay: 0.1,
-									}}
-									className="copy"
-								>
-									{testimonials[currentIndex].author}
-								</motion.p>
-							</div>
-							<div className="sliderbar-holder">
-								<SelectableSlider
-									length={testimonials.length}
-									currentIndex={currentIndex}
-									setCurrentIndex={setCurrentIndex}
-								/>
-							</div>
-						</ContentWrapper>
-					</AnimatePresence>
-					<AnimatedDownArrow />
-				</Wrapper>
+			{selectedFolder !== 0 && (
+				<ReviewsWrapper>
+					<div className="review_header" onClick={handleShowAll}>
+						<img
+							style={{ color: "white" }}
+							src="/homepage/back-arrow.svg"
+							alt=""
+						/>
+						<p>Folders</p>
+					</div>
+					<Reviews currentFolder={selectedFolder} />{" "}
+				</ReviewsWrapper>
 			)}
-		</>
+
+			<AnimatedDownArrow />
+		</Wrapper>
 	);
 }
 
@@ -97,10 +69,7 @@ const Wrapper = styled.div`
 	width: 100%;
 	flex-shrink: 0;
 
-	background-image: url("homepage/generic_bg.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
+	background-color: var(--main-color-black);
 
 	position: relative;
 
@@ -110,32 +79,9 @@ const Wrapper = styled.div`
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	@media only screen and (max-device-width: 480px) {
-		background-image: none;
-		background-color: black;
-	}
-`;
-
-const ContentWrapper = styled.div`
-	width: 60vw;
-	height: auto;
-
-	position: relative;
-
-	color: var(--main-color-white);
-	font-family: "Spectral", sans-serif;
-	font-style: normal;
-
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
+	justify-content: center;
 
 	h2 {
 		color: white;
@@ -144,75 +90,45 @@ const ContentWrapper = styled.div`
 		font-size: 32px;
 
 		position: absolute;
-		top: -150px;
+		top: 80px;
 		will-change: transform;
 	}
 
-	.h3__wrapper {
-		height: 80px;
-		min-height: fit-content;
-		width: fit-content;
-		overflow: hidden;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
-		align-items: center;
-		will-change: transform;
-	}
-
-	.p__wrapper {
-		width: fit-content;
-		overflow: hidden;
-		height: 40px;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
-		align-items: center;
-		will-change: transform;
-	}
-
-	.heading {
-		color: #e8e8e8;
-
-		text-align: center;
-		font-size: 15px;
-		font-weight: 300;
-		will-change: transform;
-	}
-
-	.copy {
-		color: var(--main-color-red);
-		font-weight: 300;
-		font-size: 18px;
-		line-height: 1.4;
-		word-break: break-all;
-		will-change: transform;
-	}
-
-	.sliderbar-holder {
-		height: auto;
-		width: 200px;
-
-		position: absolute;
-		bottom: -100px;
+	@media screen and (max-height: 550px) {
+		height: 150vh;
 	}
 
 	@media only screen and (max-device-width: 480px) {
-		width: 100%;
+		background-image: none;
+		background-color: black;
+	}
+`;
 
-		.h3__wrapper {
-			width: 85%;
-			height: 90px;
+const ReviewsWrapper = styled.div`
+	.review_header {
+		display: flex;
+		align-items: center;
+
+		img {
+			height: 22px;
+			margin-left: 10px;
 		}
 
-		.p__wrapper {
-			margin-top: 30px;
+		p {
+			color: white;
+			font-family: "Roboto", sans-serif;
+			font-weight: 200;
+			margin-left: 15px;
+			font-size: 14px;
 		}
+		opacity: 0.6;
+		transition: 0.2s;
 
-		.sliderbar-holder {
-			bottom: -110px;
+		&:hover {
+			opacity: 1;
+			cursor: pointer;
 		}
+		width: 100px;
+		height: 40px;
 	}
 `;

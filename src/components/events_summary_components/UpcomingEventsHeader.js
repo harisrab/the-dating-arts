@@ -93,7 +93,7 @@ const Titles = styled.div`
 
 	height: 13%;
 	width: 100%;
-	margin-bottom: 20px;
+	margin-bottom: 25px;
 
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -106,7 +106,13 @@ const Titles = styled.div`
 
 	.title-holder {
 		height: 100%;
+
 		h2 {
+			@media screen and (max-width: 1070px) {
+				font-size: 30px;
+			}
+
+
 			font-family: "Spectral", sans-serif;
 			font-weight: 600;
 			font-size: 35px;

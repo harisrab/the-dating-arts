@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 function HeroSection() {
 	const [isMobile, setIsMobile] = useState();
 
-	
 	return (
 		<HeroSectionWrapper>
 			<div className="text-wrapper">
@@ -43,6 +42,10 @@ const HeroSectionWrapper = styled.div`
 	position: relative;
 
 	scroll-snap-align: start;
+
+	@media screen and (max-height: 550px) {
+		height: 145vh;
+	}
 
 	.text-wrapper {
 		pointer-events: all;

@@ -50,6 +50,19 @@ const Wrapper = styled.div`
 		transform: translate(-50%, -50%);
 	}
 
+
+	@media screen and (max-height: 550px) {
+		height: 145vh;
+	}
+
+
+	@media screen and (max-width: 970px) {
+		img {
+			height: 250px;
+		}
+	}
+
+
 	@media only screen and (max-device-width: 480px) {
 		background-color: black;
 

@@ -82,11 +82,19 @@ const HomePageWrapper = styled(motion.div)`
 		var(--scrollbar-background-color); /* thumb and track color */
 	scrollbar-width: thin;
 
-	scroll-snap-type: y mandatory;
-	scroll-behavior: smooth;
+	/* scroll-snap-type: y mandatory;
+	scroll-behavior: smooth; */
+
+	@media screen and (min-height: 585px) {
+		scroll-snap-type: y mandatory;
+		scroll-behavior: smooth;
+	}
 
 	@media only screen and (max-device-width: 480px) {
 		/* Style the scroll bar */
+		scroll-snap-type: none;
+		scroll-behavior: smooth;
+
 		&::-webkit-scrollbar {
 			display: none;
 		}

@@ -139,6 +139,10 @@ const NewsletterWrapper = styled.div`
 		justify-content: center;
 		height: auto;
 	}
+
+	@media screen and (max-height: 550px) {
+		height: 150vh;
+	}
 `;
 
 const TextContainer = styled.div`
@@ -204,6 +208,15 @@ const FunctionalContainer = styled.div`
 	display: -webkit-flex;
 	display: flex;
 	align-items: flex-end;
+
+	@media screen and (max-height: 550px) {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+	}
+
 	form {
 		display: -webkit-box;
 		display: -ms-flexbox;
@@ -211,6 +224,10 @@ const FunctionalContainer = styled.div`
 		display: flex;
 		width: 100%;
 		margin-bottom: 22px;
+
+		@media screen and (max-height: 550px) {
+			margin-bottom: -25px;
+		}
 
 		position: relative;
 
