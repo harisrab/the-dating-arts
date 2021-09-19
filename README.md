@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# The Dating Arts Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🔗: https://thedatingarts.com/
 
-## Available Scripts
+## Tech Stack:
+* React JS
+* Next JS
+* Stripe Payments
+* Google + Facebook Login
+* Javascript + TypeScript
+* GraphCMS
+* Firebase Hosting
+* MongoDB
+* MailChimp (Email Marketing Campaigns)
+* SendGrid (Contact Emails)
+* Styled Components
+* Context API (State Management)
+* Material UI
+* YouTube API
 
-In the project directory, you can run:
+![Mockups-05_compressed](https://user-images.githubusercontent.com/62747193/133923440-0a4f5b26-7030-4aeb-8ad8-facb41294745.jpg)
+![Mockups-06_compressed](https://user-images.githubusercontent.com/62747193/133923450-2fab8fbb-90e3-4987-b1a6-07761c1437cf.jpg)
+![Mockups-01_compressed](https://user-images.githubusercontent.com/62747193/133923398-1429b51e-04ed-475a-b6d6-7e41785ec265.jpg)
+![Mockups-04_compressed](https://user-images.githubusercontent.com/62747193/133923436-75b143d6-25b7-4d9d-b298-b3ff746383de.jpg)
+![Mockups-03_compressed](https://user-images.githubusercontent.com/62747193/133923466-0c3673f8-5523-4211-b8cd-6e6096844623.jpg)
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![popup](https://user-images.githubusercontent.com/62747193/133856422-5e7605cb-0afd-4005-9a3e-c9a8a97a84f2.png)
+![DatingArts-06](https://user-images.githubusercontent.com/62747193/133856426-48858409-a4c1-478a-9c22-8496d7959437.png)
+![DatingArts-03](https://user-images.githubusercontent.com/62747193/133856431-c52432a6-d6eb-467d-93cb-9295dd9e34b0.png)
+![DatingArts-04](https://user-images.githubusercontent.com/62747193/133856436-d02eecdf-76cd-4506-b8cb-358c30147d79.png)
+![DatingArts-05](https://user-images.githubusercontent.com/62747193/133856438-123230f5-71c0-431d-8cdd-7609fcbb0df7.png)
+![DatingArts-02](https://user-images.githubusercontent.com/62747193/133856442-b9c68e7c-62a3-4586-b923-f23a0a520f08.png)
