@@ -1,4 +1,4 @@
-# The Dating Arts App
+# The Dating Arts Web App
 
 🔗: https://thedatingarts.com/
 
