@@ -1,4 +1,10 @@
 # The Dating Arts Website
+![Mockups-05_compressed](https://user-images.githubusercontent.com/62747193/133923440-0a4f5b26-7030-4aeb-8ad8-facb41294745.jpg)
+![Mockups-06_compressed](https://user-images.githubusercontent.com/62747193/133923450-2fab8fbb-90e3-4987-b1a6-07761c1437cf.jpg)
+![Mockups-01_compressed](https://user-images.githubusercontent.com/62747193/133923398-1429b51e-04ed-475a-b6d6-7e41785ec265.jpg)
+![Mockups-02_compressed](https://user-images.githubusercontent.com/62747193/133923419-6fed4b0d-9c1b-4853-a326-de9ba612190e.jpg)
+![Mockups-04_compressed](https://user-images.githubusercontent.com/62747193/133923436-75b143d6-25b7-4d9d-b298-b3ff746383de.jpg)
+![Mockups-03_compressed](https://user-images.githubusercontent.com/62747193/133923466-0c3673f8-5523-4211-b8cd-6e6096844623.jpg)
 
 ![popup](https://user-images.githubusercontent.com/62747193/133856422-5e7605cb-0afd-4005-9a3e-c9a8a97a84f2.png)
 ![DatingArts-06](https://user-images.githubusercontent.com/62747193/133856426-48858409-a4c1-478a-9c22-8496d7959437.png)
