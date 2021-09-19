@@ -5,6 +5,8 @@
 ## Tech Stack:
 * React JS
 * Next JS
+* Stripe Payments
+* Google + Facebook Login
 * Javascript + TypeScript
 * GraphCMS
 * Firebase Hosting
