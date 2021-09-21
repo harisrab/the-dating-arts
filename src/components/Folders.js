@@ -8,18 +8,25 @@ const Folders = ({
 	setShouldRender,
 }) => {
 	const folders = [
-		{ title: "What others think of WEM?", code: "think" },
-		{ title: "Results Bootcamp Reviews", code: "results" },
-		{ title: "Mastery 1-ON-1 Reviews", code: "mastery" },
-		{ title: "Legends Immersion Reviews", code: "legends" },
-		{ title: "Empower Video Consultation", code: "empower" },
-		{ title: "CloseHerSchool Live Reviews", code: "closeherschool" },
+		{
+			title: "What others think of WEM?",
+			code: "What_others_think_of_WEM",
+		},
+		{ title: "Results Bootcamp Reviews", code: "Results_Bootcamp_Reviews" },
+		{ title: "Mastery 1-ON-1 Reviews", code: "Mastery_1_ON_1_Reviews" },
+		{
+			title: "Legends Immersion Reviews",
+			code: "Legends_Immersion_Reviews",
+		},
+		{
+			title: "Empower Video Consultation",
+			code: "Empower_Video_Consultation",
+		},
+		{
+			title: "CloseHerSchool Live Reviews",
+			code: "CloseHerSchool_Live_Reviews",
+		},
 	];
-
-	// useEffect(() => {
-	// 	if (selectedFolder !== 0) setShouldRender(1);
-	// 	console.log("Selected Folder ====> ", selectedFolder);
-	// }, [selectedFolder]);
 
 	const onAnimationEnd = () => {
 		setShouldRender("exit");

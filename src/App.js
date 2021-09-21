@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useStateValue } from "./Store/StateProvider";
 import Header from "./components/Header";
 import BlackHeader from "./components/blackHeader/BlackHeader";
-
+import _ from "lodash";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import EventsModal from "./components/modals/EventsModal";
@@ -29,6 +29,7 @@ import NewsletterPopup from "./components/NewsletterPopup";
 
 // Intercom Integration
 import { IntercomProvider, useIntercom } from "react-use-intercom";
+import ReviewsPopUp from "./components/ReviewsPopUp";
 
 // const INTERCOM_APP_ID = process.env.INTERCOM_APP_KEY;
 const INTERCOM_APP_ID = "r4lqfnyy";
@@ -83,11 +84,6 @@ function App() {
 				feature2
 				feature3
 				feature4
-			}
-			testimonials {
-				id
-				quote
-				author
 			}
 
 			aboutTheDatingArts {
@@ -175,6 +171,19 @@ function App() {
 				masterclassBreakoutDescription
 			}
 
+			reviews {
+				id
+				name
+				profession
+				program
+				quote
+				fullReview
+				folders
+				profilePhoto {
+					url
+				}
+			}
+
 			products {
 				id
 				title
@@ -224,9 +233,24 @@ function App() {
 							};
 						});
 
+						let newReviews;
+
+						newReviews = _.chain(data.reviews)
+							.groupBy("folders")
+							.value();
+
+						let finalReviews = new Object();
+
+						Object.entries(newReviews).forEach((eachEntry) => {
+							finalReviews[eachEntry[0]] = _.chain(eachEntry[1])
+								.groupBy("id")
+								.value();
+						});
+
 						const newData = {
 							...data,
 							upcomingEvents: newEvents,
+							reviews: finalReviews,
 						};
 
 						cache.current[url] = newData;
@@ -303,6 +327,7 @@ function App() {
 									<Header key={1} />
 									<EventsModal />
 									<NewsletterPopup />
+									<ReviewsPopUp />
 									<Homepage />
 								</Route>
 							</Switch>

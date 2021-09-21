@@ -23,8 +23,11 @@ export const initialState = {
 	upcomingEvents: [],
 	eventModalToggle: false,
 	productModalToggle: false,
+	reviewsPopUpToggle: false,
 	selectedEventId: "",
 	selectedProductId: "",
+	selectedReviewId: "",
+	selectedFolderId: "",
 	headerLogoState: "normal",
 	showNewsletter: window.matchMedia("(max-device-width: 480px)").matches
 		? false
@@ -85,9 +88,19 @@ const reducer = (state, action) => {
 			};
 
 		case "SET_MODAL_STATE":
+			console.log("State Switched");
+
 			return {
 				...state,
 				eventModalToggle: action.payload,
+			};
+
+		case "SET_REVIEWS_POPUP_STATE":
+			console.log("State Switched");
+
+			return {
+				...state,
+				reviewsPopUpToggle: action.payload,
 			};
 
 		case "SET_CURRENT_OPTION":
@@ -113,6 +126,18 @@ const reducer = (state, action) => {
 				selectedEventId: action.payload,
 			};
 
+		case "SET_SELECTED_REVIEW_ID":
+			return {
+				...state,
+				selectedReviewId: action.payload,
+			};
+
+		case "SET_FOLDER_ID":
+			return {
+				...state,
+				selectedFolderId: action.payload,
+			};
+
 		case "SET_SELECTED_PRODUCT_ID":
 			return {
 				...state,
@@ -123,6 +148,18 @@ const reducer = (state, action) => {
 			return {
 				...state,
 				upcomingEvents: action.payload,
+			};
+
+		case "UPDATE_REVIEWS":
+			return {
+				...state,
+				cmsData: {
+					...state.cmsData,
+					data: {
+						...state.cmsData.data,
+						reviews: action.payload,
+					},
+				},
 			};
 
 		// return {

@@ -7,6 +7,7 @@ import RightButton from "../../components/Buttons/RightButton";
 import LeftButton from "../../components/Buttons/LeftButton";
 import { useStateValue } from "../../Store/StateProvider";
 import Folders from "../../components/Folders";
+import _ from "lodash";
 
 import "../../styles.css";
 import Reviews from "../../components/Reviews";
@@ -16,9 +17,18 @@ function Testimonials() {
 	const [shouldRender, setShouldRender] = useState(selectedFolder);
 	const [renderReviews, setRenderReviews] = useState(1);
 
+	const [reviews, setReviews] = useState([]);
+
+	const [{ cmsData }, dispatch] = useStateValue();
+
 	const handleFolderSelection = (e) => {
 		// Handles selection of folders
 		setSelectedFolder(e.target.id);
+
+		dispatch({
+			type: "SET_FOLDER_ID",
+			payload: e.target.id,
+		});
 	};
 
 	const handleShowAll = () => {
@@ -31,6 +41,12 @@ function Testimonials() {
 
 		if (selectedFolder !== 0) setRenderReviews(0);
 	}, [selectedFolder]);
+
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setReviews(cmsData.data.reviews);
+		}
+	}, [cmsData, dispatch]);
 
 	return (
 		<Wrapper>
@@ -57,6 +73,7 @@ function Testimonials() {
 					<Reviews
 						renderReviews={renderReviews}
 						currentFolder={selectedFolder}
+						reviews={reviews}
 					/>{" "}
 				</ReviewsWrapper>
 			)}
