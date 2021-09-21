@@ -7,7 +7,7 @@
 * Next JS
 * Stripe Payments
 * Google + Facebook Login
-* Javascript + TypeScript
+* Intercom Live Chat Integration
 * GraphCMS
 * Firebase Hosting
 * MongoDB
