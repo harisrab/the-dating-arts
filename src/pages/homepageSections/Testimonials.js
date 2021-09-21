@@ -14,6 +14,7 @@ import Reviews from "../../components/Reviews";
 function Testimonials() {
 	const [selectedFolder, setSelectedFolder] = useState(0);
 	const [shouldRender, setShouldRender] = useState(selectedFolder);
+	const [renderReviews, setRenderReviews] = useState(1);
 
 	const handleFolderSelection = (e) => {
 		// Handles selection of folders
@@ -27,6 +28,8 @@ function Testimonials() {
 
 	useEffect(() => {
 		console.log(selectedFolder);
+
+		if (selectedFolder !== 0) setRenderReviews(0);
 	}, [selectedFolder]);
 
 	return (
@@ -51,7 +54,10 @@ function Testimonials() {
 						/>
 						<p>Folders</p>
 					</div>
-					<Reviews currentFolder={selectedFolder} />{" "}
+					<Reviews
+						renderReviews={renderReviews}
+						currentFolder={selectedFolder}
+					/>{" "}
 				</ReviewsWrapper>
 			)}
 

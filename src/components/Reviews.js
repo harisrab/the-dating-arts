@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import EachReview from "./EachReview";
 
-function Reviews({ currentFolder }) {
+function Reviews({ currentFolder, renderReviews }) {
 	const reviews = [
 		{
 			name: "Skye Gale",
@@ -68,8 +68,15 @@ function Reviews({ currentFolder }) {
 		},
 	];
 
+	const onAnimationEnd = () => {};
+
 	return (
-		<ReviewWrapper>
+		<ReviewWrapper
+			style={{
+				animation: `${renderReviews === 0 ? "fadeIn" : "fadeOut"} 3s`,
+			}}
+			onAnimationEnd={renderReviews !== 0 && onAnimationEnd}
+		>
 			{reviews.map((eachReview) => (
 				<EachReview details={eachReview} />
 			))}
