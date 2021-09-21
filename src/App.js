@@ -271,15 +271,7 @@ function App() {
 		};
 
 		fetchData();
-
-		// return function cleanup() {
-		// 	cancelRequest = true;
-		// };
 	}, [url, dispatch, query]);
-
-	// useEffect(() => {
-	// 	boot();
-	// }, []);
 
 	return (
 		<Router>
