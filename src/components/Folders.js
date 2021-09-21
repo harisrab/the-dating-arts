@@ -28,6 +28,8 @@ const Folders = ({
 		},
 	];
 
+	// Leakage Fixed
+
 	const onAnimationEnd = () => {
 		setShouldRender("exit");
 	};
