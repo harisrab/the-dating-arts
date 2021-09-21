@@ -16,6 +16,8 @@ mail.setApiKey(
 	"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"
 );
 
+// This is a test comment
+
 exports.addSubscriber = functions.https.onRequest((req, res) => {
 	cors(req, res, () => {
 		mailchimp
