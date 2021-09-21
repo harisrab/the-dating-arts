@@ -21,7 +21,7 @@ function Header({ background = "black" }) {
 	const [{ headerLogoState }, dispatch] = useStateValue();
 
 	useEffect(() => {
-		window.scrollTo(0, 1)
+		window.scrollTo(0, 1);
 	}, []);
 
 	return (
@@ -30,6 +30,7 @@ function Header({ background = "black" }) {
 				<MainMenu />
 
 				<TopSection>
+					<BackStrip />
 					<LogoHolder>
 						{headerLogoState === "normal" && (
 							<Logo
@@ -62,7 +63,7 @@ function Header({ background = "black" }) {
 					</SocialIconsContainer>
 
 					{/* <ScrollHolder> */}
-						{/* <ScrollUpButton background={background} /> */}
+					{/* <ScrollUpButton background={background} /> */}
 					{/* </ScrollHolder> */}
 				</BottomSection>
 			</HeaderWrapper>
@@ -96,7 +97,7 @@ const HeaderWrapper = styled.div`
 	overflow: visible;
 
 	@media only screen and (max-device-width: 480px) {
-		height: 86.94%;
+		height: 95%;
 		width: 85%;
 	}
 `;
@@ -113,6 +114,30 @@ const TopSection = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	pointer-events: "auto";
+
+	position: relative;
+`;
+
+const BackStrip = styled.div`
+	@media only screen and (max-device-width: 480px) {
+		background-color: black;
+
+		position: absolute;
+
+		top: 50%;
+		left: 50%;
+
+		transform: translate(-50%, -50%);
+
+		width: 100vw;
+		height: 88px;
+
+		z-index: 0;
+
+		box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+			rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+			rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+	}
 `;
 
 const BottomSection = styled.div`
@@ -137,6 +162,10 @@ const LogoHolder = styled.div`
 	display: flex;
 	align-items: center;
 	pointer-events: "auto";
+
+	@media only screen and (max-device-width: 480px) {
+		z-index: 2;
+	}
 `;
 
 const RightSection = styled.div`
