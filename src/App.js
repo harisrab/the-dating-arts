@@ -275,7 +275,7 @@ function App() {
 
 	return (
 		<Router>
-			{true ? (
+			{showWebsite ? (
 				<IntercomProvider appId={INTERCOM_APP_ID} autoBoot>
 					<AppWrapper id="main-wrapper">
 						<AnimatePresence>
