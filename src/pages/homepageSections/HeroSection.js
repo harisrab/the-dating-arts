@@ -15,7 +15,10 @@ function HeroSection() {
 				</h3>
 				<h3 className="line2">Do your have the skills to get her?</h3>
 				<div className="button-holder">
-					<ApplyNowButton />
+					{/* <ApplyNowButton /> */}
+					<button className="btn btn-1">
+						<span>Apply now</span>
+					</button>
 				</div>
 			</div>
 
@@ -51,7 +54,7 @@ const HeroSectionWrapper = styled.div`
 		pointer-events: all;
 		user-select: text;
 
-		font-family: "Spectral";
+		font-family: "GothamBold", sans-serif;
 		color: white;
 		position: absolute;
 
@@ -61,7 +64,7 @@ const HeroSectionWrapper = styled.div`
 		transform: translate(-50%, -50%);
 
 		.line1 {
-			font-weight: 200;
+			font-family: GothamThin;
 			font-size: 22.5px;
 
 			pointer-events: all;
@@ -69,14 +72,53 @@ const HeroSectionWrapper = styled.div`
 		}
 
 		.line2 {
-			font-size: 33.6px;
-			font-weight: 700;
+			font-size: 34px;
+			margin-top: 10px;
 
 			pointer-events: all;
 			user-select: text;
 		}
 		.button-holder {
-			margin-top: 30px;
+			margin-top: 50px;
+
+			.btn {
+				border: none;
+				font-family: "GothamBook", sans-serif;
+				font-size: 13px;
+				color: inherit;
+				background: var(--main-color-white);
+				cursor: pointer;
+				padding: 14px 49px;
+				display: inline-block;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				outline: none;
+				position: relative;
+				-webkit-transition: all 0.3s;
+				-moz-transition: all 0.3s;
+				transition: all 0.3s;
+				border: 2px solid var(--main-color-white);
+				color: var(--main-color-dark-black);
+				overflow: hidden;
+			}
+
+			.btn:after {
+				content: "";
+				position: absolute;
+				z-index: -1;
+				-webkit-transition: all 0.3s;
+				-moz-transition: all 0.3s;
+				transition: all 0.3s;
+			}
+
+			/* Button 1 */
+			.btn-1:hover,
+			.btn-1:active {
+				/* font-family: "GothamBook", sans-serif; */
+				color: black;
+				background: #fff;
+				border: 2px solid white;
+			}
 		}
 	}
 

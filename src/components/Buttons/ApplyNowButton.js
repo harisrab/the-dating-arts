@@ -86,7 +86,7 @@ const ButtonWrapper = styled(motion.button)`
 		top: 50%;
 		transform: translate(-50%, -50%);
 
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamLight", sans-serif;
 		font-weight: 500;
 		font-size: 14px;
 	}

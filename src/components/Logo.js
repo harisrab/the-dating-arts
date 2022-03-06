@@ -8,10 +8,15 @@ function Logo({ background = "black" }) {
 	console.log("Background Color =====> ", background);
 
 	return (
-		<LogoWrapper onClick={() => history.push("/")}>
-			<LogoTitle className="logo" background={background}>
-				THE DATING <span className="logo">ARTS</span>
-			</LogoTitle>
+		// <LogoWrapper onClick={() => history.push("/")}>
+		// 	<LogoTitle className="logo" background={background}>
+		// 		{/* THE DATING <span className="logo">ARTS</span> */}
+		// 		<img src="./logo-white.svg" alt="logo" />
+		// 	</LogoTitle>
+		// </LogoWrapper>
+
+		<LogoWrapper>
+			<img src="logo-white.svg" alt="The Dating Arts Logo" />
 		</LogoWrapper>
 	);
 }
@@ -25,7 +30,8 @@ const LogoWrapper = styled.div`
 
 	pointer-events: auto;
 
-	max-width: fit-content;
+	/* max-width: fit-content; */
+	width: 200px;
 	height: 34px;
 
 	display: -webkit-box;
@@ -35,7 +41,11 @@ const LogoWrapper = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
-	/* z-index: 1000000000; */
+	/* background-color: red; */
+
+	img {
+		color: red;
+	}
 `;
 
 const LogoTitle = styled.p`

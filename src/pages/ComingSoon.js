@@ -1,4 +1,3 @@
-
 // Imports
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
@@ -19,7 +18,6 @@ function StorePage({ showWebsite, setShowWebsite }) {
 		}
 	};
 
-
 	return (
 		<HomePageWrapper
 			id="main_app"
@@ -33,9 +31,9 @@ function StorePage({ showWebsite, setShowWebsite }) {
 				<h3 className="storepage">
 					The Dating <span>Arts</span>
 				</h3>
-				<h2 className="storepage">
+				{/* <h2 className="storepage">
 					Coming Soon <span className="storepage"></span>
-				</h2>
+				</h2> */}
 				<form onSubmit={loginToWebsite}>
 					<input
 						type="password"
@@ -52,10 +50,6 @@ function StorePage({ showWebsite, setShowWebsite }) {
 }
 
 export default StorePage;
-
-
-
-
 
 const HomePageWrapper = styled.div`
 	z-index: 49;
@@ -135,7 +129,7 @@ const Wrapper = styled.div`
 			transition: 0.3s;
 			outline: none;
 			padding-left: 10px;
-			font-family: "Spectral", sans-serif;
+			font-family: "GothamThin", sans-serif;
 
 			&:focus {
 				border: 2px solid black;
@@ -151,7 +145,7 @@ const Wrapper = styled.div`
 			border-radius: 0px;
 			background-color: black;
 			color: white;
-			font-family: "Spectral", sans-serif;
+			font-family: "GothamBook", sans-serif;
 			font-size: 13px;
 			transition: 0.5s;
 			border: none;
@@ -170,14 +164,14 @@ const Wrapper = styled.div`
 	}
 
 	p {
-		font-family: "Spectral", serif;
+		font-family: "GothamThin", serif;
 		color: var(--main-color-red);
-		font-size: 13px;
+		font-size: 12px;
 		margin-top: 30px;
 	}
 
 	h3 {
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamBook", sans-serif;
 		font-weight: 400;
 		font-size: 50px;
 
@@ -191,10 +185,11 @@ const Wrapper = styled.div`
 	}
 
 	h2 {
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamThin", sans-serif;
 		font-weight: 200;
 		font-size: 25px;
 		color: gray;
+		margin-top: 20px;
 
 		pointer-events: all !important;
 		user-select: text !important;
