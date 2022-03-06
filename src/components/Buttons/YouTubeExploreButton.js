@@ -1,27 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
-const btnVariants = {
-	initial: {
-		color: "#cc1414",
-		scale: 1,
-	},
-	final: {
-		color: "#ffffff",
-	},
-};
-
-const bgVariants = {
-	initial: {
-		height: "0%",
-	},
-	final: {
-		height: "103%",
-	},
-};
 function SubscribeButton() {
-	const [didHover, setDidHover] = useState(false);
+	// const [didHover, setDidHover] = useState(false);
 
 	const handleSubscribe = (e) => {
 		window.location.href =
@@ -90,5 +72,5 @@ const ButtonWrapper = styled.div`
 
 	position: absolute;
 	bottom: 80px;
-	
+
 `;

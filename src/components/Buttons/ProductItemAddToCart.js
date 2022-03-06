@@ -1,24 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
-const btnVariants = {
-	initial: {
-		scale: 1,
-	},
-	final: {},
-};
-
-const bgVariants = {
-	initial: {
-		height: "0%",
-	},
-	final: {
-		height: "103%",
-	},
-};
 function ProductItemDetailsButton({ url }) {
-	const [didHover, setDidHover] = useState(false);
 
 	const handleSubscribe = (e) => {
 		e.preventDefault();

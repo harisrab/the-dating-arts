@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { useStateValue } from "../../Store/StateProvider";
 
 function ProductExploreButton({ id }) {
-	const [didHover, setDidHover] = useState(false);
+	// const [didHover, setDidHover] = useState(false);
 	const [{ productModalToggle }, dispatch] = useStateValue();
 
 	const handleProductModal = (e) => {

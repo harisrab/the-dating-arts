@@ -9,7 +9,6 @@ function Logo({ background = "black" }) {
 
 	return (
 		<LogoWrapper onClick={() => history.push("/")}>
-			{/* <img src="logo-white.svg" alt="The Dating Arts Logo" /> */}
 			<h3>The dating arts</h3>
 		</LogoWrapper>
 	);
