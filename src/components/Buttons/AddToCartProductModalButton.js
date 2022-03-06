@@ -85,9 +85,14 @@ const ButtonWrapper = styled(motion.button)`
 		top: 50%;
 		transform: translate(-50%, -50%);
 
-		font-size: 13px;
-		font-family: "Spectral", sans-serif;
+		font-size: 12px;
+		font-family: "GothamBook", sans-serif;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+
 		font-weight: 500;
+	
+		
 	}
 
 	@media only screen and (max-device-width: 480px) {

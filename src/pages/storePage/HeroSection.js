@@ -36,9 +36,13 @@ const Wrapper = styled.div`
 	--webkit-user-select: text !important;
 
 	h3 {
-		font-family: "Spectral", sans-serif;
-		font-weight: 400;
-		font-size: 50px;
+		font-family: "GothamBold", sans-serif;
+		text-transform: uppercase;
+		font-size: 25px;
+		letter-spacing: 10px;
+
+		margin-bottom: 20px;
+
 
 		pointer-events: all !important;
 		user-select: text !important;
@@ -46,9 +50,11 @@ const Wrapper = styled.div`
 	}
 
 	h2 {
-		font-family: "Spectral", sans-serif;
-		font-weight: 200;
-		font-size: 25px;
+		font-family: "GothamBook", sans-serif;
+		text-transform: uppercase;
+		font-size: 14px;
+		letter-spacing: 5px;
+
 		color: gray;
 
 		pointer-events: all !important;

@@ -9,7 +9,7 @@
   --main-color-dark-black-heavy: rgb(0, 0, 0);
   --main-color-transparent-red: rgba(204, 20, 20, 0.09);
   --main-color-light-black: #131313;
-  --main-color-footer: #1a0000;
+  --main-color-footer: #181818;
   
   --logo-first-color: var(--main-color-white);
   --logo-second-color: #CC1414;  
@@ -100,7 +100,7 @@ code {
 }
 @font-face {
   font-family: 'GothamMedium';
-  src: local('Gotahm'),
+  src: local('Gotham'),
   url(./fonts/Gotham/Gotham-Medium.otf) format('opentype');
   font-weight: normal;
 }

@@ -31,24 +31,21 @@ const Wrapper = styled.div`
 	will-change: transform;
 
 	p {
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamBook", sans-serif;
 		color: var(--main-color-white);
-		font-weight: 200;
-		font-size: 17px;
+		font-size: 15px;
 		margin-top: 2px;
 		margin-left: 5px;
 		will-change: transform;
 	}
 
-
 	@media only screen and (max-device-width: 480px) {
-		
 	}
 `;
 
 const AttachMoneyIconWrapper = styled(AttachMoneyIcon)`
 	color: white;
-	
+
 	@media only screen and (max-device-width: 480px) {
 		color: white;
 		font-size: 17px !important;

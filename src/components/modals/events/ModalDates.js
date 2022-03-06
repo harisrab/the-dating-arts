@@ -68,6 +68,11 @@ const Wrapper = styled.div`
 			pointer-events: all !important;
 			user-select: text !important;
 			--webkit-user-select: text !important;
+
+			margin-bottom: 5px;
+			font-family: "GothamBold", sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 3px;
 		}
 
 		.date {
@@ -75,6 +80,10 @@ const Wrapper = styled.div`
 			font-size: 13px;
 			opacity: 0.7;
 
+			font-family: "GothamBook", sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			
 			pointer-events: all !important;
 			user-select: text !important;
 			--webkit-user-select: text !important;

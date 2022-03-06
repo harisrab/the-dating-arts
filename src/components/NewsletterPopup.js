@@ -66,7 +66,11 @@ function NewsletterPopup() {
 	};
 
 	return (
-		<Wrapper showNewsletter={showNewsletter}>
+		<Wrapper
+			showNewsletter={showNewsletter}
+			emailValid={emailValid}
+			emailExists={email}
+		>
 			<div className="upper">
 				{!status ? <p>Subscribe To</p> : <p>Subscribed</p>}
 				<h2>
@@ -82,19 +86,20 @@ function NewsletterPopup() {
 							placeholder="Email address"
 							onChange={handleEmail}
 							value={email}
-							style={
-								emailValid === ""
-									? {
-											borderColor: "#1d1d1d",
-									  }
-									: emailValid === true
-									? { borderColor: "#219e02" }
-									: {
-											borderColor: "#cc1414",
 
-											boxShadow: "#cc1414",
-									  }
-							}
+							// style={
+							// 	emailValid === ""
+							// 		? {
+							// 				borderColor: "#cccccc",
+							// 		  }
+							// 		: emailValid === true
+							// 		? { borderColor: "#219e02 !important" }
+							// 		: {
+							// 				borderColor: "#cc1414 !important",
+
+							// 				boxShadow: "#cc1414 !important",
+							// 		  }
+							// }
 						/>
 						<button type="submit">
 							<NotificationsIcon className="bell-icon" />
@@ -129,7 +134,7 @@ export default NewsletterPopup;
 const Wrapper = styled.div`
 	height: auto;
 	width: 300px;
-	background-color: #fffffffd;
+	background-color: #4b4b4bbe;
 	/* 
 	position: absolute;
 	top: 50%;
@@ -140,7 +145,7 @@ const Wrapper = styled.div`
 	bottom: 42px;
 
 	z-index: 50;
-	border: #272727 1px solid;
+	border: #cfcfcf 1px solid;
 	border-radius: 5px;
 
 	box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
@@ -155,7 +160,7 @@ const Wrapper = styled.div`
 	padding: 30px 0px;
 
 	.upper {
-		color: #272727;
+		color: #e6e6e6;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -163,16 +168,18 @@ const Wrapper = styled.div`
 		width: 100%;
 
 		p {
-			font-weight: 200;
+			font-family: "GothamThin", sans-serif;
+			text-transform: uppercase;
+			font-size: 12px;
+			letter-spacing: 2px;
 		}
 
 		h2 {
-			font-weight: 300;
-			font-size: 25px;
-
-			span {
-				color: var(--main-color-red);
-			}
+			font-family: "GothamLight", sans-serif;
+			text-transform: uppercase;
+			font-size: 15px;
+			letter-spacing: 6px;
+			margin-top: 10px;
 		}
 
 		h3 {
@@ -226,19 +233,33 @@ const Wrapper = styled.div`
 			margin-left: 25px;
 
 			input {
-				font-family: "Spectral", sans-serif;
+				font-family: "GothamLight", sans-serif;
 				height: 35px;
 				width: 100%;
 				background-color: transparent;
 				outline: none;
-				border: 1.5px solid #272727;
+				border: 1.5px solid;
+				/* border-color: #cfcfcf89 !important; */
+				border-color: ${(props) =>
+					props.emailExists
+						? props.emailValid
+							? "green !important"
+							: "red !important"
+						: "#b3b3b3 !important"};
+
 				border-radius: 20px;
 				padding-left: 15px;
-				color: #272727;
+				color: #e7e7e7;
 				transition: 0.3s ease-in-out;
 
 				&:focus {
-					box-shadow: 0 0 0 3px rgb(39, 39, 39, 0.2);
+					border-color: ${(props) =>
+						props.emailExists
+							? props.emailValid
+								? "#24b300 !important"
+								: "red !important"
+							: "white !important"};
+					box-shadow: 0 0 0 3px #e0e0e029;
 				}
 			}
 
@@ -268,7 +289,7 @@ const Wrapper = styled.div`
 				}
 
 				&:hover {
-					background-color: #b90303;
+					background-color: #e61a0b;
 					cursor: pointer;
 				}
 
@@ -312,6 +333,6 @@ const IconButtonWrapper = styled(IconButton)`
 `;
 
 const CloseIconWrapper = styled(CloseIcon)`
-	color: #272727;
+	color: #e6e6e6;
 	font-size: 15px !important;
 `;

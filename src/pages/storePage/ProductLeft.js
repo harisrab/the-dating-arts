@@ -165,28 +165,38 @@ const RightContent = styled.div`
 	/* background-color: red; */
 	margin-right: 50px;
 
-	font-family: "Spectral", sans-serif;
-
+	font-family: "GothamBook", sans-serif;
+	
 	pointer-events: all !important;
 	user-select: text !important;
 	--webkit-user-select: text !important;
-
+	
 	.title {
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
+		
 		h2 {
-			font-weight: 400;
-			font-size: 25px;
-
+			font-family: "GothamBold", sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-size: 18px;
+			
+			
 			pointer-events: all !important;
 			user-select: text !important;
 			--webkit-user-select: text !important;
 		}
-
+		
 		p {
+			font-family: "GothamLight", sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-size: 12px;
 			color: gray;
-
+			
+			margin-top: 10px;
+			
 			pointer-events: all !important;
 			user-select: text !important;
 			--webkit-user-select: text !important;
@@ -196,14 +206,21 @@ const RightContent = styled.div`
 	.desc {
 		margin-top: 25px;
 		margin-bottom: 20px;
+		
+		font-family: "GothamBook", sans-serif;
+		/* text-transform: uppercase; */
+		/* letter-spacing: 1px; */
+		font-size: 14px;
+		color: gray;
+
 
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
 
 		p {
-			font-size: 14px;
-			font-weight: 200;
+			/* font-size: 12px; */
+			/* font-weight: 200; */
 
 			pointer-events: all !important;
 			user-select: text !important;
@@ -233,6 +250,10 @@ const RightContent = styled.div`
 		user-select: text !important;
 		--webkit-user-select: text !important;
 
+		font-family: "GothamBook", sans-serif;
+		
+		
+
 		ul {
 			pointer-events: all !important;
 			user-select: text !important;
@@ -255,6 +276,10 @@ const RightContent = styled.div`
 				}
 
 				font-size: 15px;
+
+				margin-top: 5px;
+				margin-bottom: 5px;
+
 			}
 		}
 	}

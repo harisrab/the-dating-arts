@@ -25,13 +25,13 @@ function Homepage() {
 				key={9}
 			>
 				<HeroSection />
-				<BrandSection />
+				{/* <BrandSection /> */}
 				<AOLSection />
 				<UpcomingEvents />
 				<LiveExperiences />
 				<AtHomeTraining />
 				<Testimonials />
-				<Newsletter />
+				{/* <Newsletter /> */}
 				<Footer />
 			</HomePageWrapper>
 		</>

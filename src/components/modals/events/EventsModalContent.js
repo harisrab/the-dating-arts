@@ -131,18 +131,18 @@ function EventsModalContent() {
 								</p>
 							</Availability>
 
-							<DASlider
+							{/* <DASlider
 								defaultValue={sliderAmount}
 								marks={true}
 								step={1}
 								min={0}
 								max={eventDetails.spotsAvailable}
 								onChange={handleSliderChange}
-							/>
+							/> */}
 
-							<SaveSpots>
+							{/* <SaveSpots>
 								Reserve spots for <b>{sliderAmount}</b> persons
-							</SaveSpots>
+							</SaveSpots> */}
 
 							<EventsAddToCartButton
 								url={eventDetails.gumroadLink}
@@ -262,7 +262,7 @@ const Right = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamBook", sans-serif;
 
 	position: relative;
 
@@ -343,8 +343,13 @@ const Right = styled.div`
 `;
 
 const Heading = styled.div`
-	font-weight: 700;
-	font-size: 18px;
+	/* font-weight: 700; */
+	font-family: "GothamBold", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	font-size: 13px;
+
+	/* font-size: 18px; */
 
 	pointer-events: all !important;
 	user-select: text !important;
@@ -369,10 +374,11 @@ const Heading = styled.div`
 `;
 
 const Description = styled.div`
-	font-weight: 300;
 	font-size: 14px;
 	line-height: 19.5px;
 	opacity: 0.7;
+
+	font-family: "GothamBook", sans-serif;
 
 	pointer-events: all !important;
 	user-select: text !important;
@@ -391,7 +397,11 @@ const Description = styled.div`
 
 const Location = styled.div`
 	b {
-		font-weight: 600;
+		font-family: "GothamBold", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-size: 12px;
+
 		margin-right: 5px;
 
 		pointer-events: all !important;
@@ -400,8 +410,11 @@ const Location = styled.div`
 	}
 
 	a {
-		color: black;
-		font-weight: 200;
+		font-family: "GothamBold", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-size: 12px;
+		color: #525252;
 
 		pointer-events: all !important;
 		user-select: text !important;
@@ -418,8 +431,17 @@ const Availability = styled.div`
 		user-select: text !important;
 		--webkit-user-select: text !important;
 
+		font-family: "GothamLight", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-size: 12px;
+
 		b {
-			font-weight: 600;
+			font-family: "GothamBold", sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 3px;
+			font-size: 12px;
+
 			margin-right: 5px;
 
 			pointer-events: all !important;

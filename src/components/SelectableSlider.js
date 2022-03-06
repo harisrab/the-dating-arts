@@ -20,7 +20,7 @@ function SelectableSlider({ length = 5, currentIndex = 1, setCurrentIndex }) {
 								i === currentIndex
 									? {
 											backgroundColor:
-												"var(--main-color-red)",
+												"var(--main-color-white)",
 											height: "4px",
 											opacity: 1,
 											transition: "0.3s ease-out",
@@ -65,7 +65,7 @@ const Wrapper = styled(motion.div)`
 			flex: 1;
 			background-color: white;
 			margin: 1px;
-			border-radius: 4px;
+			border-radius: 0px;
 			opacity: 0.21;
 		}
 

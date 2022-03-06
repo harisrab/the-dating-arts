@@ -18,88 +18,60 @@ function EventsAddToCartButton({ url }) {
 	};
 
 	return (
-		<AnimatePresence>
-			<ButtonWrapper
-				onMouseEnter={() => setDidHover(true)}
-				onMouseLeave={() => setDidHover(false)}
-				initial={{ color: "#cc1414" }}
-				whileHover={{ color: "#ffffff" }}
-				whileTap="final"
-				transition={{ duration: 0.2 }}
-				onClick={navigate}
-			>
-				<p>EXPLORE</p>
-				<AnimatedBG
-					variants={bgVariants}
-					initial="initial"
-					animate={didHover ? "final" : {}}
-					transition={{
-						type: "tween",
-						ease: "easeOut",
-						duration: 0.3,
-					}}
-				></AnimatedBG>
-			</ButtonWrapper>
-		</AnimatePresence>
+		<ButtonWrapper onClick={navigate}>
+			<button className="btn btn-1">
+				<span>Explore</span>
+			</button>
+		</ButtonWrapper>
 	);
 }
 
 export default EventsAddToCartButton;
 
-const ButtonWrapper = styled(motion.button)`
-	color: white;
-	width: 12vw;
-	height: 3vw;
-	border: 2px var(--main-color-red) solid;
-
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	align-items: flex-end;
-	box-sizing: border-box;
-
+const ButtonWrapper = styled.div`
 	background-color: transparent;
+	border: none;
 
-	&:hover {
+	.btn {
+		border: none;
+		font-family: "GothamBook", sans-serif;
+		font-size: 13px;
 		cursor: pointer;
+		padding: 13px 40px;
+		display: inline-block;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		outline: none;
+		position: relative;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		border: 1px solid black;
+		overflow: hidden;
+		background: transparent;
+		color: black;
 	}
 
-	position: relative;
+	.btn span {
+		letter-spacing: 3px;
+		font-size: 12px;
+	}
 
-	p {
+	.btn:after {
+		content: "";
 		position: absolute;
-		width: 100%;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 1;
+		z-index: -1;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
 	}
 
-	overflow: hidden;
-
-	@media only screen and (max-device-width: 480px) {
-		width: 100%;
-		height: 40px;
-
-		background-color: var(--main-color-red);
-
-		p {
-			color: white;
-			font-family: "Spectral", sans-serif;
-		}
-	}
-`;
-
-const AnimatedBG = styled(motion.div)`
-	width: 101%;
-	height: 0%;
-	background-color: var(--main-color-red);
-	margin-left: -1px;
-	margin-bottom: -1px;
-	position: relative;
-
-	@media only screen and (max-device-width: 480px) {
-		display: none;
+	/* Button 1 */
+	.btn-1:hover,
+	.btn-1:active {
+		/* font-family: "GothamBook", sans-serif; */
+		color: white;
+		background: #000;
+		border: 1px solid white;
 	}
 `;

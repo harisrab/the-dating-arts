@@ -27,10 +27,9 @@ function StorePage({ showWebsite, setShowWebsite }) {
 			transition={{ duration: 0.2 }}
 			key={1}
 		>
+			<div className="blur"></div>
 			<Wrapper>
-				<h3 className="storepage">
-					The Dating <span>Arts</span>
-				</h3>
+				<h3 className="storepage">The Dating Arts</h3>
 				{/* <h2 className="storepage">
 					Coming Soon <span className="storepage"></span>
 				</h2> */}
@@ -65,7 +64,7 @@ const HomePageWrapper = styled.div`
 	justify-content: flex-start;
 	overflow-y: scroll;
 	overflow: overlay;
-	background-color: white;
+	/* background-color: white; */
 
 	pointer-events: all !important;
 	user-select: text !important;
@@ -93,10 +92,26 @@ const HomePageWrapper = styled.div`
 
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
+
+	background-image: url("homepage/herosection_background.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+	position: relative;
+
+	.blur {
+		position: absolute;
+		background-color: #00000078;
+		backdrop-filter: blur(2px); // This be the blur
+		height: 100vh;
+		width: 100%;
+		z-index: 0;
+	}
 `;
 
 const Wrapper = styled.div`
-	background-color: var(--main-color-white);
+	/* background-color: var(--main-color-white); */
 	height: 100vh;
 	width: 100%;
 	flex-shrink: 0;
@@ -122,7 +137,7 @@ const Wrapper = styled.div`
 
 		input {
 			background-color: transparent;
-			border: 2px solid gray;
+			border: 2px solid #b3b3b3;
 			width: 200px;
 			height: 30px;
 			margin-right: 10px;
@@ -130,9 +145,12 @@ const Wrapper = styled.div`
 			outline: none;
 			padding-left: 10px;
 			font-family: "GothamThin", sans-serif;
+			color: white;
+
+			background-color: #f1f1f118;
 
 			&:focus {
-				border: 2px solid black;
+				border: 2px solid white;
 				transition: 0.3s;
 				border-radius: 0px;
 				outline: none;
@@ -143,8 +161,8 @@ const Wrapper = styled.div`
 			height: 30px;
 			width: 70px;
 			border-radius: 0px;
-			background-color: black;
-			color: white;
+			background-color: white;
+			color: black;
 			font-family: "GothamBook", sans-serif;
 			font-size: 13px;
 			transition: 0.5s;
@@ -171,17 +189,24 @@ const Wrapper = styled.div`
 	}
 
 	h3 {
-		font-family: "GothamBook", sans-serif;
-		font-weight: 400;
-		font-size: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		
+
+		padding: 20px 40px;
+		/* border: 1px solid white; */
+		text-transform: uppercase;
+
+		font-size: 10px;
+		letter-spacing: 10px;
+		color: white;
+
+		font-family: "GothamMedium", sans-serif;
 
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
-
-		span {
-			color: var(--main-color-red);
-		}
 	}
 
 	h2 {

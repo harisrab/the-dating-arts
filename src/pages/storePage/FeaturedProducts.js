@@ -172,7 +172,7 @@ const ProductItem = styled.div`
 	margin-right: 10px;
 	margin-left: 10px;
 
-	border-radius: 5px;
+	border-radius: 2px;
 	border: 1px solid black;
 
 	display: flex;
@@ -202,6 +202,11 @@ const ProductItem = styled.div`
 			pointer-events: all !important;
 			user-select: text !important;
 			--webkit-user-select: text !important;
+
+			font-family: "GothamBold", sans-serif;
+			text-transform: uppercase;
+			font-size: 13px;
+			letter-spacing: 2px;
 		}
 	}
 
@@ -220,6 +225,15 @@ const ProductItem = styled.div`
 			pointer-events: all !important;
 			user-select: text !important;
 			--webkit-user-select: text !important;
+
+
+			font-family: "GothamBook", sans-serif;
+			text-transform: uppercase;
+			font-size: 12px;
+			margin-top: 4px;	
+			/* letter-spacing: 2px; */
+
+
 		}
 	}
 
@@ -240,14 +254,22 @@ const ProductItem = styled.div`
 		.left {
 			height: auto;
 			width: 50%;
+
 			display: flex;
+			align-items: center;
 			justify-content: center;
+
+			/* background-color: red; */
+			
 		}
 		.right {
 			height: auto;
 			width: 50%;
+			
 			display: flex;
+			align-items: center;
 			justify-content: center;
+			/* background-color: blue; */
 		}
 	}
 

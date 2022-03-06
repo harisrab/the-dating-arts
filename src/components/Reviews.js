@@ -43,6 +43,8 @@ const ReviewWrapper = styled.div`
 	padding-right: 10px;
 	padding-left: 10px;
 
+	overflow-x: visible;
+
 	/* Style the scroll bar */
 	&::-webkit-scrollbar {
 		width: 0.6em;

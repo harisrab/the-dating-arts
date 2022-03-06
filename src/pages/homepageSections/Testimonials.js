@@ -107,14 +107,17 @@ const Wrapper = styled.div`
 	justify-content: center;
 
 	h2 {
-		color: white;
-		font-family: "Spectral", sans-serif;
-		font-weight: 300;
-		font-size: 32px;
+		font-family: "GothamThin", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+
+		font-size: 28px;
+		margin-bottom: 20px;
 
 		position: absolute;
 		top: 80px;
 		will-change: transform;
+		color: white;
 	}
 
 	@media screen and (max-height: 550px) {
@@ -153,5 +156,7 @@ const ReviewsWrapper = styled.div`
 		}
 		width: 100px;
 		height: 40px;
+
+		overflow-x: visible;
 	}
 `;

@@ -49,12 +49,12 @@ export default EachReview;
 
 const EachReviewWrapper = styled.div`
 	height: 200px;
-	border: 1px solid #ff000065;
-	border-radius: 10px;
+	border: 1px solid #e4e4e4a7;
+	border-radius: 2px;
 	/* flex-grow: 1; */
 	width: 310px;
 
-	background-color: #ff000013;
+	background-color: #ffffff5c;
 	box-shadow: rgba(0, 0, 0, 0) 0px 30px 90px;
 	transition: 0.3s;
 
@@ -63,10 +63,10 @@ const EachReviewWrapper = styled.div`
 	justify-content: flex-start;
 
 	&:hover {
-		border: 1px solid #ff00003e;
+		border: 1px solid #ffffff;
 		cursor: pointer;
-		box-shadow: rgba(130, 1, 1, 0.4) 0px 30px 90px;
-		background-color: #ff00004e;
+		box-shadow: rgba(204, 204, 204, 0.4) 0px 30px 90px;
+		background-color: #ffffff67;
 	}
 
 	overflow: hidden;
@@ -86,9 +86,9 @@ const EachReviewWrapper = styled.div`
 
 		.quote {
 			color: white;
-			font-family: "Spectral", serif;
+			font-family: "GothamBook", serif;
 			font-weight: 200;
-			font-size: 14px;
+			font-size: 13px;
 			text-align: center;
 		}
 	}
@@ -102,7 +102,7 @@ const Header = styled.div`
 	display: flex;
 	align-items: center;
 
-	border-bottom: 1px solid #ff000013;
+	border-bottom: 1px solid #e6e6e613;
 
 	img {
 		height: 25px;
@@ -124,18 +124,21 @@ const Header = styled.div`
 		justify-content: center;
 
 		.name {
-			font-family: "Roboto", serif;
 			color: white;
-			font-weight: 400;
 			font-size: 14px;
 			margin-bottom: 2px;
+			font-family: "GothamMedium", sans-serif;
+			text-transform: uppercase;
+			font-size: 12px;
 		}
 
 		.profession {
 			margin-top: 2px;
 			color: white;
-			font-family: "Roboto", sans-serif;
+			font-family: "GothamLight", sans-serif;
+			text-transform: normal;
 			font-size: 11px;
+			/* font-size: 11px; */
 			font-weight: 200;
 		}
 	}

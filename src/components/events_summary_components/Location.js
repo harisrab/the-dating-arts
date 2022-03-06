@@ -25,11 +25,11 @@ const Wrapper = styled.div`
 
 	p {
 		color: var(--main-color-white);
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamBook", sans-serif;
 		font-weight: 200;
 		font-size: 16px;
 
-		margin-left: 15px;
+		margin-left: 13px;
 		will-change: transform;
 	}
 
@@ -49,8 +49,7 @@ const Wrapper = styled.div`
 
 		p {
 			color: var(--main-color-white);
-			font-family: "Spectral", sans-serif;
-			font-weight: 200;
+			font-family: "GothamBook", sans-serif;
 			font-size: 12px;
 
 			margin-left: 10px;
@@ -69,8 +68,11 @@ const LocationOnIconWrapper = styled(LocationOnIcon)`
 	color: var(--main-color-white);
 
 	@media only screen and (max-device-width: 480px) {
-		font-size: 15px !important;
+		font-size: 14px !important;
 		margin-left: 10px;
 		margin-top: 4px;
 	}
 `;
+
+
+

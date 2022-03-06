@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 	display: -webkit-flex;
 	display: flex;
 
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamMedium", sans-serif;
 	color: white;
 
 	pointer-events: all !important;

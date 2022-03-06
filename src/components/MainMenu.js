@@ -97,7 +97,7 @@ const listItemVariants = {
 	hover: {
 		skewX: 2,
 		scale: 1.05,
-		color: "var(--main-color-red)",
+		color: "white",
 		transition: {
 			duration: 0.2,
 		},
@@ -135,10 +135,10 @@ function MainMenu() {
 				initial="initial"
 				animate={controls}
 			>
-				<Background
+				{/* <Background
 					animate={controls}
 					variants={backgroundVariants}
-				></Background>
+				></Background> */}
 				<Main variants={mainVariants}>
 					<div className="top-line"></div>
 					<div className="bottom-line"></div>
@@ -303,7 +303,7 @@ const Background = styled(motion.div)`
 	top: 0;
 	left: 0;
 
-	background-color: #380000;
+	background-color: #080808;
 `;
 
 const Main = styled(motion.div)`
@@ -314,7 +314,9 @@ const Main = styled(motion.div)`
 	top: 0;
 	left: 0;
 
-	background-color: black;
+	/* // background-color: black; */
+	background: #252525;
+ background-image: -webkit-radial-gradient(top, circle cover, #333333 0%, #0c0c0c 80%);
 
 	overflow: hidden;
 
@@ -359,12 +361,14 @@ const List = styled(motion.ul)`
 
 const ListItem = styled(motion.li)`
 	color: var(--main-color-white);
-	font-size: 17px;
+	font-size: 14px;
 	font-weight: 400;
-	font-family: "Spectral";
+	font-family: "GothamBook", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 4px;
 	letter-spacing: 1px;
 	list-style: none;
-	margin: 12px;
+	margin: 18px;
 	user-select: none;
 
 	&:hover {

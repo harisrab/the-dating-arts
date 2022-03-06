@@ -26,72 +26,70 @@ function ProductItemDetailsButton({ url }) {
 	};
 
 	return (
-		<ButtonWrapper
-			variants={btnVariants}
-			onMouseEnter={() => setDidHover(true)}
-			onMouseLeave={() => setDidHover(false)}
-			initial="initial"
-			whileHover={"final"}
-			transition={{ duration: 0.2 }}
-			onClick={handleSubscribe}
-		>
-			<motion.p
-				initial={!didHover ? { color: "#fff" } : {}}
-				animate={didHover ? { color: "#fff" } : {}}
-			>
-				BUY NOW
-			</motion.p>
+		<ButtonWrapper onClick={handleSubscribe}>
+			<button className="btn btn-1">
+				<span>Buy now</span>
+			</button>
 		</ButtonWrapper>
 	);
 }
 
 export default ProductItemDetailsButton;
 
-const ButtonWrapper = styled(motion.button)`
-	width: 85%;
-	height: 3vw;
-	border: 1px solid;
-	border-color: black;
-
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	align-items: flex-end;
-	box-sizing: border-box;
-
-	overflow: hidden;
-
-	border-radius: 5px;
-
+const ButtonWrapper = styled.div`
 	background-color: transparent;
+	border: none;
 
-	&:hover {
+	width: 85%;
+
+	.btn {
+		border: none;
+		font-family: "GothamBook", sans-serif;
+		font-size: 13px;
+		color: inherit;
 		cursor: pointer;
-	}
-
-	position: relative;
-
-	background-color: black;
-
-	p {
-		color: white;
-		position: absolute;
-
-		z-index: 1;
+		padding: 13px;
 
 		width: 100%;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
 
-		font-size: 11px;
-		font-family: "Spectral", sans-serif;
-		font-weight: 500;
+		display: inline-block;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		outline: none;
+		position: relative;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		border: 1px solid var(--main-color-white);
+		color: var(--main-color-white);
+		overflow: hidden;
+		background: black;
+
+		border-radius: 2px;
+		/* width: 85%; */
 	}
 
+	.btn span {
+		letter-spacing: 3px;
+		font-size: 10px;
+	}
 
-	@media only screen and (max-device-width: 480px)  {
-		height: 40px;
+	.btn:after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+
+	/* Button 1 */
+	.btn-1:hover,
+	.btn-1:active {
+		/* font-family: "GothamBook", sans-serif; */
+		/* color: black; */
+		/* background: #fff; */
+		/* border: 1px solid white; */
+		background-color: #303030;
 	}
 `;

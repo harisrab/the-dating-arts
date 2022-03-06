@@ -3,24 +3,6 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { useStateValue } from "../../Store/StateProvider";
 
-const btnVariants = {
-	initial: {
-		color: "#000000",
-		scale: 1,
-	},
-	final: {
-		color: "#ffffff",
-	},
-};
-
-const bgVariants = {
-	initial: {
-		height: "0%",
-	},
-	final: {
-		height: "103%",
-	},
-};
 function ProductExploreButton({ id }) {
 	const [didHover, setDidHover] = useState(false);
 	const [{ productModalToggle }, dispatch] = useStateValue();
@@ -37,87 +19,61 @@ function ProductExploreButton({ id }) {
 	};
 
 	return (
-		<ButtonWrapper
-			variants={btnVariants}
-			onMouseEnter={() => setDidHover(true)}
-			onMouseLeave={() => setDidHover(false)}
-			initial="initial"
-			whileHover={"final"}
-			transition={{ duration: 0.2 }}
-			onClick={handleProductModal}
-		>
-			<p>DETAILS</p>
-			<AnimatedBG
-				variants={bgVariants}
-				initial="initial"
-				animate={didHover ? "final" : {}}
-				transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}
-			></AnimatedBG>
+		<ButtonWrapper onClick={handleProductModal}>
+			<button className="btn btn-1">
+				<span>Details</span>
+			</button>
 		</ButtonWrapper>
 	);
 }
 
 export default ProductExploreButton;
 
-const ButtonWrapper = styled(motion.button)`
-	width: 10vw;
-	height: 3vw;
-	border: 1px solid;
-	border-color: #000000;
-
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	align-items: flex-end;
-	box-sizing: border-box;
-
+const ButtonWrapper = styled.div`
 	background-color: transparent;
+	border: none;
 
-	position: relative;
-
-	&:hover {
-		cursor: pointer;
-	}
-
-	color: #cc1414;
-
-	p {
-		position: absolute;
-
-		z-index: 1;
-
-		width: 100%;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-
+	.btn {
+		border: none;
+		font-family: "GothamBook", sans-serif;
 		font-size: 13px;
-		font-family: "Spectral", sans-serif;
-		font-weight: 500;
+		color: inherit;
+		cursor: pointer;
+		padding: 13px 40px;
+		display: inline-block;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		outline: none;
+		position: relative;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		border: 1px solid black;
+		color: black;
+		overflow: hidden;
+		background: transparent;
 	}
 
-	@media only screen and (max-device-width: 480px) {
-		width: 100%;
-		height: 40px;
-
-		background-color: black;
-
-		p {
-			color: white !important;
-		}
+	.btn span {
+		letter-spacing: 3px;
+		font-size: 12px;
 	}
-`;
 
-const AnimatedBG = styled(motion.div)`
-	width: 101%;
-	height: 0%;
-	background-color: #000000;
-	margin-left: -1px;
-	margin-bottom: -1px;
-	position: relative;
+	.btn:after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
 
-	@media only screen and (max-device-width: 480px) {
-		display: hidden;
+	/* Button 1 */
+	.btn-1:hover,
+	.btn-1:active {
+		/* font-family: "GothamBook", sans-serif; */
+		color: white;
+		background: #000;
+		border: 1px solid black;
 	}
 `;

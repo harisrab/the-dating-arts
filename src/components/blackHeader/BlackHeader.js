@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Logo from "../Logo";
+import LogoBlack from "../LogoBlack";
 import { useHistory } from "react-router-dom";
 
 import { useStateValue } from "../../Store/StateProvider";
@@ -25,7 +25,7 @@ function Header({ background = "white" }) {
 
 				<TopSection>
 					<LogoHolder>
-						<Logo
+						<LogoBlack
 							background={background}
 							onClick={() => history.push("/")}
 						/>

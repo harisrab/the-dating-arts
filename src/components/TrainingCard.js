@@ -38,8 +38,8 @@ function TrainingCard({ training }) {
 	return (
 		<Wrapper
 			initial={{ scale: 1 }}
-			whileHover={{ scale: 1.05 }}
-			transition={{ duration: 0.2, type: "tween", ease: "easeIn" }}
+			// whileHover={{ scale: 1.05 }}
+			// transition={{ duration: 0.2, type: "tween", ease: "easeIn" }}
 		>
 			<div className="price__strip">
 				<p className="price__amount">
@@ -76,7 +76,7 @@ function TrainingCard({ training }) {
 			<div className="add_to_cart_holder">
 				<IconButton
 					className="outer"
-					color="secondary"
+					color="tertiary"
 					aria-label="add to shopping cart"
 				>
 					<InfoOutlinedIcon
@@ -93,7 +93,7 @@ function TrainingCard({ training }) {
 				</IconButton>
 				<IconButton
 					className="outer"
-					color="secondary"
+					color="tertiary"
 					aria-label="add to shopping cart"
 					onClick={redirectToEvents}
 				>
@@ -109,14 +109,14 @@ export default TrainingCard;
 const Wrapper = styled(motion.div)`
 	height: 100%;
 	width: 230px;
-	background-color: rgba(219, 0, 0, 0.19);
-	border: rgb(122, 0, 0) solid 1px;
+	background-color: rgba(233, 233, 233, 0.19);
+	border: rgb(230, 230, 230) solid 1px;
 	border-radius: 4px;
 
 	margin-right: 10px;
 	margin-left: 10px;
 
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamBook", sans-serif;
 	color: var(--main-color-white);
 
 	display: -webkit-box;
@@ -166,7 +166,7 @@ const Wrapper = styled(motion.div)`
 	}
 
 	.title__strip {
-		background-color: rgba(219, 0, 0, 0.07);
+		background-color: rgba(236, 236, 236, 0.07);
 		height: 38px;
 		width: 100%;
 		margin-bottom: 10px;
@@ -180,8 +180,8 @@ const Wrapper = styled(motion.div)`
 
 		padding-left: 20px;
 
-		font-size: 16px;
-		font-weight: 300;
+		font-size: 14px;
+		font-family: "GothamBold", sans-serif;
 	}
 
 	.feature__strips {
@@ -214,8 +214,7 @@ const Wrapper = styled(motion.div)`
 
 			p {
 				margin-left: 10px;
-				font-size: 15px;
-				font-weight: 200;
+				font-size: 13px;
 			}
 		}
 	}

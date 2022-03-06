@@ -214,18 +214,28 @@ const Wrapper = styled.div`
 `;
 
 const ListItem = styled(motion.li)`
-	color: black;
-	font-size: 18px;
-	font-weight: 400;
-	font-family: "Spectral";
-	letter-spacing: 1px;
+	color: #303030;
+	font-size: 14px;
+	font-family: "GothamLight", sans-serif;
+	letter-spacing: 3px;
+
+	text-transform: uppercase;
+
 	list-style: none;
 	margin: 12px;
+
 	user-select: none;
 	opacity: 0.7;
 	transform-origin: 0;
 	-webkit-transform-origin-x: 0.5;
 	-webkit-transform-origin-y: 0.5;
+
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+	&:hover {
+		color: black;
+	}
 `;
 
 const ListItemRight = styled(motion.li)`

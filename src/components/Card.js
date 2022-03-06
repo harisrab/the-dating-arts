@@ -7,7 +7,7 @@ function Card({ titleTag, mainTitle, description }) {
 	return (
 		<Wrapper
 			initial={{ scale: 1 }}
-			whileHover={{ scale: 1.05 }}
+			// whileHover={{ scale: 1.05 }}
 			transition={{ duration: 0.2, type: "tween", ease: "easeIn" }}
 		>
 			<div className="tag_holder">
@@ -30,14 +30,14 @@ export default Card;
 const Wrapper = styled(motion.div)`
 	height: 100%;
 	width: 250px;
-	background-color: rgba(219, 0, 0, 0.19);
-	border: rgb(122, 0, 0) solid 1px;
-	border-radius: 6px;
+	background-color: rgba(167, 167, 167, 0.19);
+	border: rgb(236, 236, 236) solid 1px;
+	border-radius: 2px;
 
 	margin-right: 35px;
 	margin-left: 35px;
 
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamBook", sans-serif;
 	color: var(--main-color-white);
 
 	display: -webkit-box;
@@ -45,27 +45,40 @@ const Wrapper = styled(motion.div)`
 	display: -webkit-flex;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: space-between;
+	
+	/* padding-top: 10px;
+	padding-bottom: 10px; */
 
+	user-select: text;
+	
 	padding: 30px;
-	padding-bottom: 0px;
-
+	padding-bottom: 30px;
+	
 	.tag_holder {
+		user-select: text;
+		font-family: "GothamLight", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		font-size: 10px;
 		font-weight: 200;
-		font-size: 15px;
 	}
 
 	.main_title {
 		h3 {
-			font-weight: 400;
-			font-size: 25px;
+			font-family: "GothamBold", sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			font-size: 20px;
+
+			margin-top: 10px;
 			margin-bottom: 10px;
 		}
 	}
 
 	.desc {
 		p {
-			font-weight: 200;
+			font-family: "GothamBook", sans-serif;
 			font-size: 13px;
 		}
 		margin-bottom: 20px;

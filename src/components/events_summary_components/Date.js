@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 	width: auto;
 
 	color: var(--main-color-white);
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamBook", sans-serif;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: -webkit-flex;
@@ -27,12 +27,13 @@ const Wrapper = styled.div`
 	justify-content: center;
 
 	p {
-		font-weight: 200;
+		
 		font-size: 12px;
 	}
 	h3 {
+		font-family: "GothamMedium", sans-serif;
 		font-weight: 500;
 		font-size: 20px;
-		margin-top: -6px;
+		margin-top: -3px;
 	}
 `;

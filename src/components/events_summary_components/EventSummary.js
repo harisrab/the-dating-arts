@@ -6,6 +6,7 @@ import Location from "./Location";
 import Price from "./Price";
 import SummaryButton from "../Buttons/SummaryButton";
 import { motion } from "framer-motion";
+import { useStateValue } from "../../Store/StateProvider";
 
 function EventSummary({ event, setShowEventsModal }) {
 	const [isMobile, setIsMobile] = useState();
@@ -25,6 +26,24 @@ function EventSummary({ event, setShowEventsModal }) {
 		id,
 		locationName,
 	} = event;
+
+	const [{ eventModalToggle }, dispatch] = useStateValue();
+
+	const toggleModal = (e, id) => {
+		// Toggle Modal
+		dispatch({
+			type: "SET_MODAL_STATE",
+			payload: true,
+		});
+
+		// Set Selected ID
+		dispatch({
+			type: "SET_SELECTED_EVENT_ID",
+			payload: id,
+		});
+
+		console.log("Data Dispatched");
+	};
 
 	const date = {
 		startDate: {
@@ -95,11 +114,12 @@ function EventSummary({ event, setShowEventsModal }) {
 					</PriceTag>
 				</>
 			)}
-			<ButtonHolder>
-				<SummaryButton
+			<ButtonHolder onClick={() => toggleModal(true, id)}>
+				{/* <SummaryButton
 					setShowEventsModal={setShowEventsModal}
 					id={id}
-				/>
+				/> */}
+				<span>Explore</span>
 			</ButtonHolder>
 		</Wrapper>
 	);
@@ -119,11 +139,11 @@ const Wrapper = styled(motion.div)`
 	flex-direction: row;
 	justify-content: flex-start;
 	align-items: center;
-	box-shadow: 0px 0px 6px 0px rgba(204, 20, 20, 0.29);
-	background-color: rgba(45, 1, 1, 0.29);
+	box-shadow: 0px 0px 6px 0px rgba(175, 175, 175, 0.29);
+	background-color: rgba(68, 68, 68, 0.29);
 	overflow: hidden;
-	border-radius: 10px;
-	border: 1px solid #d70909;
+	border-radius: 2px;
+	border: 1.5px solid #ececec;
 
 	margin-bottom: 20px;
 
@@ -232,6 +252,23 @@ const ButtonHolder = styled.div`
 	align-items: center;
 	justify-content: center;
 
+	font-family: "GothamBook", sans-serif;
+	text-transform: uppercase;
+
+	font-size: 13px;
+	color: white;
+
+	border: 1px solid transparent;
+	border-left: 1px solid white;
+
+	transition: 0.1s;
+
+	&:hover {
+		border: 1px solid white;
+		cursor: pointer;
+		background: white;
+		color: black;
+	}
 	@media only screen and (max-device-width: 480px) {
 		width: 100%;
 		margin-top: 20px;

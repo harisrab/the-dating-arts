@@ -16,7 +16,8 @@ function Logo({ background = "black" }) {
 		// </LogoWrapper>
 
 		<LogoWrapper>
-			<img src="logo-white.svg" alt="The Dating Arts Logo" />
+			{/* <img src="logo-white.svg" alt="The Dating Arts Logo" /> */}
+			<h3>The dating arts</h3>
 		</LogoWrapper>
 	);
 }
@@ -31,8 +32,8 @@ const LogoWrapper = styled.div`
 	pointer-events: auto;
 
 	/* max-width: fit-content; */
-	width: 200px;
-	height: 34px;
+	/* width: 230px; */
+	/* height: 34px; */
 
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -45,6 +46,35 @@ const LogoWrapper = styled.div`
 
 	img {
 		color: red;
+	}
+
+	h3 {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		padding: 15px 30px;
+
+		border: 1.5px solid white;
+		/* border: 1px solid white; */
+		text-transform: uppercase;
+
+		font-size: 10px;
+		letter-spacing: 8px;
+		color: white;
+
+		font-family: "GothamBook", sans-serif;
+
+		pointer-events: all !important;
+		user-select: text !important;
+		--webkit-user-select: text !important;
+
+		transition: 0.2s;
+
+		&:hover {
+			background-color: #ffffff1d;
+			color: white;
+		}
 	}
 `;
 

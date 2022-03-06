@@ -112,10 +112,11 @@ const Titles = styled.div`
 				font-size: 30px;
 			}
 
-
-			font-family: "Spectral", sans-serif;
+			font-family: "GothamMedium", sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 3px;
 			font-weight: 600;
-			font-size: 35px;
+			font-size: 28px;
 
 			pointer-events: all;
 			user-select: text;
@@ -154,7 +155,9 @@ const Titles = styled.div`
 				margin: 0;
 
 				font-size: 13px;
-				font-family: "Spectral", serif;
+				font-family: "GothamBook", sans-serif;
+				text-transform: uppercase;
+				letter-spacing: 2px;
 				opacity: 0.4;
 				transition: 0.2s ease-out;
 				pointer-events: none;

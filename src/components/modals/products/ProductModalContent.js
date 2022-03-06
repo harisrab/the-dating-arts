@@ -133,7 +133,7 @@ const LeftSection = styled.div`
 	width: 40%;
 	/* background-color: #892be26f; */
 
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamBook", sans-serif;
 
 	display: flex;
 	flex-direction: column;
@@ -155,8 +155,10 @@ const LeftSection = styled.div`
 			--webkit-user-select: text !important;
 
 			h2 {
-				font-weight: 400;
-				font-size: 25px;
+				font-family: "GothamBold", sans-serif;
+				text-transform: uppercase;
+				letter-spacing: 5px;
+				font-size: 20px;
 
 				pointer-events: all !important;
 				user-select: text !important;
@@ -167,6 +169,11 @@ const LeftSection = styled.div`
 		.subtitle {
 			p {
 				color: gray;
+				font-family: "GothamLight", sans-serif;
+				text-transform: uppercase;
+				/* letter-spacing: 0px; */
+				font-size: 14px;
+				margin-top: 10px;
 
 				pointer-events: all !important;
 				user-select: text !important;
@@ -194,6 +201,9 @@ const LeftSection = styled.div`
 			p {
 				font-size: 14px;
 				font-weight: 200;
+				font-family: "GothamBook", sans-serif;
+				/* text-transform: uppercase; */
+				/* letter-spacing: 0px; */
 
 				pointer-events: all !important;
 				user-select: text !important;

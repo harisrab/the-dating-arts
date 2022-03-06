@@ -277,7 +277,7 @@ function App() {
 
 	return (
 		<Router>
-			{showWebsite ? (
+			{true ? (
 				<AppWrapper id="main-wrapper">
 					<AnimatePresence>
 						<Switch key={2}>

@@ -107,16 +107,20 @@ const Header = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamBook", sans-serif;
 
 	h1 {
-		font-weight: 500;
-		font-size: 32px;
-		margin-bottom: 15px;
+		font-family: "GothamThin", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+
+		font-size: 28px;
+		margin-bottom: 20px;
 	}
 
 	p {
-		font-weight: 200;
+		margin-bottom: 30px;
+		margin-top: 10px;
 		font-size: 16px;
 	}
 

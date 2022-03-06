@@ -98,8 +98,8 @@ const Folder = styled.div`
 	transition: 0.8s;
 
 	&:hover {
-		border-top: 1px solid #ff00003e;
-		border-bottom: 1px solid #ff00003e;
+		border-top: 1px solid #ffffff3d;
+		border-bottom: 1px solid #ffffff3d;
 
 		/* transition: 0.3s ease-in-out; */
 		cursor: pointer;
@@ -107,11 +107,11 @@ const Folder = styled.div`
 		/* transform: scaleY(1); */
 		transition: 0.2s;
 		transform-origin: bottom;
-		background-color: #ff000039;
+		background-color: #ffffff3d;
 		background: linear-gradient(
 			to right,
 			transparent,
-			#ff000039,
+			#ffffff3d,
 			transparent
 		);
 	}

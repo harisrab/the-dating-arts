@@ -180,9 +180,11 @@ const ContentWrapper = styled.div`
 	}
 
 	.subtitle {
-		color: gray;
-		font-size: 16px;
-		font-weight: 300;
+		color: #b3b3b3;
+		font-size: 12px;
+		font-family: "GothamBook", sans-serif;
+		letter-spacing: 3px;
+		text-transform: uppercase;
 
 		pointer-events: all;
 		user-select: text;
@@ -190,8 +192,9 @@ const ContentWrapper = styled.div`
 
 	.heading {
 		color: #e8e8e8;
+		text-transform: uppercase;
+		font-family: "GothamMedium", sans-serif;
 		font-size: 32px;
-		font-weight: 500;
 		margin-bottom: 10px;
 		margin-top: 8px;
 
@@ -202,9 +205,11 @@ const ContentWrapper = styled.div`
 	.copy {
 		color: #e8e8e8;
 		font-weight: 300;
-		font-size: 14.4px;
+		font-size: 14px;
 		line-height: 1.4;
 		word-break: keep-all;
+
+		font-family: "GothamBook", sans-serif;
 
 		pointer-events: all;
 		user-select: text;

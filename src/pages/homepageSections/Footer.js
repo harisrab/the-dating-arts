@@ -181,7 +181,7 @@ const Wrapper = styled.div`
 		right: 13%;
 		bottom: 8.5%;
 
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamLight", sans-serif;
 		font-weight: 200;
 		font-size: 13px;
 
@@ -195,17 +195,23 @@ const Wrapper = styled.div`
 
 const ListItem = styled(motion.li)`
 	color: var(--main-color-white);
-	font-size: 18px;
-	font-weight: 400;
-	font-family: "Spectral";
-	letter-spacing: 1px;
+	font-size: 14px;
+	font-family: "GothamLight", sans-serif;
+	letter-spacing: 3px;
+
+	text-transform: uppercase;
+
 	list-style: none;
 	margin: 12px;
+
 	user-select: none;
 	opacity: 0.7;
 	transform-origin: 0;
 	-webkit-transform-origin-x: 0.5;
 	-webkit-transform-origin-y: 0.5;
+
+	margin-top: 20px;
+	margin-bottom: 20px;
 `;
 
 const ListItemRight = styled(motion.li)`

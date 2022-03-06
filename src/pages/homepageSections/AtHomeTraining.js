@@ -90,20 +90,21 @@ const Header = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	font-family: "Spectral", sans-serif;
+	font-family: "GhothamBook", sans-serif;
 
 	h1 {
-		font-weight: 500;
+		font-family: "GothamThin", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+
 		font-size: 28px;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 
 	p {
-		font-weight: 200;
-		font-size: 14px;
-		width: 600px;
-		text-align: center;
-		margin-bottom: 10px;
+		margin-bottom: 30px;
+		margin-top: 10px;
+		font-size: 15px;
 	}
 
 	.author {
@@ -157,6 +158,5 @@ const InnerWrapper = styled.div`
 
 	@media only screen and (max-device-width: 480px) {
 		margin-top: 190px;
-		
 	}
 `;

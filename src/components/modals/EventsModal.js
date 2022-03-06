@@ -71,8 +71,8 @@ const Wrapper = styled(motion.div)`
 	overflow: hidden;
 
 	@media screen and (max-height: 550px) {
-			height: 150vh;
-		}
+		height: 150vh;
+	}
 
 	@media only screen and (max-device-width: 480px) {
 	}
