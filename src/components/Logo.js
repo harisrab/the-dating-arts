@@ -8,14 +8,7 @@ function Logo({ background = "black" }) {
 	console.log("Background Color =====> ", background);
 
 	return (
-		// <LogoWrapper onClick={() => history.push("/")}>
-		// 	<LogoTitle className="logo" background={background}>
-		// 		{/* THE DATING <span className="logo">ARTS</span> */}
-		// 		<img src="./logo-white.svg" alt="logo" />
-		// 	</LogoTitle>
-		// </LogoWrapper>
-
-		<LogoWrapper>
+		<LogoWrapper onClick={() => history.push("/")}>
 			{/* <img src="logo-white.svg" alt="The Dating Arts Logo" /> */}
 			<h3>The dating arts</h3>
 		</LogoWrapper>

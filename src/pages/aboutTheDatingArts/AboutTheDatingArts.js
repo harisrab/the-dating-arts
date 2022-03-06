@@ -62,7 +62,7 @@ function AboutTheDatingArts() {
 						description={data.ourReputedExclusivityDescription}
 						url={data.ourReputedExclusivityImage.url}
 					/>
-					<Newsletter />
+					{/* <Newsletter /> */}
 					<Footer />
 				</AboutWrapper>
 			)}

@@ -63,7 +63,7 @@ function AboutColgate() {
 						}
 					/>
 					<VideoListings />
-					<Newsletter />
+					{/* <Newsletter /> */}
 					<Footer />
 				</AboutWrapper>
 			) : (

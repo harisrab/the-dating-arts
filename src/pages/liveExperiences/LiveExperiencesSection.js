@@ -80,15 +80,26 @@ const Left = styled.div`
 	.left-content {
 		margin-left: 100px;
 		p {
+			font-family: "GothamLight", sans-serif;
+			font-size: 13px;
+			letter-spacing: 5px;
+			text-transform: uppercase;
+
 			color: grey;
-			font-size: 18px;
+			/* font-size: 18px; */
 			margin-bottom: -5px;
 			pointer-events: all !important;
 			user-select: text !important;
 			--webkit-user-select: text !important;
 		}
 		h2 {
-			font-size: 35px;
+			font-family: "GothamMedium", sans-serif;
+			margin-top: 10px;
+			font-size: 23px;
+			letter-spacing: 5px;
+			text-transform: uppercase;
+
+			/* font-size: 35px; */
 			font-weight: 400;
 			pointer-events: all !important;
 			user-select: text !important;
@@ -107,6 +118,12 @@ const Left = styled.div`
 			width: 85%;
 
 			h2 {
+				font-family: "GothamMedium", sans-serif;
+				margin-top: 10px;
+				font-size: 23px;
+				letter-spacing: 5px;
+				text-transform: uppercase;
+
 				font-size: 30px;
 			}
 		}
@@ -130,6 +147,14 @@ const Right = styled.div`
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
+
+		font-family: "GothamBook", sans-serif;
+		margin-top: 10px;
+		font-size: 15px;
+		line-height: 1.5;
+
+		/* letter-spacing: 5px; */
+		/* text-transform: uppercase; */
 	}
 	height: 100%;
 	width: 60%;

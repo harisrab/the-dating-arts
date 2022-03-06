@@ -240,7 +240,7 @@ const Right = styled.div`
 	}
 
 	.field {
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamBook", sans-serif;
 		color: white;
 
 		display: flex;
@@ -257,12 +257,12 @@ const Right = styled.div`
 			background-color: transparent;
 			transition: 0.2s ease-out;
 
-			border-radius: 5px;
+			border-radius: 2px;
 
 			padding-left: 10px;
 			padding-top: 10px;
 
-			font-family: "Spectral";
+			font-family: "GothamBook", sans-serif;
 			font-size: 14px;
 			font-weight: 300;
 			color: #dadada;
@@ -288,13 +288,14 @@ const Right = styled.div`
 			height: 35px;
 			width: 230px;
 			padding-left: 10px;
-			border-radius: 5px;
+			border-radius: 2px;
 
 			border: 1px solid white;
 			background-color: transparent;
 			transition: 0.2s ease-out;
 
-			font-family: "Spectral";
+			font-family: "GothamBook", sans-serif;
+
 			font-size: 14px;
 			font-weight: 300;
 			color: #dadada;
@@ -372,7 +373,7 @@ const Left = styled.div`
 	height: 100%;
 	width: 500px;
 
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamBook", sans-serif;
 
 	display: flex;
 	flex-direction: column;
@@ -397,6 +398,14 @@ const Left = styled.div`
 			user-select: text !important;
 			--webkit-user-select: text !important;
 
+			font-family: "GothamMedium", sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+
+			margin-top: 10px;
+
+			font-size: 30px;
+
 			span {
 				color: var(--main-color-red);
 
@@ -412,8 +421,12 @@ const Left = styled.div`
 		user-select: text !important;
 		--webkit-user-select: text !important;
 		h2 {
+			font-family: "GothamLight", sans-serif;
+			text-transform: uppercase;
+			font-size: 15px;
+
 			font-weight: 300;
-			font-size: 20px;
+			/* font-size: 20px; */
 			margin-bottom: -10px;
 			color: gray;
 

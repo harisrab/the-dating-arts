@@ -29,75 +29,66 @@ function SubscribeButton() {
 	};
 
 	return (
-		<ButtonWrapper
-			variants={btnVariants}
-			onMouseEnter={() => setDidHover(true)}
-			onMouseLeave={() => setDidHover(false)}
-			initial="initial"
-			whileHover={"final"}
-			transition={{ duration: 0.2 }}
-			onClick={handleSubscribe}
-		>
-			<p>GO TO YOUTUBE</p>
-			<AnimatedBG
-				variants={bgVariants}
-				initial="initial"
-				animate={didHover ? "final" : {}}
-				transition={{ type: "tween", ease: "easeOut", duration: 0.3 }}
-			></AnimatedBG>
+		<ButtonWrapper onClick={handleSubscribe}>
+			<button className="btn btn-1">
+				<span>Explore YouTube</span>
+			</button>
 		</ButtonWrapper>
 	);
 }
 
 export default SubscribeButton;
 
-const ButtonWrapper = styled(motion.button)`
-	width: 14vw;
-	height: 3.2vw;
-	border: 1px solid;
-	border-color: var(--main-color-red);
-
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	align-items: flex-end;
-	box-sizing: border-box;
-
+const ButtonWrapper = styled.div`
 	background-color: transparent;
+	border: none;
 
-	&:hover {
+	.btn {
+		border: none;
+		font-family: "GothamBook", sans-serif;
+		font-size: 13px;
+		color: inherit;
 		cursor: pointer;
+		padding: 13px 40px;
+		display: inline-block;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		outline: none;
+		position: relative;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+		border: 1px solid red;
+		color: red;
+		overflow: hidden;
+		background: transparent;
+	}
+
+	.btn span {
+		letter-spacing: 3px;
+		font-size: 12px;
+
+	}
+
+	.btn:after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		-webkit-transition: all 0.3s;
+		-moz-transition: all 0.3s;
+		transition: all 0.3s;
+	}
+
+	/* Button 1 */
+	.btn-1:hover,
+	.btn-1:active {
+		/* font-family: "GothamBook", sans-serif; */
+		color: white;
+		background: red;
+		border: 1px solid red;
 	}
 
 	position: absolute;
-	color: #cc1414;
-
-	p {
-		position: absolute;
-
-		z-index: 1;
-
-		width: 100%;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-
-		font-size: 13px;
-		font-family: "Spectral", sans-serif;
-		font-weight: 500;
-	}
-
-
-    bottom: 80px;
-
-`;
-
-const AnimatedBG = styled(motion.div)`
-	width: 101%;
-	height: 0%;
-	background-color: var(--main-color-red);
-	margin-left: -1px;
-	margin-bottom: -1px;
-	position: relative;
+	bottom: 80px;
+	
 `;

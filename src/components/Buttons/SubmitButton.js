@@ -5,16 +5,23 @@ import { motion } from "framer-motion";
 const btnVariants = {
 	initial: {
 		scale: 1,
+		// height: "103%",
+		backgroundColor: "#e00101",
 	},
-	final: {},
+	final: {
+		backgroundColor: "#c00000",
+		// height: "103%",
+	},
 };
 
 const bgVariants = {
 	initial: {
-		height: "0%",
+		// height: "103%",
+		// backgroundColor: "#e00101",
 	},
 	final: {
-		height: "103%",
+		// backgroundColor: "#c00000",
+		// height: "103%",
 	},
 };
 function SubmitButton({ success }) {
@@ -47,7 +54,7 @@ function SubmitButton({ success }) {
 		>
 			{success === "" ? (
 				<motion.p
-					initial={!didHover ? { color: "#a70000" } : {}}
+					initial={!didHover ? { color: "#fff" } : {}}
 					animate={didHover ? { color: "#fff" } : {}}
 				>
 					SUBMIT
@@ -116,8 +123,9 @@ const ButtonWrapper = styled(motion.button)`
 		transform: translate(-50%, -50%);
 
 		font-size: 13px;
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamBook", sans-serif;
 		font-weight: 500;
+		letter-spacing: 2px;
 	}
 
 	@media only screen and (max-device-width: 480px) {
