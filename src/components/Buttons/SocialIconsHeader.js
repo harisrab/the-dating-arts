@@ -1,6 +1,6 @@
 import React from "react";
 import { Frame, AnimatePresence } from "framer";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 const variants = {
 	initial: {

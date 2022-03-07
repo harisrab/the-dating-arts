@@ -1,26 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { useStateValue } from "../../Store/StateProvider";
 
-const btnVariants = {
-	initial: {
-		scale: 1,
-	},
-	final: {},
-};
-
-const bgVariants = {
-	initial: {
-		height: "0%",
-	},
-	final: {
-		height: "103%",
-	},
-};
 
 function ProductItemDetailsButton({ id }) {
-	const [didHover, setDidHover] = useState(false);
 
 	const [{ productModalToggle }, dispatch] = useStateValue();
 

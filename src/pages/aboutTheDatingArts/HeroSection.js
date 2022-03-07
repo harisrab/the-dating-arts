@@ -32,7 +32,7 @@ function HeroSection({ heading, description, url }) {
 						</div>
 						<div className="main-heading">
 							<h1>
-								The Dating <span>Arts</span>
+								The Dating Arts
 							</h1>
 						</div>
 						<div className="summary">{description}</div>
@@ -120,7 +120,7 @@ const LeftSection = styled.div`
 		height: auto;
 		width: 80%;
 
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamBook", sans-serif;
 		color: var(--main-color-white);
 		pointer-events: all;
 		user-select: text;
@@ -129,6 +129,9 @@ const LeftSection = styled.div`
 			pointer-events: all;
 			user-select: text;
 			p {
+				font-family: "GothamLight", sans-serif;
+				text-transform: uppercase;
+				font-size: 15px;
 				pointer-events: all;
 				user-select: text;
 				color: gray;
@@ -142,9 +145,16 @@ const LeftSection = styled.div`
 			user-select: text;
 
 			h1 {
+
+				font-family: "GothamMedium", sans-serif;
+				text-transform: uppercase;
+				font-size: 25px;
+				letter-spacing: 5px;
+				margin-top: 5px;
+
+
 				pointer-events: all;
 				user-select: text;
-				font-weight: 400;
 				span {
 					pointer-events: all;
 					user-select: text;
@@ -156,9 +166,17 @@ const LeftSection = styled.div`
 		}
 
 		.summary {
+			font-family: "GothamBook", sans-serif;
+			font-size: 15px;
+
+			line-height: 1.5;
+
 			pointer-events: all;
 			user-select: text;
 			font-weight: 200;
+
+			color: gray;
+			
 		}
 
 		margin-left: 50px;
@@ -175,8 +193,6 @@ const LeftSection = styled.div`
 
 			height: auto;
 			width: 100%;
-
-			font-family: "Spectral", sans-serif;
 			color: var(--main-color-white);
 			pointer-events: all;
 			user-select: text;

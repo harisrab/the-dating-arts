@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import LogoBlack from "../LogoBlack";
 import { useHistory } from "react-router-dom";
 
-import { useStateValue } from "../../Store/StateProvider";
+// import { useStateValue } from "../../Store/StateProvider";
 
-import { useAnimation } from "framer-motion";
+// import { useAnimation } from "framer-motion";
 
 // import buttons
 import MenuButton from "./Buttons/MenuButton";
-import UserHeaderButton from "./Buttons/UserHeaderButton";
-import ShoppingCartButton from "./Buttons/ShoppingCartButton";
+// import UserHeaderButton from "./Buttons/UserHeaderButton";
+// import ShoppingCartButton from "./Buttons/ShoppingCartButton";
 import SocialIconsHeader from "./Buttons/SocialIconsHeader";
-import ScrollUpButton from "./Buttons/ScrollUpButton";
+// import ScrollUpButton from "./Buttons/ScrollUpButton";
 import MainMenu from "../MainMenu";
 
 function Header({ background = "white" }) {

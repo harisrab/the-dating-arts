@@ -32,7 +32,7 @@ function HeroSection({ heading, description, url }) {
 						</div>
 						<div className="main-heading">
 							<h1>
-								<span>{heading}</span>
+								{heading}
 							</h1>
 						</div>
 						<div className="summary">{description}</div>
@@ -136,6 +136,9 @@ const LeftSection = styled.div`
 			pointer-events: all;
 			user-select: text;
 			p {
+				font-family: "GothamLight", sans-serif;
+				text-transform: uppercase;
+				font-size: 15px;
 				pointer-events: all;
 				user-select: text;
 				color: gray;
@@ -149,6 +152,14 @@ const LeftSection = styled.div`
 			user-select: text;
 
 			h1 {
+
+				font-family: "GothamMedium", sans-serif;
+				text-transform: uppercase;
+				font-size: 25px;
+				letter-spacing: 5px;
+				margin-top: 5px;
+
+
 				pointer-events: all;
 				user-select: text;
 				font-weight: 400;
@@ -163,6 +174,13 @@ const LeftSection = styled.div`
 		}
 
 		.summary {
+
+			font-family: "GothamBook", sans-serif;
+			font-size: 15px;
+
+
+			color: gray;
+			line-height: 1.5;
 			pointer-events: all;
 			user-select: text;
 			font-weight: 200;

@@ -23,7 +23,7 @@ const variants = {
 };
 
 function LeftButton({ currentIndex, setCurrentIndex, testimonials }) {
-	const forward = () => {};
+	// const forward = () => {};
 
 	return (
 		<Frame

@@ -50,10 +50,10 @@ const Wrapper = styled.div`
 const ContentWrapper = styled.div`
 	height: 85%;
 	width: 90%;
-	font-family: "Spectral", sans-serif;
+	font-family: "GothamBook", sans-serif;
 	color: white;
 	display: flex;
-
+	
 	pointer-events: all;
 	user-select: text;
 
@@ -79,7 +79,11 @@ const Left = styled.div`
 		pointer-events: all;
 		user-select: text;
 		h2 {
-			font-size: 40px;
+			font-family: "GothamBold", sans-serif;
+			font-size: 20px;
+			letter-spacing: 5px;
+			text-transform: uppercase;
+
 			font-weight: 400;
 
 			color: var(--main-color-red);
@@ -117,7 +121,13 @@ const Right = styled.div`
 	p {
 		width: 80%;
 		font-weight: 200;
-		font-size: 18px;
+		
+		font-family: "GothamLight", sans-serif;
+		font-size: 16px;
+		line-height: 1.5;
+		/* letter-spacing: 2px ; */
+		
+
 
 		pointer-events: all !important;
 		user-select: text !important;
@@ -133,6 +143,14 @@ const Right = styled.div`
 		align-items: center;
 
 		p {
+			width: 80%;
+			font-weight: 200;
+			
+			font-family: "GothamLight", sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			
+			
 			width: 85%;
 			font-size: 15px;
 			height: 200px;

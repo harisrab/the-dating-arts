@@ -129,16 +129,36 @@ const LeftSection = styled.div`
 				pointer-events: all;
 				user-select: text;
 				font-weight: 400;
+
+				font-family: "GothamBold", sans-serif;
+				text-transform: uppercase;
+				font-size: 30px;
+				letter-spacing: 2px;
+				margin-top: 5px;
+
+
 			}
 
 			margin-bottom: 10px;
 		}
 
 		.summary {
+
+			font-family: "GothamBook", sans-serif;
+			font-size: 25px;
+			/* letter-spacing: 5px; */
+			margin-top: 5px;
+			line-height: 1.5;
+
+			color: gray;
+
+
 			pointer-events: all;
 			user-select: text;
 			font-weight: 200;
 			font-size: 15px;
+
+			
 		}
 
 		margin-left: 50px;
@@ -162,7 +182,7 @@ const LeftSection = styled.div`
 			height: auto;
 			width: 85%;
 
-			font-family: "Spectral", sans-serif;
+			/* font-family: "Spectral", sans-serif; */
 			color: var(--main-color-white);
 			pointer-events: all;
 			user-select: text;

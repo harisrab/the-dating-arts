@@ -100,11 +100,13 @@ const Wrapper = styled.div`
 	pointer-events: all;
 	user-select: text;
 
-	background-image: url("homepage/Areas_Of_Learning.png");
+	/* background-image: url("homepage/Areas_Of_Learning.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: cover; */
 
+	background-color: black;
+	
 	position: relative;
 
 	scroll-snap-align: start;

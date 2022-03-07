@@ -93,10 +93,10 @@ const HomePageWrapper = styled.div`
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
 
-	background-image: url("homepage/herosection_background.png");
+	/* background-image: url("homepage/herosection_background.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: cover; */
 
 	position: relative;
 
@@ -192,7 +192,6 @@ const Wrapper = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		
 
 		padding: 20px 40px;
 		/* border: 1px solid white; */

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Frame, AnimatePresence } from "framer";
 
 import CloseIcon from "@material-ui/icons/Close";

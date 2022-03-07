@@ -125,7 +125,16 @@ const LeftSection = styled.div`
 			pointer-events: all;
 			user-select: text;
 
+
 			h1 {
+
+				font-family: "GothamBold", sans-serif;
+				text-transform: uppercase;
+				font-size: 30px;
+				letter-spacing: 2px;
+				margin-top: 5px;
+
+
 				pointer-events: all;
 				user-select: text;
 				font-weight: 400;
@@ -135,6 +144,14 @@ const LeftSection = styled.div`
 		}
 
 		.summary {
+			font-family: "GothamBook", sans-serif;
+			font-size: 25px;
+			/* letter-spacing: 5px; */
+			margin-top: 5px;
+			line-height: 1.5;
+
+			color: gray;
+
 			pointer-events: all;
 			user-select: text;
 			font-weight: 200;

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import { useHistory } from "react-router";
 import { useStateValue } from "../../Store/StateProvider";
 

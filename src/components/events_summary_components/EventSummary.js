@@ -4,7 +4,7 @@ import Date from "./Date";
 import Title from "./Title";
 import Location from "./Location";
 import Price from "./Price";
-import SummaryButton from "../Buttons/SummaryButton";
+// import SummaryButton from "../Buttons/SummaryButton";
 import { motion } from "framer-motion";
 import { useStateValue } from "../../Store/StateProvider";
 

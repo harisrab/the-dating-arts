@@ -1,17 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
 
-const bgVariants = {
-	initial: {
-		height: "0%",
-	},
-	final: {
-		height: "103%",
-	},
-};
+
 function EventsAddToCartButton({ url }) {
-	const [didHover, setDidHover] = useState(false);
+	// const [didHover, setDidHover] = useState(false);
 
 	const navigate = () => {
 		window.location.href = url;

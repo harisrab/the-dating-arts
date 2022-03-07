@@ -78,8 +78,10 @@ const Left = styled.div`
 	.left-content {
 		margin-left: 100px;
 		h2 {
-			font-size: 40px;
-			font-weight: 400;
+			font-family: "GothamBold", sans-serif;
+			font-size: 20px;
+			letter-spacing: 5px;
+			text-transform: uppercase;
 
 			color: var(--main-color-red);
 
@@ -120,6 +122,10 @@ const Right = styled.div`
 		font-weight: 200;
 		font-size: 18px;
 
+		font-family: "GothamLight", sans-serif;
+		font-size: 16px;
+		line-height: 1.5;
+		
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
@@ -134,6 +140,9 @@ const Right = styled.div`
 		align-items: center;
 
 		p {
+			font-family: "GothamLight", sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
 			width: 85%;
 			font-size: 15px;
 			height: 200px;

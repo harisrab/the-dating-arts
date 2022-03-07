@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import EventsModal from "./components/modals/EventsModal";
 import ProductModal from "./components/modals/ProductModal";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { request, gql } from "graphql-request";
 
 // Import all Pages
@@ -28,11 +28,11 @@ import LoginPage from "./pages/loginPage/LoginPage";
 import NewsletterPopup from "./components/NewsletterPopup";
 
 // Intercom Integration
-import { IntercomProvider, useIntercom } from "react-use-intercom";
+// import { IntercomProvider, useIntercom } from "react-use-intercom";
 import ReviewsPopUp from "./components/ReviewsPopUp";
 
 // const INTERCOM_APP_ID = process.env.INTERCOM_APP_KEY;
-const INTERCOM_APP_ID = "r4lqfnyy";
+// const INTERCOM_APP_ID = "r4lqfnyy";
 
 function App() {
 	const cache = useRef({});
@@ -210,7 +210,7 @@ function App() {
 		}
 	`;
 
-	const [{ cmsData }, dispatch] = useStateValue();
+	const [{ _ }, dispatch] = useStateValue();
 
 	useEffect(() => {
 		let cancelRequest = false;
@@ -222,15 +222,18 @@ function App() {
 			if (cache.current[url]) {
 				const data = cache.current[url];
 				dispatch({ type: "FETCHED", payload: data });
+				console.log("Cache ===> ", cache);
 			} else {
 				request(url, query)
 					.then((data) => {
+						console.log("Fetched Data ===> ", data);
+
 						// process dates on upcoming events
 
 						let newEvents = data.upcomingEvents.map((event) => {
 							return {
 								...event,
-								startDate: new Date(event.startDate),
+								startDategi: new Date(event.startDate),
 								endDate: new Date(event.endDate),
 							};
 						});

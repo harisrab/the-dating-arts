@@ -37,10 +37,12 @@ const HeroSectionWrapper = styled.div`
 	pointer-events: all;
 	user-select: text;
 
-	background-image: url("homepage/herosection_background.png");
+	/* background-image: url("homepage/herosection_background.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: cover; */
+
+	background-color: black;
 
 	position: relative;
 
