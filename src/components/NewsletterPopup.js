@@ -76,6 +76,10 @@ function NewsletterPopup() {
 				<h2>
 					The Dating <span>Arts</span>
 				</h2>
+
+				<p className="blurb">
+					Join our newsletter and get Dead / Rebirth E-book for free!
+				</p>
 			</div>
 
 			<div className="bottom">
@@ -107,10 +111,10 @@ function NewsletterPopup() {
 					</form>
 				) : (
 					<div className="registered-wrapper">
-						{/* <h4>
+						<h4>
 							You've been successfully registered! Check your
 							email for confirmation.
-						</h4> */}
+						</h4>
 						<LottieAnimation
 							lotti={tickMark}
 							height={70}
@@ -134,7 +138,7 @@ export default NewsletterPopup;
 const Wrapper = styled.div`
 	height: auto;
 	width: 300px;
-	background-color: #4b4b4bbe;
+	background-color: #161616f0;
 	/* 
 	position: absolute;
 	top: 50%;
@@ -167,6 +171,22 @@ const Wrapper = styled.div`
 		font-family: "Spectral", sans-serif;
 		width: 100%;
 
+		.blurb {
+			font-family: "GothamBook", sans-serif;
+			text-transform: none;
+			font-size: 11px;
+			letter-spacing: 1px;
+			align-self: center;
+
+			/* background-color: red; */
+			text-align: center;
+			margin-top: 10px;
+			margin-bottom: 0px;
+
+			padding-right: 30px;
+			padding-left: 30px;
+			color: #bdbdbd;
+		}
 		p {
 			font-family: "GothamThin", sans-serif;
 			text-transform: uppercase;
@@ -206,16 +226,21 @@ const Wrapper = styled.div`
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			flex-direction: column;
 
 			width: 100%;
 			margin-bottom: 10px;
 
 			h4 {
-				color: #272727;
-				font-family: "Spectral", sans-serif;
-				font-weight: 300;
-				font-size: 15px;
+				color: #bdbdbd;
+				font-family: "GothamBook", sans-serif;
+				font-size: 13px;
 				width: 80%;
+
+				text-align: center;
+				margin-bottom: 10px;
+
+
 
 				display: flex;
 				align-items: center;
@@ -323,16 +348,16 @@ const Wrapper = styled.div`
 	}
 `;
 
-const IconButtonWrapper = styled(IconButton)`
+const IconButtonWrapper = React.memo(styled(IconButton)`
 	position: absolute !important;
 	top: 5px;
 	right: 5px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-`;
+`);
 
-const CloseIconWrapper = styled(CloseIcon)`
+const CloseIconWrapper = React.memo(styled(CloseIcon)`
 	color: #e6e6e6;
 	font-size: 15px !important;
-`;
+`);

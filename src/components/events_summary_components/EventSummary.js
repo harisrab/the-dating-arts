@@ -148,7 +148,7 @@ const Wrapper = styled(motion.div)`
 	margin-bottom: 20px;
 
 	@media only screen and (max-device-width: 480px) {
-		height: 160px;
+		height: 150px;
 		width: 100%;
 
 		display: -webkit-box;
@@ -157,16 +157,20 @@ const Wrapper = styled(motion.div)`
 		display: flex;
 
 		flex-direction: column;
-		justify-content: flex-start;
+		justify-content: space-between;
 		align-items: flex-start;
+
+		padding: 8px;
 
 		.inline-one-container {
 			display: flex;
 			align-items: center;
 			flex-direction: row-reverse;
 			padding-top: 10px;
-			padding-right: 20px;
-			margin-bottom: 20px;
+			padding-right: 10px;
+			/* margin-bottom: 20px; */
+
+			/* background-color: blue; */
 		}
 
 		.inline-container {
@@ -176,7 +180,10 @@ const Wrapper = styled(motion.div)`
 			margin-top: -5px;
 			margin-bottom: -20px;
 			width: 100%;
-			padding-right: 20px;
+
+			/* background-color: yellow; */
+
+			padding-right: 10px;
 		}
 	}
 `;
@@ -271,6 +278,21 @@ const ButtonHolder = styled.div`
 	}
 	@media only screen and (max-device-width: 480px) {
 		width: 100%;
-		margin-top: 20px;
+		/* margin-top: 50px; */
+
+		/* margin-top: 10px; */
+		/* background-color: red; */
+		height: 30%;
+
+		border: 1px solid white;
+
+		margin-top: 10px;
+		background-color: white;
+		color: black;
+
+		font-family: "GothamMedium", sans-serif;
+		font-size: 10px;
+		letter-spacing: 2px;
+
 	}
 `;

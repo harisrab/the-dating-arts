@@ -35,14 +35,15 @@ import ReviewsPopUp from "./components/ReviewsPopUp";
 const INTERCOM_APP_ID = "r4lqfnyy";
 
 function App() {
-	const cache = useRef({});
+	// const cache = useRef({});
 	const [showWebsite, setShowWebsite] = useState(false);
+	const [url, setURL] = useState(
+		"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master"
+	);
+
 	// const { boot, shutdown, hide, show, update } = useIntercom();
 
 	console.log("App Exectuing!");
-
-	const url =
-		"https://api-us-east-1.graphcms.com/v2/ckq8brsjz4kol01xk7rmph436/master";
 
 	const query = gql`
 		{
@@ -212,68 +213,100 @@ function App() {
 
 	const [{ cmsData }, dispatch] = useStateValue();
 
-	useEffect(() => {
-		let cancelRequest = false;
-		if (!url) return;
+	// useEffect(() => {
+	let cancelRequest = false;
+	if (!url) return;
 
-		const fetchData = async () => {
-			dispatch({ type: "FETCHING" });
+	const fetchData = () => {
+		dispatch({ type: "FETCHING" });
+		// let localData = localStorage.getItem("data");
 
-			if (cache.current[url]) {
-				const data = cache.current[url];
-				dispatch({ type: "FETCHED", payload: data });
-			} else {
-				request(url, query)
-					.then((data) => {
-						// process dates on upcoming events
+		// if (localData) {
+		// 	console.log(
+		// 		"DATA FETCHING IN PROGRESS FROM CACHE !!!!!!!!!!!!!",
+		// 		localData
+		// 	);
 
-						let newEvents = data.upcomingEvents.map((event) => {
-							return {
-								...event,
-								startDate: new Date(event.startDate),
-								endDate: new Date(event.endDate),
-							};
-						});
+		// 	localData = JSON.parse(localData);
 
-						let newReviews;
+		// 	localData["upcomingEvents"].forEach((eachEvent) => {
+		// 		eachEvent.endDate = new Date(eachEvent.endDate);
+		// 		eachEvent.startDate = new Date(eachEvent.startDate);
 
-						newReviews = _.chain(data.reviews)
-							.groupBy("folders")
-							.value();
+		// 		console.log(eachEvent);
+		// 	});
 
-						let finalReviews = new Object();
+		// 	// const data = localData;
+		// 	dispatch({ type: "FETCHED", payload: localData });
 
-						Object.entries(newReviews).forEach((eachEntry) => {
-							finalReviews[eachEntry[0]] = _.chain(eachEntry[1])
-								.groupBy("id")
-								.value();
-						});
+		// } else {
+		request(url, query)
+			.then((data) => {
+				// process dates on upcoming events
 
-						const newData = {
-							...data,
-							upcomingEvents: newEvents,
-							reviews: finalReviews,
-						};
+				let newEvents = data.upcomingEvents.map((event) => {
+					return {
+						...event,
+						startDate: new Date(event.startDate),
+						endDate: new Date(event.endDate),
+					};
+				});
 
-						cache.current[url] = newData;
-						if (cancelRequest) return;
-						dispatch({
-							type: "FETCHED",
-							payload: newData,
-						});
-					})
-					.catch((error) => {
-						if (cancelRequest) return;
-						dispatch({
-							type: "FETCH_ERROR",
-							payload: error.message,
-						});
-					});
-			}
-		};
+				let newReviews;
 
+				newReviews = _.chain(data.reviews).groupBy("folders").value();
+
+				let finalReviews = new Object();
+
+				Object.entries(newReviews).forEach((eachEntry) => {
+					finalReviews[eachEntry[0]] = _.chain(eachEntry[1])
+						.groupBy("id")
+						.value();
+				});
+
+				let newData = {
+					...data,
+					upcomingEvents: newEvents,
+					reviews: finalReviews,
+				};
+
+				localStorage.setItem("data", JSON.stringify(newData));
+
+				newData = JSON.parse(JSON.stringify(newData));
+
+				newData["upcomingEvents"].forEach((eachEvent) => {
+					eachEvent.endDate = new Date(eachEvent.endDate);
+					eachEvent.startDate = new Date(eachEvent.startDate);
+
+					console.log(eachEvent);
+				});
+
+				console.log("Fetching Data From SERVER !!!!!!!!!!!!!", newData);
+
+				if (cancelRequest) return;
+				dispatch({
+					type: "FETCHED",
+					payload: { ...newData, url: url },
+				});
+			})
+			.catch((error) => {
+				if (cancelRequest) return;
+				dispatch({
+					type: "FETCH_ERROR",
+					payload: error.message,
+				});
+			});
+		// }
+	};
+
+	if (cmsData.status === "idle") {
 		fetchData();
-	}, [url, dispatch, query]);
+	}
+
+	// fetchData();
+	// }, [url, dispatch, query]);
+
+	console.log("Website Loaded");
 
 	return (
 		<Router>
@@ -308,7 +341,7 @@ function App() {
 								<Header key={1} />
 								<AboutTheDatingArts />
 							</Route>
-							<Route path="/about-colgate">
+							<Route path="/wem">
 								<Header key={1} />
 								<AboutColgate />
 							</Route>

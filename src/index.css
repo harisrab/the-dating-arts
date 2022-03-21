@@ -38,6 +38,18 @@
 
 }
 
+#tidio-chat-iframe {
+  
+  @media only screen and (min-device-width: 480px) {	
+    /* position: absolute !important; */
+    right: 50px !important;
+    bottom: 20px !important;
+	}
+
+
+
+}
+
 * {
   box-sizing: border-box;
   margin: 0px;

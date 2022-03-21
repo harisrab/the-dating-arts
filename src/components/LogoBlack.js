@@ -68,6 +68,13 @@ const LogoWrapper = styled.div`
 			color: black;
 		}
 	}
+
+	@media only screen and (max-device-width: 480px) {
+		h3 {
+			padding: 12px 20px;
+			font-size: 9px;
+		}
+	}
 `;
 
 const LogoTitle = styled.p`

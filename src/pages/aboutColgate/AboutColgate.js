@@ -18,7 +18,7 @@ function AboutColgate() {
 
 	useEffect(() => {
 		if (cmsData.status === "fetched") {
-			setData(cmsData.data.pageAboutColgates[0]);
+		setData(cmsData.data.pageAboutColgates[0]);
 		}
 	}, [cmsData]);
 
@@ -113,7 +113,7 @@ const AboutWrapper = styled(motion.div)`
 		background: var(--scrollbar-handle-hover-color);
 	}
 
-	scroll-snap-type: y mandatory;
+	/* scroll-snap-type: y mandatory; */
 	scroll-behavior: smooth;
 
 	overflow-x: hidden;

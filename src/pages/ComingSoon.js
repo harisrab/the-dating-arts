@@ -92,11 +92,11 @@ const HomePageWrapper = styled.div`
 
 	scroll-snap-type: y mandatory;
 	scroll-behavior: smooth;
-
+	/* 
 	background-image: url("homepage/herosection_background.png");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: cover; */
 
 	position: relative;
 
@@ -192,7 +192,6 @@ const Wrapper = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		
 
 		padding: 20px 40px;
 		/* border: 1px solid white; */
@@ -230,7 +229,7 @@ const Wrapper = styled.div`
 	@media only screen and (max-device-width: 480px) {
 		h3 {
 			text-align: center;
-			font-size: 30px;
+			font-size: 12px;
 		}
 
 		h2 {

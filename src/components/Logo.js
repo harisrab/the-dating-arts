@@ -37,10 +37,6 @@ const LogoWrapper = styled.div`
 
 	/* background-color: red; */
 
-	img {
-		color: red;
-	}
-
 	h3 {
 		display: flex;
 		align-items: center;
@@ -55,6 +51,7 @@ const LogoWrapper = styled.div`
 		font-size: 10px;
 		letter-spacing: 8px;
 		color: white;
+		/* background-color: #tra; */
 
 		font-family: "GothamBook", sans-serif;
 
@@ -64,9 +61,20 @@ const LogoWrapper = styled.div`
 
 		transition: 0.2s;
 
+		/* background-color: black; */
+
+		z-index: 10;
+
 		&:hover {
-			background-color: #ffffff1d;
+			background-color: #2e2e2e1d;
 			color: white;
+		}
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		h3 {
+			padding: 12px 20px;
+			font-size: 9px;
 		}
 	}
 `;

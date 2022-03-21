@@ -11,6 +11,7 @@ import { IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import AOLBuyButton from "../../components/Buttons/AOLBuyButton";
+import AnimatedAOLSections from "../../components/AnimatedAOLSections";
 
 const useStyles = makeStyles((theme) => ({
 	customHoverFocus: {
@@ -18,79 +19,6 @@ const useStyles = makeStyles((theme) => ({
 		backgroundColor: { backgroundColor: "#aaaaaa85" },
 	},
 }));
-
-function AOLSection() {
-	const [currentIndex, setCurrentIndex] = useState(0);
-	const [{ cmsData }, dispatch] = useStateValue();
-
-	const classes = useStyles();
-
-	const [AOL, setAOL] = useState([]);
-
-	useEffect(() => {
-		if (cmsData.status === "fetched") {
-			setAOL(cmsData.data.areasOfLearnings);
-		}
-	}, [cmsData]);
-
-	return (
-		<Wrapper>
-			{AOL.length !== 0 ? (
-				<>
-					<AnimatePresence>
-						<ContentWrapper>
-							<div className="sliderbar-holder">
-								<SelectableSlider
-									length={AOL.length}
-									currentIndex={currentIndex}
-									setCurrentIndex={setCurrentIndex}
-								/>
-							</div>
-
-							<p className="subtitle">Areas of Learning</p>
-							<div className="h1__wrapper">
-								<motion.h3
-									key={currentIndex}
-									initial={{ opacity: 1, y: 40 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 1, type: "spring" }}
-									className="heading"
-								>
-									{AOL[currentIndex].title}
-								</motion.h3>
-							</div>
-
-							<div className="p__wrapper">
-								<motion.p
-									key={currentIndex}
-									initial={{ opacity: 0, y: 50 }}
-									animate={{ opacity: 1, y: 0 }}
-									transition={{ duration: 1, type: "spring" }}
-									className="copy"
-								>
-									{AOL[currentIndex].description}
-								</motion.p>
-							</div>
-
-							<div className="buttons-holder">
-								<div className="left">
-									<AOLBuyButton
-										url={AOL[currentIndex].gumroadLink}
-									/>
-								</div>
-							</div>
-						</ContentWrapper>
-					</AnimatePresence>
-					<AnimatedDownArrow />{" "}
-				</>
-			) : (
-				<></>
-			)}
-		</Wrapper>
-	);
-}
-
-export default AOLSection;
 
 const Wrapper = styled.div`
 	height: 100vh;
@@ -100,10 +28,12 @@ const Wrapper = styled.div`
 	pointer-events: all;
 	user-select: text;
 
-	background-image: url("homepage/Areas_Of_Learning.png");
+	background-image: url("homepage/Areas_Of_Learning.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+
+	/* background-color: black; */
 
 	position: relative;
 
@@ -116,6 +46,7 @@ const Wrapper = styled.div`
 	@media only screen and (max-device-width: 480px) {
 		background-image: none;
 		background-color: black;
+		height: 110vh;
 	}
 
 	overflow: hidden;
@@ -329,6 +260,7 @@ const ContentWrapper = styled.div`
 		.p__wrapper {
 			width: fit-content;
 			height: auto;
+
 			padding-bottom: 20px;
 			overflow: hidden;
 
@@ -338,7 +270,7 @@ const ContentWrapper = styled.div`
 
 		.subtitle {
 			color: gray;
-			font-size: 16px;
+			font-size: 13px;
 			font-weight: 300;
 
 			pointer-events: all;
@@ -347,7 +279,7 @@ const ContentWrapper = styled.div`
 
 		.heading {
 			color: #e8e8e8;
-			font-size: 28px;
+			font-size: 24px;
 			font-weight: 500;
 			margin-bottom: 10px;
 			margin-top: 8px;
@@ -365,6 +297,60 @@ const ContentWrapper = styled.div`
 
 			pointer-events: all;
 			user-select: text;
+
+			height: 320px;
 		}
 	}
 `;
+const AOLSection = React.memo(function AOLSection() {
+	const [currentIndex, setCurrentIndex] = useState(0);
+	const [{ cmsData }, dispatch] = useStateValue();
+
+	const classes = useStyles();
+
+	const [AOL, setAOL] = useState([]);
+
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setAOL(cmsData.data.areasOfLearnings);
+		}
+	}, [cmsData]);
+
+	return (
+		<Wrapper>
+			{AOL.length !== 0 ? (
+				<>
+					<ContentWrapper>
+						<div className="sliderbar-holder">
+							<SelectableSlider
+								length={AOL.length}
+								currentIndex={currentIndex}
+								setCurrentIndex={setCurrentIndex}
+							/>
+						</div>
+
+						<p className="subtitle">Areas of Learning</p>
+
+						<AnimatedAOLSections
+							AOL={AOL}
+							currentIndex={currentIndex}
+						/>
+
+						<div className="buttons-holder">
+							<div className="left">
+								<AOLBuyButton
+									url={AOL[currentIndex].gumroadLink}
+								/>
+							</div>
+						</div>
+					</ContentWrapper>
+					<AnimatedDownArrow />{" "}
+				</>
+			) : (
+				<></>
+			)}
+		</Wrapper>
+	);
+});
+
+export default AOLSection;

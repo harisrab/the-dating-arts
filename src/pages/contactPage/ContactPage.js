@@ -444,7 +444,8 @@ const Left = styled.div`
 
 		.main-heading {
 			h2 {
-				font-size: 35px;
+				font-size: 24px;
+				letter-spacing: 2px;
 			}
 		}
 	}

@@ -76,7 +76,7 @@ function TrainingCard({ training }) {
 			<div className="add_to_cart_holder">
 				<IconButton
 					className="outer"
-					color="tertiary"
+					color="default"
 					aria-label="add to shopping cart"
 				>
 					<InfoOutlinedIcon
@@ -93,7 +93,7 @@ function TrainingCard({ training }) {
 				</IconButton>
 				<IconButton
 					className="outer"
-					color="tertiary"
+					color="default"
 					aria-label="add to shopping cart"
 					onClick={redirectToEvents}
 				>

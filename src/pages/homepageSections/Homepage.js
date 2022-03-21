@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+
+import { useScrollDirection } from "react-use-scroll-direction";
 
 // Import All Sections
 import HeroSection from "./HeroSection";
@@ -12,35 +14,38 @@ import AtHomeTraining from "./AtHomeTraining";
 import Testimonials from "./Testimonials";
 import Newsletter from "./Newsletter";
 import Footer from "./Footer";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 function Homepage() {
+	// const scrollTarget = useRef();
+	const { isScrollingUp, scrollTargetRef } = useScrollDirection();
+
+	useEffect(() => {
+		console.log("Scroll Target Ref =====> ", isScrollingUp);
+	}, [isScrollingUp]);
+
+	
+
 	return (
 		<>
-			<HomePageWrapper
-				id="main_app"
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				exit={{ opacity: 0 }}
-				transition={{ duration: 0.2 }}
-				key={9}
-			>
+			<HomePageWrapper id="main_app" ref={scrollTargetRef} key={9}>
 				<HeroSection />
-				{/* <BrandSection /> */}
 				<AOLSection />
 				<UpcomingEvents />
 				<LiveExperiences />
 				<AtHomeTraining />
 				<Testimonials />
-				{/* <Newsletter /> */}
 				<Footer />
 			</HomePageWrapper>
 		</>
 	);
 }
 
+Homepage.whyDidYouRender = true;
+
 export default Homepage;
 
-const HomePageWrapper = styled(motion.div)`
+const HomePageWrapper = styled.div`
 	z-index: 49;
 	height: 100vh;
 	width: 100%;
@@ -74,6 +79,8 @@ const HomePageWrapper = styled(motion.div)`
 	/* Handle on hover */
 	&::-webkit-scrollbar-thumb:hover {
 		background: var(--scrollbar-handle-hover-color);
+
+		z-index: 2000000;
 	}
 
 	/* Firefox */
@@ -86,8 +93,8 @@ const HomePageWrapper = styled(motion.div)`
 	scroll-behavior: smooth; */
 
 	@media screen and (min-height: 585px) {
-		scroll-snap-type: y mandatory;
-		scroll-behavior: smooth;
+		/* scroll-snap-type: y mandatory; */
+		/* scroll-behavior: smooth; */
 	}
 
 	@media only screen and (max-device-width: 480px) {

@@ -32,22 +32,22 @@ function AtHomeTrainings() {
 						description={data.heroDescription}
 					/>
 					<AtHomeSection
-						blurb={"Introduction"}
+						blurb={""}
 						title={data.closeHerSchoolLiveTitle}
 						text={data.closeHerSchoolLiveDescription}
 					/>
 					<AtHomeSection
-						blurb={"Introduction"}
+						blurb={""}
 						title={data.empowerVideoSessionTitle}
 						text={data.empowerVideoSessionDescription}
 					/>
 					<AtHomeSection
-						blurb={"Introduction"}
+						blurb={""}
 						title={data.expressOnlineBootcampTitle}
 						text={data.expressOnlineBootcampDescription}
 					/>
 					<AtHomeSection
-						blurb={"Introduction"}
+						blurb={""}
 						title={data.masterclassBreakoutTitle}
 						text={data.masterclassBreakoutDescription}
 					/>
@@ -102,7 +102,7 @@ const HomePageWrapper = styled(motion.div)`
 		background: var(--scrollbar-handle-hover-color);
 	}
 
-	scroll-snap-type: y mandatory;
+	/* scroll-snap-type: y mandatory; */
 	scroll-behavior: smooth;
 	h1 {
 		position: absolute;

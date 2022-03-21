@@ -1,31 +1,42 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import ApplyNowButton from "../../components/Buttons/ApplyNowButton";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
-import { motion } from "framer-motion";
+import { useStateValue } from "../../Store/StateProvider";
 
-function HeroSection() {
-	const [isMobile, setIsMobile] = useState();
+// import { useCallback } from "react";
+
+const HeroSection = React.memo(function HeroSection() {
+	// const [isMobile, setIsMobile] = useState();
+	const [{ cmsData }, dispatch] = useStateValue();
+	const [link, setLink] = useState("");
+
+	useEffect(() => {
+		if (cmsData.status === "fetched") {
+			setLink(cmsData.data.applicationPages[0].googleFormsLink);
+		}
+	}, [cmsData]);
 
 	return (
 		<HeroSectionWrapper>
 			<div className="text-wrapper">
 				<h3 className="line1">
-					Your dream woman will be right in front of you one day.
+					Conquering Women Is an Art That Lies Within Each Man.
 				</h3>
-				<h3 className="line2">Do your have the skills to get her?</h3>
+				<h3 className="line2">It's time to awaken it!</h3>
 				<div className="button-holder">
 					{/* <ApplyNowButton /> */}
-					<button className="btn btn-1">
-						<span>Apply now</span>
-					</button>
+					<a href={`${link}`} target="_blank" rel="noreferrer">
+						<button className="btn btn-1">
+							<span>Apply now</span>
+						</button>
+					</a>
 				</div>
 			</div>
 
 			<AnimatedDownArrow />
 		</HeroSectionWrapper>
 	);
-}
+});
 
 export default HeroSection;
 
@@ -37,10 +48,12 @@ const HeroSectionWrapper = styled.div`
 	pointer-events: all;
 	user-select: text;
 
-	background-image: url("homepage/herosection_background.png");
+	background-image: url("homepage/herosection_background.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
+
+	/* background-color: black; */
 
 	position: relative;
 

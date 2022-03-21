@@ -124,7 +124,7 @@ const Left = styled.div`
 				letter-spacing: 5px;
 				text-transform: uppercase;
 
-				font-size: 30px;
+				font-size: 20px;
 			}
 		}
 	}
@@ -164,11 +164,12 @@ const Right = styled.div`
 		height: 60%;
 		justify-content: center;
 		align-items: center;
+		margin-top: 20px;
 
 		p {
 			width: 85%;
 			font-size: 15px;
-			height: 200px;
+			/* height: 200px; */
 			overflow-y: scroll;
 		}
 	}

@@ -24,6 +24,9 @@ function Header({ background = "white" }) {
 				<MainMenu />
 
 				<TopSection>
+					<BackStrip />
+					<BackStrip2 />
+
 					<LogoHolder>
 						<LogoBlack
 							background={background}
@@ -36,35 +39,70 @@ function Header({ background = "white" }) {
 						<UserHeaderButton background={background} /> */}
 					</RightSection>
 				</TopSection>
-				<BottomSection>
-					<SocialIconsContainer>
-						<SocialIconsHeader
-							type="instagram"
-							background={background}
-						/>
-						<SocialIconsHeader
-							type="facebook"
-							background={background}
-						/>
-						<SocialIconsHeader
-							type="youtube"
-							background={background}
-						/>
-					</SocialIconsContainer>
-
-					{/* <ScrollHolder>
-						<ScrollUpButton background={background} />
-					</ScrollHolder> */}
-				</BottomSection>
 			</HeaderWrapper>
 		</>
 	);
 }
 
 export default Header;
+const BackStrip = styled.div`
+	background-color: #e6e6e6;
+
+	position: absolute;
+
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+
+	width: 100vw;
+	height: 110px;
+
+	z-index: -1;
+	@media only screen and (max-device-width: 480px) {
+		background-color: #e6e6e6;
+
+		position: absolute;
+
+		top: 50%;
+		left: 50%;
+
+		transform: translate(-50%, -50%);
+
+		width: 100vw;
+		height: 110px;
+
+		z-index: -1;
+
+		/* box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+			rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+			rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+	}
+`;
+const BackStrip2 = styled.div`
+	@media only screen and (max-device-width: 480px) {
+		background-color: #e6e6e6;
+
+		position: absolute;
+
+		top: -10%;
+		left: 50%;
+
+		transform: translate(-50%, -50%);
+
+		width: 100vw;
+		height: 110px;
+
+		z-index: -1;
+
+		/* box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+			rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+			rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+	}
+`;
 
 const HeaderWrapper = styled.div`
-	height: 86.94%;
+	height: 95%;
 	width: 89.37%;
 
 	position: fixed;
@@ -90,6 +128,7 @@ const HeaderWrapper = styled.div`
 const TopSection = styled.div`
 	width: 100%;
 	height: 8%;
+	position: relative;
 
 	display: -webkit-box;
 	display: -ms-flexbox;

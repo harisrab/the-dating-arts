@@ -27,7 +27,6 @@ const Wrapper = styled.div`
 	justify-content: center;
 
 	p {
-		
 		font-size: 12px;
 	}
 	h3 {
@@ -35,5 +34,13 @@ const Wrapper = styled.div`
 		font-weight: 500;
 		font-size: 20px;
 		margin-top: -3px;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		
+		
+		h3 {
+			
+		}
 	}
 `;

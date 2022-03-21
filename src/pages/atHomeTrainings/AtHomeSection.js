@@ -42,7 +42,8 @@ const Wrapper = styled.div`
 
 	@media only screen and (max-device-width: 480px) {
 		flex-direction: column;
-		padding-top: 450px;
+		/* padding-top: 450px; */
+		/* justify-content: center; */
 	}
 `;
 
@@ -60,7 +61,7 @@ const ContentWrapper = styled.div`
 	@media only screen and (max-device-width: 480px) {
 		flex-direction: column;
 		width: 100%;
-		height: 60%;
+		height: 70%;
 	}
 `;
 
@@ -90,7 +91,7 @@ const Left = styled.div`
 		}
 		h2 {
 			font-size: 35px;
-			
+
 			font-family: "GothamMedium", sans-serif;
 			margin-top: 10px;
 			font-size: 23px;
@@ -109,12 +110,13 @@ const Left = styled.div`
 		justify-content: center;
 		height: 30%;
 
+		/* background-color: blue; */
 		.left-content {
 			margin-left: 0px;
 			width: 85%;
 
 			h2 {
-				font-size: 30px;
+				font-size: 20px;
 			}
 		}
 	}
@@ -138,7 +140,6 @@ const Right = styled.div`
 		margin-top: 10px;
 		font-size: 15px;
 		line-height: 1.5;
-		
 
 		pointer-events: all !important;
 		user-select: text !important;
@@ -148,15 +149,16 @@ const Right = styled.div`
 	width: 60%;
 
 	@media only screen and (max-device-width: 480px) {
+		/* background-color: red; */
 		width: 100%;
-		height: 60%;
+		/* height: 60%; */
 		justify-content: center;
 		align-items: center;
 
 		p {
 			width: 85%;
 			font-size: 15px;
-			height: 200px;
+			/* height: 300px; */
 			overflow-y: scroll;
 		}
 	}

@@ -130,12 +130,13 @@ const Header = styled.div`
 	@media only screen and (max-device-width: 480px) {
 		top: -170px;
 		h1 {
-			font-size: 30px;
+			font-size: 20px;
 			font-weight: 400;
 		}
 
 		p {
 			width: 85%;
+			font-size: 13px;
 			text-align: center;
 		}
 	}
@@ -160,6 +161,8 @@ const CardsHolder = styled.div`
 		height: auto;
 		justify-content: flex-start;
 		align-items: center;
+
+		margin-top: 0px;
 	}
 `;
 

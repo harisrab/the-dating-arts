@@ -2,40 +2,19 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import AnimatedDownArrow from "../../components/AnimatedDownArrow";
 import axios from "axios";
-import { motion } from "framer-motion";
 import YouTubeExploreButton from "../../components/Buttons/YouTubeExploreButton";
-
-const aVars = {
-	initial: {
-		scale: 1,
-	},
-	final: {
-		scale: 1.05,
-	},
-};
-const overlayVars = {
-	initial: {
-		opacity: 0,
-		// visibility: "hidden",
-		// height: "100%",
-	},
-	final: {
-		// visibility: "visible",
-		opacity: 1,
-		// height: "100%",
-		transition: {
-			duration: 0.5,
-			ease: "easeOut",
-		},
-	},
-};
 
 function VideoListings() {
 	const [videos, setVideos] = useState([]);
 
 	const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
+	console.log("API_KEY", API_KEY);
+
+	const [isMobile, setIsMobile] = useState();
+
 	useEffect(() => {
+		setIsMobile(window.matchMedia("(max-device-width: 480px)").matches);
 		axios
 			.get(
 				`https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id=xnzKnTUgTAo%2Cok4F69AIr7o%2COre04ff2iCE%2CJSF6uS302Uc&key=${API_KEY}`
@@ -69,37 +48,30 @@ function VideoListings() {
 						<></>
 					) : (
 						<>
-							{videos.map((eachVideo, i) => {
-								return (
-									<motion.a
-										variants={aVars}
-										whileHover="final"
-										transition={{ duration: 0.3 }}
-										href={`https://youtu.be/${eachVideo.id}`}
-										key={i}
-									>
-										<img
-											className="thumbnail"
-											src={eachVideo.thumbnail.url}
-											alt="youtube-thumbnail"
-										/>
-
-										<motion.div
-											className="overlay"
-											variants={overlayVars}
-											// initial="initial"
-											// whileHover="final"
+							{videos
+								.slice(0, isMobile ? 2 : 4)
+								.map((eachVideo, i) => {
+									return (
+										<a
+											href={`https://youtu.be/${eachVideo.id}`}
+											key={i}
 										>
-											<p>{eachVideo.title}</p>
-										</motion.div>
-									</motion.a>
-								);
-							})}
+											<img
+												className="thumbnail"
+												src={eachVideo.thumbnail.url}
+												alt="youtube-thumbnail"
+											/>
+
+											<div className="overlay">
+												<p>{eachVideo.title}</p>
+											</div>
+										</a>
+									);
+								})}
 						</>
 					)}
 				</div>
-
-				<YouTubeExploreButton />
+				{!isMobile ? <YouTubeExploreButton /> : <></>}
 			</ContentWrapper>
 
 			<AnimatedDownArrow />
@@ -155,8 +127,9 @@ const ContentWrapper = styled.div`
 	align-items: center;
 	justify-content: center;
 
-	font-family: "Spectral", sans-serif;
-
+	font-family: "GothamMedium", sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
 	position: relative;
 
 	h2 {
@@ -165,7 +138,8 @@ const ContentWrapper = styled.div`
 
 		color: white;
 		font-weight: 400;
-		font-size: 30px;
+		/* font-size: 30px; */
+		font-size: 20px;
 
 		pointer-events: all;
 		user-select: text;
@@ -196,10 +170,11 @@ const ContentWrapper = styled.div`
 
 		border-radius: 5px;
 		overflow: hidden;
+		border: 2px solid transparent;
+		transition: 0.2s;
 
 		&:hover {
-			border: 3px solid;
-			border-color: #8b0000;
+			border: 2px solid #d4d4d4;
 		}
 
 		.thumbnail {
@@ -228,6 +203,11 @@ const ContentWrapper = styled.div`
 
 			display: flex;
 			align-items: center;
+			transition: 0.2s;
+
+			&:hover {
+				opacity: 1;
+			}
 
 			p {
 				color: white;
@@ -261,17 +241,19 @@ const ContentWrapper = styled.div`
 		align-items: center;
 		justify-content: center;
 
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamMedium", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 2px;
 
 		position: relative;
 
 		h2 {
 			position: absolute;
-			top: 80px;
+			top: 100px;
 
 			color: white;
 			font-weight: 400;
-			font-size: 30px;
+			font-size: 20px;
 
 			pointer-events: all;
 			user-select: text;
@@ -296,8 +278,6 @@ const ContentWrapper = styled.div`
 		}
 
 		a {
-		
-
 			height: 150px;
 			width: auto;
 			margin-bottom: 30px;
@@ -305,8 +285,6 @@ const ContentWrapper = styled.div`
 
 			border-radius: 5px;
 			overflow: hidden;
-
-
 
 			.thumbnail {
 				height: 150px;

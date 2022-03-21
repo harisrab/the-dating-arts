@@ -32,11 +32,9 @@ const ButtonWrapper = styled.div`
 	background-color: transparent;
 	border: none;
 
-
 	.btn {
 		border: none;
 
-		
 		font-family: "GothamBook", sans-serif;
 		font-size: 10px;
 
@@ -83,5 +81,18 @@ const ButtonWrapper = styled.div`
 		color: black;
 		background: #fff;
 		border: 1px solid white;
+	}
+
+	@media only screen and (max-device-width: 480px) {
+		.btn {
+			background-color: white;
+			color: black;
+
+			font-family: "GothamMedium", sans-serif;
+			font-size: 9px;
+			span {
+				letter-spacing: 2px;
+			}
+		}
 	}
 `;

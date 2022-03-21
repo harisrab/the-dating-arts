@@ -51,7 +51,7 @@ function UpcomingEvents() {
 								isMobile
 									? {
 											width: "75vw",
-											height: "45vh",
+											height: "50vh",
 											minWidth: "75vw",
 											maxWidth: "75vw",
 									  }

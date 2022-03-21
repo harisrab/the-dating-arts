@@ -33,6 +33,7 @@ const Folders = ({
 	const onAnimationEnd = () => {
 		setShouldRender("exit");
 	};
+
 	return (
 		<>
 			{shouldRender === 0 && (
@@ -43,6 +44,7 @@ const Folders = ({
 						} 0.2s`,
 					}}
 					onAnimationEnd={selectedFolder !== 0 && onAnimationEnd}
+					// onAnimationEnd={onAnimationEnd}
 				>
 					{folders.map((eachTitle, i) => (
 						<Folder
@@ -120,8 +122,11 @@ const Folder = styled.div`
 		font-size: 16px;
 		font-weight: 200;
 
+		padding-top: 5px;
+		padding-bottom: 5px;
+
 		color: var(--main-color-white);
-		font-family: "Spectral", sans-serif;
+		font-family: "GothamLight", sans-serif;
 		font-style: normal;
 		/* z-index: 2; */
 		pointer-events: none;

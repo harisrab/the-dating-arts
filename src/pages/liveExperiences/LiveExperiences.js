@@ -133,7 +133,7 @@ const HomePageWrapper = styled(motion.div)`
 		background: var(--scrollbar-handle-hover-color);
 	}
 
-	scroll-snap-type: y mandatory;
+	/* scroll-snap-type: y mandatory; */
 	scroll-behavior: smooth;
 
 	h1 {

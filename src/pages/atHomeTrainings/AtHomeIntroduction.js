@@ -102,7 +102,7 @@ const Left = styled.div`
 			width: 85%;
 
 			h2 {
-				font-size: 35px;
+				font-size: 20px;
 			}
 		}
 	}
@@ -145,7 +145,7 @@ const Right = styled.div`
 			line-height: 1.5;
 			width: 85%;
 			font-size: 15px;
-			height: 200px;
+			/* height: 200px; */
 			overflow-y: scroll;
 		}
 	}

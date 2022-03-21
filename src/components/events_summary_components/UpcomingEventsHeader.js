@@ -11,7 +11,7 @@ function UpcomingEventsHeader({ changeOption, currentOption }) {
 	return (
 		<Titles>
 			<div className="title-holder">
-				<h2>Upcoming Events</h2>
+				<h2>Upcoming Programs</h2>
 			</div>
 
 			<div className="links">
@@ -196,9 +196,9 @@ const Titles = styled.div`
 			width: 100%;
 
 			h2 {
-				font-family: "Spectral", sans-serif;
+				font-family: "GothamMedium", sans-serif;
 				font-weight: 400;
-				font-size: 30px;
+				font-size: 18px;
 
 				pointer-events: all;
 				user-select: text;
@@ -238,11 +238,14 @@ const Titles = styled.div`
 					padding: 0;
 					margin: 0;
 
-					font-size: 13px;
-					font-family: "Spectral", serif;
+					font-size: 10px;
+					font-family: "GothamBook", serif;
 					opacity: 0.4;
 					transition: 0.2s ease-out;
 					pointer-events: none;
+
+					margin-top: 20px;
+					margin-bottom: 20px;
 				}
 
 				&:hover {

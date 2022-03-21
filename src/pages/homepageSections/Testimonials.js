@@ -127,6 +127,12 @@ const Wrapper = styled.div`
 	@media only screen and (max-device-width: 480px) {
 		background-image: none;
 		background-color: black;
+
+		h2 {
+			font-size: 20px;
+		}
+
+
 	}
 `;
 

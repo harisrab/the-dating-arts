@@ -5,24 +5,16 @@ import { useHistory } from "react-router-dom";
 
 import { useStateValue } from "../Store/StateProvider";
 
-import { useAnimation } from "framer-motion";
-
 // import buttons
 import MenuButton from "./Buttons/MenuButton";
-import UserHeaderButton from "./Buttons/UserHeaderButton";
-import ShoppingCartButton from "./Buttons/ShoppingCartButton";
 import SocialIconsHeader from "./Buttons/SocialIconsHeader";
-import ScrollUpButton from "./Buttons/ScrollUpButton";
 import MainMenu from "./MainMenu";
 import JumpBackBtn from "./JumpBackBtn";
+import { log } from "firebase-functions/lib/logger";
 
-function Header({ background = "black" }) {
+const Header = function Header({ background = "black" }) {
 	const history = useHistory();
 	const [{ headerLogoState }, dispatch] = useStateValue();
-
-	useEffect(() => {
-		window.scrollTo(0, 1);
-	}, []);
 
 	return (
 		<>
@@ -30,6 +22,7 @@ function Header({ background = "black" }) {
 				<MainMenu />
 
 				<TopSection>
+					{/* {strip ? <BackStrip /> : <></>} */}
 					<BackStrip />
 					<LogoHolder>
 						{headerLogoState === "normal" && (
@@ -46,7 +39,7 @@ function Header({ background = "black" }) {
 						<UserHeaderButton background={background} /> */}
 					</RightSection>
 				</TopSection>
-				<BottomSection>
+				{/* <BottomSection>
 					<SocialIconsContainer>
 						<SocialIconsHeader
 							type="instagram"
@@ -62,19 +55,17 @@ function Header({ background = "black" }) {
 						/>
 					</SocialIconsContainer>
 
-					{/* <ScrollHolder> */}
-					{/* <ScrollUpButton background={background} /> */}
-					{/* </ScrollHolder> */}
-				</BottomSection>
+					<div></div>
+				</BottomSection> */}
 			</HeaderWrapper>
 		</>
 	);
-}
+};
 
 export default Header;
 
 const HeaderWrapper = styled.div`
-	height: 86.94%;
+	height: 95%;
 	width: 89.37%;
 
 	position: fixed;
@@ -119,8 +110,26 @@ const TopSection = styled.div`
 `;
 
 const BackStrip = styled.div`
+	background-color: #0c0c0ded;
+
+	position: absolute;
+
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+
+	width: 100vw;
+	height: 110px;
+
+	z-index: 0;
+
+	/* box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px,
+			rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+			rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+
 	@media only screen and (max-device-width: 480px) {
-		background-color: black;
+		background-color: #000000d5;
 
 		position: absolute;
 
@@ -130,7 +139,7 @@ const BackStrip = styled.div`
 		transform: translate(-50%, -50%);
 
 		width: 100vw;
-		height: 88px;
+		height: 110px;
 
 		z-index: 0;
 

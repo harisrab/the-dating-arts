@@ -46,7 +46,7 @@ const Wrapper = styled.div`
 		height: 6vh;
 		width: 6vh;
 		margin-right: 8px;
-		background-color: white;
+		background-color: transparent;
 
 		display: -webkit-box;
 		display: -ms-flexbox;

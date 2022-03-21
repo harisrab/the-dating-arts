@@ -93,7 +93,8 @@ export default ReviewsPopUp;
 
 const Wrapper = styled(motion.div)`
 	position: absolute;
-
+	
+	
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -101,10 +102,11 @@ const Wrapper = styled(motion.div)`
 	height: 500px;
 	width: 350px;
 
-	background-color: #ffffff;
+	/* background-color: #ffffff; */
+	background-color: #e7e7e7f4;
 	z-index: 100000000;
 
-	border-radius: 20px;
+	border-radius: 5px;
 
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -130,7 +132,6 @@ const Wrapper = styled(motion.div)`
 `;
 
 const Header = styled.div`
-	/* background-color: blue; */
 	width: 100%;
 	height: 150px;
 
@@ -147,9 +148,10 @@ const Header = styled.div`
 	}
 
 	h2 {
-		font-size: 20px;
-		font-family: "Spectral", serif;
-		font-weight: 200;
+		font-size: 14px;
+		font-family: "GothamMedium", serif;
+		text-transform: uppercase;
+		letter-spacing: 2px;
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
@@ -162,9 +164,12 @@ const Header = styled.div`
 		padding-right: 30px;
 		padding-left: 30px;
 
-		font-size: 12px;
+		font-size: 10px;
 		font-weight: 400;
-		font-family: "Roboto", sans-serif;
+		font-family: "GothamBook", sans-serif;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+
 
 		.left {
 			display: flex;
@@ -208,7 +213,8 @@ const ContentBox = styled.div`
 
 	/* Fonts */
 	font-size: 14px;
-	font-family: "Spectral", serif;
+	font-family: "GothamBook", serif;
+	opacity: 0.8;
 
 	padding-right: 20px;
 	padding-left: 20px;

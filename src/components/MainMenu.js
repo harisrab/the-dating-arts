@@ -4,7 +4,6 @@ import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { useStateValue } from "../Store/StateProvider";
 import { Link } from "react-router-dom";
 
-
 // Animation Variants
 const wrapperVariants = {
 	initial: {
@@ -18,7 +17,7 @@ const wrapperVariants = {
 		},
 	},
 	final: {
-		height: "100vh",
+		height: "105vh",
 		y: 0,
 		transition: {
 			duration: 0.5,
@@ -65,7 +64,7 @@ const mainVariants = {
 		},
 	},
 	final: {
-		height: "100vh",
+		height: "110vh",
 		y: 0,
 		transition: {
 			duration: 0.7,
@@ -220,7 +219,7 @@ function MainMenu() {
 									</ListItem>
 								</Link>
 								<Link
-									to="/about-colgate"
+									to="/wem"
 									style={{ textDecoration: "none" }}
 									onClick={closeMenu}
 								>
@@ -230,7 +229,7 @@ function MainMenu() {
 										whileHover="hover"
 										exit="exit"
 									>
-										About Colagte
+										About Wem
 									</ListItem>
 								</Link>
 								<Link
@@ -273,7 +272,7 @@ function MainMenu() {
 	);
 }
 
-export default MainMenu;
+export default React.memo(MainMenu);
 
 const Wrapper = styled(motion.div)`
 	position: absolute;
@@ -290,8 +289,9 @@ const Wrapper = styled(motion.div)`
 	/* display: none; */
 
 	@media only screen and (max-device-width: 480px) {
-		left: -6.2vw;
-		width: 105vw;
+		width: 100vw;
+		left: calc(calc(100vw - 100%) / -2);
+		top: calc(calc(100vh - 100%) / -2);
 	}
 `;
 
@@ -315,8 +315,13 @@ const Main = styled(motion.div)`
 	left: 0;
 
 	/* // background-color: black; */
-	background: #252525;
- background-image: -webkit-radial-gradient(top, circle cover, #333333 0%, #0c0c0c 80%);
+	background: #0f0f0f;
+	background-image: -webkit-radial-gradient(
+		top,
+		circle cover,
+		#181818 0%,
+		#030303 80%
+	);
 
 	overflow: hidden;
 

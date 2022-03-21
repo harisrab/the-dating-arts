@@ -43,7 +43,6 @@ const Wrapper = styled.div`
 
 		margin-bottom: 20px;
 
-
 		pointer-events: all !important;
 		user-select: text !important;
 		--webkit-user-select: text !important;
@@ -68,15 +67,15 @@ const Wrapper = styled.div`
 		}
 	}
 
-
 	@media only screen and (max-device-width: 480px) {
 		h3 {
 			text-align: center;
-			font-size: 30px;
+			font-size: 18px;
+			letter-spacing: 2px;
 		}
 
 		h2 {
-			font-size: 20px;
+			font-size: 12px;
 		}
 	}
 `;
